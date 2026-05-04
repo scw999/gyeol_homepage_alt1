@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>결하다 — 결혼을 위한 신뢰 기반 매칭 서비스</title>
+<meta name="description" content="결하다는 외면의 조건과 내면의 성향을 함께 살펴 진지한 결혼을 원하는 사람들을 연결하는 결혼 중심 매칭 서비스입니다. 높은 가입비 없이, 만남이 성사될 때만 비용이 발생합니다." />
+<meta name="keywords" content="결하다, 결혼 매칭, 결혼정보, 결혼정보회사, 소개팅 앱, 심리 매칭, 가치관 매칭, 결혼 앱, 신뢰 매칭" />
+<meta property="og:title" content="결하다 — 결혼을 위한 만남은 결이 맞아야 합니다" />
+<meta property="og:description" content="사진과 조건 너머, 사람의 결을 보는 신뢰 기반 결혼 매칭 서비스." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
+
+<link rel="stylesheet" href="dist/styles.css?v=1777424144460">
+
+<style>
+  :root{
+    --lav-soft:#C8B6E2;
+    --lav:#A88FCE;
+    --lav-deep:#6B5B95;
+    --sage:#B8C5B0;
+    --ivory:#FAF7F2;
+    --offwhite:#FFFEFB;
+    --ink:#2C2A35;
+    --mute:#6E6B78;
+    --gold:#D8B76A;
+  }
+  html,body{ background:var(--offwhite); color:var(--ink); }
+  body{ font-family:'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo','Noto Sans KR', sans-serif;
+        letter-spacing:0.01em; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+  body.font-noto{ font-family:'Noto Sans KR', sans-serif; letter-spacing:0.005em;}
+  ::selection{ background:#C8B6E2; color:#2C2A35; }
+
+  .gh-display{ font-weight:600; letter-spacing:-0.015em; line-height:1.22; }
+  .gh-h1{ font-size:clamp(36px,5.4vw,72px); font-weight:600; letter-spacing:-0.015em; line-height:1.18;}
+  .gh-h2{ font-size:clamp(28px,3.6vw,46px); font-weight:600; letter-spacing:-0.012em; line-height:1.25;}
+  .gh-h3{ font-size:clamp(20px,1.8vw,26px); font-weight:600; letter-spacing:-0.005em; line-height:1.35;}
+  .eyebrow{ font-family:'Inter', ui-sans-serif; font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--lav-deep);}
+  .body-lg{ font-size:clamp(16px,1.1vw,18px); line-height:1.7; color:#3a3744;}
+  .body{ font-size:16px; line-height:1.7; color:#3a3744;}
+  .small{ font-size:13px; line-height:1.6; color:var(--mute);}
+
+  .hairline{ box-shadow: inset 0 0 0 0.5px rgba(44,42,53,.12); }
+  .card{ background:#fff; border:0.5px solid rgba(44,42,53,.08); border-radius:18px;}
+  .pill{ display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; font-size:11px; letter-spacing:.06em; font-family:'Inter',ui-sans-serif;}
+
+  /* Soft lavender ↔ ivory gradient blocks */
+  .bg-veil{
+    background:
+      radial-gradient(60% 50% at 20% 20%, rgba(200,182,226,.35), transparent 60%),
+      radial-gradient(50% 50% at 85% 30%, rgba(184,197,176,.28), transparent 60%),
+      linear-gradient(180deg, var(--ivory) 0%, var(--offwhite) 100%);
+  }
+  .bg-deep{
+    background: linear-gradient(180deg, #2C2A35 0%, #221f2b 100%);
+    color: #efeaf3;
+  }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 20px; border-radius:12px; font-weight:500; font-size:15px; letter-spacing:.005em; transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;}
+  .btn-primary{ background:var(--lav-deep); color:#fff; }
+  .btn-primary:hover{ background:#5a4c80; transform:translateY(-1px); }
+  .btn-ghost{ background:transparent; color:var(--ink); border:0.5px solid rgba(44,42,53,.18);}
+  .btn-ghost:hover{ border-color:var(--lav-deep); color:var(--lav-deep);}
+  .btn-sm{ padding:9px 14px; font-size:13px; border-radius:10px;}
+
+  /* iOS / Play badges (drawn in CSS) */
+  .store-btn{ display:inline-flex; align-items:center; gap:10px; padding:11px 18px 11px 16px; border-radius:12px; background:#1c1a23; color:#fff; min-width:200px;}
+  .store-btn .small{ color:rgba(255,255,255,.65); font-size:11px; line-height:1; letter-spacing:.06em; text-transform:uppercase;}
+  .store-btn .big{ font-size:16px; font-weight:600; letter-spacing:.005em; line-height:1.2;}
+  .store-btn:hover{ background:#2a2733; }
+  .store-btn.outline{ background:transparent; color:var(--ink); border:0.5px solid rgba(44,42,53,.22);}
+  .store-btn.outline:hover{ border-color:var(--lav-deep); color:var(--lav-deep);}
+  .store-btn.outline .small{ color:var(--mute);}
+
+  /* Wave + circular signature */
+  .signature-stage{ position:relative; aspect-ratio:1/1; width:100%; }
+  .grain{ position:relative; }
+  .grain::after{ content:""; position:absolute; inset:0; pointer-events:none; opacity:.06; mix-blend-mode:multiply;
+    background-image: radial-gradient(rgba(0,0,0,.4) 0.6px, transparent 0.6px); background-size:3px 3px;}
+
+  /* Section spacing */
+  section{ padding-top:clamp(72px,9vw,140px); padding-bottom:clamp(72px,9vw,140px);}
+  section.tight{ padding-top:clamp(56px,7vw,110px); padding-bottom:clamp(56px,7vw,110px);}
+
+  /* Reveal on scroll */
+  .reveal{ opacity:1; transform:none; transition:opacity .8s ease, transform .8s ease;}
+  .reveal.is-in{ opacity:1; transform:none; }
+
+  /* Sticky bottom CTA */
+  .mobile-sticky{ position:fixed; left:12px; right:12px; bottom:12px; z-index:60; border-radius:16px;
+    background:rgba(28,26,35,.92); color:#fff; padding:10px 12px; display:none; align-items:center; justify-content:space-between; gap:10px;
+    backdrop-filter:blur(18px); box-shadow:0 12px 30px rgba(0,0,0,.18);}
+  @media (max-width:768px){ .mobile-sticky{ display:flex; } }
+
+  /* Comparison table */
+  .cmp{ width:100%; border-collapse:separate; border-spacing:0; font-size:14.5px;}
+  .cmp th, .cmp td{ padding:18px 18px; border-bottom:0.5px solid rgba(44,42,53,.10); text-align:left; vertical-align:top;}
+  .cmp th{ font-weight:500; color:var(--mute); font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; padding-bottom:14px; padding-top:14px;}
+  .cmp td.row-label{ color:var(--mute); font-size:13px; width:22%;}
+  .cmp .col-gh{ background: linear-gradient(180deg, rgba(200,182,226,.18), rgba(200,182,226,.08)); }
+  .cmp .col-gh-head{ background: linear-gradient(180deg, rgba(107,91,149,1), rgba(107,91,149,.92)); color:#fff; border-radius:14px 14px 0 0;}
+  .cmp tr:last-child td{ border-bottom:0;}
+  .cmp tr:last-child td.col-gh{ border-radius:0 0 14px 14px;}
+  @media (max-width:768px){ .cmp th, .cmp td{ padding:12px 10px; font-size:13px;} .cmp td.row-label{ width:30%;} }
+
+  /* FAQ */
+  details > summary{ list-style:none; cursor:pointer;}
+  details > summary::-webkit-details-marker{ display:none;}
+  details[open] .faq-q-icon{ transform:rotate(45deg);}
+  .faq-q-icon{ transition:transform .25s ease;}
+
+  /* Horizontal rule */
+  .rule{ height:0.5px; background:rgba(44,42,53,.12); }
+
+  /* Scroll-driven hero progress var */
+  body{ --scroll-progress: 0; }
+</style>
+
+<script type="application/json" id="speaker-notes">[]</script>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" style="width:100%;height:100%;display:block">
+    <rect width="200" height="200" fill="#FAF7F2"/>
+    <circle cx="100" cy="100" r="44" fill="none" stroke="#6B5B95" stroke-width="2"/>
+    <path d="M 60 110 Q 80 92, 100 110 T 140 110" fill="none" stroke="#A88FCE" stroke-width="2.4" stroke-linecap="round"/>
+    <text x="100" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#2C2A35" letter-spacing="2">결하다</text>
+  </svg>
+</template>
+</head>
+<body class="font-ko">
+
+<script>
+window.addEventListener('error', e => {
+  const msg = 'ERROR: ' + e.message + ' @ ' + (e.filename||'').split('/').pop() + ':' + e.lineno;
+  document.body.insertAdjacentHTML('afterbegin', '<pre style="position:fixed;top:0;left:0;right:0;z-index:9999;color:#fff;background:#c00;padding:8px;font:12px monospace;margin:0;white-space:pre-wrap">'+msg+'</pre>');
+  console.error(e.message);
+});
+</script>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="dist/tweaks-panel.js"></script>
+<script src="dist/signatures.js?v=1777424144460"></script>
+<script src="dist/sections.js?v=1777500001000"></script>
+<script src="dist/app.js?v=1777424144460"></script>
+
+</body>
+</html>
