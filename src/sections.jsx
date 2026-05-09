@@ -726,10 +726,10 @@ function Footer({ ctaState, ctaData }) {
             <dl className="mt-4 grid grid-cols-[7em_1fr] gap-y-2 text-[13.5px] text-white/75">
               <dt>회사명</dt><dd>주식회사 린플 (LINPLE)</dd>
               <dt>대표이사</dt><dd>이정헌</dd>
-              <dt>사업자등록번호</dt><dd>000-00-00000</dd>
+              <dt>사업자등록번호</dt><dd>425-87-04263</dd>
               <dt>통신판매업신고</dt><dd>2026-서울강서구-0000</dd>
               <dt>국내결혼중개업</dt><dd>서울-강서구-국내-26-0000호</dd>
-              <dt>본점</dt><dd>서울특별시 강서구</dd>
+              <dt>본점</dt><dd>서울특별시 강서구 공항대로 190, 푸리마타워 1006호 </dd>
             </dl>
           </div>
           <div className="md:col-span-3">
