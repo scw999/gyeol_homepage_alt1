@@ -136,16 +136,11 @@ function App() {
         />
         <ProblemSection/>
         <ThreeGyeolSection appScreens={APP_SCREENS}/>
-        <PersonalitySection appScreens={APP_SCREENS}/>
-        <LegalSection/>
         <TrustSection images={IMAGES} appScreens={APP_SCREENS}/>
-        <PrivacySection appScreens={APP_SCREENS}/>
         <ProcessSection/>
         <PricingSection/>
-        <ComparisonSection/>
         <FAQSection/>
         <PhilosophySection images={IMAGES}/>
-        <FinalCTA ctaState={t.ctaState} ctaData={CTA_DATA}/>
       </main>
 
       <Footer ctaState={t.ctaState} ctaData={CTA_DATA}/>

@@ -257,14 +257,7 @@ function Hero({
     className: "small"
   }, b.eyebrow), /*#__PURE__*/React.createElement("div", {
     className: "big"
-  }, b.label)))), /*#__PURE__*/React.createElement("a", {
-    href: "#way",
-    className: "btn btn-ghost",
-    style: {
-      background: 'rgba(255,255,255,.55)',
-      backdropFilter: 'blur(8px)'
-    }
-  }, "\uB9E4\uCE6D \uBC29\uC2DD \uBCF4\uAE30 \u2192"))), /*#__PURE__*/React.createElement(Reveal, {
+  }, b.label)))))), /*#__PURE__*/React.createElement(Reveal, {
     delay: 360
   }, /*#__PURE__*/React.createElement("div", {
     className: "mt-12 flex items-center gap-3 text-mute small"
@@ -302,21 +295,34 @@ function Hero({
   }))))));
 }
 
-// ---------- Section 2: Problem ----------
+// ---------- Section 2: Problem (interactive — cards expand to show how 결하다 solves) ----------
 function ProblemSection() {
   const items = [{
     t: '괜찮아 보이지만 대화가 이어지지 않는 만남',
-    d: '몇 줄의 프로필로는 보이지 않는 결이 있습니다.'
+    d: '몇 줄의 프로필로는 보이지 않는 결이 있습니다.',
+    solveTitle: '결하다는 — 내면의 결을 함께 봅니다',
+    solve: '24개의 주관식 심리 질문으로 관계 태도와 감정 표현 방식을 살펴, 대화의 결이 이어질 사람을 찾습니다.',
+    anchor: '#way'
   }, {
     t: '조건은 맞지만 가치관이 다른 관계',
-    d: '숫자로는 정렬되지만 삶의 방향은 어긋날 수 있습니다.'
+    d: '숫자로는 정렬되지만 삶의 방향은 어긋날 수 있습니다.',
+    solveTitle: '결하다는 — 미래의 결을 매칭에 반영합니다',
+    solve: '결혼관·가족관·경제관은 필터링이 아닌 매칭에 반영되어, 비슷한 삶의 방향을 가진 사람을 우선 추천합니다.',
+    anchor: '#way'
   }, {
     t: '가벼운 사용자 때문에 피로한 소개팅 앱',
-    d: '결혼이라는 진지한 결정은 다른 환경을 필요로 합니다.'
+    d: '결혼이라는 진지한 결정은 다른 환경을 필요로 합니다.',
+    solveTitle: '결하다는 — 승인제로 운영합니다',
+    solve: '본인 확인과 기본 정보 검토를 거친 회원만 가입할 수 있습니다. 진지한 만남을 위한 환경을 유지합니다.',
+    anchor: '#trust'
   }, {
     t: '높은 가입비에도 결과가 불확실한 결혼정보회사',
-    d: '먼저 큰 비용을 치러야만 시작할 수 있는 구조입니다.'
+    d: '먼저 큰 비용을 치러야만 시작할 수 있는 구조입니다.',
+    solveTitle: '결하다는 — 만남이 성사될 때만 비용이 발생합니다',
+    solve: '가입비 0원. 양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때 남녀 각 100,000원의 비용이 발생합니다.',
+    anchor: '#pricing'
   }];
+  const [openIdx, setOpenIdx] = useState(null);
   return /*#__PURE__*/React.createElement("section", {
     className: "bg-offwhite",
     id: "problem"
@@ -332,38 +338,78 @@ function ProblemSection() {
     delay: 140
   }, /*#__PURE__*/React.createElement("p", {
     className: "body-lg mt-6 max-w-[60ch] text-mute"
-  }, "\uAC00\uBCBC\uC6B4 \uD638\uAC10\uC740 \uC27D\uAC8C \uC2DC\uC791\uB420 \uC218 \uC788\uC9C0\uB9CC, \uC624\uB798 \uD568\uAED8\uD560 \uAD00\uACC4\uC5D0\uB294 \uB354 \uAE4A\uC740 \uAE30\uC900\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
-    className: "mt-14 grid md:grid-cols-2 gap-4"
-  }, items.map((it, i) => /*#__PURE__*/React.createElement(Reveal, {
-    key: i,
-    delay: i * 70
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card p-7 md:p-8 h-full grain"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "flex items-baseline gap-3 mb-3"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "font-en text-mute text-[12px] tracking-widest"
-  }, "0", i + 1), /*#__PURE__*/React.createElement("span", {
-    className: "w-10 h-px bg-lavender"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "gh-h3 mb-3"
-  }, it.t), /*#__PURE__*/React.createElement("p", {
-    className: "body text-mute"
-  }, it.d))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 300
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "mt-14 flex items-center gap-4"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hidden md:block w-16 h-px bg-lavender-deep/40"
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "font-serif text-[20px] md:text-[24px] text-ink/85",
-    style: {
-      fontFamily: '"Noto Serif KR", serif'
-    }
-  }, "\uACB0\uD63C\uC744 \uC704\uD55C \uB9CC\uB0A8\uC5D0\uB294 \uB354 \uAE4A\uC740 \uAE30\uC900\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.")))));
+  }, "\uCE74\uB4DC\uB97C \uB20C\uB7EC\uBCF4\uC138\uC694. \uACB0\uD558\uB2E4\uAC00 \uC5B4\uB5BB\uAC8C \uD480\uC5B4\uAC00\uB294\uC9C0 \uBCF4\uC5EC\uB4DC\uB9BD\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+    className: "mt-12 grid md:grid-cols-2 gap-4"
+  }, items.map((it, i) => {
+    const isOpen = openIdx === i;
+    return /*#__PURE__*/React.createElement(Reveal, {
+      key: i,
+      delay: i * 70
+    }, /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      onClick: () => setOpenIdx(isOpen ? null : i),
+      className: `card p-7 md:p-8 h-full grain text-left w-full transition-all ${isOpen ? 'shadow-lg' : 'hover:shadow-md'}`,
+      style: {
+        borderColor: isOpen ? 'rgba(107,91,149,.35)' : undefined
+      },
+      "aria-expanded": isOpen
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-baseline gap-3 mb-3"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "font-en text-mute text-[12px] tracking-widest"
+    }, "0", i + 1), /*#__PURE__*/React.createElement("span", {
+      className: "w-10 h-px bg-lavender"
+    }), /*#__PURE__*/React.createElement("span", {
+      className: "ml-auto small text-lavender-deep flex items-center gap-1"
+    }, isOpen ? '닫기' : '결하다의 답', /*#__PURE__*/React.createElement("svg", {
+      width: "12",
+      height: "12",
+      viewBox: "0 0 12 12",
+      style: {
+        transform: isOpen ? 'rotate(45deg)' : 'none',
+        transition: 'transform .25s ease'
+      }
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M6 1v10M1 6h10",
+      stroke: "currentColor",
+      strokeWidth: "1.4",
+      strokeLinecap: "round"
+    })))), /*#__PURE__*/React.createElement("div", {
+      className: "gh-h3 mb-3"
+    }, it.t), /*#__PURE__*/React.createElement("p", {
+      className: "body text-mute"
+    }, it.d), /*#__PURE__*/React.createElement("div", {
+      style: {
+        maxHeight: isOpen ? 400 : 0,
+        overflow: 'hidden',
+        transition: 'max-height .35s ease, opacity .25s ease',
+        opacity: isOpen ? 1 : 0
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "mt-5 pt-5 border-t border-lavender-deep/15"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "eyebrow mb-2"
+    }, it.solveTitle), /*#__PURE__*/React.createElement("p", {
+      className: "body text-ink/85"
+    }, it.solve), /*#__PURE__*/React.createElement("a", {
+      href: it.anchor,
+      className: "inline-flex items-center gap-1 mt-4 small text-lavender-deep hover:underline"
+    }, "\uC790\uC138\uD788 \uBCF4\uAE30", /*#__PURE__*/React.createElement("svg", {
+      width: "12",
+      height: "12",
+      viewBox: "0 0 12 12"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M2 6h8M6 2l4 4-4 4",
+      stroke: "currentColor",
+      strokeWidth: "1.4",
+      fill: "none",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    })))))));
+  }))));
 }
 
-// ---------- Section 3: Three Gyeol ----------
+// ---------- Section 3: Three Gyeol — matching method (merged with personality) ----------
 function ThreeGyeolSection({
   appScreens
 }) {
@@ -373,51 +419,46 @@ function ThreeGyeolSection({
     t: '현실적인 결혼 조건',
     d: '나이, 직업, 학력, 거주지, 자산 등 결혼 생활의 토대가 되는 정보를 인증 절차로 확인합니다.',
     screen: appScreens && appScreens.verifyMain,
-    label: '인증 항목'
+    label: '인증 항목',
+    note: '선호도 설정으로 필터링됩니다.'
   }, {
     tag: '내면의 결',
     kr: '內',
     t: '관계를 만드는 태도',
-    d: '성향, 감정 표현 방식, 관계 태도, 갈등을 마주하고 풀어가는 방식을 깊은 질문으로 살핍니다.',
+    d: '24개 주관식 심리 질문과 9개 선호 질문으로 성향·감정 표현·갈등 대처 방식을 살핍니다.',
     screen: appScreens && appScreens.inner,
-    label: '내면 분석 리포트'
+    label: '내면 분석 리포트',
+    note: 'Big Five · 애착 유형 · 부부관계 연구를 참고한 매칭 기준.'
   }, {
     tag: '미래의 결',
     kr: '來',
     t: '함께 그리는 방향',
-    d: '결혼관, 가족관, 경제관, 그리고 어떤 일상을 살아가고 싶은지 — 매칭 선호도로 표현됩니다.',
+    d: '결혼관, 가족관, 경제관 — 두 사람이 함께 그릴 삶의 방향을 살핍니다.',
     screen: appScreens && appScreens.prefsMain,
-    label: '매칭 선호도'
+    label: '매칭 선호도',
+    note: '선호도 필터링이 아니라 매칭 추천에 반영됩니다.'
   }];
+  const tags = ['Big Five 성격 5요인', '애착 유형', '관계 갈등 방식', '부부관계 연구'];
   return /*#__PURE__*/React.createElement("section", {
     id: "way",
     className: "bg-veil grain"
   }, /*#__PURE__*/React.createElement("div", {
     className: "max-w-[1200px] mx-auto px-5 md:px-8"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "grid md:grid-cols-12 gap-8 items-end"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    className: "md:col-span-7"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-4"
   }, "\uACB0\uD558\uB2E4\uC758 \uBC29\uC2DD \u2014 \uC138 \uAC00\uC9C0 \uACB0"), /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2"
-  }, "\uACB0\uD558\uB2E4\uB294 \uC0AC\uB78C\uC758 \uAC89\uACFC \uC18D\uC744", /*#__PURE__*/React.createElement("br", null), "\uD568\uAED8 \uBD05\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    className: "md:col-span-5",
-    delay: 120
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg text-mute"
-  }, "\uC870\uAC74\uB9CC\uC73C\uB85C\uB294 \uBCF4\uC774\uC9C0 \uC54A\uB294 \uBD80\uBD84, \uB9C8\uC74C\uB9CC\uC73C\uB85C\uB294 \uC815\uB9AC\uB418\uC9C0 \uC54A\uB294 \uBD80\uBD84. \uACB0\uD558\uB2E4\uB294 \uC138 \uAC00\uC9C0 \uACB0\uC744 \uD568\uAED8 \uC0B4\uD3B4 \uB9CC\uB0A8\uC758 \uAE30\uC900\uC744 \uB354 \uAE4A\uAC8C \uB9CC\uB4ED\uB2C8\uB2E4."))), /*#__PURE__*/React.createElement("div", {
-    className: "mt-14 grid md:grid-cols-3 gap-5"
+    className: "gh-display gh-h2 max-w-[22ch]"
+  }, "\uACB0\uD558\uB2E4\uB294 \uC0AC\uB78C\uC758 \uAC89\uACFC \uC18D,", /*#__PURE__*/React.createElement("br", null), "\uADF8\uB9AC\uACE0 \uD568\uAED8 \uADF8\uB9B4 \uBBF8\uB798\uB97C \uBD05\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+    className: "mt-12 grid md:grid-cols-3 gap-5"
   }, items.map((it, i) => /*#__PURE__*/React.createElement(Reveal, {
     key: i,
     delay: i * 100
   }, /*#__PURE__*/React.createElement("div", {
     className: "card p-7 md:p-8 h-full flex flex-col"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "relative mb-7 rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline",
+    className: "relative mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline",
     style: {
-      height: 280
+      height: 260
     }
   }, it.screen ? /*#__PURE__*/React.createElement("div", {
     className: "absolute left-1/2 top-6",
@@ -427,7 +468,7 @@ function ThreeGyeolSection({
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: it.screen,
     alt: `결하다 앱 — ${it.label}`,
-    width: 170
+    width: 160
   })) : /*#__PURE__*/React.createElement("div", {
     className: "absolute inset-3"
   }, /*#__PURE__*/React.createElement(Sig.ThreeStrands, {
@@ -447,158 +488,61 @@ function ThreeGyeolSection({
     className: "gh-h3 mb-2"
   }, it.t), /*#__PURE__*/React.createElement("p", {
     className: "body text-mute"
-  }, it.d)))))));
-}
-
-// ---------- Section 4: Personality matching ----------
-function PersonalitySection({
-  appScreens
-}) {
-  const tags = ['Big Five 성격 5요인', '애착 유형', '관계 갈등 방식', '부부관계 연구'];
-  return /*#__PURE__*/React.createElement("section", {
-    className: "bg-offwhite"
+  }, it.d), /*#__PURE__*/React.createElement("p", {
+    className: "small mt-3 text-lavender-deep/80"
+  }, "\u2014 ", it.note))))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 300
   }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12 items-center"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-6"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4"
-  }, "Relational fit")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 80
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2"
-  }, "\uBA87 \uC7A5\uC758 \uC0AC\uC9C4\uBCF4\uB2E4,", /*#__PURE__*/React.createElement("br", null), "\uBA87 \uAC1C\uC758 \uAE4A\uC740 \uC9C8\uBB38\uC774", /*#__PURE__*/React.createElement("br", null), "\uB354 \uB9CE\uC740 \uAC83\uC744 \uC54C\uB824\uC90D\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 160
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[52ch]"
-  }, "\uACB0\uD558\uB2E4\uB294 24\uAC1C\uC758 \uC8FC\uAD00\uC2DD \uC2EC\uB9AC \uC9C8\uBB38\uACFC 9\uAC1C\uC758 \uC120\uD638 \uC9C8\uBB38\uC744 \uD1B5\uD574 \uD55C \uC0AC\uB78C\uC758 \uAD00\uACC4 \uBC29\uC2DD\uACFC \uACB0\uD63C\uAD00\uC744 \uAE4A\uAC8C \uC774\uD574\uD569\uB2C8\uB2E4. \uADF8 \uC774\uD574\uB294 \uB450 \uC0AC\uB78C\uC774 \uD568\uAED8 \uBCF4\uB294 ", /*#__PURE__*/React.createElement("span", {
-    className: "text-ink"
-  }, "'\uC131\uD5A5 \uBD84\uC11D \uB9AC\uD3EC\uD2B8'"), "\uB85C \uC774\uC5B4\uC9D1\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 220
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "mt-7 flex flex-wrap gap-2"
-  }, tags.map(t => /*#__PURE__*/React.createElement("span", {
+    className: "mt-10 flex flex-wrap items-center gap-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "small text-mute mr-2"
+  }, "\uCC38\uACE0 \uAE30\uC900"), tags.map(t => /*#__PURE__*/React.createElement("span", {
     key: t,
     className: "pill border border-ink/10 bg-white text-ink/75"
-  }, t)))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 280
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "small mt-7 text-mute max-w-[44ch]"
-  }, "\uAD00\uACC4 \uC131\uD5A5 \uC5F0\uAD6C\uB97C \uCC38\uACE0\uD55C \uB9E4\uCE6D \uAE30\uC900\uC774\uBA70, \uC758\uD559\uC801 \uC9C4\uB2E8\uC774\uB098 \uC2EC\uB9AC \uC9C4\uB2E8\uC744 \uB300\uCCB4\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."))), /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-6"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: 150
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "relative h-[560px] md:h-[620px]"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "absolute left-[2%] top-[8%] hidden sm:block"
-  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
-    src: appScreens && appScreens.questions,
-    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 24\uAC1C \uC2EC\uB9AC \uC9C8\uBB38",
-    width: 210,
-    tilt: -5
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "absolute right-[18%] top-[2%] hidden sm:block",
-    style: {
-      transform: 'translateX(30%)'
-    }
-  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
-    src: appScreens && appScreens.matchReason,
-    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uB9E4\uCE6D \uC774\uC720",
-    width: 220,
-    tilt: 5
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "absolute right-[6%] sm:right-[10%] top-[18%] sm:top-[20%]"
-  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
-    src: appScreens && appScreens.tendency,
-    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uC131\uD5A5 \uBD84\uC11D \uB9AC\uD3EC\uD2B8",
-    width: 280,
-    tilt: -2
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "absolute right-[14%] top-[28%] w-[280px] h-[280px] rounded-full pointer-events-none -z-10",
-    style: {
-      background: 'radial-gradient(closest-side, rgba(168,143,206,.22), transparent)'
-    }
-  }))))));
+  }, t)), /*#__PURE__*/React.createElement("span", {
+    className: "small text-mute ml-2"
+  }, "\xB7 \uC758\uD559\uC801\xB7\uC2EC\uB9AC \uC9C4\uB2E8\uC744 \uB300\uCCB4\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.")))));
 }
 
-// ---------- Section 5: Legal basis ----------
-function LegalSection() {
-  const points = [{
-    n: '01',
-    t: '법적 신고 절차',
-    d: '「결혼중개업법」에 따른 신고 절차를 갖춘 결혼정보 서비스로 운영됩니다.'
-  }, {
-    n: '02',
-    t: '계약·환불 기준 안내',
-    d: '이용 조건과 환불 기준을 가입 단계에서 사전에 명확히 안내합니다.'
-  }, {
-    n: '03',
-    t: '기본 정보 확인',
-    d: '신뢰 있는 만남을 위해 본인 확인과 기본 정보 확인 절차를 운영합니다.'
-  }];
-  return /*#__PURE__*/React.createElement("section", {
-    id: "trust",
-    className: "bg-veil"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4"
-  }, "Registered service")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 80
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2 max-w-[24ch]"
-  }, "\uACB0\uD558\uB2E4\uB294 \u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB978", /*#__PURE__*/React.createElement("br", null), "\uC2E0\uACE0 \uC808\uCC28\uB97C \uAC16\uCD98 \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uC785\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 160
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[60ch]"
-  }, "\uB2E8\uC21C \uB9E4\uCE6D \uC571\uC774 \uC544\uB2C8\uB77C, \uACB0\uD63C\uC744 \uC9C4\uC9C0\uD558\uAC8C \uC900\uBE44\uD558\uB294 \uBD84\uB4E4\uC744 \uC704\uD574 \uD544\uC694\uD55C \uD655\uC778 \uC808\uCC28\uC640 \uC774\uC6A9 \uAE30\uC900\uC744 \uBA85\uD655\uD788 \uC6B4\uC601\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
-    className: "mt-12 grid md:grid-cols-3 gap-4"
-  }, points.map((p, i) => /*#__PURE__*/React.createElement(Reveal, {
-    key: i,
-    delay: i * 100
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card p-7 h-full"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "font-en text-lavender-deep text-[12px] tracking-widest mb-3"
-  }, p.n), /*#__PURE__*/React.createElement("div", {
-    className: "gh-h3 mb-2"
-  }, p.t), /*#__PURE__*/React.createElement("p", {
-    className: "body text-mute"
-  }, p.d)))))));
-}
-
-// ---------- Section 6: Trust verification process ----------
+// ---------- Section 4: Trust — 결혼중개업법 + 인증 + 개인정보 통합 ----------
 function TrustSection({
   images,
   appScreens
 }) {
-  const items = ['본인 확인', '신원 검토', '직업·학력 확인', '승인제 가입', '상호 동의 후 만남 진행'];
+  const verifyItems = ['본인 확인', '신원 검토', '직업·학력 확인', '승인제 가입', '상호 동의 후 만남'];
+  const privacyPoints = ['검토 목적의 정보 확인', '민감 자료 원본 비공개', '필요한 범위 내 정보 활용', '개인정보처리방침 명확히 안내'];
   return /*#__PURE__*/React.createElement("section", {
+    id: "trust",
     className: "bg-offwhite"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12 items-center"
+    className: "max-w-[1200px] mx-auto px-5 md:px-8"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "grid md:grid-cols-12 gap-10 items-start"
   }, /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-4"
-  }, "Approval-based")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "Registered \xB7 Verified \xB7 Private")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2"
-  }, "\uB204\uAD6C\uB098 \uBC14\uB85C \uB9CC\uB0A0 \uC218 \uC5C6\uAE30\uC5D0,", /*#__PURE__*/React.createElement("br", null), "\uB354 \uBBFF\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+    className: "gh-display gh-h2 max-w-[24ch]"
+  }, "\uC2E0\uACE0\uB41C \uC11C\uBE44\uC2A4\uB85C,", /*#__PURE__*/React.createElement("br", null), "\uBBFF\uC744 \uC218 \uC788\uB294 \uB9CC\uB0A8\uC744 \uC6B4\uC601\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
     className: "body-lg mt-6 text-mute max-w-[58ch]"
-  }, "\uACB0\uD558\uB2E4\uB294 \uC9C4\uC9C0\uD55C \uB9CC\uB0A8\uC744 \uC704\uD574 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uAE30\uBCF8 \uC815\uBCF4\uC640 \uC2E0\uB8B0 \uC790\uB8CC\uB97C \uD655\uC778\uD569\uB2C8\uB2E4. \uC2B9\uC778\uAE4C\uC9C0 \uC2DC\uAC04\uC774 \uAC78\uB9B4 \uC218 \uC788\uC9C0\uB9CC, \uADF8 \uACFC\uC815\uC774 \uB354 \uC548\uC804\uD55C \uB9CC\uB0A8\uC744 \uB9CC\uB4ED\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uACB0\uD558\uB2E4\uB294 \u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB978 \uC2E0\uACE0 \uC808\uCC28\uB97C \uAC16\uCD98 \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uC785\uB2C8\uB2E4. \uBCF8\uC778 \uD655\uC778\uACFC \uAE30\uBCF8 \uC815\uBCF4 \uAC80\uD1A0\uB97C \uAC70\uCE5C \uD68C\uC6D0\uB9CC \uAC00\uC785\uD560 \uC218 \uC788\uC73C\uBA70, \uC81C\uCD9C\uB41C \uC790\uB8CC\uB294 \uAC80\uD1A0 \uBAA9\uC801\uC5D0 \uB9DE\uAC8C \uC548\uC804\uD558\uAC8C \uAD00\uB9AC\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
-  }, /*#__PURE__*/React.createElement("ul", {
-    className: "mt-7 grid sm:grid-cols-2 gap-x-6 gap-y-3"
-  }, items.map((it, i) => /*#__PURE__*/React.createElement("li", {
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "mt-8"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-3"
+  }, "\uC2B9\uC778\uC81C \uAC80\uC99D \uC808\uCC28"), /*#__PURE__*/React.createElement("ul", {
+    className: "grid sm:grid-cols-2 gap-x-6 gap-y-2.5"
+  }, verifyItems.map((it, i) => /*#__PURE__*/React.createElement("li", {
     key: i,
     className: "flex items-center gap-3 body"
   }, /*#__PURE__*/React.createElement("span", {
-    className: "w-5 h-5 rounded-full grid place-items-center bg-lavender-deep/10 text-lavender-deep"
+    className: "w-5 h-5 rounded-full grid place-items-center bg-lavender-deep/10 text-lavender-deep shrink-0"
   }, /*#__PURE__*/React.createElement("svg", {
     width: "11",
     height: "11",
@@ -610,99 +554,64 @@ function TrustSection({
     fill: "none",
     strokeLinecap: "round",
     strokeLinejoin: "round"
-  }))), /*#__PURE__*/React.createElement("span", null, it)))))), /*#__PURE__*/React.createElement("div", {
+  }))), /*#__PURE__*/React.createElement("span", null, it)))))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 280
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "mt-8"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-3"
+  }, "\uAC1C\uC778\uC815\uBCF4 \uBCF4\uD638"), /*#__PURE__*/React.createElement("ul", {
+    className: "grid sm:grid-cols-2 gap-x-6 gap-y-2.5"
+  }, privacyPoints.map((p, i) => /*#__PURE__*/React.createElement("li", {
+    key: i,
+    className: "flex items-center gap-3 body"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "w-5 h-5 rounded-full grid place-items-center bg-sage/30 text-ink/70 shrink-0"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "11",
+    height: "11",
+    viewBox: "0 0 12 12",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.4"
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "2.5",
+    y: "5",
+    width: "7",
+    height: "5",
+    rx: "1"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 5V3.5a2 2 0 0 1 4 0V5"
+  }))), /*#__PURE__*/React.createElement("span", null, p))))))), /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-5"
   }, /*#__PURE__*/React.createElement(Reveal, {
     delay: 150
   }, /*#__PURE__*/React.createElement("div", {
-    className: "relative h-[560px] flex items-center justify-center"
+    className: "relative h-[440px] md:h-[500px] flex items-center justify-center"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "absolute left-[10%] top-[10%] hidden sm:block"
+    className: "absolute left-[8%] top-[8%] hidden sm:block"
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: appScreens && appScreens.verifyDetail,
     alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uD544\uC218 \uC778\uC99D \uD56D\uBAA9",
-    width: 200,
+    width: 180,
     tilt: -4
   })), /*#__PURE__*/React.createElement("div", {
     className: "relative"
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: appScreens && appScreens.verifyMain,
     alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uC778\uC99D \uD56D\uBAA9",
-    width: 270,
+    width: 240,
     tilt: 3
   })), /*#__PURE__*/React.createElement("div", {
-    className: "absolute left-1/2 top-1/2 w-[320px] h-[320px] rounded-full pointer-events-none -z-10",
+    className: "absolute left-1/2 top-1/2 w-[300px] h-[300px] rounded-full pointer-events-none -z-10",
     style: {
       transform: 'translate(-50%,-50%)',
       background: 'radial-gradient(closest-side, rgba(184,197,176,.25), transparent)'
     }
-  }))))));
+  })))))));
 }
 
-// ---------- Section 7: Privacy ----------
-function PrivacySection() {
-  const points = [{
-    t: '검토 목적의 정보 확인',
-    d: '제출하신 자료는 본인·기본 정보 검토 목적에 한해 사용됩니다.'
-  }, {
-    t: '민감 자료 원본 비공개',
-    d: '민감한 원본 자료는 상대 회원에게 그대로 공개되지 않도록 설계합니다.'
-  }, {
-    t: '필요한 범위 내 정보 활용',
-    d: '만남에 필요한 최소 범위 안에서만 정보를 활용합니다.'
-  }, {
-    t: '개인정보처리방침 명확히 안내',
-    d: '정보의 수집·이용·보관·파기 기준을 명확히 안내합니다.'
-  }];
-  return /*#__PURE__*/React.createElement("section", {
-    className: "bg-veil"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "grid md:grid-cols-12 gap-8 items-end"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    className: "md:col-span-7"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4"
-  }, "Privacy by design"), /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2"
-  }, "\uC18C\uC911\uD55C \uC815\uBCF4\uB294 \uD544\uC694\uD55C \uB9CC\uD07C\uB9CC,", /*#__PURE__*/React.createElement("br", null), "\uC548\uC804\uD558\uAC8C \uB2E4\uB8F9\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    className: "md:col-span-5",
-    delay: 120
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg text-mute"
-  }, "\uACB0\uD558\uB2E4\uB294 \uC2E0\uB8B0 \uC788\uB294 \uB9CC\uB0A8\uC744 \uC704\uD574 \uD544\uC694\uD55C \uC815\uBCF4\uB97C \uD655\uC778\uD558\uC9C0\uB9CC, \uBD88\uD544\uC694\uD55C \uC815\uBCF4 \uACF5\uAC1C\uB97C \uC694\uAD6C\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC81C\uCD9C\uB41C \uC790\uB8CC\uB294 \uAC80\uD1A0 \uBAA9\uC801\uC5D0 \uB9DE\uAC8C \uAD00\uB9AC\uB418\uBA70, \uC0C1\uB300\uC5D0\uAC8C \uACF5\uAC1C\uB418\uB294 \uC815\uBCF4\uB294 \uC81C\uD55C\uB41C \uBC94\uC704 \uC548\uC5D0\uC11C\uB9CC \uC81C\uACF5\uB418\uB3C4\uB85D \uC124\uACC4\uD569\uB2C8\uB2E4."))), /*#__PURE__*/React.createElement("div", {
-    className: "mt-12 grid md:grid-cols-2 gap-4"
-  }, points.map((p, i) => /*#__PURE__*/React.createElement(Reveal, {
-    key: i,
-    delay: i * 70
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card p-7 flex items-start gap-5 h-full"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "w-10 h-10 rounded-lg bg-lavender-soft/30 grid place-items-center text-lavender-deep shrink-0"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 20 20",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.4"
-  }, /*#__PURE__*/React.createElement("rect", {
-    x: "4",
-    y: "8",
-    width: "12",
-    height: "9",
-    rx: "1.5"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M6.5 8V6a3.5 3.5 0 1 1 7 0v2"
-  }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "gh-h3 mb-2"
-  }, p.t), /*#__PURE__*/React.createElement("p", {
-    className: "body text-mute"
-  }, p.d))))))));
-}
-
-// ---------- Section 8: Process timeline ----------
+// ---------- Section 5: Process timeline ----------
 function ProcessSection() {
   const steps = [{
     t: '앱 다운로드',
@@ -731,7 +640,7 @@ function ProcessSection() {
   }];
   return /*#__PURE__*/React.createElement("section", {
     id: "process",
-    className: "bg-offwhite"
+    className: "bg-veil"
   }, /*#__PURE__*/React.createElement("div", {
     className: "max-w-[1200px] mx-auto px-5 md:px-8"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
@@ -741,7 +650,7 @@ function ProcessSection() {
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2"
   }, "\uC11C\uB85C\uC758 \uACB0\uC774 \uB9DE\uC744 \uB54C,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC2DC\uC791\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
-    className: "mt-14 relative"
+    className: "mt-12 relative"
   }, /*#__PURE__*/React.createElement("div", {
     className: "hidden md:block absolute top-[42px] left-0 right-0 h-px bg-gradient-to-r from-lavender-soft via-lavender-deep to-sage"
   }), /*#__PURE__*/React.createElement("div", {
@@ -760,46 +669,101 @@ function ProcessSection() {
     className: "mt-5 gh-h3"
   }, s.t), /*#__PURE__*/React.createElement("p", {
     className: "small mt-2 text-mute max-w-[24ch]"
-  }, s.d)))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 300
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "mt-14 flex items-center gap-3"
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "#download",
-    className: "btn btn-primary"
-  }, "\uC571 \uB2E4\uC6B4\uB85C\uB4DC"), /*#__PURE__*/React.createElement("a", {
-    href: "#pricing",
-    className: "btn btn-ghost"
-  }, "\uBE44\uC6A9 \uC548\uB0B4 \uBCF4\uAE30")))));
+  }, s.d))))))));
 }
 
-// ---------- Section 9: Pricing ----------
+// ---------- Section 6: Pricing + Differentiation (merged) ----------
 function PricingSection() {
+  const points = [{
+    eyebrow: '가입비',
+    t: '0원으로 시작',
+    d: '높은 선결제 없이 결혼을 위한 만남을 시도해볼 수 있습니다.',
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "20",
+      height: "20",
+      viewBox: "0 0 20 20",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.4"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M10 3v14M6 6.5h6.5a2 2 0 0 1 0 4H7.5a2 2 0 0 0 0 4H14"
+    }))
+  }, {
+    eyebrow: '관계 성향',
+    t: '깊게 살피는 매칭',
+    d: '24개 심리 질문 + 결혼관·가족관·경제관까지 매칭에 반영됩니다.',
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "20",
+      height: "20",
+      viewBox: "0 0 20 20",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.4"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M10 17s-6-4-6-9a4 4 0 0 1 7-2.5A4 4 0 0 1 16 8c0 5-6 9-6 9z"
+    }))
+  }, {
+    eyebrow: '신뢰',
+    t: '승인제 가입',
+    d: '본인 확인과 기본 정보 검토를 거친 회원만 가입할 수 있습니다.',
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "20",
+      height: "20",
+      viewBox: "0 0 20 20",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.4"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M10 2l6 2.5v5c0 4-3 6.5-6 7.5-3-1-6-3.5-6-7.5v-5L10 2z"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M7 10l2 2 4-4"
+    }))
+  }, {
+    eyebrow: '법적 신뢰',
+    t: '결혼중개업 신고 절차',
+    d: '「결혼중개업법」에 따른 신고 절차를 갖춘 결혼정보 서비스입니다.',
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "20",
+      height: "20",
+      viewBox: "0 0 20 20",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.4"
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: "3",
+      y: "3",
+      width: "14",
+      height: "14",
+      rx: "2"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M7 10l2 2 4-4"
+    }))
+  }];
   return /*#__PURE__*/React.createElement("section", {
     id: "pricing",
-    className: "bg-veil"
+    className: "bg-offwhite"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12 items-center"
+    className: "max-w-[1200px] mx-auto px-5 md:px-8"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-6"
+    className: "grid md:grid-cols-12 gap-10 items-start"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "md:col-span-5"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-4"
-  }, "Pricing")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uACB0\uD558\uB2E4\uC758 \uCC28\uBCC4\uC810")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2"
   }, "\uB192\uC740 \uAC00\uC785\uBE44 \uC5C6\uC774,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC131\uC0AC\uB420 \uB54C\uB9CC.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[50ch]"
-  }, "\uBE44\uC6A9\uC740 \uAC00\uC785\uC774 \uC544\uB2C8\uB77C, \uC2E4\uC81C \uC5F0\uACB0\uC758 \uC21C\uAC04\uC5D0 \uBC1C\uC0DD\uD569\uB2C8\uB2E4. \uACB0\uD558\uB2E4\uB294 \uC9C4\uC9C0\uD55C \uB9CC\uB0A8\uC744 \uAC00\uBCBC\uC6B4 \uC2DC\uC791 \uBE44\uC6A9\uC73C\uB85C \uC2DC\uB3C4\uD574\uBCFC \uC218 \uC788\uB3C4\uB85D \uC124\uACC4\uD588\uC2B5\uB2C8\uB2E4."))), /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-6"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: 150
+    className: "body-lg mt-6 text-mute max-w-[44ch]"
+  }, "\uACB0\uD558\uB2E4\uB294 \uC18C\uAC1C\uD305 \uC571\uACFC \uACB0\uD63C\uC815\uBCF4\uD68C\uC0AC \uC0AC\uC774\uC758 \uC0C8\uB85C\uC6B4 \uB300\uC548\uC785\uB2C8\uB2E4. \uC9C4\uC9C0\uD55C \uB9CC\uB0A8\uC744 \uAC00\uBCBC\uC6B4 \uC2DC\uC791 \uBE44\uC6A9\uC73C\uB85C \uC2DC\uB3C4\uD560 \uC218 \uC788\uB3C4\uB85D \uC124\uACC4\uD588\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 220
   }, /*#__PURE__*/React.createElement("div", {
-    className: "card p-8 md:p-10 relative overflow-hidden"
+    className: "card p-7 md:p-8 mt-8 relative overflow-hidden"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "absolute -right-20 -top-20 w-80 h-80 rounded-full",
+    className: "absolute -right-16 -top-16 w-56 h-56 rounded-full",
     style: {
       background: 'radial-gradient(closest-side, rgba(200,182,226,.5), transparent)'
     }
@@ -812,94 +776,50 @@ function PricingSection() {
   }, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("div", {
     className: "gh-display mt-1",
     style: {
-      fontSize: '56px',
+      fontSize: '44px',
       lineHeight: 1
     }
   }, "0", /*#__PURE__*/React.createElement("span", {
-    className: "text-[26px] ml-1 text-mute"
+    className: "text-[20px] ml-1 text-mute"
   }, "\uC6D0"))), /*#__PURE__*/React.createElement("span", {
     className: "pill bg-lavender-deep text-white"
   }, "No upfront fee")), /*#__PURE__*/React.createElement("div", {
-    className: "rule my-7"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "flex items-baseline justify-between"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "rule my-5"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow"
   }, "\uB9E4\uCE6D + \uC0C1\uD638 \uB3D9\uC758 \uC2DC"), /*#__PURE__*/React.createElement("div", {
     className: "gh-display mt-1",
     style: {
-      fontSize: '40px',
-      lineHeight: 1.05
+      fontSize: '28px',
+      lineHeight: 1.1
     }
   }, "\uB0A8\uB140 \uAC01 100,000", /*#__PURE__*/React.createElement("span", {
-    className: "text-[20px] ml-1 text-mute"
-  }, "\uC6D0")))), /*#__PURE__*/React.createElement("p", {
-    className: "body mt-6 text-mute",
-    style: {
-      textWrap: 'pretty'
-    }
-  }, "\uC591\uCABD \uBAA8\uB450 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C \uBE44\uC6A9\uC774 \uBC1C\uC0DD\uD569\uB2C8\uB2E4. \uAC00\uC785\uACFC \uC751\uB2F5, \uCD94\uCC9C \uD655\uC778 \uB2E8\uACC4\uC5D0\uC11C\uB294 \uBE44\uC6A9\uC774 \uBC1C\uC0DD\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."), /*#__PURE__*/React.createElement("div", {
-    className: "mt-7 flex items-center gap-3"
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "#download",
-    className: "btn btn-primary"
-  }, "\uC571 \uB2E4\uC6B4\uB85C\uB4DC"), /*#__PURE__*/React.createElement("a", {
-    href: "#faq",
-    className: "btn btn-ghost"
-  }, "\uC790\uC138\uD788 \uBCF4\uAE30"))))))));
+    className: "text-[16px] ml-1 text-mute"
+  }, "\uC6D0"))), /*#__PURE__*/React.createElement("p", {
+    className: "small mt-4 text-mute"
+  }, "\uC591\uCABD \uBAA8\uB450 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C \uBE44\uC6A9\uC774 \uBC1C\uC0DD\uD569\uB2C8\uB2E4."))))), /*#__PURE__*/React.createElement("div", {
+    className: "md:col-span-7"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "grid sm:grid-cols-2 gap-4"
+  }, points.map((p, i) => /*#__PURE__*/React.createElement(Reveal, {
+    key: i,
+    delay: i * 70
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card p-6 h-full"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-10 h-10 rounded-lg bg-lavender-soft/30 grid place-items-center text-lavender-deep mb-4"
+  }, p.icon), /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-1.5"
+  }, p.eyebrow), /*#__PURE__*/React.createElement("div", {
+    className: "gh-h3 mb-2"
+  }, p.t), /*#__PURE__*/React.createElement("p", {
+    className: "body text-mute"
+  }, p.d)))))))));
 }
 
-// ---------- Section 10: Comparison ----------
-function ComparisonSection() {
-  const rows = [['법적 지위', '미신고 다수', '등록', '결혼중개업 신고 절차'], ['목적', '가벼운 만남', '결혼', '결혼 중심'], ['가입비', '낮음 또는 반복 결제', '높음', '없음'], ['검증', '약함', '있음', '있음'], ['관계 성향 이해', '약함', '제한적', '깊게 반영'], ['매칭 비용', '아이템·구독', '고액 선결제', '만남 성사 시'], ['분위기', '빠르고 가벼움', '무겁고 비쌈', '신중하지만 유연함']];
-  return /*#__PURE__*/React.createElement("section", {
-    className: "bg-offwhite"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4"
-  }, "A new option")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 80
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2"
-  }, "\uACB0\uD558\uB2E4\uB294 \uC18C\uAC1C\uD305 \uC571\uACFC", /*#__PURE__*/React.createElement("br", null), "\uACB0\uD63C\uC815\uBCF4\uD68C\uC0AC \uC0AC\uC774\uC758 \uC0C8\uB85C\uC6B4 \uB300\uC548\uC785\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 160
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[60ch]"
-  }, "\uAE30\uC874 \uC11C\uBE44\uC2A4\uB97C \uBE44\uB09C\uD558\uAE30\uBCF4\uB2E4, \uC120\uD0DD\uC9C0\uC758 \uCC28\uC774\uB97C \uBE44\uAD50\uD574 \uC9C4\uC9C0\uD55C \uACB0\uD63C\uC744 \uC900\uBE44\uD558\uB294 \uBD84\uAED8 \uB354 \uC798 \uB9DE\uB294 \uAE38\uC744 \uBCF4\uC5EC\uB4DC\uB9BD\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 220
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "mt-12 overflow-x-auto card p-2 md:p-4"
-  }, /*#__PURE__*/React.createElement("table", {
-    className: "cmp"
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", {
-    className: "row-label"
-  }), /*#__PURE__*/React.createElement("th", null, "\uC18C\uAC1C\uD305 \uC571"), /*#__PURE__*/React.createElement("th", null, "\uACB0\uD63C\uC815\uBCF4\uD68C\uC0AC"), /*#__PURE__*/React.createElement("th", {
-    className: "col-gh-head"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "flex items-center gap-2"
-  }, /*#__PURE__*/React.createElement(Sig.Mark, {
-    size: 18
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: '#fff'
-    }
-  }, "\uACB0\uD558\uB2E4"))))), /*#__PURE__*/React.createElement("tbody", null, rows.map((r, i) => /*#__PURE__*/React.createElement("tr", {
-    key: i
-  }, /*#__PURE__*/React.createElement("td", {
-    className: "row-label"
-  }, r[0]), /*#__PURE__*/React.createElement("td", {
-    className: "text-mute"
-  }, r[1]), /*#__PURE__*/React.createElement("td", {
-    className: "text-mute"
-  }, r[2]), /*#__PURE__*/React.createElement("td", {
-    className: "col-gh font-medium text-ink"
-  }, r[3])))))))));
-}
-
-// ---------- Section 11: FAQ ----------
+// ---------- Section 7: FAQ ----------
 function FAQSection() {
-  const items = [['가입비가 정말 없나요?', '네. 결하다는 높은 가입비를 먼저 받지 않습니다. 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 발생합니다.'], ['만남 비용은 언제 발생하나요?', '양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다.']];
+  const items = [['가입비가 정말 없나요?', '네. 결하다는 높은 가입비를 먼저 받지 않습니다. 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 발생합니다.'], ['만남 비용은 언제 발생하나요?', '양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다.'], ['가치관·결혼관·경제관도 필터링되나요?', '이 항목들은 선호도 필터링이 아니라 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 추천하는 방식입니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다.']];
   return /*#__PURE__*/React.createElement("section", {
     id: "faq",
     className: "bg-veil"
@@ -936,7 +856,7 @@ function FAQSection() {
   }, a))))));
 }
 
-// ---------- Section 12: Brand philosophy ----------
+// ---------- Section 8: Brand philosophy ----------
 function PhilosophySection({
   images
 }) {
@@ -1046,50 +966,6 @@ function PhilosophySection({
   }))))));
 }
 
-// ---------- Section 13: Final CTA ----------
-function FinalCTA({
-  ctaState,
-  ctaData
-}) {
-  const ctaButtons = ctaState === 'pre' ? ctaData.pre : ctaData.post;
-  return /*#__PURE__*/React.createElement("section", {
-    className: "bg-veil tight"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1100px] mx-auto px-5 md:px-8 text-center"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "mx-auto w-[280px] aspect-square mb-2 -mt-6"
-  }, /*#__PURE__*/React.createElement(Sig.WaveCross, {
-    progress: 1,
-    showRing: true
-  }))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 80
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2 max-w-[24ch] mx-auto"
-  }, "\uB2F9\uC2E0\uC758 \uACB0\uC740 \uC5B4\uB5A4 \uC0AC\uB78C\uACFC", /*#__PURE__*/React.createElement("br", null), "\uAC00\uC7A5 \uC790\uC5F0\uC2A4\uB7FD\uAC8C \uC774\uC5B4\uC9C8\uAE4C\uC694?")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 160
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[56ch] mx-auto"
-  }, "\uC9C0\uAE08 \uACB0\uD558\uB2E4 \uC571\uC5D0\uC11C \uAE4A\uC740 \uC9C8\uBB38\uC744 \uD1B5\uD574 \uB2F9\uC2E0\uC758 \uACB0\uC744 \uD655\uC778\uD574\uBCF4\uC138\uC694.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 220
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "mt-9 flex flex-wrap gap-3 justify-center"
-  }, ctaButtons.map((b, i) => /*#__PURE__*/React.createElement("a", {
-    key: i,
-    href: b.href,
-    className: i === 0 ? "store-btn" : "store-btn outline"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "leading-tight text-left"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "small"
-  }, b.eyebrow), /*#__PURE__*/React.createElement("div", {
-    className: "big"
-  }, b.label)))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 280
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "small mt-7 text-mute"
-  }, "\uAC00\uC785\uBE44 \uC5C6\uC774 \uC2DC\uC791\uD558\uACE0, \uB9CC\uB0A8\uC774 \uC131\uC0AC\uB420 \uB54C\uB9CC \uBE44\uC6A9\uC774 \uBC1C\uC0DD\uD569\uB2C8\uB2E4."))));
-}
-
 // ---------- Footer ----------
 function Footer({
   ctaState,
@@ -1134,7 +1010,7 @@ function Footer({
     className: "eyebrow !text-white/60"
   }, "Company"), /*#__PURE__*/React.createElement("dl", {
     className: "mt-4 grid grid-cols-[7em_1fr] gap-y-2 text-[13.5px] text-white/75"
-  }, /*#__PURE__*/React.createElement("dt", null, "\uD68C\uC0AC\uBA85"), /*#__PURE__*/React.createElement("dd", null, "\uC8FC\uC2DD\uD68C\uC0AC \uB9B0\uD50C (LINPLE)"), /*#__PURE__*/React.createElement("dt", null, "\uB300\uD45C\uC774\uC0AC"), /*#__PURE__*/React.createElement("dd", null, "\uC774\uC815\uD5CC"), /*#__PURE__*/React.createElement("dt", null, "\uC0AC\uC5C5\uC790\uB4F1\uB85D\uBC88\uD638"), /*#__PURE__*/React.createElement("dd", null, "000-00-00000"), /*#__PURE__*/React.createElement("dt", null, "\uD1B5\uC2E0\uD310\uB9E4\uC5C5\uC2E0\uACE0"), /*#__PURE__*/React.createElement("dd", null, "2026-\uC11C\uC6B8\uAC15\uC11C\uAD6C-0000"), /*#__PURE__*/React.createElement("dt", null, "\uAD6D\uB0B4\uACB0\uD63C\uC911\uAC1C\uC5C5"), /*#__PURE__*/React.createElement("dd", null, "\uC11C\uC6B8-\uAC15\uC11C\uAD6C-\uAD6D\uB0B4-26-0000\uD638"), /*#__PURE__*/React.createElement("dt", null, "\uBCF8\uC810"), /*#__PURE__*/React.createElement("dd", null, "\uC11C\uC6B8\uD2B9\uBCC4\uC2DC \uAC15\uC11C\uAD6C"))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("dt", null, "\uD68C\uC0AC\uBA85"), /*#__PURE__*/React.createElement("dd", null, "\uC8FC\uC2DD\uD68C\uC0AC \uB9B0\uD50C (LINPLE)"), /*#__PURE__*/React.createElement("dt", null, "\uB300\uD45C\uC774\uC0AC"), /*#__PURE__*/React.createElement("dd", null, "\uC774\uC815\uD5CC"), /*#__PURE__*/React.createElement("dt", null, "\uC0AC\uC5C5\uC790\uB4F1\uB85D\uBC88\uD638"), /*#__PURE__*/React.createElement("dd", null, "425-87-04263"), /*#__PURE__*/React.createElement("dt", null, "\uD1B5\uC2E0\uD310\uB9E4\uC5C5\uC2E0\uACE0"), /*#__PURE__*/React.createElement("dd", null, "2026-\uC11C\uC6B8\uAC15\uC11C\uAD6C-0000"), /*#__PURE__*/React.createElement("dt", null, "\uAD6D\uB0B4\uACB0\uD63C\uC911\uAC1C\uC5C5"), /*#__PURE__*/React.createElement("dd", null, "\uC11C\uC6B8-\uAC15\uC11C\uAD6C-\uAD6D\uB0B4-26-0000\uD638"), /*#__PURE__*/React.createElement("dt", null, "\uBCF8\uC810"), /*#__PURE__*/React.createElement("dd", null, "\uC11C\uC6B8\uD2B9\uBCC4\uC2DC \uAC15\uC11C\uAD6C \uACF5\uD56D\uB300\uB85C 190, \uD478\uB9AC\uB9C8\uD0C0\uC6CC 1006\uD638 "))), /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-3"
   }, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow !text-white/60"
@@ -1231,16 +1107,11 @@ Object.assign(window, {
   Hero,
   ProblemSection,
   ThreeGyeolSection,
-  PersonalitySection,
-  LegalSection,
   TrustSection,
-  PrivacySection,
   ProcessSection,
   PricingSection,
-  ComparisonSection,
   FAQSection,
   PhilosophySection,
-  FinalCTA,
   Footer,
   MobileSticky,
   FloatingQR
