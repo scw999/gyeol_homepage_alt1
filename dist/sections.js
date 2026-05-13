@@ -65,9 +65,9 @@ function Header({
     href: '#faq'
   }];
   return /*#__PURE__*/React.createElement("header", {
-    className: `fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur-md bg-offwhite/85 border-b border-black/5' : ''}`
+    className: `fixed top-0 inset-x-0 z-50 transition-all duration-300 backdrop-blur-md border-b ${scrolled ? 'bg-offwhite/90 border-black/10 shadow-[0_2px_12px_rgba(44,42,53,0.04)]' : 'bg-offwhite/70 border-black/5'}`
   }, /*#__PURE__*/React.createElement("div", {
-    className: `max-w-[1240px] mx-auto px-6 md:px-10 flex items-center justify-between gap-6 transition-all duration-300 ${scrolled ? 'h-[64px]' : 'h-[76px]'}`
+    className: `max-w-[1240px] mx-auto px-6 md:px-10 flex items-center justify-between gap-6 transition-all duration-300 h-[64px]`
   }, /*#__PURE__*/React.createElement("a", {
     href: "#",
     className: "flex items-center gap-3 shrink-0 py-2"
@@ -163,7 +163,7 @@ function Hero({
     showRing: false,
     style: waveStyle
   }))), /*#__PURE__*/React.createElement("div", {
-    className: "relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-28 md:pt-32 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center"
+    className: "relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center"
   }, /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
@@ -307,7 +307,7 @@ function ProblemSection() {
     t: '조건은 맞지만 가치관이 다른 관계',
     d: '숫자로는 정렬되지만 삶의 방향은 어긋날 수 있습니다.',
     solveTitle: '결하다는 — 미래의 결을 매칭에 반영합니다',
-    solve: '결혼관·가족관·경제관은 필터링이 아닌 매칭에 반영되어, 비슷한 삶의 방향을 가진 사람을 우선 추천합니다.',
+    solve: '결혼관·가족관·경제관을 매칭 추천에 반영해, 비슷한 삶의 방향을 가진 사람을 우선 보여드립니다.',
     anchor: '#way'
   }, {
     t: '가벼운 사용자 때문에 피로한 소개팅 앱',
@@ -436,7 +436,7 @@ function ThreeGyeolSection({
     d: '결혼관, 가족관, 경제관 — 두 사람이 함께 그릴 삶의 방향을 살핍니다.',
     screen: appScreens && appScreens.prefsMain,
     label: '매칭 선호도',
-    note: '선호도 필터링이 아니라 매칭 추천에 반영됩니다.'
+    note: '결혼관·가족관·경제관이 매칭 추천에 반영됩니다.'
   }];
   const tags = ['Big Five 성격 5요인', '애착 유형', '관계 갈등 방식', '부부관계 연구'];
   return /*#__PURE__*/React.createElement("section", {
@@ -787,17 +787,11 @@ function PricingSection() {
     className: "rule my-5"
   }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow"
-  }, "\uB9E4\uCE6D + \uC0C1\uD638 \uB3D9\uC758 \uC2DC"), /*#__PURE__*/React.createElement("div", {
-    className: "gh-display mt-1",
-    style: {
-      fontSize: '28px',
-      lineHeight: 1.1
-    }
-  }, "\uB0A8\uB140 \uAC01 100,000", /*#__PURE__*/React.createElement("span", {
-    className: "text-[16px] ml-1 text-mute"
-  }, "\uC6D0"))), /*#__PURE__*/React.createElement("p", {
+  }, "\uB9CC\uB0A8 \uBE44\uC6A9"), /*#__PURE__*/React.createElement("p", {
+    className: "body mt-2 text-ink"
+  }, "\uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C\uB9CC \uBC1C\uC0DD\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("p", {
     className: "small mt-4 text-mute"
-  }, "\uC591\uCABD \uBAA8\uB450 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C \uBE44\uC6A9\uC774 \uBC1C\uC0DD\uD569\uB2C8\uB2E4."))))), /*#__PURE__*/React.createElement("div", {
+  }, "\uC815\uD655\uD55C \uAE08\uC561\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC548\uB0B4\uB429\uB2C8\uB2E4."))))), /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement("div", {
     className: "grid sm:grid-cols-2 gap-4"
@@ -819,7 +813,7 @@ function PricingSection() {
 
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
-  const items = [['가입비가 정말 없나요?', '네. 결하다는 높은 가입비를 먼저 받지 않습니다. 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 발생합니다.'], ['만남 비용은 언제 발생하나요?', '양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다.'], ['가치관·결혼관·경제관도 필터링되나요?', '이 항목들은 선호도 필터링이 아니라 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 추천하는 방식입니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다.']];
+  const items = [['가입비가 정말 없나요?', '네. 결하다는 높은 가입비를 먼저 받지 않습니다. 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 발생합니다.'], ['만남 비용은 언제 발생하나요?', '양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다.']];
   return /*#__PURE__*/React.createElement("section", {
     id: "faq",
     className: "bg-veil"
@@ -854,116 +848,6 @@ function FAQSection() {
   })))), /*#__PURE__*/React.createElement("p", {
     className: "body mt-3 text-mute max-w-[68ch]"
   }, a))))));
-}
-
-// ---------- Section 8: Brand philosophy ----------
-function PhilosophySection({
-  images
-}) {
-  const img = images && (Array.isArray(images.philosophy) ? images.philosophy[0] : images.philosophy);
-  return /*#__PURE__*/React.createElement("section", {
-    className: "bg-offwhite"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12 items-center"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-5"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "relative aspect-[4/5] rounded-2xl overflow-hidden hairline"
-  }, img ? /*#__PURE__*/React.createElement("img", {
-    src: img,
-    alt: "\uD568\uAED8 \uAE38\uC744 \uAC77\uB294 \uB450 \uC0AC\uB78C\uC758 \uB4B7\uBAA8\uC2B5",
-    loading: "lazy",
-    decoding: "async",
-    className: "absolute inset-0 w-full h-full object-cover"
-  }) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    className: "absolute inset-0",
-    style: {
-      background: 'linear-gradient(180deg, #e7e2d6 0%, #d8d2c5 100%)'
-    }
-  }), /*#__PURE__*/React.createElement("svg", {
-    viewBox: "0 0 400 500",
-    className: "absolute inset-0 w-full h-full",
-    preserveAspectRatio: "xMidYMax slice"
-  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: "phx",
-    x1: "0",
-    y1: "0",
-    x2: "0",
-    y2: "1"
-  }, /*#__PURE__*/React.createElement("stop", {
-    offset: "0%",
-    stopColor: "#e7e2d6"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: "100%",
-    stopColor: "#bcb5a3"
-  }))), /*#__PURE__*/React.createElement("rect", {
-    width: "400",
-    height: "500",
-    fill: "url(#phx)"
-  }), /*#__PURE__*/React.createElement("line", {
-    x1: "0",
-    y1: "370",
-    x2: "400",
-    y2: "370",
-    stroke: "#2C2A35",
-    strokeOpacity: "0.08"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M 0 480 Q 200 360 400 480 Z",
-    fill: "#c9c0aa",
-    opacity: "0.7"
-  }), /*#__PURE__*/React.createElement("g", {
-    transform: "translate(150 280)"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "0",
-    cy: "0",
-    r: "22",
-    fill: "#2C2A35",
-    opacity: "0.85"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M -28 18 C -28 60, -10 90, -2 130 L 26 130 C 28 90, 30 60, 30 18 Z",
-    fill: "#2C2A35",
-    opacity: "0.85"
-  })), /*#__PURE__*/React.createElement("g", {
-    transform: "translate(220 285)"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "0",
-    cy: "0",
-    r: "20",
-    fill: "#3a3744",
-    opacity: "0.85"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M -25 16 C -25 56, -8 84, 0 122 L 24 122 C 26 84, 28 56, 28 16 Z",
-    fill: "#3a3744",
-    opacity: "0.85"
-  })), /*#__PURE__*/React.createElement("circle", {
-    cx: "320",
-    cy: "120",
-    r: "80",
-    fill: "#D8B76A",
-    opacity: "0.18"
-  })))))), /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-7"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: 120
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4"
-  }, "Brand philosophy")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 160
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2 max-w-[22ch]"
-  }, "\uACB0\uD63C\uC740 \uC870\uAC74\uC758 \uD569\uC774 \uC544\uB2C8\uB77C,", /*#__PURE__*/React.createElement("br", null), "\uC0B6\uC758 \uACB0\uC774 \uB9DE\uC544\uAC00\uB294 \uC77C\uC785\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 220
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[56ch]"
-  }, "\uACB0\uD558\uB2E4\uB294 \uD55C \uC0AC\uB78C\uC758 \uC870\uAC74, \uC131\uD5A5, \uAC00\uCE58\uAD00, \uAC10\uC815\uC758 \uD750\uB984\uC744 \uD568\uAED8 \uC0B4\uD53C\uBA70 \uC624\uB798 \uC774\uC5B4\uC9C8 \uC218 \uC788\uB294 \uB9CC\uB0A8\uC744 \uC124\uACC4\uD569\uB2C8\uB2E4. \uBE60\uB978 \uB9E4\uCE6D\uBCF4\uB2E4 \uB290\uB9AC\uC9C0\uB9CC \uB2E8\uB2E8\uD55C \uC2DC\uC791\uC744, \uD654\uB824\uD55C \uC57D\uC18D\uBCF4\uB2E4 \uC194\uC9C1\uD55C \uC548\uB0B4\uB97C \uC9C0\uD5A5\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 280
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "mt-9 aspect-[16/7] max-w-[520px] rounded-xl overflow-hidden hairline"
-  }, /*#__PURE__*/React.createElement(Sig.WaveCross, {
-    progress: 1,
-    scale: 1,
-    showRing: true
-  }))))));
 }
 
 // ---------- Footer ----------
@@ -1111,7 +995,6 @@ Object.assign(window, {
   ProcessSection,
   PricingSection,
   FAQSection,
-  PhilosophySection,
   Footer,
   MobileSticky,
   FloatingQR

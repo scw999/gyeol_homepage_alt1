@@ -178,9 +178,7 @@ function App() {
   }), /*#__PURE__*/React.createElement(TrustSection, {
     images: IMAGES,
     appScreens: APP_SCREENS
-  }), /*#__PURE__*/React.createElement(ProcessSection, null), /*#__PURE__*/React.createElement(PricingSection, null), /*#__PURE__*/React.createElement(FAQSection, null), /*#__PURE__*/React.createElement(PhilosophySection, {
-    images: IMAGES
-  })), /*#__PURE__*/React.createElement(Footer, {
+  }), /*#__PURE__*/React.createElement(ProcessSection, null), /*#__PURE__*/React.createElement(PricingSection, null), /*#__PURE__*/React.createElement(FAQSection, null)), /*#__PURE__*/React.createElement(Footer, {
     ctaState: t.ctaState,
     ctaData: CTA_DATA
   }), /*#__PURE__*/React.createElement(MobileSticky, {

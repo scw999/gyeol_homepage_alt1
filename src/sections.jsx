@@ -30,8 +30,8 @@ function Header({ ctaPrimary, onOpenMenu }) {
     {label:'FAQ', href:'#faq'},
   ];
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur-md bg-offwhite/85 border-b border-black/5' : ''}`}>
-      <div className={`max-w-[1240px] mx-auto px-6 md:px-10 flex items-center justify-between gap-6 transition-all duration-300 ${scrolled ? 'h-[64px]' : 'h-[76px]'}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 backdrop-blur-md border-b ${scrolled ? 'bg-offwhite/90 border-black/10 shadow-[0_2px_12px_rgba(44,42,53,0.04)]' : 'bg-offwhite/70 border-black/5'}`}>
+      <div className={`max-w-[1240px] mx-auto px-6 md:px-10 flex items-center justify-between gap-6 transition-all duration-300 h-[64px]`}>
         <a href="#" className="flex items-center gap-3 shrink-0 py-2">
           <Sig.Logo height={28}/>
           <span className="hidden xl:inline-flex pill ml-1 border border-lavender-deep/20 text-lavender-deep bg-lavender-soft/15 whitespace-nowrap">
@@ -92,7 +92,7 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
         </div>
       </div>
 
-      <div className="relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-28 md:pt-32 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center">
+      <div className="relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center">
         <div className="md:col-span-7">
           <Reveal>
             <div className="eyebrow mb-5 text-lavender-deep">Gyeolhada · 결혼을 위한 만남</div>
@@ -180,7 +180,7 @@ function ProblemSection() {
       t:'조건은 맞지만 가치관이 다른 관계',
       d:'숫자로는 정렬되지만 삶의 방향은 어긋날 수 있습니다.',
       solveTitle:'결하다는 — 미래의 결을 매칭에 반영합니다',
-      solve:'결혼관·가족관·경제관은 필터링이 아닌 매칭에 반영되어, 비슷한 삶의 방향을 가진 사람을 우선 추천합니다.',
+      solve:'결혼관·가족관·경제관을 매칭 추천에 반영해, 비슷한 삶의 방향을 가진 사람을 우선 보여드립니다.',
       anchor:'#way',
     },
     {
@@ -282,7 +282,7 @@ function ThreeGyeolSection({ appScreens }) {
       t:'함께 그리는 방향',
       d:'결혼관, 가족관, 경제관 — 두 사람이 함께 그릴 삶의 방향을 살핍니다.',
       screen: appScreens && appScreens.prefsMain, label:'매칭 선호도',
-      note:'선호도 필터링이 아니라 매칭 추천에 반영됩니다.',
+      note:'결혼관·가족관·경제관이 매칭 추천에 반영됩니다.',
     },
   ];
   const tags = ['Big Five 성격 5요인', '애착 유형', '관계 갈등 방식', '부부관계 연구'];
@@ -506,10 +506,10 @@ function PricingSection() {
                   </div>
                   <div className="rule my-5"/>
                   <div>
-                    <div className="eyebrow">매칭 + 상호 동의 시</div>
-                    <div className="gh-display mt-1" style={{fontSize:'28px', lineHeight:1.1}}>남녀 각 100,000<span className="text-[16px] ml-1 text-mute">원</span></div>
+                    <div className="eyebrow">만남 비용</div>
+                    <p className="body mt-2 text-ink">양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 발생합니다.</p>
                   </div>
-                  <p className="small mt-4 text-mute">양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 비용이 발생합니다.</p>
+                  <p className="small mt-4 text-mute">정확한 금액은 앱 가입 단계에서 안내됩니다.</p>
                 </div>
               </div>
             </Reveal>
@@ -543,7 +543,7 @@ function FAQSection() {
     ['가입비가 정말 없나요?','네. 결하다는 높은 가입비를 먼저 받지 않습니다. 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 발생합니다.'],
     ['만남 비용은 언제 발생하나요?','양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다.'],
     ['아무나 가입할 수 있나요?','결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다.'],
-    ['가치관·결혼관·경제관도 필터링되나요?','이 항목들은 선호도 필터링이 아니라 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 추천하는 방식입니다.'],
+    ['결혼관·가족관·경제관은 어떻게 반영되나요?','이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'],
     ['제출한 서류가 상대방에게 공개되나요?','제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다.'],
     ['결하다는 소개팅 앱과 무엇이 다른가요?','사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다.'],
   ];
@@ -564,64 +564,6 @@ function FAQSection() {
               <p className="body mt-3 text-mute max-w-[68ch]">{a}</p>
             </details>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ---------- Section 8: Brand philosophy ----------
-function PhilosophySection({ images }) {
-  const img = images && (Array.isArray(images.philosophy) ? images.philosophy[0] : images.philosophy);
-  return (
-    <section className="bg-offwhite">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12 items-center">
-        <div className="md:col-span-5">
-          <Reveal>
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden hairline">
-              {img ? (
-                <img src={img} alt="함께 길을 걷는 두 사람의 뒷모습" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover"/>
-              ) : (
-              <React.Fragment>
-              <div className="absolute inset-0" style={{background:'linear-gradient(180deg, #e7e2d6 0%, #d8d2c5 100%)'}}/>
-              <svg viewBox="0 0 400 500" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMax slice">
-                <defs>
-                  <linearGradient id="phx" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#e7e2d6"/>
-                    <stop offset="100%" stopColor="#bcb5a3"/>
-                  </linearGradient>
-                </defs>
-                <rect width="400" height="500" fill="url(#phx)"/>
-                <line x1="0" y1="370" x2="400" y2="370" stroke="#2C2A35" strokeOpacity="0.08"/>
-                <path d="M 0 480 Q 200 360 400 480 Z" fill="#c9c0aa" opacity="0.7"/>
-                <g transform="translate(150 280)">
-                  <circle cx="0" cy="0" r="22" fill="#2C2A35" opacity="0.85"/>
-                  <path d="M -28 18 C -28 60, -10 90, -2 130 L 26 130 C 28 90, 30 60, 30 18 Z" fill="#2C2A35" opacity="0.85"/>
-                </g>
-                <g transform="translate(220 285)">
-                  <circle cx="0" cy="0" r="20" fill="#3a3744" opacity="0.85"/>
-                  <path d="M -25 16 C -25 56, -8 84, 0 122 L 24 122 C 26 84, 28 56, 28 16 Z" fill="#3a3744" opacity="0.85"/>
-                </g>
-                <circle cx="320" cy="120" r="80" fill="#D8B76A" opacity="0.18"/>
-              </svg>
-              </React.Fragment>
-              )}
-            </div>
-          </Reveal>
-        </div>
-        <div className="md:col-span-7">
-          <Reveal delay={120}><div className="eyebrow mb-4">Brand philosophy</div></Reveal>
-          <Reveal delay={160}>
-            <h2 className="gh-display gh-h2 max-w-[22ch]">결혼은 조건의 합이 아니라,<br/>삶의 결이 맞아가는 일입니다.</h2>
-          </Reveal>
-          <Reveal delay={220}>
-            <p className="body-lg mt-6 text-mute max-w-[56ch]">결하다는 한 사람의 조건, 성향, 가치관, 감정의 흐름을 함께 살피며 오래 이어질 수 있는 만남을 설계합니다. 빠른 매칭보다 느리지만 단단한 시작을, 화려한 약속보다 솔직한 안내를 지향합니다.</p>
-          </Reveal>
-          <Reveal delay={280}>
-            <div className="mt-9 aspect-[16/7] max-w-[520px] rounded-xl overflow-hidden hairline">
-              <Sig.WaveCross progress={1} scale={1} showRing={true}/>
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>
@@ -723,5 +665,5 @@ Object.assign(window, {
   Reveal, Header, Hero,
   ProblemSection, ThreeGyeolSection, TrustSection,
   ProcessSection, PricingSection,
-  FAQSection, PhilosophySection, Footer, MobileSticky, FloatingQR,
+  FAQSection, Footer, MobileSticky, FloatingQR,
 });

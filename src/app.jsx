@@ -140,7 +140,6 @@ function App() {
         <ProcessSection/>
         <PricingSection/>
         <FAQSection/>
-        <PhilosophySection images={IMAGES}/>
       </main>
 
       <Footer ctaState={t.ctaState} ctaData={CTA_DATA}/>
