@@ -175,18 +175,11 @@ function App() {
     appScreens: APP_SCREENS
   }), /*#__PURE__*/React.createElement(ProblemSection, null), /*#__PURE__*/React.createElement(ThreeGyeolSection, {
     appScreens: APP_SCREENS
-  }), /*#__PURE__*/React.createElement(PersonalitySection, {
-    appScreens: APP_SCREENS
-  }), /*#__PURE__*/React.createElement(LegalSection, null), /*#__PURE__*/React.createElement(TrustSection, {
+  }), /*#__PURE__*/React.createElement(TrustSection, {
     images: IMAGES,
     appScreens: APP_SCREENS
-  }), /*#__PURE__*/React.createElement(PrivacySection, {
-    appScreens: APP_SCREENS
-  }), /*#__PURE__*/React.createElement(ProcessSection, null), /*#__PURE__*/React.createElement(PricingSection, null), /*#__PURE__*/React.createElement(ComparisonSection, null), /*#__PURE__*/React.createElement(FAQSection, null), /*#__PURE__*/React.createElement(PhilosophySection, {
+  }), /*#__PURE__*/React.createElement(ProcessSection, null), /*#__PURE__*/React.createElement(PricingSection, null), /*#__PURE__*/React.createElement(FAQSection, null), /*#__PURE__*/React.createElement(PhilosophySection, {
     images: IMAGES
-  }), /*#__PURE__*/React.createElement(FinalCTA, {
-    ctaState: t.ctaState,
-    ctaData: CTA_DATA
   })), /*#__PURE__*/React.createElement(Footer, {
     ctaState: t.ctaState,
     ctaData: CTA_DATA
