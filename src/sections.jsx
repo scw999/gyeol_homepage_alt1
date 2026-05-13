@@ -30,20 +30,17 @@ function Header({ ctaPrimary, onOpenMenu }) {
     {label:'FAQ', href:'#faq'},
   ];
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 backdrop-blur-md border-b ${scrolled ? 'bg-offwhite/90 border-black/10 shadow-[0_2px_12px_rgba(44,42,53,0.04)]' : 'bg-offwhite/70 border-black/5'}`}>
-      <div className={`max-w-[1240px] mx-auto px-6 md:px-10 flex items-center justify-between gap-6 transition-all duration-300 h-[64px]`}>
-        <a href="#" className="flex items-center gap-3 shrink-0 py-2">
-          <Sig.Logo height={28}/>
-          <span className="hidden xl:inline-flex pill ml-1 border border-lavender-deep/20 text-lavender-deep bg-lavender-soft/15 whitespace-nowrap">
-            <span className="w-1.5 h-1.5 rounded-full bg-lavender-deep"/> 결혼중개업 신고 업체
-          </span>
+    <header className={`fixed top-0 inset-x-0 z-50 site-header ${scrolled ? 'is-scrolled' : ''}`}>
+      <div className="max-w-[1240px] mx-auto px-6 md:px-10 site-header-inner">
+        <a href="#" className="flex items-center shrink-0">
+          <Sig.Logo height={26}/>
         </a>
-        <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-[14px] text-ink/75">
-          {nav.map(n => <a key={n.href} href={n.href} className="hover:text-lavender-deep transition-colors whitespace-nowrap">{n.label}</a>)}
+        <nav className="site-header-nav">
+          {nav.map(n => <a key={n.href} href={n.href} className="whitespace-nowrap transition-colors">{n.label}</a>)}
         </nav>
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="site-header-right">
           <a href="#download" className="hidden sm:inline-flex btn btn-primary btn-sm whitespace-nowrap">앱 다운로드</a>
-          <button onClick={onOpenMenu} className="md:hidden w-10 h-10 -mr-2 grid place-items-center" aria-label="메뉴">
+          <button onClick={onOpenMenu} className="md:hidden w-10 h-10 grid place-items-center" aria-label="메뉴">
             <svg width="22" height="22" viewBox="0 0 20 20"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>
           </button>
         </div>
@@ -166,46 +163,48 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
   );
 }
 
-// ---------- Section 2: Problem → Solution (side-by-side, no click) ----------
+// ---------- Section 2: Problem → Solution (tabbed, interactive) ----------
 function ProblemSection() {
   const pairs = [
     {
-      problemIcon: (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-2 3-3 5-3s4 1 5 3"/></svg>),
-      problem: '사진과 조건만 보고 판단',
-      problemSub: '괜찮아 보여도 대화가 이어지지 않는 만남',
-      solveIcon: (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 12h6M9 9h4"/></svg>),
-      solve: '심리 질문으로 관계의 결까지',
-      solveSub: '24개 질문으로 성향·감정·갈등 대처 방식을 매칭',
-      anchor: '#way',
+      num:'01',
+      problem:'사진과 조건만으로 판단',
+      problemSub:'몇 줄의 프로필로는 보이지 않는 결이 있습니다. 만나도 대화가 이어지지 않는 경우가 많습니다.',
+      problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-2 3-3 5-3s4 1 5 3"/></svg>),
+      solve:'심리 질문으로 관계의 결까지',
+      solveSub:'24개 심리 질문과 9개 선호 질문으로 성향·감정 표현·갈등 대처 방식을 함께 살펴 매칭합니다.',
+      solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>),
     },
     {
-      problemIcon: (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg>),
-      problem: '조건만 맞고 방향은 어긋남',
-      problemSub: '숫자로는 정렬되지만 가치관이 다른 관계',
-      solveIcon: (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z" fill="currentColor" stroke="none"/></svg>),
-      solve: '결혼관·가족관·경제관까지 매칭',
-      solveSub: '비슷한 삶의 방향을 가진 사람을 우선 추천',
-      anchor: '#way',
+      num:'02',
+      problem:'조건만 맞고 방향이 어긋남',
+      problemSub:'숫자로는 정렬되지만 가치관·삶의 방향이 다를 수 있습니다.',
+      problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg>),
+      solve:'결혼관·가족관·경제관까지 매칭',
+      solveSub:'세 가지 가치관을 매칭 추천에 반영해, 비슷한 삶의 방향을 가진 사람을 우선 보여드립니다.',
+      solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z" fill="currentColor" stroke="none"/></svg>),
     },
     {
-      problemIcon: (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="17.5" r="0.8" fill="currentColor"/><path d="M10 7h4"/></svg>),
-      problem: '가벼운 사용자들 사이에서 피로',
-      problemSub: '진지한 결정에는 다른 환경이 필요합니다',
-      solveIcon: (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>),
-      solve: '본인 확인을 거친 회원만',
-      solveSub: '신원·직업·학력 검토 후 승인된 회원으로 운영',
-      anchor: '#trust',
+      num:'03',
+      problem:'가벼운 사용자들 사이에서 피로',
+      problemSub:'진지한 결정에는 다른 환경이 필요합니다. 즉흥적인 만남이 섞인 환경에서는 결혼을 위한 결정이 어렵습니다.',
+      problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="17.5" r="0.8" fill="currentColor"/><path d="M10 7h4"/></svg>),
+      solve:'본인 확인을 거친 회원만',
+      solveSub:'본인·신원·직업·학력 검토를 거쳐 승인된 회원만 가입할 수 있도록 운영합니다.',
+      solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>),
     },
     {
-      problemIcon: (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"/></svg>),
-      problem: '높은 가입비, 불확실한 결과',
-      problemSub: '먼저 큰 비용을 치러야 시작하는 구조',
-      solveIcon: (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>),
-      solve: '가입비 0원, 만남 성사 시에만',
-      solveSub: '양쪽 동의 후 일정 조율 단계에서만 비용 발생',
-      anchor: '#pricing',
+      num:'04',
+      problem:'높은 가입비, 불확실한 결과',
+      problemSub:'먼저 큰 비용을 치러야 시작할 수 있는 구조. 결과가 보장되지 않는데도 선결제가 필요합니다.',
+      problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"/></svg>),
+      solve:'가입비 0원, 만남 성사 시에만',
+      solveSub:'가입비는 0원이며, 양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 비용이 발생합니다.',
+      solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>),
     },
   ];
+  const [active, setActive] = useState(0);
+  const cur = pairs[active];
   return (
     <section className="bg-offwhite" id="problem">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
@@ -213,48 +212,55 @@ function ProblemSection() {
         <Reveal delay={80}>
           <h2 className="gh-display gh-h2 max-w-[20ch]">이런 어려움,<br/>결하다는 이렇게 풉니다.</h2>
         </Reveal>
+        <Reveal delay={140}>
+          <p className="body-lg mt-6 text-mute" style={{maxWidth:'44ch'}}>가장 공감되는 어려움을 눌러보세요. 결하다가 어떻게 풀어가는지 보여드립니다.</p>
+        </Reveal>
 
-        <div className="mt-12 space-y-4 md:space-y-5">
-          {pairs.map((p,i)=>(
-            <Reveal key={i} delay={i*70}>
-              <div className="grid md:grid-cols-[1fr_auto_1.15fr] gap-3 md:gap-4 items-stretch">
-                {/* Problem (muted) */}
-                <div className="card p-5 md:p-6 flex gap-4 items-start" style={{background:'rgba(44,42,53,.025)', borderColor:'rgba(44,42,53,.08)'}}>
-                  <div className="w-11 h-11 rounded-lg grid place-items-center shrink-0" style={{background:'rgba(44,42,53,.06)', color:'rgba(44,42,53,.45)'}}>
-                    {p.problemIcon}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="eyebrow text-mute mb-1.5">기존의 만남</div>
-                    <div className="font-semibold text-[17px] md:text-[18px] leading-snug" style={{color:'rgba(44,42,53,.55)'}}>{p.problem}</div>
-                    <p className="body text-mute mt-1.5">{p.problemSub}</p>
-                  </div>
-                </div>
+        {/* Tabs */}
+        <Reveal delay={200}>
+          <div className="problem-tabs mt-10">
+            {pairs.map((p,i)=>(
+              <button
+                key={i}
+                type="button"
+                className="problem-tab"
+                data-active={i === active ? '1' : '0'}
+                onClick={()=>setActive(i)}
+                aria-pressed={i === active}
+              >
+                <span className="problem-tab-num">{p.num}</span>
+                <span className="problem-tab-text">{p.problem}</span>
+              </button>
+            ))}
+          </div>
+        </Reveal>
 
-                {/* Connector */}
-                <div className="flex md:flex-col items-center justify-center py-1 md:py-0 md:px-1 text-lavender-deep">
-                  <svg className="hidden md:block" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 6l6 6-6 6"/></svg>
-                  <svg className="md:hidden" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M6 14l6 6 6-6"/></svg>
-                </div>
-
-                {/* Solution (highlighted) */}
-                <a href={p.anchor} className="card p-5 md:p-6 flex gap-4 items-start hover:shadow-md transition-shadow group" style={{background:'linear-gradient(135deg, rgba(200,182,226,.22) 0%, rgba(200,182,226,.06) 100%)', borderColor:'rgba(107,91,149,.22)'}}>
-                  <div className="w-11 h-11 rounded-lg grid place-items-center text-white shrink-0" style={{background:'var(--lav-deep)'}}>
-                    {p.solveIcon}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="eyebrow text-lavender-deep mb-1.5">결하다는</div>
-                    <div className="gh-h3 leading-snug">{p.solve}</div>
-                    <p className="body text-ink/70 mt-1.5">{p.solveSub}</p>
-                    <span className="inline-flex items-center gap-1 small text-lavender-deep mt-3 group-hover:gap-2 transition-all">
-                      자세히 보기
-                      <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-                    </span>
-                  </div>
-                </a>
+        {/* Comparison */}
+        <Reveal delay={280}>
+          <div className="problem-compare mt-5" key={active}>
+            <div className="problem-pane problem-pane-bad">
+              <div className="problem-pane-head">
+                <div className="problem-icon problem-icon-bad">{cur.problemIcon}</div>
+                <div className="eyebrow text-mute">기존의 만남</div>
               </div>
-            </Reveal>
-          ))}
-        </div>
+              <div className="problem-title-bad">{cur.problem}</div>
+              <p className="problem-sub">{cur.problemSub}</p>
+            </div>
+            <div className="problem-compare-arrow">
+              <div className="problem-arrow-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 6l6 6-6 6"/></svg>
+              </div>
+            </div>
+            <div className="problem-pane problem-pane-good">
+              <div className="problem-pane-head">
+                <div className="problem-icon problem-icon-good">{cur.solveIcon}</div>
+                <div className="eyebrow text-lavender-deep">결하다는</div>
+              </div>
+              <div className="gh-h3 leading-snug">{cur.solve}</div>
+              <p className="problem-sub problem-sub-good">{cur.solveSub}</p>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -540,12 +546,12 @@ function PricingSection() {
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
   const items = [
-    ['가입비가 정말 없나요?','네. 가입비는 0원이며, 만남에 상호 동의했을 때만 비용이 발생합니다.'],
-    ['만남 비용은 언제 발생하나요?','양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다.'],
-    ['아무나 가입할 수 있나요?','본인·기본 정보 확인을 거친 회원만 가입이 승인됩니다.'],
-    ['결혼관·가족관·경제관은 어떻게 반영되나요?','선호 필터가 아니라 매칭 추천에 반영되어, 비슷한 방향을 가진 사람을 우선 보여드립니다.'],
-    ['제출한 서류가 상대방에게 공개되나요?','검토 목적에만 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공됩니다.'],
-    ['소개팅 앱과 무엇이 다른가요?','사진·거리 중심의 즉흥 매칭이 아니라, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭입니다.'],
+    ['가입비가 정말 없나요?','네. 결하다는 높은 가입비를 먼저 받지 않습니다. 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 발생합니다.'],
+    ['만남 비용은 언제 발생하나요?','양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다. 가입, 응답, 추천 확인 단계에서는 비용이 발생하지 않습니다.'],
+    ['아무나 가입할 수 있나요?','결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'],
+    ['결혼관·가족관·경제관은 어떻게 반영되나요?','이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'],
+    ['제출한 서류가 상대방에게 공개되나요?','제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'],
+    ['결하다는 소개팅 앱과 무엇이 다른가요?','사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.'],
   ];
   return (
     <section id="faq" className="bg-veil">
