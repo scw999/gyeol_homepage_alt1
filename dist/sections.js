@@ -65,9 +65,9 @@ function Header({
     href: '#faq'
   }];
   return /*#__PURE__*/React.createElement("header", {
-    className: `fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur-md bg-offwhite/85 border-b border-black/5' : ''}`
+    className: `fixed top-0 inset-x-0 z-50 transition-all duration-300 backdrop-blur-md border-b ${scrolled ? 'bg-offwhite/90 border-black/10 shadow-[0_2px_12px_rgba(44,42,53,0.04)]' : 'bg-offwhite/70 border-black/5'}`
   }, /*#__PURE__*/React.createElement("div", {
-    className: `max-w-[1240px] mx-auto px-6 md:px-10 flex items-center justify-between gap-6 transition-all duration-300 ${scrolled ? 'h-[64px]' : 'h-[76px]'}`
+    className: `max-w-[1240px] mx-auto px-6 md:px-10 flex items-center justify-between gap-6 transition-all duration-300 h-[64px]`
   }, /*#__PURE__*/React.createElement("a", {
     href: "#",
     className: "flex items-center gap-3 shrink-0 py-2"
@@ -163,7 +163,7 @@ function Hero({
     showRing: false,
     style: waveStyle
   }))), /*#__PURE__*/React.createElement("div", {
-    className: "relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-28 md:pt-32 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center"
+    className: "relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center"
   }, /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
@@ -295,34 +295,167 @@ function Hero({
   }))))));
 }
 
-// ---------- Section 2: Problem (interactive — cards expand to show how 결하다 solves) ----------
+// ---------- Section 2: Problem → Solution (side-by-side, no click) ----------
 function ProblemSection() {
-  const items = [{
-    t: '괜찮아 보이지만 대화가 이어지지 않는 만남',
-    d: '몇 줄의 프로필로는 보이지 않는 결이 있습니다.',
-    solveTitle: '결하다는 — 내면의 결을 함께 봅니다',
-    solve: '24개의 주관식 심리 질문으로 관계 태도와 감정 표현 방식을 살펴, 대화의 결이 이어질 사람을 찾습니다.',
+  const pairs = [{
+    problemIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: "4",
+      y: "3",
+      width: "16",
+      height: "18",
+      rx: "2"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "10",
+      r: "3"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M7 18c1-2 3-3 5-3s4 1 5 3"
+    })),
+    problem: '사진과 조건만 보고 판단',
+    problemSub: '괜찮아 보여도 대화가 이어지지 않는 만남',
+    solveIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.6",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M9 12h6M9 9h4"
+    })),
+    solve: '심리 질문으로 관계의 결까지',
+    solveSub: '24개 질문으로 성향·감정·갈등 대처 방식을 매칭',
     anchor: '#way'
   }, {
-    t: '조건은 맞지만 가치관이 다른 관계',
-    d: '숫자로는 정렬되지만 삶의 방향은 어긋날 수 있습니다.',
-    solveTitle: '결하다는 — 미래의 결을 매칭에 반영합니다',
-    solve: '결혼관·가족관·경제관은 필터링이 아닌 매칭에 반영되어, 비슷한 삶의 방향을 가진 사람을 우선 추천합니다.',
+    problemIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5",
+      strokeLinecap: "round"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M4 6h16M4 12h10M4 18h6"
+    })),
+    problem: '조건만 맞고 방향은 어긋남',
+    problemSub: '숫자로는 정렬되지만 가치관이 다른 관계',
+    solveIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.6",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "9"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z",
+      fill: "currentColor",
+      stroke: "none"
+    })),
+    solve: '결혼관·가족관·경제관까지 매칭',
+    solveSub: '비슷한 삶의 방향을 가진 사람을 우선 추천',
     anchor: '#way'
   }, {
-    t: '가벼운 사용자 때문에 피로한 소개팅 앱',
-    d: '결혼이라는 진지한 결정은 다른 환경을 필요로 합니다.',
-    solveTitle: '결하다는 — 승인제로 운영합니다',
-    solve: '본인 확인과 기본 정보 검토를 거친 회원만 가입할 수 있습니다. 진지한 만남을 위한 환경을 유지합니다.',
+    problemIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: "5",
+      y: "3",
+      width: "14",
+      height: "18",
+      rx: "2.5"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "17.5",
+      r: "0.8",
+      fill: "currentColor"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M10 7h4"
+    })),
+    problem: '가벼운 사용자들 사이에서 피로',
+    problemSub: '진지한 결정에는 다른 환경이 필요합니다',
+    solveIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.6",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5l8-3z"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M9 12l2 2 4-4"
+    })),
+    solve: '본인 확인을 거친 회원만',
+    solveSub: '신원·직업·학력 검토 후 승인된 회원으로 운영',
     anchor: '#trust'
   }, {
-    t: '높은 가입비에도 결과가 불확실한 결혼정보회사',
-    d: '먼저 큰 비용을 치러야만 시작할 수 있는 구조입니다.',
-    solveTitle: '결하다는 — 만남이 성사될 때만 비용이 발생합니다',
-    solve: '가입비 0원. 양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때 남녀 각 100,000원의 비용이 발생합니다.',
+    problemIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "9"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"
+    })),
+    problem: '높은 가입비, 불확실한 결과',
+    problemSub: '먼저 큰 비용을 치러야 시작하는 구조',
+    solveIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.6",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "9"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M8 12l3 3 5-6"
+    })),
+    solve: '가입비 0원, 만남 성사 시에만',
+    solveSub: '양쪽 동의 후 일정 조율 단계에서만 비용 발생',
     anchor: '#pricing'
   }];
-  const [openIdx, setOpenIdx] = useState(null);
   return /*#__PURE__*/React.createElement("section", {
     className: "bg-offwhite",
     id: "problem"
@@ -333,80 +466,97 @@ function ProblemSection() {
   }, "Why a different way")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2 max-w-[18ch]"
-  }, "\uC0AC\uC9C4\uACFC \uC870\uAC74\uB9CC\uC73C\uB85C\uB294", /*#__PURE__*/React.createElement("br", null), "\uACB0\uD63C\uC744 \uACB0\uC815\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 140
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 max-w-[60ch] text-mute"
-  }, "\uCE74\uB4DC\uB97C \uB20C\uB7EC\uBCF4\uC138\uC694. \uACB0\uD558\uB2E4\uAC00 \uC5B4\uB5BB\uAC8C \uD480\uC5B4\uAC00\uB294\uC9C0 \uBCF4\uC5EC\uB4DC\uB9BD\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
-    className: "mt-12 grid md:grid-cols-2 gap-4"
-  }, items.map((it, i) => {
-    const isOpen = openIdx === i;
-    return /*#__PURE__*/React.createElement(Reveal, {
-      key: i,
-      delay: i * 70
-    }, /*#__PURE__*/React.createElement("button", {
-      type: "button",
-      onClick: () => setOpenIdx(isOpen ? null : i),
-      className: `card p-7 md:p-8 h-full grain text-left w-full transition-all ${isOpen ? 'shadow-lg' : 'hover:shadow-md'}`,
-      style: {
-        borderColor: isOpen ? 'rgba(107,91,149,.35)' : undefined
-      },
-      "aria-expanded": isOpen
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "flex items-baseline gap-3 mb-3"
-    }, /*#__PURE__*/React.createElement("span", {
-      className: "font-en text-mute text-[12px] tracking-widest"
-    }, "0", i + 1), /*#__PURE__*/React.createElement("span", {
-      className: "w-10 h-px bg-lavender"
-    }), /*#__PURE__*/React.createElement("span", {
-      className: "ml-auto small text-lavender-deep flex items-center gap-1"
-    }, isOpen ? '닫기' : '결하다의 답', /*#__PURE__*/React.createElement("svg", {
-      width: "12",
-      height: "12",
-      viewBox: "0 0 12 12",
-      style: {
-        transform: isOpen ? 'rotate(45deg)' : 'none',
-        transition: 'transform .25s ease'
-      }
-    }, /*#__PURE__*/React.createElement("path", {
-      d: "M6 1v10M1 6h10",
-      stroke: "currentColor",
-      strokeWidth: "1.4",
-      strokeLinecap: "round"
-    })))), /*#__PURE__*/React.createElement("div", {
-      className: "gh-h3 mb-3"
-    }, it.t), /*#__PURE__*/React.createElement("p", {
-      className: "body text-mute"
-    }, it.d), /*#__PURE__*/React.createElement("div", {
-      style: {
-        maxHeight: isOpen ? 400 : 0,
-        overflow: 'hidden',
-        transition: 'max-height .35s ease, opacity .25s ease',
-        opacity: isOpen ? 1 : 0
-      }
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "mt-5 pt-5 border-t border-lavender-deep/15"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "eyebrow mb-2"
-    }, it.solveTitle), /*#__PURE__*/React.createElement("p", {
-      className: "body text-ink/85"
-    }, it.solve), /*#__PURE__*/React.createElement("a", {
-      href: it.anchor,
-      className: "inline-flex items-center gap-1 mt-4 small text-lavender-deep hover:underline"
-    }, "\uC790\uC138\uD788 \uBCF4\uAE30", /*#__PURE__*/React.createElement("svg", {
-      width: "12",
-      height: "12",
-      viewBox: "0 0 12 12"
-    }, /*#__PURE__*/React.createElement("path", {
-      d: "M2 6h8M6 2l4 4-4 4",
-      stroke: "currentColor",
-      strokeWidth: "1.4",
-      fill: "none",
-      strokeLinecap: "round",
-      strokeLinejoin: "round"
-    })))))));
-  }))));
+    className: "gh-display gh-h2 max-w-[20ch]"
+  }, "\uC774\uB7F0 \uC5B4\uB824\uC6C0,", /*#__PURE__*/React.createElement("br", null), "\uACB0\uD558\uB2E4\uB294 \uC774\uB807\uAC8C \uD489\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+    className: "mt-12 space-y-4 md:space-y-5"
+  }, pairs.map((p, i) => /*#__PURE__*/React.createElement(Reveal, {
+    key: i,
+    delay: i * 70
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "grid md:grid-cols-[1fr_auto_1.15fr] gap-3 md:gap-4 items-stretch"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card p-5 md:p-6 flex gap-4 items-start",
+    style: {
+      background: 'rgba(44,42,53,.025)',
+      borderColor: 'rgba(44,42,53,.08)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-11 h-11 rounded-lg grid place-items-center shrink-0",
+    style: {
+      background: 'rgba(44,42,53,.06)',
+      color: 'rgba(44,42,53,.45)'
+    }
+  }, p.problemIcon), /*#__PURE__*/React.createElement("div", {
+    className: "min-w-0"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow text-mute mb-1.5"
+  }, "\uAE30\uC874\uC758 \uB9CC\uB0A8"), /*#__PURE__*/React.createElement("div", {
+    className: "font-semibold text-[17px] md:text-[18px] leading-snug",
+    style: {
+      color: 'rgba(44,42,53,.55)'
+    }
+  }, p.problem), /*#__PURE__*/React.createElement("p", {
+    className: "body text-mute mt-1.5"
+  }, p.problemSub))), /*#__PURE__*/React.createElement("div", {
+    className: "flex md:flex-col items-center justify-center py-1 md:py-0 md:px-1 text-lavender-deep"
+  }, /*#__PURE__*/React.createElement("svg", {
+    className: "hidden md:block",
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12h14M14 6l6 6-6 6"
+  })), /*#__PURE__*/React.createElement("svg", {
+    className: "md:hidden",
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 5v14M6 14l6 6 6-6"
+  }))), /*#__PURE__*/React.createElement("a", {
+    href: p.anchor,
+    className: "card p-5 md:p-6 flex gap-4 items-start hover:shadow-md transition-shadow group",
+    style: {
+      background: 'linear-gradient(135deg, rgba(200,182,226,.22) 0%, rgba(200,182,226,.06) 100%)',
+      borderColor: 'rgba(107,91,149,.22)'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "w-11 h-11 rounded-lg grid place-items-center text-white shrink-0",
+    style: {
+      background: 'var(--lav-deep)'
+    }
+  }, p.solveIcon), /*#__PURE__*/React.createElement("div", {
+    className: "min-w-0 flex-1"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow text-lavender-deep mb-1.5"
+  }, "\uACB0\uD558\uB2E4\uB294"), /*#__PURE__*/React.createElement("div", {
+    className: "gh-h3 leading-snug"
+  }, p.solve), /*#__PURE__*/React.createElement("p", {
+    className: "body text-ink/70 mt-1.5"
+  }, p.solveSub), /*#__PURE__*/React.createElement("span", {
+    className: "inline-flex items-center gap-1 small text-lavender-deep mt-3 group-hover:gap-2 transition-all"
+  }, "\uC790\uC138\uD788 \uBCF4\uAE30", /*#__PURE__*/React.createElement("svg", {
+    width: "11",
+    height: "11",
+    viewBox: "0 0 12 12",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M2 6h8M6 2l4 4-4 4"
+  })))))))))));
 }
 
 // ---------- Section 3: Three Gyeol — matching method (merged with personality) ----------
@@ -417,7 +567,7 @@ function ThreeGyeolSection({
     tag: '외면의 결',
     kr: '外',
     t: '현실적인 결혼 조건',
-    d: '나이, 직업, 학력, 거주지, 자산 등 결혼 생활의 토대가 되는 정보를 인증 절차로 확인합니다.',
+    d: '나이, 직업, 학력, 거주지, 자산 등 결혼의 토대가 되는 정보를 인증으로 확인합니다.',
     screen: appScreens && appScreens.verifyMain,
     label: '인증 항목',
     note: '선호도 설정으로 필터링됩니다.'
@@ -425,20 +575,20 @@ function ThreeGyeolSection({
     tag: '내면의 결',
     kr: '內',
     t: '관계를 만드는 태도',
-    d: '24개 주관식 심리 질문과 9개 선호 질문으로 성향·감정 표현·갈등 대처 방식을 살핍니다.',
+    d: '24개 심리 질문 + 9개 선호 질문으로 성향·감정·갈등 대처 방식을 살핍니다.',
     screen: appScreens && appScreens.inner,
     label: '내면 분석 리포트',
-    note: 'Big Five · 애착 유형 · 부부관계 연구를 참고한 매칭 기준.'
+    note: 'Big Five · 애착 유형 · 부부관계 연구를 참고합니다.'
   }, {
     tag: '미래의 결',
     kr: '來',
     t: '함께 그리는 방향',
-    d: '결혼관, 가족관, 경제관 — 두 사람이 함께 그릴 삶의 방향을 살핍니다.',
+    d: '결혼관·가족관·경제관 — 두 사람이 함께 그릴 삶의 방향을 살핍니다.',
     screen: appScreens && appScreens.prefsMain,
     label: '매칭 선호도',
-    note: '선호도 필터링이 아니라 매칭 추천에 반영됩니다.'
+    note: '결혼관·가족관·경제관이 매칭 추천에 반영됩니다.'
   }];
-  const tags = ['Big Five 성격 5요인', '애착 유형', '관계 갈등 방식', '부부관계 연구'];
+  const tags = ['Big Five', '애착 유형', '관계 갈등 방식', '부부관계 연구'];
   return /*#__PURE__*/React.createElement("section", {
     id: "way",
     className: "bg-veil grain"
@@ -448,7 +598,7 @@ function ThreeGyeolSection({
     className: "eyebrow mb-4"
   }, "\uACB0\uD558\uB2E4\uC758 \uBC29\uC2DD \u2014 \uC138 \uAC00\uC9C0 \uACB0"), /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[22ch]"
-  }, "\uACB0\uD558\uB2E4\uB294 \uC0AC\uB78C\uC758 \uAC89\uACFC \uC18D,", /*#__PURE__*/React.createElement("br", null), "\uADF8\uB9AC\uACE0 \uD568\uAED8 \uADF8\uB9B4 \uBBF8\uB798\uB97C \uBD05\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+  }, "\uC0AC\uB78C\uC758 \uAC89\uACFC \uC18D,", /*#__PURE__*/React.createElement("br", null), "\uADF8\uB9AC\uACE0 \uD568\uAED8 \uADF8\uB9B4 \uBBF8\uB798\uAE4C\uC9C0.")), /*#__PURE__*/React.createElement("div", {
     className: "mt-12 grid md:grid-cols-3 gap-5"
   }, items.map((it, i) => /*#__PURE__*/React.createElement(Reveal, {
     key: i,
@@ -529,8 +679,8 @@ function TrustSection({
   }, "\uC2E0\uACE0\uB41C \uC11C\uBE44\uC2A4\uB85C,", /*#__PURE__*/React.createElement("br", null), "\uBBFF\uC744 \uC218 \uC788\uB294 \uB9CC\uB0A8\uC744 \uC6B4\uC601\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[58ch]"
-  }, "\uACB0\uD558\uB2E4\uB294 \u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB978 \uC2E0\uACE0 \uC808\uCC28\uB97C \uAC16\uCD98 \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uC785\uB2C8\uB2E4. \uBCF8\uC778 \uD655\uC778\uACFC \uAE30\uBCF8 \uC815\uBCF4 \uAC80\uD1A0\uB97C \uAC70\uCE5C \uD68C\uC6D0\uB9CC \uAC00\uC785\uD560 \uC218 \uC788\uC73C\uBA70, \uC81C\uCD9C\uB41C \uC790\uB8CC\uB294 \uAC80\uD1A0 \uBAA9\uC801\uC5D0 \uB9DE\uAC8C \uC548\uC804\uD558\uAC8C \uAD00\uB9AC\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+    className: "body-lg mt-6 text-mute max-w-[52ch]"
+  }, "\u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB77C \uC2E0\uACE0\uB41C \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uB85C, \uAC80\uC99D\uC744 \uAC70\uCE5C \uD68C\uC6D0\uB9CC \uAC00\uC785\uD560 \uC218 \uC788\uB3C4\uB85D \uC6B4\uC601\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
   }, /*#__PURE__*/React.createElement("div", {
     className: "mt-8"
@@ -615,28 +765,28 @@ function TrustSection({
 function ProcessSection() {
   const steps = [{
     t: '앱 다운로드',
-    d: '결하다 앱을 받아 시작합니다.'
+    d: '결하다 앱으로 시작합니다.'
   }, {
     t: '프로필 작성',
     d: '결혼을 위한 기본 정보를 정리합니다.'
   }, {
     t: '심리 질문 응답',
-    d: '24개 주관식 + 9개 선호 질문에 답합니다.'
+    d: '24개 + 9개 질문에 답합니다.'
   }, {
     t: '신뢰 자료 제출',
-    d: '본인 확인과 기본 정보 자료를 제출합니다.'
+    d: '본인·기본 정보를 제출합니다.'
   }, {
-    t: '승인 및 검토',
-    d: '승인 절차를 거쳐 회원으로 가입됩니다.'
+    t: '승인 검토',
+    d: '검토 후 회원으로 가입됩니다.'
   }, {
     t: '결 기반 추천',
-    d: '세 가지 결을 함께 본 추천이 도착합니다.'
+    d: '세 가지 결로 본 추천이 도착합니다.'
   }, {
     t: '상호 호감 확인',
-    d: '양쪽이 만남에 동의했을 때 다음 단계로 이어집니다.'
+    d: '양쪽이 동의하면 다음 단계로.'
   }, {
-    t: '일정 조율 및 실제 만남',
-    d: '편한 일정을 조율하고 직접 만남을 진행합니다.'
+    t: '실제 만남',
+    d: '일정을 조율해 직접 만남을 진행합니다.'
   }];
   return /*#__PURE__*/React.createElement("section", {
     id: "process",
@@ -677,7 +827,7 @@ function PricingSection() {
   const points = [{
     eyebrow: '가입비',
     t: '0원으로 시작',
-    d: '높은 선결제 없이 결혼을 위한 만남을 시도해볼 수 있습니다.',
+    d: '선결제 없이 결혼을 위한 만남을 시도할 수 있습니다.',
     icon: /*#__PURE__*/React.createElement("svg", {
       width: "20",
       height: "20",
@@ -691,7 +841,7 @@ function PricingSection() {
   }, {
     eyebrow: '관계 성향',
     t: '깊게 살피는 매칭',
-    d: '24개 심리 질문 + 결혼관·가족관·경제관까지 매칭에 반영됩니다.',
+    d: '심리 질문 + 결혼관·가족관·경제관까지 매칭에 반영.',
     icon: /*#__PURE__*/React.createElement("svg", {
       width: "20",
       height: "20",
@@ -705,7 +855,7 @@ function PricingSection() {
   }, {
     eyebrow: '신뢰',
     t: '승인제 가입',
-    d: '본인 확인과 기본 정보 검토를 거친 회원만 가입할 수 있습니다.',
+    d: '본인·신원·직업 검토를 거친 회원만 가입할 수 있습니다.',
     icon: /*#__PURE__*/React.createElement("svg", {
       width: "20",
       height: "20",
@@ -720,8 +870,8 @@ function PricingSection() {
     }))
   }, {
     eyebrow: '법적 신뢰',
-    t: '결혼중개업 신고 절차',
-    d: '「결혼중개업법」에 따른 신고 절차를 갖춘 결혼정보 서비스입니다.',
+    t: '결혼중개업 신고',
+    d: '「결혼중개업법」에 따라 신고된 결혼정보 서비스입니다.',
     icon: /*#__PURE__*/React.createElement("svg", {
       width: "20",
       height: "20",
@@ -757,8 +907,8 @@ function PricingSection() {
   }, "\uB192\uC740 \uAC00\uC785\uBE44 \uC5C6\uC774,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC131\uC0AC\uB420 \uB54C\uB9CC.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[44ch]"
-  }, "\uACB0\uD558\uB2E4\uB294 \uC18C\uAC1C\uD305 \uC571\uACFC \uACB0\uD63C\uC815\uBCF4\uD68C\uC0AC \uC0AC\uC774\uC758 \uC0C8\uB85C\uC6B4 \uB300\uC548\uC785\uB2C8\uB2E4. \uC9C4\uC9C0\uD55C \uB9CC\uB0A8\uC744 \uAC00\uBCBC\uC6B4 \uC2DC\uC791 \uBE44\uC6A9\uC73C\uB85C \uC2DC\uB3C4\uD560 \uC218 \uC788\uB3C4\uB85D \uC124\uACC4\uD588\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+    className: "body-lg mt-6 text-mute max-w-[40ch]"
+  }, "\uC18C\uAC1C\uD305 \uC571\uACFC \uACB0\uD63C\uC815\uBCF4\uD68C\uC0AC \uC0AC\uC774\uC758 \uC0C8\uB85C\uC6B4 \uB300\uC548. \uAC00\uBCBC\uC6B4 \uC2DC\uC791 \uBE44\uC6A9\uC73C\uB85C \uC9C4\uC9C0\uD55C \uB9CC\uB0A8\uC744 \uC2DC\uB3C4\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
   }, /*#__PURE__*/React.createElement("div", {
     className: "card p-7 md:p-8 mt-8 relative overflow-hidden"
@@ -787,17 +937,11 @@ function PricingSection() {
     className: "rule my-5"
   }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow"
-  }, "\uB9E4\uCE6D + \uC0C1\uD638 \uB3D9\uC758 \uC2DC"), /*#__PURE__*/React.createElement("div", {
-    className: "gh-display mt-1",
-    style: {
-      fontSize: '28px',
-      lineHeight: 1.1
-    }
-  }, "\uB0A8\uB140 \uAC01 100,000", /*#__PURE__*/React.createElement("span", {
-    className: "text-[16px] ml-1 text-mute"
-  }, "\uC6D0"))), /*#__PURE__*/React.createElement("p", {
+  }, "\uB9CC\uB0A8 \uBE44\uC6A9"), /*#__PURE__*/React.createElement("p", {
+    className: "body mt-2 text-ink"
+  }, "\uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C\uB9CC \uBC1C\uC0DD\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("p", {
     className: "small mt-4 text-mute"
-  }, "\uC591\uCABD \uBAA8\uB450 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C \uBE44\uC6A9\uC774 \uBC1C\uC0DD\uD569\uB2C8\uB2E4."))))), /*#__PURE__*/React.createElement("div", {
+  }, "\uC815\uD655\uD55C \uAE08\uC561\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC548\uB0B4\uB429\uB2C8\uB2E4."))))), /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement("div", {
     className: "grid sm:grid-cols-2 gap-4"
@@ -819,7 +963,7 @@ function PricingSection() {
 
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
-  const items = [['가입비가 정말 없나요?', '네. 결하다는 높은 가입비를 먼저 받지 않습니다. 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 발생합니다.'], ['만남 비용은 언제 발생하나요?', '양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다.'], ['가치관·결혼관·경제관도 필터링되나요?', '이 항목들은 선호도 필터링이 아니라 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 추천하는 방식입니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다.']];
+  const items = [['가입비가 정말 없나요?', '네. 가입비는 0원이며, 만남에 상호 동의했을 때만 비용이 발생합니다.'], ['만남 비용은 언제 발생하나요?', '양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다.'], ['아무나 가입할 수 있나요?', '본인·기본 정보 확인을 거친 회원만 가입이 승인됩니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '선호 필터가 아니라 매칭 추천에 반영되어, 비슷한 방향을 가진 사람을 우선 보여드립니다.'], ['제출한 서류가 상대방에게 공개되나요?', '검토 목적에만 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공됩니다.'], ['소개팅 앱과 무엇이 다른가요?', '사진·거리 중심의 즉흥 매칭이 아니라, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭입니다.']];
   return /*#__PURE__*/React.createElement("section", {
     id: "faq",
     className: "bg-veil"
@@ -854,116 +998,6 @@ function FAQSection() {
   })))), /*#__PURE__*/React.createElement("p", {
     className: "body mt-3 text-mute max-w-[68ch]"
   }, a))))));
-}
-
-// ---------- Section 8: Brand philosophy ----------
-function PhilosophySection({
-  images
-}) {
-  const img = images && (Array.isArray(images.philosophy) ? images.philosophy[0] : images.philosophy);
-  return /*#__PURE__*/React.createElement("section", {
-    className: "bg-offwhite"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12 items-center"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-5"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "relative aspect-[4/5] rounded-2xl overflow-hidden hairline"
-  }, img ? /*#__PURE__*/React.createElement("img", {
-    src: img,
-    alt: "\uD568\uAED8 \uAE38\uC744 \uAC77\uB294 \uB450 \uC0AC\uB78C\uC758 \uB4B7\uBAA8\uC2B5",
-    loading: "lazy",
-    decoding: "async",
-    className: "absolute inset-0 w-full h-full object-cover"
-  }) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    className: "absolute inset-0",
-    style: {
-      background: 'linear-gradient(180deg, #e7e2d6 0%, #d8d2c5 100%)'
-    }
-  }), /*#__PURE__*/React.createElement("svg", {
-    viewBox: "0 0 400 500",
-    className: "absolute inset-0 w-full h-full",
-    preserveAspectRatio: "xMidYMax slice"
-  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: "phx",
-    x1: "0",
-    y1: "0",
-    x2: "0",
-    y2: "1"
-  }, /*#__PURE__*/React.createElement("stop", {
-    offset: "0%",
-    stopColor: "#e7e2d6"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: "100%",
-    stopColor: "#bcb5a3"
-  }))), /*#__PURE__*/React.createElement("rect", {
-    width: "400",
-    height: "500",
-    fill: "url(#phx)"
-  }), /*#__PURE__*/React.createElement("line", {
-    x1: "0",
-    y1: "370",
-    x2: "400",
-    y2: "370",
-    stroke: "#2C2A35",
-    strokeOpacity: "0.08"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M 0 480 Q 200 360 400 480 Z",
-    fill: "#c9c0aa",
-    opacity: "0.7"
-  }), /*#__PURE__*/React.createElement("g", {
-    transform: "translate(150 280)"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "0",
-    cy: "0",
-    r: "22",
-    fill: "#2C2A35",
-    opacity: "0.85"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M -28 18 C -28 60, -10 90, -2 130 L 26 130 C 28 90, 30 60, 30 18 Z",
-    fill: "#2C2A35",
-    opacity: "0.85"
-  })), /*#__PURE__*/React.createElement("g", {
-    transform: "translate(220 285)"
-  }, /*#__PURE__*/React.createElement("circle", {
-    cx: "0",
-    cy: "0",
-    r: "20",
-    fill: "#3a3744",
-    opacity: "0.85"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M -25 16 C -25 56, -8 84, 0 122 L 24 122 C 26 84, 28 56, 28 16 Z",
-    fill: "#3a3744",
-    opacity: "0.85"
-  })), /*#__PURE__*/React.createElement("circle", {
-    cx: "320",
-    cy: "120",
-    r: "80",
-    fill: "#D8B76A",
-    opacity: "0.18"
-  })))))), /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-7"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: 120
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4"
-  }, "Brand philosophy")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 160
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2 max-w-[22ch]"
-  }, "\uACB0\uD63C\uC740 \uC870\uAC74\uC758 \uD569\uC774 \uC544\uB2C8\uB77C,", /*#__PURE__*/React.createElement("br", null), "\uC0B6\uC758 \uACB0\uC774 \uB9DE\uC544\uAC00\uB294 \uC77C\uC785\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 220
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[56ch]"
-  }, "\uACB0\uD558\uB2E4\uB294 \uD55C \uC0AC\uB78C\uC758 \uC870\uAC74, \uC131\uD5A5, \uAC00\uCE58\uAD00, \uAC10\uC815\uC758 \uD750\uB984\uC744 \uD568\uAED8 \uC0B4\uD53C\uBA70 \uC624\uB798 \uC774\uC5B4\uC9C8 \uC218 \uC788\uB294 \uB9CC\uB0A8\uC744 \uC124\uACC4\uD569\uB2C8\uB2E4. \uBE60\uB978 \uB9E4\uCE6D\uBCF4\uB2E4 \uB290\uB9AC\uC9C0\uB9CC \uB2E8\uB2E8\uD55C \uC2DC\uC791\uC744, \uD654\uB824\uD55C \uC57D\uC18D\uBCF4\uB2E4 \uC194\uC9C1\uD55C \uC548\uB0B4\uB97C \uC9C0\uD5A5\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 280
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "mt-9 aspect-[16/7] max-w-[520px] rounded-xl overflow-hidden hairline"
-  }, /*#__PURE__*/React.createElement(Sig.WaveCross, {
-    progress: 1,
-    scale: 1,
-    showRing: true
-  }))))));
 }
 
 // ---------- Footer ----------
@@ -1111,7 +1145,6 @@ Object.assign(window, {
   ProcessSection,
   PricingSection,
   FAQSection,
-  PhilosophySection,
   Footer,
   MobileSticky,
   FloatingQR

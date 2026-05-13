@@ -63,7 +63,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 const HEADLINES = {
   primary: {
     h: '결이 맞아야,<br/><span style="color:#6B5B95">결혼도 맞다.</span>',
-    sub: '결하다는 외면의 조건과 내면의 성향을 함께 살펴, 진지한 결혼을 원하는 사람들을 신뢰 기반으로 연결합니다.',
+    sub: '외면의 조건과 내면의 성향을 함께 살펴, 결혼을 원하는 사람들을 연결합니다.',
   },
   warm: {
     h: '천천히, 그러나 깊게.<br/><span style="color:#6B5B95">결이 맞는 사람을 만나는 일.</span>',
@@ -140,7 +140,6 @@ function App() {
         <ProcessSection/>
         <PricingSection/>
         <FAQSection/>
-        <PhilosophySection images={IMAGES}/>
       </main>
 
       <Footer ctaState={t.ctaState} ctaData={CTA_DATA}/>
