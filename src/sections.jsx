@@ -164,7 +164,7 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
 }
 
 // ---------- Section 2: Problem → Solution (tabbed, interactive) ----------
-function ProblemSection() {
+function ProblemSection({ appScreens }) {
   const pairs = [
     {
       num:'01',
@@ -174,6 +174,8 @@ function ProblemSection() {
       solve:'심리 질문으로 관계의 결까지',
       solveSub:'24개 심리 질문과 9개 선호 질문으로 성향·감정 표현·갈등 대처 방식을 함께 살펴 매칭합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>),
+      screen: appScreens && appScreens.tendency,
+      screenLabel:'성향 분석 리포트',
     },
     {
       num:'02',
@@ -183,6 +185,8 @@ function ProblemSection() {
       solve:'결혼관·가족관·경제관까지 매칭',
       solveSub:'세 가지 가치관을 매칭 추천에 반영해, 비슷한 삶의 방향을 가진 사람을 우선 보여드립니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z" fill="currentColor" stroke="none"/></svg>),
+      screen: appScreens && appScreens.prefsDetail,
+      screenLabel:'매칭 선호도',
     },
     {
       num:'03',
@@ -192,6 +196,8 @@ function ProblemSection() {
       solve:'본인 확인을 거친 회원만',
       solveSub:'본인·신원·직업·학력 검토를 거쳐 승인된 회원만 가입할 수 있도록 운영합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>),
+      screen: appScreens && appScreens.verifyDetail,
+      screenLabel:'인증 항목',
     },
     {
       num:'04',
@@ -201,6 +207,8 @@ function ProblemSection() {
       solve:'가입비 0원, 만남 성사 시에만',
       solveSub:'가입비는 0원이며, 양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 비용이 발생합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>),
+      screen: appScreens && appScreens.matchReason,
+      screenLabel:'매칭 이유',
     },
   ];
   const [active, setActive] = useState(0);
@@ -256,8 +264,18 @@ function ProblemSection() {
                 <div className="problem-icon problem-icon-good">{cur.solveIcon}</div>
                 <div className="eyebrow text-lavender-deep">결하다는</div>
               </div>
-              <div className="gh-h3 leading-snug">{cur.solve}</div>
-              <p className="problem-sub problem-sub-good">{cur.solveSub}</p>
+              <div className="problem-good-body">
+                <div className="problem-good-text">
+                  <div className="gh-h3 leading-snug">{cur.solve}</div>
+                  <p className="problem-sub problem-sub-good">{cur.solveSub}</p>
+                </div>
+                {cur.screen && (
+                  <div className="problem-good-phone">
+                    <Sig.PhoneMock src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} width={150} tilt={-2}/>
+                    <div className="small text-mute mt-2 text-center">{cur.screenLabel}</div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </Reveal>
@@ -420,7 +438,7 @@ function TrustSection({ images, appScreens }) {
 }
 
 // ---------- Section 5: Process timeline ----------
-function ProcessSection() {
+function ProcessSection({ appScreens }) {
   const steps = [
     {t:'앱 다운로드', d:'결하다 앱으로 시작합니다.'},
     {t:'프로필 작성', d:'결혼을 위한 기본 정보를 정리합니다.'},
@@ -431,13 +449,33 @@ function ProcessSection() {
     {t:'상호 호감 확인', d:'양쪽이 동의하면 다음 단계로.'},
     {t:'실제 만남', d:'일정을 조율해 직접 만남을 진행합니다.'},
   ];
+  const previews = [
+    {label:'심리 질문', title:'성향을 깊게 살핍니다', src: appScreens && appScreens.questions},
+    {label:'결 기반 추천', title:'매칭 이유까지 확인', src: appScreens && appScreens.matchReason},
+    {label:'리듬 매칭', title:'두 사람의 결 비교', src: appScreens && appScreens.rhythmDetail2},
+  ];
   return (
     <section id="process" className="bg-veil">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <Reveal><div className="eyebrow mb-4">8 steps</div></Reveal>
         <Reveal delay={80}><h2 className="gh-display gh-h2">서로의 결이 맞을 때,<br/>만남이 시작됩니다.</h2></Reveal>
 
-        <div className="mt-12 relative">
+        {/* Phone preview strip */}
+        <Reveal delay={140}>
+          <div className="process-preview">
+            {previews.map((p,i)=>(
+              <div key={i} className="process-preview-card">
+                <div className="process-preview-phone">
+                  <Sig.PhoneMock src={p.src} alt={`결하다 앱 — ${p.label}`} width={170} tilt={i % 2 === 0 ? -2 : 2}/>
+                </div>
+                <div className="process-preview-label">{p.label}</div>
+                <div className="process-preview-title">{p.title}</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        <div className="mt-2 relative">
           <div className="hidden md:block absolute top-[42px] left-0 right-0 h-px bg-gradient-to-r from-lavender-soft via-lavender-deep to-sage" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-14 gap-x-5">
             {steps.map((s,i)=>(
@@ -457,7 +495,7 @@ function ProcessSection() {
 }
 
 // ---------- Section 6: Pricing + Differentiation (merged) ----------
-function PricingSection() {
+function PricingSection({ appScreens }) {
   const points = [
     {
       eyebrow:'가입비',
@@ -522,6 +560,20 @@ function PricingSection() {
           </div>
 
           <div className="md:col-span-7">
+            {/* Feature highlight with phone */}
+            <Reveal delay={100}>
+              <div className="card p-6 md:p-7 mb-4 relative overflow-hidden flex flex-col sm:flex-row items-center gap-5" style={{background:'linear-gradient(135deg, rgba(200,182,226,.18), rgba(184,197,176,.10))'}}>
+                <div className="flex-shrink-0">
+                  <Sig.PhoneMock src={appScreens && appScreens.innerAlt} alt="결하다 앱 — 내면 분석 리포트" width={130} tilt={-3}/>
+                </div>
+                <div className="min-w-0">
+                  <div className="eyebrow text-lavender-deep mb-2">매칭 이유까지 보여드립니다</div>
+                  <div className="gh-h3 mb-2">왜 이 사람과 결이 맞는지<br/>설명되는 매칭</div>
+                  <p className="body text-mute">단순 추천이 아니라, 두 사람의 성향·가치관이 어떻게 만나는지 함께 보여드립니다.</p>
+                </div>
+              </div>
+            </Reveal>
+
             <div className="grid sm:grid-cols-2 gap-4">
               {points.map((p,i)=>(
                 <Reveal key={i} delay={i*70}>

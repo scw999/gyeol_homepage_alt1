@@ -173,12 +173,18 @@ function App() {
     paletteIntensity: t.paletteIntensity,
     images: IMAGES,
     appScreens: APP_SCREENS
-  }), /*#__PURE__*/React.createElement(ProblemSection, null), /*#__PURE__*/React.createElement(ThreeGyeolSection, {
+  }), /*#__PURE__*/React.createElement(ProblemSection, {
+    appScreens: APP_SCREENS
+  }), /*#__PURE__*/React.createElement(ThreeGyeolSection, {
     appScreens: APP_SCREENS
   }), /*#__PURE__*/React.createElement(TrustSection, {
     images: IMAGES,
     appScreens: APP_SCREENS
-  }), /*#__PURE__*/React.createElement(ProcessSection, null), /*#__PURE__*/React.createElement(PricingSection, null), /*#__PURE__*/React.createElement(FAQSection, null)), /*#__PURE__*/React.createElement(Footer, {
+  }), /*#__PURE__*/React.createElement(ProcessSection, {
+    appScreens: APP_SCREENS
+  }), /*#__PURE__*/React.createElement(PricingSection, {
+    appScreens: APP_SCREENS
+  }), /*#__PURE__*/React.createElement(FAQSection, null)), /*#__PURE__*/React.createElement(Footer, {
     ctaState: t.ctaState,
     ctaData: CTA_DATA
   }), /*#__PURE__*/React.createElement(MobileSticky, {
