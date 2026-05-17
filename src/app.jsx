@@ -134,11 +134,11 @@ function App() {
           images={IMAGES}
           appScreens={APP_SCREENS}
         />
-        <ProblemSection/>
+        <ProblemSection appScreens={APP_SCREENS}/>
         <ThreeGyeolSection appScreens={APP_SCREENS}/>
         <TrustSection images={IMAGES} appScreens={APP_SCREENS}/>
-        <ProcessSection/>
-        <PricingSection/>
+        <ProcessSection appScreens={APP_SCREENS}/>
+        <PricingSection appScreens={APP_SCREENS}/>
         <FAQSection/>
       </main>
 

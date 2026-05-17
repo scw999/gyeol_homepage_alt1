@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
 
-<link rel="stylesheet" href="dist/styles.css?v=1777600000000">
+<link rel="stylesheet" href="dist/styles.css?v=1777700000000">
 
 <style>
   :root{
@@ -154,11 +154,11 @@
     background:#fff; border:0.5px solid rgba(44,42,53,.08);
     border-radius:18px; overflow:hidden;
   }
-  @media (min-width:768px){ .problem-compare{ grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); } }
+  @media (min-width:768px){ .problem-compare{ grid-template-columns:minmax(0,.85fr) auto minmax(0,1.4fr); } }
   .problem-pane{ padding:28px 24px; }
   @media (min-width:768px){ .problem-pane{ padding:40px 36px; } }
   .problem-pane-bad{ background:rgba(44,42,53,.025); }
-  .problem-pane-good{ background:linear-gradient(135deg, rgba(200,182,226,.18), rgba(200,182,226,.04)); }
+  .problem-pane-good{ background:linear-gradient(135deg, rgba(200,182,226,.18), rgba(200,182,226,.04)); position:relative; overflow:hidden; }
   .problem-pane-head{ display:flex; align-items:center; gap:12px; margin-bottom:18px; }
   .problem-icon{ width:44px; height:44px; border-radius:12px; display:grid; place-items:center; flex-shrink:0; }
   .problem-icon-bad{ background:rgba(44,42,53,.08); color:rgba(44,42,53,.5); }
@@ -167,6 +167,13 @@
   @media (min-width:768px){ .problem-title-bad{ font-size:22px; } }
   .problem-sub{ font-size:15px; line-height:1.65; color:#6E6B78; margin-top:10px; }
   .problem-sub-good{ color:rgba(44,42,53,.75); }
+  .problem-good-body{ display:flex; flex-direction:column; gap:18px; align-items:flex-start; }
+  @media (min-width:768px){
+    .problem-good-body{ flex-direction:row; gap:24px; align-items:flex-start; }
+    .problem-good-text{ flex:1 1 0%; min-width:0; }
+    .problem-good-phone{ flex-shrink:0; margin-top:-8px; }
+  }
+  .problem-good-phone{ align-self:center; }
   .problem-compare-arrow{
     display:flex; align-items:center; justify-content:center;
     padding:4px 0; background:#fff;
@@ -179,6 +186,26 @@
     transform:rotate(90deg);
   }
   @media (min-width:768px){ .problem-arrow-circle{ transform:none; } }
+
+  /* === Process section preview strip === */
+  .process-preview{
+    display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:16px; margin-top:32px; margin-bottom:44px;
+  }
+  @media (max-width:640px){ .process-preview{ grid-template-columns:1fr; gap:20px; } }
+  .process-preview-card{
+    background:linear-gradient(180deg, rgba(200,182,226,.10), rgba(200,182,226,.02));
+    border:0.5px solid rgba(44,42,53,.08);
+    border-radius:18px;
+    padding:22px 18px 18px;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .process-preview-phone{ margin-bottom:16px; }
+  .process-preview-label{
+    font-family:'Inter',ui-sans-serif; font-size:11px; letter-spacing:.16em; color:#6B5B95;
+    text-transform:uppercase; margin-bottom:6px;
+  }
+  .process-preview-title{ font-size:15px; font-weight:600; color:#2C2A35; }
 
   /* === Header polish === */
   .site-header{
@@ -222,9 +249,9 @@ window.addEventListener('error', e => {
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="dist/tweaks-panel.js"></script>
-<script src="dist/signatures.js?v=1777600000000"></script>
-<script src="dist/sections.js?v=1777600000000"></script>
-<script src="dist/app.js?v=1777600000000"></script>
+<script src="dist/signatures.js?v=1777700000000"></script>
+<script src="dist/sections.js?v=1777700000000"></script>
+<script src="dist/app.js?v=1777700000000"></script>
 
 </body>
 </html>

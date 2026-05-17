@@ -292,7 +292,9 @@ function Hero({
 }
 
 // ---------- Section 2: Problem → Solution (tabbed, interactive) ----------
-function ProblemSection() {
+function ProblemSection({
+  appScreens
+}) {
   const pairs = [{
     num: '01',
     problem: '사진과 조건만으로 판단',
@@ -334,7 +336,9 @@ function ProblemSection() {
       d: "M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"
     }), /*#__PURE__*/React.createElement("path", {
       d: "M9 11h6M9 14h4"
-    }))
+    })),
+    screen: appScreens && appScreens.tendency,
+    screenLabel: '성향 분석 리포트'
   }, {
     num: '02',
     problem: '조건만 맞고 방향이 어긋남',
@@ -369,7 +373,9 @@ function ProblemSection() {
       d: "M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z",
       fill: "currentColor",
       stroke: "none"
-    }))
+    })),
+    screen: appScreens && appScreens.prefsDetail,
+    screenLabel: '매칭 선호도'
   }, {
     num: '03',
     problem: '가벼운 사용자들 사이에서 피로',
@@ -412,7 +418,9 @@ function ProblemSection() {
       d: "M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5l8-3z"
     }), /*#__PURE__*/React.createElement("path", {
       d: "M9 12l2 2 4-4"
-    }))
+    })),
+    screen: appScreens && appScreens.verifyDetail,
+    screenLabel: '인증 항목'
   }, {
     num: '04',
     problem: '높은 가입비, 불확실한 결과',
@@ -450,7 +458,9 @@ function ProblemSection() {
       r: "9"
     }), /*#__PURE__*/React.createElement("path", {
       d: "M8 12l3 3 5-6"
-    }))
+    })),
+    screen: appScreens && appScreens.matchReason,
+    screenLabel: '매칭 이유'
   }];
   const [active, setActive] = useState(0);
   const cur = pairs[active];
@@ -528,10 +538,23 @@ function ProblemSection() {
   }, cur.solveIcon), /*#__PURE__*/React.createElement("div", {
     className: "eyebrow text-lavender-deep"
   }, "\uACB0\uD558\uB2E4\uB294")), /*#__PURE__*/React.createElement("div", {
+    className: "problem-good-body"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "problem-good-text"
+  }, /*#__PURE__*/React.createElement("div", {
     className: "gh-h3 leading-snug"
   }, cur.solve), /*#__PURE__*/React.createElement("p", {
     className: "problem-sub problem-sub-good"
-  }, cur.solveSub))))));
+  }, cur.solveSub)), cur.screen && /*#__PURE__*/React.createElement("div", {
+    className: "problem-good-phone"
+  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
+    src: cur.screen,
+    alt: `결하다 앱 — ${cur.screenLabel}`,
+    width: 150,
+    tilt: -2
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "small text-mute mt-2 text-center"
+  }, cur.screenLabel))))))));
 }
 
 // ---------- Section 3: Three Gyeol — matching method (merged with personality) ----------
@@ -737,7 +760,9 @@ function TrustSection({
 }
 
 // ---------- Section 5: Process timeline ----------
-function ProcessSection() {
+function ProcessSection({
+  appScreens
+}) {
   const steps = [{
     t: '앱 다운로드',
     d: '결하다 앱으로 시작합니다.'
@@ -763,6 +788,19 @@ function ProcessSection() {
     t: '실제 만남',
     d: '일정을 조율해 직접 만남을 진행합니다.'
   }];
+  const previews = [{
+    label: '심리 질문',
+    title: '성향을 깊게 살핍니다',
+    src: appScreens && appScreens.questions
+  }, {
+    label: '결 기반 추천',
+    title: '매칭 이유까지 확인',
+    src: appScreens && appScreens.matchReason
+  }, {
+    label: '리듬 매칭',
+    title: '두 사람의 결 비교',
+    src: appScreens && appScreens.rhythmDetail2
+  }];
   return /*#__PURE__*/React.createElement("section", {
     id: "process",
     className: "bg-veil"
@@ -774,8 +812,26 @@ function ProcessSection() {
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2"
-  }, "\uC11C\uB85C\uC758 \uACB0\uC774 \uB9DE\uC744 \uB54C,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC2DC\uC791\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
-    className: "mt-12 relative"
+  }, "\uC11C\uB85C\uC758 \uACB0\uC774 \uB9DE\uC744 \uB54C,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC2DC\uC791\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 140
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "process-preview"
+  }, previews.map((p, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "process-preview-card"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "process-preview-phone"
+  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
+    src: p.src,
+    alt: `결하다 앱 — ${p.label}`,
+    width: 170,
+    tilt: i % 2 === 0 ? -2 : 2
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "process-preview-label"
+  }, p.label), /*#__PURE__*/React.createElement("div", {
+    className: "process-preview-title"
+  }, p.title))))), /*#__PURE__*/React.createElement("div", {
+    className: "mt-2 relative"
   }, /*#__PURE__*/React.createElement("div", {
     className: "hidden md:block absolute top-[42px] left-0 right-0 h-px bg-gradient-to-r from-lavender-soft via-lavender-deep to-sage"
   }), /*#__PURE__*/React.createElement("div", {
@@ -798,7 +854,9 @@ function ProcessSection() {
 }
 
 // ---------- Section 6: Pricing + Differentiation (merged) ----------
-function PricingSection() {
+function PricingSection({
+  appScreens
+}) {
   const points = [{
     eyebrow: '가입비',
     t: '0원으로 시작',
@@ -918,7 +976,29 @@ function PricingSection() {
     className: "small mt-4 text-mute"
   }, "\uC815\uD655\uD55C \uAE08\uC561\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC548\uB0B4\uB429\uB2C8\uB2E4."))))), /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-7"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    delay: 100
   }, /*#__PURE__*/React.createElement("div", {
+    className: "card p-6 md:p-7 mb-4 relative overflow-hidden flex flex-col sm:flex-row items-center gap-5",
+    style: {
+      background: 'linear-gradient(135deg, rgba(200,182,226,.18), rgba(184,197,176,.10))'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex-shrink-0"
+  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
+    src: appScreens && appScreens.innerAlt,
+    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uB0B4\uBA74 \uBD84\uC11D \uB9AC\uD3EC\uD2B8",
+    width: 130,
+    tilt: -3
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "min-w-0"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow text-lavender-deep mb-2"
+  }, "\uB9E4\uCE6D \uC774\uC720\uAE4C\uC9C0 \uBCF4\uC5EC\uB4DC\uB9BD\uB2C8\uB2E4"), /*#__PURE__*/React.createElement("div", {
+    className: "gh-h3 mb-2"
+  }, "\uC65C \uC774 \uC0AC\uB78C\uACFC \uACB0\uC774 \uB9DE\uB294\uC9C0", /*#__PURE__*/React.createElement("br", null), "\uC124\uBA85\uB418\uB294 \uB9E4\uCE6D"), /*#__PURE__*/React.createElement("p", {
+    className: "body text-mute"
+  }, "\uB2E8\uC21C \uCD94\uCC9C\uC774 \uC544\uB2C8\uB77C, \uB450 \uC0AC\uB78C\uC758 \uC131\uD5A5\xB7\uAC00\uCE58\uAD00\uC774 \uC5B4\uB5BB\uAC8C \uB9CC\uB098\uB294\uC9C0 \uD568\uAED8 \uBCF4\uC5EC\uB4DC\uB9BD\uB2C8\uB2E4.")))), /*#__PURE__*/React.createElement("div", {
     className: "grid sm:grid-cols-2 gap-4"
   }, points.map((p, i) => /*#__PURE__*/React.createElement(Reveal, {
     key: i,
