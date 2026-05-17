@@ -30,15 +30,33 @@ function Header({ ctaPrimary, onOpenMenu }) {
     {label:'FAQ', href:'#faq'},
   ];
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 site-header ${scrolled ? 'is-scrolled' : ''}`}>
-      <div className="max-w-[1240px] mx-auto px-6 md:px-10 site-header-inner">
-        <a href="#" className="flex items-center shrink-0">
+    <header
+      className={`site-header ${scrolled ? 'is-scrolled' : ''}`}
+      style={{ position:'fixed', top:0, left:0, right:0, zIndex:80 }}
+    >
+      <div
+        className="px-6 md:px-10"
+        style={{
+          maxWidth:'1240px', margin:'0 auto',
+          height:'64px',
+          display:'flex', alignItems:'center', gap:'24px',
+        }}
+      >
+        <a href="#" style={{flex:'0 0 auto', display:'flex', alignItems:'center'}}>
           <Sig.Logo height={26}/>
         </a>
-        <nav className="site-header-nav">
-          {nav.map(n => <a key={n.href} href={n.href} className="whitespace-nowrap transition-colors">{n.label}</a>)}
+        <nav
+          className="hidden md:flex"
+          style={{
+            flex:'1 1 0%',
+            alignItems:'center', justifyContent:'center',
+            gap:'32px', fontSize:'14px', color:'rgba(44,42,53,.75)',
+          }}
+        >
+          {nav.map(n => <a key={n.href} href={n.href} className="hover:text-lavender-deep whitespace-nowrap transition-colors">{n.label}</a>)}
         </nav>
-        <div className="site-header-right">
+        <div className="md:hidden" style={{flex:'1 1 0%'}}/>
+        <div style={{display:'flex', alignItems:'center', gap:'12px', flex:'0 0 auto'}}>
           <a href="#download" className="hidden sm:inline-flex btn btn-primary btn-sm whitespace-nowrap">앱 다운로드</a>
           <button onClick={onOpenMenu} className="md:hidden w-10 h-10 grid place-items-center" aria-label="메뉴">
             <svg width="22" height="22" viewBox="0 0 20 20"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>
@@ -204,8 +222,8 @@ function ProblemSection({ appScreens }) {
       problem:'높은 가입비, 불확실한 결과',
       problemSub:'먼저 큰 비용을 치러야 시작할 수 있는 구조. 결과가 보장되지 않는데도 선결제가 필요합니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"/></svg>),
-      solve:'가입비 0원, 만남 성사 시에만',
-      solveSub:'가입비는 0원이며, 양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 비용이 발생합니다.',
+      solve:'낮은 가입비, 만남 성사 시에만',
+      solveSub:'선결제 부담 없이 시작하고, 양쪽이 만남에 동의해 일정 조율 단계로 넘어갈 때만 비용이 발생합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>),
       screen: appScreens && appScreens.matchReason,
       screenLabel:'매칭 이유',
@@ -271,7 +289,7 @@ function ProblemSection({ appScreens }) {
                 </div>
                 {cur.screen && (
                   <div className="problem-good-phone">
-                    <Sig.PhoneMock src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} width={150} tilt={-2}/>
+                    <Sig.PhoneMock src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} width={200} tilt={0}/>
                     <div className="small text-mute mt-2 text-center">{cur.screenLabel}</div>
                   </div>
                 )}
@@ -322,10 +340,10 @@ function ThreeGyeolSection({ appScreens }) {
           {items.map((it,i)=>(
             <Reveal key={i} delay={i*100}>
               <div className="card p-7 md:p-8 h-full flex flex-col">
-                <div className="relative mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline" style={{height: 260}}>
+                <div className="relative mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline" style={{height: 340}}>
                   {it.screen ? (
-                    <div className="absolute left-1/2 top-6" style={{transform:'translateX(-50%)'}}>
-                      <Sig.PhoneMock src={it.screen} alt={`결하다 앱 — ${it.label}`} width={160}/>
+                    <div className="absolute left-1/2" style={{transform:'translateX(-50%)', top:24}}>
+                      <Sig.PhoneMock src={it.screen} alt={`결하다 앱 — ${it.label}`} width={200} tilt={0}/>
                     </div>
                   ) : (
                     <div className="absolute inset-3"><Sig.ThreeStrands palette={['#C8B6E2','#A88FCE','#6B5B95']}/></div>
@@ -417,16 +435,18 @@ function TrustSection({ images, appScreens }) {
 
           <div className="md:col-span-5">
             <Reveal delay={150}>
-              <div className="relative h-[440px] md:h-[500px] flex items-center justify-center">
-                <div className="absolute left-[8%] top-[8%] hidden sm:block">
-                  <Sig.PhoneMock src={appScreens && appScreens.verifyDetail} alt="결하다 앱 — 필수 인증 항목" width={180} tilt={-4}/>
+              <div className="relative flex items-center justify-center" style={{height:520, gap:20}}>
+                <div className="relative" style={{zIndex:2}}>
+                  <Sig.PhoneMock src={appScreens && appScreens.verifyMain} alt="결하다 앱 — 인증 항목" width={260} tilt={0}/>
                 </div>
-                <div className="relative">
-                  <Sig.PhoneMock src={appScreens && appScreens.verifyMain} alt="결하다 앱 — 인증 항목" width={240} tilt={3}/>
+                <div className="hidden md:block" style={{position:'absolute', right:0, bottom:24, zIndex:1}}>
+                  <Sig.PhoneMock src={appScreens && appScreens.verifyDetail} alt="결하다 앱 — 필수 인증 항목" width={200} tilt={0}/>
                 </div>
-                <div className="absolute left-1/2 top-1/2 w-[300px] h-[300px] rounded-full pointer-events-none -z-10" style={{
+                <div className="absolute left-1/2 top-1/2 pointer-events-none" style={{
                   transform:'translate(-50%,-50%)',
-                  background:'radial-gradient(closest-side, rgba(184,197,176,.25), transparent)'
+                  width:340, height:340, borderRadius:'50%',
+                  background:'radial-gradient(closest-side, rgba(184,197,176,.25), transparent)',
+                  zIndex:0,
                 }}/>
               </div>
             </Reveal>
@@ -466,7 +486,7 @@ function ProcessSection({ appScreens }) {
             {previews.map((p,i)=>(
               <div key={i} className="process-preview-card">
                 <div className="process-preview-phone">
-                  <Sig.PhoneMock src={p.src} alt={`결하다 앱 — ${p.label}`} width={170} tilt={i % 2 === 0 ? -2 : 2}/>
+                  <Sig.PhoneMock src={p.src} alt={`결하다 앱 — ${p.label}`} width={210} tilt={0}/>
                 </div>
                 <div className="process-preview-label">{p.label}</div>
                 <div className="process-preview-title">{p.title}</div>
@@ -498,12 +518,6 @@ function ProcessSection({ appScreens }) {
 function PricingSection({ appScreens }) {
   const points = [
     {
-      eyebrow:'가입비',
-      t:'0원으로 시작',
-      d:'선결제 없이 결혼을 위한 만남을 시도할 수 있습니다.',
-      icon:(<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4"><path d="M10 3v14M6 6.5h6.5a2 2 0 0 1 0 4H7.5a2 2 0 0 0 0 4H14"/></svg>),
-    },
-    {
       eyebrow:'관계 성향',
       t:'깊게 살피는 매칭',
       d:'심리 질문 + 결혼관·가족관·경제관까지 매칭에 반영.',
@@ -521,6 +535,12 @@ function PricingSection({ appScreens }) {
       d:'「결혼중개업법」에 따라 신고된 결혼정보 서비스입니다.',
       icon:(<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M7 10l2 2 4-4"/></svg>),
     },
+    {
+      eyebrow:'투명성',
+      t:'이용 조건 사전 안내',
+      d:'계약·환불 기준을 가입 단계에서 명확히 안내합니다.',
+      icon:(<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M7 8h6M7 11h6M7 14h4"/></svg>),
+    },
   ];
   return (
     <section id="pricing" className="bg-offwhite">
@@ -529,7 +549,7 @@ function PricingSection({ appScreens }) {
           <div className="md:col-span-5">
             <Reveal><div className="eyebrow mb-4">결하다의 차별점</div></Reveal>
             <Reveal delay={80}>
-              <h2 className="gh-display gh-h2">높은 가입비 없이,<br/>만남이 성사될 때만.</h2>
+              <h2 className="gh-display gh-h2">낮은 가입비,<br/>만남이 성사될 때만.</h2>
             </Reveal>
             <Reveal delay={160}>
               <p className="body-lg mt-6 text-mute max-w-[40ch]">
@@ -542,18 +562,15 @@ function PricingSection({ appScreens }) {
                 <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{background:'radial-gradient(closest-side, rgba(200,182,226,.5), transparent)'}}/>
                 <div className="relative">
                   <div className="flex items-baseline justify-between">
-                    <div>
-                      <div className="eyebrow">가입비</div>
-                      <div className="gh-display mt-1" style={{fontSize:'44px', lineHeight:1}}>0<span className="text-[20px] ml-1 text-mute">원</span></div>
-                    </div>
-                    <span className="pill bg-lavender-deep text-white">No upfront fee</span>
+                    <div className="eyebrow">가입비</div>
+                    <span className="pill bg-lavender-deep text-white">Low entry</span>
                   </div>
+                  <div className="gh-h3 mt-2">선결제 부담 없이 시작</div>
+                  <p className="body mt-2 text-mute">결혼을 위한 만남을 가벼운 시작 비용으로 시도해볼 수 있도록 설계했습니다.</p>
                   <div className="rule my-5"/>
-                  <div>
-                    <div className="eyebrow">만남 비용</div>
-                    <p className="body mt-2 text-ink">양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 발생합니다.</p>
-                  </div>
-                  <p className="small mt-4 text-mute">정확한 금액은 앱 가입 단계에서 안내됩니다.</p>
+                  <div className="eyebrow">만남 비용</div>
+                  <p className="body mt-2 text-ink">양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 발생합니다.</p>
+                  <p className="small mt-3 text-mute">정확한 금액은 앱 가입 단계에서 안내됩니다.</p>
                 </div>
               </div>
             </Reveal>
@@ -564,7 +581,7 @@ function PricingSection({ appScreens }) {
             <Reveal delay={100}>
               <div className="card p-6 md:p-7 mb-4 relative overflow-hidden flex flex-col sm:flex-row items-center gap-5" style={{background:'linear-gradient(135deg, rgba(200,182,226,.18), rgba(184,197,176,.10))'}}>
                 <div className="flex-shrink-0">
-                  <Sig.PhoneMock src={appScreens && appScreens.innerAlt} alt="결하다 앱 — 내면 분석 리포트" width={130} tilt={-3}/>
+                  <Sig.PhoneMock src={appScreens && appScreens.innerAlt} alt="결하다 앱 — 내면 분석 리포트" width={170} tilt={0}/>
                 </div>
                 <div className="min-w-0">
                   <div className="eyebrow text-lavender-deep mb-2">매칭 이유까지 보여드립니다</div>
@@ -598,7 +615,7 @@ function PricingSection({ appScreens }) {
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
   const items = [
-    ['가입비가 정말 없나요?','네. 결하다는 높은 가입비를 먼저 받지 않습니다. 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 발생합니다.'],
+    ['가입비는 어떻게 되나요?','결하다는 높은 가입비를 먼저 받지 않습니다. 낮은 시작 비용으로 가입할 수 있으며, 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 추가로 발생합니다.'],
     ['만남 비용은 언제 발생하나요?','양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다. 가입, 응답, 추천 확인 단계에서는 비용이 발생하지 않습니다.'],
     ['아무나 가입할 수 있나요?','결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'],
     ['결혼관·가족관·경제관은 어떻게 반영되나요?','이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'],
