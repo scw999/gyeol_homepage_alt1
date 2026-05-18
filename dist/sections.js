@@ -65,22 +65,59 @@ function Header({
     href: '#faq'
   }];
   return /*#__PURE__*/React.createElement("header", {
-    className: `fixed top-0 inset-x-0 z-50 site-header ${scrolled ? 'is-scrolled' : ''}`
+    className: `site-header ${scrolled ? 'is-scrolled' : ''}`,
+    style: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 80
+    }
   }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1240px] mx-auto px-6 md:px-10 site-header-inner"
+    className: "px-6 md:px-10",
+    style: {
+      maxWidth: '1240px',
+      margin: '0 auto',
+      height: '64px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '24px'
+    }
   }, /*#__PURE__*/React.createElement("a", {
     href: "#",
-    className: "flex items-center shrink-0"
+    style: {
+      flex: '0 0 auto',
+      display: 'flex',
+      alignItems: 'center'
+    }
   }, /*#__PURE__*/React.createElement(Sig.Logo, {
     height: 26
   })), /*#__PURE__*/React.createElement("nav", {
-    className: "site-header-nav"
+    className: "hidden md:flex",
+    style: {
+      flex: '1 1 0%',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '32px',
+      fontSize: '14px',
+      color: 'rgba(44,42,53,.75)'
+    }
   }, nav.map(n => /*#__PURE__*/React.createElement("a", {
     key: n.href,
     href: n.href,
-    className: "whitespace-nowrap transition-colors"
+    className: "hover:text-lavender-deep whitespace-nowrap transition-colors"
   }, n.label))), /*#__PURE__*/React.createElement("div", {
-    className: "site-header-right"
+    className: "md:hidden",
+    style: {
+      flex: '1 1 0%'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '12px',
+      flex: '0 0 auto'
+    }
   }, /*#__PURE__*/React.createElement("a", {
     href: "#download",
     className: "hidden sm:inline-flex btn btn-primary btn-sm whitespace-nowrap"
@@ -441,8 +478,8 @@ function ProblemSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"
     })),
-    solve: '가입비 0원, 만남 성사 시에만',
-    solveSub: '가입비는 0원이며, 양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 비용이 발생합니다.',
+    solve: '낮은 가입비, 만남 성사 시에만',
+    solveSub: '선결제 부담 없이 시작하고, 양쪽이 만남에 동의해 일정 조율 단계로 넘어갈 때만 비용이 발생합니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -550,8 +587,8 @@ function ProblemSection({
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: cur.screen,
     alt: `결하다 앱 — ${cur.screenLabel}`,
-    width: 150,
-    tilt: -2
+    width: 200,
+    tilt: 0
   }), /*#__PURE__*/React.createElement("div", {
     className: "small text-mute mt-2 text-center"
   }, cur.screenLabel))))))));
@@ -606,17 +643,19 @@ function ThreeGyeolSection({
   }, /*#__PURE__*/React.createElement("div", {
     className: "relative mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline",
     style: {
-      height: 260
+      height: 340
     }
   }, it.screen ? /*#__PURE__*/React.createElement("div", {
-    className: "absolute left-1/2 top-6",
+    className: "absolute left-1/2",
     style: {
-      transform: 'translateX(-50%)'
+      transform: 'translateX(-50%)',
+      top: 24
     }
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: it.screen,
     alt: `결하다 앱 — ${it.label}`,
-    width: 160
+    width: 200,
+    tilt: 0
   })) : /*#__PURE__*/React.createElement("div", {
     className: "absolute inset-3"
   }, /*#__PURE__*/React.createElement(Sig.ThreeStrands, {
@@ -735,26 +774,43 @@ function TrustSection({
   }, /*#__PURE__*/React.createElement(Reveal, {
     delay: 150
   }, /*#__PURE__*/React.createElement("div", {
-    className: "relative h-[440px] md:h-[500px] flex items-center justify-center"
+    className: "relative flex items-center justify-center",
+    style: {
+      height: 520,
+      gap: 20
+    }
   }, /*#__PURE__*/React.createElement("div", {
-    className: "absolute left-[8%] top-[8%] hidden sm:block"
-  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
-    src: appScreens && appScreens.verifyDetail,
-    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uD544\uC218 \uC778\uC99D \uD56D\uBAA9",
-    width: 180,
-    tilt: -4
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "relative"
+    className: "relative",
+    style: {
+      zIndex: 2
+    }
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: appScreens && appScreens.verifyMain,
     alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uC778\uC99D \uD56D\uBAA9",
-    width: 240,
-    tilt: 3
+    width: 260,
+    tilt: 0
   })), /*#__PURE__*/React.createElement("div", {
-    className: "absolute left-1/2 top-1/2 w-[300px] h-[300px] rounded-full pointer-events-none -z-10",
+    className: "hidden md:block",
+    style: {
+      position: 'absolute',
+      right: 0,
+      bottom: 24,
+      zIndex: 1
+    }
+  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
+    src: appScreens && appScreens.verifyDetail,
+    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uD544\uC218 \uC778\uC99D \uD56D\uBAA9",
+    width: 200,
+    tilt: 0
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "absolute left-1/2 top-1/2 pointer-events-none",
     style: {
       transform: 'translate(-50%,-50%)',
-      background: 'radial-gradient(closest-side, rgba(184,197,176,.25), transparent)'
+      width: 340,
+      height: 340,
+      borderRadius: '50%',
+      background: 'radial-gradient(closest-side, rgba(184,197,176,.25), transparent)',
+      zIndex: 0
     }
   })))))));
 }
@@ -824,8 +880,8 @@ function ProcessSection({
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: p.src,
     alt: `결하다 앱 — ${p.label}`,
-    width: 170,
-    tilt: i % 2 === 0 ? -2 : 2
+    width: 210,
+    tilt: 0
   })), /*#__PURE__*/React.createElement("div", {
     className: "process-preview-label"
   }, p.label), /*#__PURE__*/React.createElement("div", {
@@ -858,20 +914,6 @@ function PricingSection({
   appScreens
 }) {
   const points = [{
-    eyebrow: '가입비',
-    t: '0원으로 시작',
-    d: '선결제 없이 결혼을 위한 만남을 시도할 수 있습니다.',
-    icon: /*#__PURE__*/React.createElement("svg", {
-      width: "20",
-      height: "20",
-      viewBox: "0 0 20 20",
-      fill: "none",
-      stroke: "currentColor",
-      strokeWidth: "1.4"
-    }, /*#__PURE__*/React.createElement("path", {
-      d: "M10 3v14M6 6.5h6.5a2 2 0 0 1 0 4H7.5a2 2 0 0 0 0 4H14"
-    }))
-  }, {
     eyebrow: '관계 성향',
     t: '깊게 살피는 매칭',
     d: '심리 질문 + 결혼관·가족관·경제관까지 매칭에 반영.',
@@ -921,6 +963,26 @@ function PricingSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M7 10l2 2 4-4"
     }))
+  }, {
+    eyebrow: '투명성',
+    t: '이용 조건 사전 안내',
+    d: '계약·환불 기준을 가입 단계에서 명확히 안내합니다.',
+    icon: /*#__PURE__*/React.createElement("svg", {
+      width: "20",
+      height: "20",
+      viewBox: "0 0 20 20",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.4"
+    }, /*#__PURE__*/React.createElement("rect", {
+      x: "3",
+      y: "4",
+      width: "14",
+      height: "13",
+      rx: "2"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M7 8h6M7 11h6M7 14h4"
+    }))
   }];
   return /*#__PURE__*/React.createElement("section", {
     id: "pricing",
@@ -937,7 +999,7 @@ function PricingSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2"
-  }, "\uB192\uC740 \uAC00\uC785\uBE44 \uC5C6\uC774,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC131\uC0AC\uB420 \uB54C\uB9CC.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uB0AE\uC740 \uAC00\uC785\uBE44,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC131\uC0AC\uB420 \uB54C\uB9CC.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
     className: "body-lg mt-6 text-mute max-w-[40ch]"
@@ -954,26 +1016,22 @@ function PricingSection({
     className: "relative"
   }, /*#__PURE__*/React.createElement("div", {
     className: "flex items-baseline justify-between"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow"
-  }, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("div", {
-    className: "gh-display mt-1",
-    style: {
-      fontSize: '44px',
-      lineHeight: 1
-    }
-  }, "0", /*#__PURE__*/React.createElement("span", {
-    className: "text-[20px] ml-1 text-mute"
-  }, "\uC6D0"))), /*#__PURE__*/React.createElement("span", {
+  }, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("span", {
     className: "pill bg-lavender-deep text-white"
-  }, "No upfront fee")), /*#__PURE__*/React.createElement("div", {
+  }, "Low entry")), /*#__PURE__*/React.createElement("div", {
+    className: "gh-h3 mt-2"
+  }, "\uC120\uACB0\uC81C \uBD80\uB2F4 \uC5C6\uC774 \uC2DC\uC791"), /*#__PURE__*/React.createElement("p", {
+    className: "body mt-2 text-mute"
+  }, "\uACB0\uD63C\uC744 \uC704\uD55C \uB9CC\uB0A8\uC744 \uAC00\uBCBC\uC6B4 \uC2DC\uC791 \uBE44\uC6A9\uC73C\uB85C \uC2DC\uB3C4\uD574\uBCFC \uC218 \uC788\uB3C4\uB85D \uC124\uACC4\uD588\uC2B5\uB2C8\uB2E4."), /*#__PURE__*/React.createElement("div", {
     className: "rule my-5"
-  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "eyebrow"
   }, "\uB9CC\uB0A8 \uBE44\uC6A9"), /*#__PURE__*/React.createElement("p", {
     className: "body mt-2 text-ink"
-  }, "\uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C\uB9CC \uBC1C\uC0DD\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("p", {
-    className: "small mt-4 text-mute"
+  }, "\uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C\uB9CC \uBC1C\uC0DD\uD569\uB2C8\uB2E4."), /*#__PURE__*/React.createElement("p", {
+    className: "small mt-3 text-mute"
   }, "\uC815\uD655\uD55C \uAE08\uC561\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC548\uB0B4\uB429\uB2C8\uB2E4."))))), /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement(Reveal, {
@@ -988,8 +1046,8 @@ function PricingSection({
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: appScreens && appScreens.innerAlt,
     alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uB0B4\uBA74 \uBD84\uC11D \uB9AC\uD3EC\uD2B8",
-    width: 130,
-    tilt: -3
+    width: 170,
+    tilt: 0
   })), /*#__PURE__*/React.createElement("div", {
     className: "min-w-0"
   }, /*#__PURE__*/React.createElement("div", {
@@ -1018,7 +1076,7 @@ function PricingSection({
 
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
-  const items = [['가입비가 정말 없나요?', '네. 결하다는 높은 가입비를 먼저 받지 않습니다. 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 발생합니다.'], ['만남 비용은 언제 발생하나요?', '양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다. 가입, 응답, 추천 확인 단계에서는 비용이 발생하지 않습니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
+  const items = [['가입비는 어떻게 되나요?', '결하다는 높은 가입비를 먼저 받지 않습니다. 낮은 시작 비용으로 가입할 수 있으며, 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 추가로 발생합니다.'], ['만남 비용은 언제 발생하나요?', '양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다. 가입, 응답, 추천 확인 단계에서는 비용이 발생하지 않습니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
   return /*#__PURE__*/React.createElement("section", {
     id: "faq",
     className: "bg-veil"
