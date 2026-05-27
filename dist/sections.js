@@ -522,68 +522,72 @@ function ProblemSection({
   }, "\uAC00\uC7A5 \uACF5\uAC10\uB418\uB294 \uC5B4\uB824\uC6C0\uC744 \uB20C\uB7EC\uBCF4\uC138\uC694. \uACB0\uD558\uB2E4\uAC00 \uC5B4\uB5BB\uAC8C \uD480\uC5B4\uAC00\uB294\uC9C0 \uBCF4\uC5EC\uB4DC\uB9BD\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 200
   }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-tabs mt-10"
-  }, pairs.map((p, i) => /*#__PURE__*/React.createElement("button", {
-    key: i,
-    type: "button",
-    className: "problem-tab",
-    "data-active": i === active ? '1' : '0',
-    onClick: () => setActive(i),
-    "aria-pressed": i === active
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "problem-tab-num"
-  }, p.num), /*#__PURE__*/React.createElement("span", {
-    className: "problem-tab-text"
-  }, p.problem))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 280
+    className: "problem-layout mt-10"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-compare mt-5",
+    className: "problem-list"
+  }, pairs.map((p, i) => {
+    const isActive = i === active;
+    return /*#__PURE__*/React.createElement("button", {
+      key: i,
+      type: "button",
+      className: `problem-item${isActive ? ' is-active' : ''}`,
+      onClick: () => setActive(i),
+      "aria-pressed": isActive
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "problem-item-head"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "problem-item-iconbox"
+    }, p.problemIcon), /*#__PURE__*/React.createElement("span", {
+      className: "problem-item-title"
+    }, p.problem)), isActive && /*#__PURE__*/React.createElement("p", {
+      className: "problem-item-desc"
+    }, p.problemSub), isActive && /*#__PURE__*/React.createElement("span", {
+      className: "problem-item-arrow",
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React.createElement("svg", {
+      width: "18",
+      height: "18",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M5 12h14M14 6l6 6-6 6"
+    }))));
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "problem-detail",
     key: active
   }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-pane problem-pane-bad"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-pane-head"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-icon problem-icon-bad"
-  }, cur.problemIcon), /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow text-mute"
-  }, "\uAE30\uC874\uC758 \uB9CC\uB0A8")), /*#__PURE__*/React.createElement("div", {
-    className: "problem-title-bad"
-  }, cur.problem), /*#__PURE__*/React.createElement("p", {
-    className: "problem-sub"
-  }, cur.problemSub)), /*#__PURE__*/React.createElement("div", {
-    className: "problem-compare-arrow"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-arrow-circle"
+    className: "problem-detail-head"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "problem-detail-iconbox"
   }, /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
+    width: "20",
+    height: "20",
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: "2",
+    strokeWidth: "1.7",
     strokeLinecap: "round",
     strokeLinejoin: "round"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M5 12h14M14 6l6 6-6 6"
-  })))), /*#__PURE__*/React.createElement("div", {
-    className: "problem-pane problem-pane-good"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-pane-head"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-icon problem-icon-good"
-  }, cur.solveIcon), /*#__PURE__*/React.createElement("div", {
+    d: "M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M9 11h6M9 14h4"
+  }))), /*#__PURE__*/React.createElement("span", {
     className: "eyebrow text-lavender-deep"
   }, "\uACB0\uD558\uB2E4\uB294")), /*#__PURE__*/React.createElement("div", {
-    className: "problem-good-body"
+    className: "problem-detail-body"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-good-text"
+    className: "problem-detail-text"
   }, /*#__PURE__*/React.createElement("div", {
     className: "gh-h3 leading-snug"
   }, cur.solve), /*#__PURE__*/React.createElement("p", {
-    className: "problem-sub problem-sub-good"
+    className: "problem-detail-sub"
   }, cur.solveSub)), cur.screen && /*#__PURE__*/React.createElement("div", {
-    className: "problem-good-phone"
+    className: "problem-detail-phone"
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: cur.screen,
     alt: `결하다 앱 — ${cur.screenLabel}`,
@@ -641,9 +645,18 @@ function ThreeGyeolSection({
   }, /*#__PURE__*/React.createElement("div", {
     className: "card p-7 md:p-8 h-full flex flex-col"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "relative mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline",
+    className: "flex items-center gap-3 mb-5"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "font-serif text-lavender-deep text-[18px]",
     style: {
-      height: 340
+      fontFamily: '"Noto Serif KR", serif'
+    }
+  }, it.kr), /*#__PURE__*/React.createElement("span", {
+    className: "eyebrow !tracking-[.16em] !text-ink/55"
+  }, it.tag)), /*#__PURE__*/React.createElement("div", {
+    className: "relative rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline",
+    style: {
+      height: 320
     }
   }, it.screen ? /*#__PURE__*/React.createElement("div", {
     className: "absolute left-1/2",
@@ -660,18 +673,9 @@ function ThreeGyeolSection({
     className: "absolute inset-3"
   }, /*#__PURE__*/React.createElement(Sig.ThreeStrands, {
     palette: ['#C8B6E2', '#A88FCE', '#6B5B95']
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "absolute left-4 bottom-3 small text-mute"
-  }, it.label)), /*#__PURE__*/React.createElement("div", {
-    className: "flex items-center gap-3 mb-2"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "font-serif text-lavender-deep text-[18px]",
-    style: {
-      fontFamily: '"Noto Serif KR", serif'
-    }
-  }, it.kr), /*#__PURE__*/React.createElement("span", {
-    className: "eyebrow !tracking-[.16em] !text-ink/55"
-  }, it.tag)), /*#__PURE__*/React.createElement("div", {
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow text-lavender-deep mt-5 mb-1.5"
+  }, it.label), /*#__PURE__*/React.createElement("div", {
     className: "gh-h3 mb-2"
   }, it.t), /*#__PURE__*/React.createElement("p", {
     className: "body text-mute"
@@ -720,11 +724,11 @@ function TrustSection({
   }, "\u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB77C \uC2E0\uACE0\uB41C \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uB85C, \uAC80\uC99D\uC744 \uAC70\uCE5C \uD68C\uC6D0\uB9CC \uAC00\uC785\uD560 \uC218 \uC788\uB3C4\uB85D \uC6B4\uC601\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
   }, /*#__PURE__*/React.createElement("div", {
-    className: "mt-8"
+    className: "trust-panel mt-8"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-3"
+    className: "eyebrow mb-4"
   }, "\uC2B9\uC778\uC81C \uAC80\uC99D \uC808\uCC28"), /*#__PURE__*/React.createElement("ul", {
-    className: "grid sm:grid-cols-2 gap-x-6 gap-y-2.5"
+    className: "grid sm:grid-cols-2 gap-x-6 gap-y-3"
   }, verifyItems.map((it, i) => /*#__PURE__*/React.createElement("li", {
     key: i,
     className: "flex items-center gap-3 body"
@@ -744,11 +748,11 @@ function TrustSection({
   }))), /*#__PURE__*/React.createElement("span", null, it)))))), /*#__PURE__*/React.createElement(Reveal, {
     delay: 280
   }, /*#__PURE__*/React.createElement("div", {
-    className: "mt-8"
+    className: "trust-panel mt-4"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-3"
+    className: "eyebrow mb-4"
   }, "\uAC1C\uC778\uC815\uBCF4 \uBCF4\uD638"), /*#__PURE__*/React.createElement("ul", {
-    className: "grid sm:grid-cols-2 gap-x-6 gap-y-2.5"
+    className: "grid sm:grid-cols-2 gap-x-6 gap-y-3"
   }, privacyPoints.map((p, i) => /*#__PURE__*/React.createElement("li", {
     key: i,
     className: "flex items-center gap-3 body"
@@ -868,8 +872,45 @@ function ProcessSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2"
-  }, "\uC11C\uB85C\uC758 \uACB0\uC774 \uB9DE\uC744 \uB54C,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC2DC\uC791\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 140
+  }, "\uC11C\uB85C\uC758 \uACB0\uC774 \uB9DE\uC744 \uB54C,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC2DC\uC791\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+    className: "grid md:grid-cols-12 gap-10 md:gap-12 mt-12 items-start"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "md:col-span-5"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    delay: 120
+  }, /*#__PURE__*/React.createElement("ol", {
+    className: "process-timeline"
+  }, steps.map((s, i) => /*#__PURE__*/React.createElement("li", {
+    key: i,
+    className: "process-step"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "process-step-rail"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "process-step-num"
+  }, String(i + 1).padStart(2, '0')), i < steps.length - 1 && /*#__PURE__*/React.createElement("span", {
+    className: "process-step-line",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "12",
+    height: "12",
+    viewBox: "0 0 12 12",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.5",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M3 4.5L6 7.5 9 4.5"
+  })))), /*#__PURE__*/React.createElement("div", {
+    className: "process-step-content"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "process-step-title"
+  }, s.t), /*#__PURE__*/React.createElement("p", {
+    className: "process-step-desc"
+  }, s.d))))))), /*#__PURE__*/React.createElement("div", {
+    className: "md:col-span-7"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    delay: 180
   }, /*#__PURE__*/React.createElement("div", {
     className: "process-preview"
   }, previews.map((p, i) => /*#__PURE__*/React.createElement("div", {
@@ -880,33 +921,13 @@ function ProcessSection({
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: p.src,
     alt: `결하다 앱 — ${p.label}`,
-    width: 210,
+    width: 170,
     tilt: 0
   })), /*#__PURE__*/React.createElement("div", {
     className: "process-preview-label"
   }, p.label), /*#__PURE__*/React.createElement("div", {
     className: "process-preview-title"
-  }, p.title))))), /*#__PURE__*/React.createElement("div", {
-    className: "mt-2 relative"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hidden md:block absolute top-[42px] left-0 right-0 h-px bg-gradient-to-r from-lavender-soft via-lavender-deep to-sage"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-14 gap-x-5"
-  }, steps.map((s, i) => /*#__PURE__*/React.createElement(Reveal, {
-    key: i,
-    delay: i * 60
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "relative"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "w-[34px] h-[34px] rounded-full bg-offwhite hairline grid place-items-center font-en text-[12px] text-lavender-deep relative z-10",
-    style: {
-      boxShadow: '0 0 0 4px var(--offwhite)'
-    }
-  }, String(i + 1).padStart(2, '0')), /*#__PURE__*/React.createElement("div", {
-    className: "mt-5 gh-h3"
-  }, s.t), /*#__PURE__*/React.createElement("p", {
-    className: "small mt-2 text-mute max-w-[24ch]"
-  }, s.d))))))));
+  }, p.title)))))))));
 }
 
 // ---------- Section 6: Pricing + Differentiation (merged) ----------

@@ -242,53 +242,49 @@ function ProblemSection({ appScreens }) {
           <p className="body-lg mt-6 text-mute" style={{maxWidth:'44ch'}}>가장 공감되는 어려움을 눌러보세요. 결하다가 어떻게 풀어가는지 보여드립니다.</p>
         </Reveal>
 
-        {/* Tabs */}
+        {/* Vertical tab list (left) + solution detail (right) */}
         <Reveal delay={200}>
-          <div className="problem-tabs mt-10">
-            {pairs.map((p,i)=>(
-              <button
-                key={i}
-                type="button"
-                className="problem-tab"
-                data-active={i === active ? '1' : '0'}
-                onClick={()=>setActive(i)}
-                aria-pressed={i === active}
-              >
-                <span className="problem-tab-num">{p.num}</span>
-                <span className="problem-tab-text">{p.problem}</span>
-              </button>
-            ))}
-          </div>
-        </Reveal>
+          <div className="problem-layout mt-10">
+            <div className="problem-list">
+              {pairs.map((p,i)=>{
+                const isActive = i === active;
+                return (
+                  <button
+                    key={i}
+                    type="button"
+                    className={`problem-item${isActive ? ' is-active' : ''}`}
+                    onClick={()=>setActive(i)}
+                    aria-pressed={isActive}
+                  >
+                    <div className="problem-item-head">
+                      <span className="problem-item-iconbox">{p.problemIcon}</span>
+                      <span className="problem-item-title">{p.problem}</span>
+                    </div>
+                    {isActive && <p className="problem-item-desc">{p.problemSub}</p>}
+                    {isActive && (
+                      <span className="problem-item-arrow" aria-hidden="true">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 6l6 6-6 6"/></svg>
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
 
-        {/* Comparison */}
-        <Reveal delay={280}>
-          <div className="problem-compare mt-5" key={active}>
-            <div className="problem-pane problem-pane-bad">
-              <div className="problem-pane-head">
-                <div className="problem-icon problem-icon-bad">{cur.problemIcon}</div>
-                <div className="eyebrow text-mute">기존의 만남</div>
+            <div className="problem-detail" key={active}>
+              <div className="problem-detail-head">
+                <span className="problem-detail-iconbox">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>
+                </span>
+                <span className="eyebrow text-lavender-deep">결하다는</span>
               </div>
-              <div className="problem-title-bad">{cur.problem}</div>
-              <p className="problem-sub">{cur.problemSub}</p>
-            </div>
-            <div className="problem-compare-arrow">
-              <div className="problem-arrow-circle">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 6l6 6-6 6"/></svg>
-              </div>
-            </div>
-            <div className="problem-pane problem-pane-good">
-              <div className="problem-pane-head">
-                <div className="problem-icon problem-icon-good">{cur.solveIcon}</div>
-                <div className="eyebrow text-lavender-deep">결하다는</div>
-              </div>
-              <div className="problem-good-body">
-                <div className="problem-good-text">
+              <div className="problem-detail-body">
+                <div className="problem-detail-text">
                   <div className="gh-h3 leading-snug">{cur.solve}</div>
-                  <p className="problem-sub problem-sub-good">{cur.solveSub}</p>
+                  <p className="problem-detail-sub">{cur.solveSub}</p>
                 </div>
                 {cur.screen && (
-                  <div className="problem-good-phone">
+                  <div className="problem-detail-phone">
                     <Sig.PhoneMock src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} width={200} tilt={0}/>
                     <div className="small text-mute mt-2 text-center">{cur.screenLabel}</div>
                   </div>
@@ -340,7 +336,11 @@ function ThreeGyeolSection({ appScreens }) {
           {items.map((it,i)=>(
             <Reveal key={i} delay={i*100}>
               <div className="card p-7 md:p-8 h-full flex flex-col">
-                <div className="relative mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline" style={{height: 340}}>
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="font-serif text-lavender-deep text-[18px]" style={{fontFamily:'"Noto Serif KR", serif'}}>{it.kr}</span>
+                  <span className="eyebrow !tracking-[.16em] !text-ink/55">{it.tag}</span>
+                </div>
+                <div className="relative rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline" style={{height: 320}}>
                   {it.screen ? (
                     <div className="absolute left-1/2" style={{transform:'translateX(-50%)', top:24}}>
                       <Sig.PhoneMock src={it.screen} alt={`결하다 앱 — ${it.label}`} width={200} tilt={0}/>
@@ -348,12 +348,8 @@ function ThreeGyeolSection({ appScreens }) {
                   ) : (
                     <div className="absolute inset-3"><Sig.ThreeStrands palette={['#C8B6E2','#A88FCE','#6B5B95']}/></div>
                   )}
-                  <div className="absolute left-4 bottom-3 small text-mute">{it.label}</div>
                 </div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="font-serif text-lavender-deep text-[18px]" style={{fontFamily:'"Noto Serif KR", serif'}}>{it.kr}</span>
-                  <span className="eyebrow !tracking-[.16em] !text-ink/55">{it.tag}</span>
-                </div>
+                <div className="eyebrow text-lavender-deep mt-5 mb-1.5">{it.label}</div>
                 <div className="gh-h3 mb-2">{it.t}</div>
                 <p className="body text-mute">{it.d}</p>
                 <p className="small mt-3 text-lavender-deep/80">— {it.note}</p>
@@ -401,9 +397,9 @@ function TrustSection({ images, appScreens }) {
             </Reveal>
 
             <Reveal delay={220}>
-              <div className="mt-8">
-                <div className="eyebrow mb-3">승인제 검증 절차</div>
-                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+              <div className="trust-panel mt-8">
+                <div className="eyebrow mb-4">승인제 검증 절차</div>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
                   {verifyItems.map((it,i)=>(
                     <li key={i} className="flex items-center gap-3 body">
                       <span className="w-5 h-5 rounded-full grid place-items-center bg-lavender-deep/10 text-lavender-deep shrink-0">
@@ -417,9 +413,9 @@ function TrustSection({ images, appScreens }) {
             </Reveal>
 
             <Reveal delay={280}>
-              <div className="mt-8">
-                <div className="eyebrow mb-3">개인정보 보호</div>
-                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+              <div className="trust-panel mt-4">
+                <div className="eyebrow mb-4">개인정보 보호</div>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
                   {privacyPoints.map((p,i)=>(
                     <li key={i} className="flex items-center gap-3 body">
                       <span className="w-5 h-5 rounded-full grid place-items-center bg-sage/30 text-ink/70 shrink-0">
@@ -480,33 +476,46 @@ function ProcessSection({ appScreens }) {
         <Reveal><div className="eyebrow mb-4">8 steps</div></Reveal>
         <Reveal delay={80}><h2 className="gh-display gh-h2">서로의 결이 맞을 때,<br/>만남이 시작됩니다.</h2></Reveal>
 
-        {/* Phone preview strip */}
-        <Reveal delay={140}>
-          <div className="process-preview">
-            {previews.map((p,i)=>(
-              <div key={i} className="process-preview-card">
-                <div className="process-preview-phone">
-                  <Sig.PhoneMock src={p.src} alt={`결하다 앱 — ${p.label}`} width={210} tilt={0}/>
-                </div>
-                <div className="process-preview-label">{p.label}</div>
-                <div className="process-preview-title">{p.title}</div>
-              </div>
-            ))}
+        <div className="grid md:grid-cols-12 gap-10 md:gap-12 mt-12 items-start">
+          {/* Vertical numbered timeline */}
+          <div className="md:col-span-5">
+            <Reveal delay={120}>
+              <ol className="process-timeline">
+                {steps.map((s,i)=>(
+                  <li key={i} className="process-step">
+                    <div className="process-step-rail">
+                      <span className="process-step-num">{String(i+1).padStart(2,'0')}</span>
+                      {i < steps.length-1 && (
+                        <span className="process-step-line" aria-hidden="true">
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 4.5L6 7.5 9 4.5"/></svg>
+                        </span>
+                      )}
+                    </div>
+                    <div className="process-step-content">
+                      <div className="process-step-title">{s.t}</div>
+                      <p className="process-step-desc">{s.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
           </div>
-        </Reveal>
 
-        <div className="mt-2 relative">
-          <div className="hidden md:block absolute top-[42px] left-0 right-0 h-px bg-gradient-to-r from-lavender-soft via-lavender-deep to-sage" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-14 gap-x-5">
-            {steps.map((s,i)=>(
-              <Reveal key={i} delay={i*60}>
-                <div className="relative">
-                  <div className="w-[34px] h-[34px] rounded-full bg-offwhite hairline grid place-items-center font-en text-[12px] text-lavender-deep relative z-10" style={{boxShadow:'0 0 0 4px var(--offwhite)'}}>{String(i+1).padStart(2,'0')}</div>
-                  <div className="mt-5 gh-h3">{s.t}</div>
-                  <p className="small mt-2 text-mute max-w-[24ch]">{s.d}</p>
-                </div>
-              </Reveal>
-            ))}
+          {/* Phone preview cards */}
+          <div className="md:col-span-7">
+            <Reveal delay={180}>
+              <div className="process-preview">
+                {previews.map((p,i)=>(
+                  <div key={i} className="process-preview-card">
+                    <div className="process-preview-phone">
+                      <Sig.PhoneMock src={p.src} alt={`결하다 앱 — ${p.label}`} width={170} tilt={0}/>
+                    </div>
+                    <div className="process-preview-label">{p.label}</div>
+                    <div className="process-preview-title">{p.title}</div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </div>
