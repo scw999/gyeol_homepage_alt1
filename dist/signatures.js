@@ -186,28 +186,28 @@ Sig.WaveCross = function WaveCross({
 };
 
 // Animated flowing waves — driven by anime.js for hero background
-// Two cubic-bezier sine waves with continuous horizontal phase drift +
-// subtle amplitude breathing. Falls back to static at t=0 if anime.js unavailable.
+// Two thin cubic-bezier sine ribbons with different wavelengths, phases,
+// drift speeds, and breathing rhythms so they slide past each other naturally.
+// Falls back to static at t=0 if anime.js unavailable.
 Sig.AnimatedWaves = function AnimatedWaves({
-  scale = 1.4
+  scale = 1
 }) {
   const w = 800,
     h = 560;
   const baseY = h / 2;
-  const sep = 36;
+  const sep = 56;
   const yA0 = baseY - sep;
   const yB0 = baseY + sep;
-  const amp = 78 * scale;
   const aRef = useRef(null);
   const bRef = useRef(null);
 
-  // Build a smooth cubic-bezier sine wave path.
-  // Control points use the analytic derivative so each segment matches a sine curve.
-  const build = (yBase, t, ampMul, flip) => {
-    const xStart = -120,
-      xEnd = 920;
-    const step = 90;
-    const k = Math.PI / 180; // wavelength = 360
+  // Build a smooth cubic-bezier sine wave path. Each segment's control points
+  // are derived from the analytic derivative so the curve is mathematically smooth.
+  const build = (yBase, t, ampMul, flip, wavelength, amp) => {
+    const xStart = -160,
+      xEnd = 960;
+    const step = 100;
+    const k = Math.PI * 2 / wavelength;
     const a = ampMul * amp;
     let d = '';
     let prevX = 0,
@@ -232,41 +232,71 @@ Sig.AnimatedWaves = function AnimatedWaves({
     }
     return d;
   };
-  const apply = (t, breath) => {
-    if (aRef.current) aRef.current.setAttribute('d', build(yA0, t, breath, 1));
-    if (bRef.current) bRef.current.setAttribute('d', build(yB0, t + Math.PI * 0.5, breath, -1));
+
+  // Each wave gets its own wavelength + amplitude so they don't lock-step.
+  const ampA = 34 * scale,
+    waveA = 440;
+  const ampB = 28 * scale,
+    waveB = 360;
+  const apply = (tA, tB, breathA, breathB) => {
+    if (aRef.current) aRef.current.setAttribute('d', build(yA0, tA, breathA, 1, waveA, ampA));
+    if (bRef.current) bRef.current.setAttribute('d', build(yB0, tB, breathB, -1, waveB, ampB));
   };
   useEffect(() => {
-    apply(0, 1);
+    apply(0, Math.PI * 0.6, 1, 1);
     if (typeof window === 'undefined' || !window.anime) return;
     const anime = window.anime;
     const state = {
-      t: 0,
-      breath: 1
+      tA: 0,
+      tB: Math.PI * 0.6,
+      breathA: 1,
+      breathB: 1
     };
-    const flow = anime({
+    // Different drift directions and speeds for natural cross-flow.
+    const flowA = anime({
       targets: state,
-      t: Math.PI * 2,
-      duration: 16000,
+      tA: Math.PI * 2,
+      duration: 22000,
       easing: 'linear',
       loop: true,
-      update: () => apply(state.t, state.breath)
+      update: () => apply(state.tA, state.tB, state.breathA, state.breathB)
     });
-    const breath = anime({
+    const flowB = anime({
       targets: state,
-      breath: [{
-        value: 1.06,
-        duration: 5200
+      tB: state.tB - Math.PI * 2,
+      duration: 17000,
+      easing: 'linear',
+      loop: true
+    });
+    const breathA = anime({
+      targets: state,
+      breathA: [{
+        value: 1.10,
+        duration: 5400
       }, {
-        value: 0.96,
-        duration: 5200
+        value: 0.94,
+        duration: 5400
+      }],
+      easing: 'easeInOutSine',
+      loop: true
+    });
+    const breathB = anime({
+      targets: state,
+      breathB: [{
+        value: 0.90,
+        duration: 6800
+      }, {
+        value: 1.08,
+        duration: 6800
       }],
       easing: 'easeInOutSine',
       loop: true
     });
     return () => {
-      flow.pause();
-      breath.pause();
+      flowA.pause();
+      flowB.pause();
+      breathA.pause();
+      breathB.pause();
     };
   }, []);
   return /*#__PURE__*/React.createElement("svg", {
@@ -282,53 +312,53 @@ Sig.AnimatedWaves = function AnimatedWaves({
     y2: "0"
   }, /*#__PURE__*/React.createElement("stop", {
     offset: "0%",
-    stopColor: "#6B5B95",
+    stopColor: "#8E72BD",
     stopOpacity: "0"
   }), /*#__PURE__*/React.createElement("stop", {
-    offset: "14%",
-    stopColor: "#6B5B95",
-    stopOpacity: "0.78"
+    offset: "18%",
+    stopColor: "#8E72BD",
+    stopOpacity: "0.45"
   }), /*#__PURE__*/React.createElement("stop", {
-    offset: "86%",
-    stopColor: "#7A66A8",
-    stopOpacity: "0.78"
+    offset: "82%",
+    stopColor: "#A88FCE",
+    stopOpacity: "0.45"
   }), /*#__PURE__*/React.createElement("stop", {
     offset: "100%",
-    stopColor: "#7A66A8",
+    stopColor: "#A88FCE",
     stopOpacity: "0"
   })), /*#__PURE__*/React.createElement("linearGradient", {
-    id: "aw-sage",
+    id: "aw-mist",
     x1: "0",
     y1: "0",
     x2: "1",
     y2: "0"
   }, /*#__PURE__*/React.createElement("stop", {
     offset: "0%",
-    stopColor: "#7E9476",
+    stopColor: "#9C8FB0",
     stopOpacity: "0"
   }), /*#__PURE__*/React.createElement("stop", {
-    offset: "14%",
-    stopColor: "#7E9476",
-    stopOpacity: "0.7"
+    offset: "18%",
+    stopColor: "#9C8FB0",
+    stopOpacity: "0.38"
   }), /*#__PURE__*/React.createElement("stop", {
-    offset: "86%",
-    stopColor: "#8FA587",
-    stopOpacity: "0.7"
+    offset: "82%",
+    stopColor: "#8B9CA8",
+    stopOpacity: "0.38"
   }), /*#__PURE__*/React.createElement("stop", {
     offset: "100%",
-    stopColor: "#8FA587",
+    stopColor: "#8B9CA8",
     stopOpacity: "0"
   }))), /*#__PURE__*/React.createElement("path", {
     ref: aRef,
     fill: "none",
     stroke: "url(#aw-lav)",
-    strokeWidth: "2.4",
+    strokeWidth: "1.5",
     strokeLinecap: "round"
   }), /*#__PURE__*/React.createElement("path", {
     ref: bRef,
     fill: "none",
-    stroke: "url(#aw-sage)",
-    strokeWidth: "2.4",
+    stroke: "url(#aw-mist)",
+    strokeWidth: "1.4",
     strokeLinecap: "round"
   }));
 };

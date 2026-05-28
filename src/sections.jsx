@@ -377,7 +377,7 @@ function TrustSection({ images, appScreens }) {
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-7">
-            <Reveal><div className="eyebrow mb-4">신고 · 검증 · 보호</div></Reveal>
+            <Reveal><div className="eyebrow mb-4">등록 결정사 · 인증된 회원 · 개인정보 보호</div></Reveal>
             <Reveal delay={80}>
               <h2 className="gh-display gh-h2 max-w-[24ch]">신고된 서비스로,<br/>믿을 수 있는 만남을 운영합니다.</h2>
             </Reveal>
