@@ -92,9 +92,9 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
   const heroImg = images && (Array.isArray(images.hero) ? images.hero[0] : images.hero);
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden flex items-center" id="hero" ref={stageRef}>
+    <section className="relative min-h-[100svh] overflow-hidden flex items-center" id="hero" ref={stageRef} style={{isolation:'isolate'}}>
       {/* Soft painterly background */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0" style={{zIndex:0}}>
         <div className="absolute inset-0" style={{
           background: `
             radial-gradient(60% 50% at 78% 22%, rgba(216,183,106,.18), transparent 60%),
@@ -102,8 +102,8 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
             radial-gradient(70% 60% at 50% 100%, rgba(184,197,176,.22), transparent 70%),
             linear-gradient(180deg, #faf7f2 0%, #f4eee2 60%, #ece4d3 100%)`
         }}/>
-        <div className="absolute inset-0 opacity-25 mix-blend-multiply pointer-events-none">
-          <Sig.WaveCross progress={progress} scale={1.4} showRing={false} style={waveStyle}/>
+        <div className="absolute inset-0 pointer-events-none" style={{opacity:0.9}}>
+          <Sig.AnimatedWaves scale={1.4}/>
         </div>
       </div>
 

@@ -176,9 +176,15 @@ function Hero({
   return /*#__PURE__*/React.createElement("section", {
     className: "relative min-h-[100svh] overflow-hidden flex items-center",
     id: "hero",
-    ref: stageRef
+    ref: stageRef,
+    style: {
+      isolation: 'isolate'
+    }
   }, /*#__PURE__*/React.createElement("div", {
-    className: "absolute inset-0 -z-10"
+    className: "absolute inset-0",
+    style: {
+      zIndex: 0
+    }
   }, /*#__PURE__*/React.createElement("div", {
     className: "absolute inset-0",
     style: {
@@ -189,12 +195,12 @@ function Hero({
             linear-gradient(180deg, #faf7f2 0%, #f4eee2 60%, #ece4d3 100%)`
     }
   }), /*#__PURE__*/React.createElement("div", {
-    className: "absolute inset-0 opacity-25 mix-blend-multiply pointer-events-none"
-  }, /*#__PURE__*/React.createElement(Sig.WaveCross, {
-    progress: progress,
-    scale: 1.4,
-    showRing: false,
-    style: waveStyle
+    className: "absolute inset-0 pointer-events-none",
+    style: {
+      opacity: 0.9
+    }
+  }, /*#__PURE__*/React.createElement(Sig.AnimatedWaves, {
+    scale: 1.4
   }))), /*#__PURE__*/React.createElement("div", {
     className: "relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center"
   }, /*#__PURE__*/React.createElement("div", {
