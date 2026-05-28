@@ -706,7 +706,7 @@ function TrustSection({
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-4"
-  }, "\uC2E0\uACE0\uB41C \uC11C\uBE44\uC2A4 \xB7 \uAC80\uC99D\uB41C \uD68C\uC6D0 \xB7 \uBCF4\uD638\uB418\uB294 \uC815\uBCF4")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uB4F1\uB85D \uACB0\uC815\uC0AC \xB7 \uC778\uC99D\uB41C \uD68C\uC6D0 \xB7 \uAC1C\uC778\uC815\uBCF4 \uBCF4\uD638")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[24ch]"
