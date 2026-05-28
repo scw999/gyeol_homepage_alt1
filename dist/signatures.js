@@ -235,40 +235,43 @@ Sig.AnimatedWaves = function AnimatedWaves({
   };
 
   // Shared wavelength so the two ribbons feel like a matched pair.
+  // CRITICAL: both flips are +1 so the waves crest in the same direction at
+  // any given x — they ride parallel instead of fighting (spreading apart at
+  // one moment, squeezing together the next).
   const wavelength = 520;
-  const ampA = 30 * scale;
-  const ampB = 26 * scale;
+  const ampA = 28 * scale;
+  const ampB = 24 * scale;
   const apply = (tA, tB, breath) => {
     if (aRef.current) aRef.current.setAttribute('d', build(yA0, tA, breath, 1, wavelength, ampA));
-    if (bRef.current) bRef.current.setAttribute('d', build(yB0, tB, breath, -1, wavelength, ampB));
+    if (bRef.current) bRef.current.setAttribute('d', build(yB0, tB, breath, 1, wavelength, ampB));
   };
   useEffect(() => {
-    apply(0, Math.PI * 0.35, 1);
+    apply(0, 0.35, 1);
     if (typeof window === 'undefined' || !window.anime) return;
     const anime = window.anime;
+    // Wave B trails wave A by a small constant phase, and drifts at a slightly
+    // different rate so the phase relationship slowly breathes — but they
+    // always crest in the same direction.
     const state = {
       tA: 0,
-      tB: Math.PI * 0.35,
+      tB: 0.35,
       breath: 1
     };
-    // Both waves drift the same direction; slightly different speeds so they
-    // slowly slide past each other without ever feeling out of sync.
     const flowA = anime({
       targets: state,
       tA: Math.PI * 2,
-      duration: 26000,
+      duration: 28000,
       easing: 'linear',
       loop: true,
       update: () => apply(state.tA, state.tB, state.breath)
     });
     const flowB = anime({
       targets: state,
-      tB: state.tB + Math.PI * 2,
-      duration: 32000,
+      tB: 0.35 + Math.PI * 2,
+      duration: 31000,
       easing: 'linear',
       loop: true
     });
-    // Very subtle shared breathing — both waves swell and ebb together.
     const breath = anime({
       targets: state,
       breath: [{
