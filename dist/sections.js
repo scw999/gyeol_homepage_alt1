@@ -567,22 +567,17 @@ function ProblemSection({
     key: active
   }, /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-head"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "problem-detail-iconbox"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "20",
-    height: "20",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.7",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M9 11h6M9 14h4"
-  }))), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "images/brand-mark.png",
+    alt: "\uACB0\uD558\uB2E4",
+    width: "36",
+    height: "36",
+    style: {
+      borderRadius: '8px',
+      display: 'block',
+      flexShrink: 0
+    }
+  }), /*#__PURE__*/React.createElement("span", {
     className: "eyebrow text-lavender-deep"
   }, "\uACB0\uD558\uB2E4\uB294")), /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-body"

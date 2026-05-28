@@ -196,10 +196,10 @@ Sig.AnimatedWaves = function AnimatedWaves({
   const w = 800,
     h = 560;
   const baseY = h / 2;
-  // Two waves share nearly the same baseline so they overlap and cross — like
-  // the rhythm chart inside the phone mock above. Opposite starting phase
-  // (π) makes one crest where the other troughs, producing the X-pattern.
-  const sep = 10;
+  // Moderate separation + amplitudes that just exceed the gap = the two
+  // ribbons run mostly apart but kiss / cross gently in a few places as
+  // they drift, rather than locking into a regimented X pattern.
+  const sep = 22;
   const yA0 = baseY - sep;
   const yB0 = baseY + sep;
   const aRef = useRef(null);
@@ -237,52 +237,50 @@ Sig.AnimatedWaves = function AnimatedWaves({
     return d;
   };
 
-  // Shared wavelength + opposite starting phase = X-pattern crossings.
-  // Larger amplitude than the parallel-ribbon version so the loops are
-  // visible. Both flip = +1; the π phase offset (not flip) is what makes
-  // them cross.
-  const wavelength = 520;
-  const ampA = 52 * scale;
-  const ampB = 46 * scale;
+  // Long wavelength + moderate amplitudes for the elegant sweep across the
+  // hero. Starting phase offset of π/2 (90°) produces gentle, irregular
+  // crossings as the waves drift — never a stiff symmetric X.
+  const wavelength = 580;
+  const ampA = 40 * scale;
+  const ampB = 36 * scale;
   const apply = (tA, tB, breath) => {
     if (aRef.current) aRef.current.setAttribute('d', build(yA0, tA, breath, 1, wavelength, ampA));
     if (bRef.current) bRef.current.setAttribute('d', build(yB0, tB, breath, 1, wavelength, ampB));
   };
   useEffect(() => {
-    apply(0, Math.PI, 1);
+    apply(0, Math.PI * 0.5, 1);
     if (typeof window === 'undefined' || !window.anime) return;
     const anime = window.anime;
-    // Both ribbons drift the same direction at slightly different speeds, so
-    // the phase relationship breathes around the π offset — the crossing
-    // points slowly migrate horizontally but the X-pattern never breaks.
+    // Slow drifts in the same direction, slightly different speeds, so the
+    // crossing points migrate naturally without ever feeling mechanical.
     const state = {
       tA: 0,
-      tB: Math.PI,
+      tB: Math.PI * 0.5,
       breath: 1
     };
     const flowA = anime({
       targets: state,
       tA: Math.PI * 2,
-      duration: 28000,
+      duration: 38000,
       easing: 'linear',
       loop: true,
       update: () => apply(state.tA, state.tB, state.breath)
     });
     const flowB = anime({
       targets: state,
-      tB: Math.PI + Math.PI * 2,
-      duration: 31000,
+      tB: Math.PI * 0.5 + Math.PI * 2,
+      duration: 44000,
       easing: 'linear',
       loop: true
     });
     const breath = anime({
       targets: state,
       breath: [{
-        value: 1.04,
-        duration: 6000
+        value: 1.03,
+        duration: 8000
       }, {
-        value: 0.97,
-        duration: 6000
+        value: 0.98,
+        duration: 8000
       }],
       easing: 'easeInOutSine',
       loop: true
@@ -346,13 +344,13 @@ Sig.AnimatedWaves = function AnimatedWaves({
     ref: aRef,
     fill: "none",
     stroke: "url(#aw-lav)",
-    strokeWidth: "1.5",
+    strokeWidth: "1.3",
     strokeLinecap: "round"
   }), /*#__PURE__*/React.createElement("path", {
     ref: bRef,
     fill: "none",
     stroke: "url(#aw-mist)",
-    strokeWidth: "1.4",
+    strokeWidth: "1.2",
     strokeLinecap: "round"
   }));
 };
