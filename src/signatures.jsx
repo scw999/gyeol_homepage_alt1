@@ -94,28 +94,44 @@ Sig.WaveCross = function WaveCross({ progress = 1, scale = 1, showRing = true, s
 };
 
 // Animated flowing waves — driven by anime.js for hero background
-// Horizontal drift + subtle amplitude breathing; falls back to static at t=0 if anime.js unavailable.
+// Two cubic-bezier sine waves with continuous horizontal phase drift +
+// subtle amplitude breathing. Falls back to static at t=0 if anime.js unavailable.
 Sig.AnimatedWaves = function AnimatedWaves({ scale = 1.4 }) {
   const w = 800, h = 560;
   const baseY = h / 2;
-  const sep = 40;
+  const sep = 36;
   const yA0 = baseY - sep;
   const yB0 = baseY + sep;
-  const amp = 80 * scale;
-  const echoDys = [-40, -20, 20, 40];
+  const amp = 78 * scale;
 
   const aRef = useRef(null);
   const bRef = useRef(null);
-  const echoARefs = useRef(echoDys.map(() => ({ current: null })));
-  const echoBRefs = useRef(echoDys.map(() => ({ current: null })));
 
-  // Build a polyline path sampled along x with phase t (radians).
+  // Build a smooth cubic-bezier sine wave path.
+  // Control points use the analytic derivative so each segment matches a sine curve.
   const build = (yBase, t, ampMul, flip) => {
-    const step = 20;
+    const xStart = -120, xEnd = 920;
+    const step = 90;
+    const k = Math.PI / 180; // wavelength = 360
+    const a = ampMul * amp;
     let d = '';
-    for (let x = -60; x <= 860; x += step) {
-      const y = yBase + flip * ampMul * amp * Math.sin((x / 180) * Math.PI + t);
-      d += (d ? ' L ' : 'M ') + x.toFixed(1) + ' ' + y.toFixed(1);
+    let prevX = 0, prevY = 0, prevDy = 0;
+    for (let x = xStart; x <= xEnd; x += step) {
+      const y = yBase + flip * a * Math.sin(x * k + t);
+      const dy = flip * a * k * Math.cos(x * k + t);
+      if (d === '') {
+        d = 'M ' + x.toFixed(1) + ' ' + y.toFixed(1);
+      } else {
+        const alpha = step / 3;
+        const cx1 = prevX + alpha;
+        const cy1 = prevY + prevDy * alpha;
+        const cx2 = x - alpha;
+        const cy2 = y - dy * alpha;
+        d += ' C ' + cx1.toFixed(1) + ' ' + cy1.toFixed(1) + ', ' +
+                     cx2.toFixed(1) + ' ' + cy2.toFixed(1) + ', ' +
+                     x.toFixed(1) + ' ' + y.toFixed(1);
+      }
+      prevX = x; prevY = y; prevDy = dy;
     }
     return d;
   };
@@ -123,12 +139,6 @@ Sig.AnimatedWaves = function AnimatedWaves({ scale = 1.4 }) {
   const apply = (t, breath) => {
     if (aRef.current) aRef.current.setAttribute('d', build(yA0, t, breath, 1));
     if (bRef.current) bRef.current.setAttribute('d', build(yB0, t + Math.PI * 0.5, breath, -1));
-    echoDys.forEach((dy, i) => {
-      const ea = echoARefs.current[i].current;
-      const eb = echoBRefs.current[i].current;
-      if (ea) ea.setAttribute('d', build(yA0 + dy, t - i * 0.18, 0.85 * breath, 1));
-      if (eb) eb.setAttribute('d', build(yB0 + dy, t + Math.PI * 0.5 + i * 0.18, 0.85 * breath, -1));
-    });
   };
 
   useEffect(() => {
@@ -139,7 +149,7 @@ Sig.AnimatedWaves = function AnimatedWaves({ scale = 1.4 }) {
     const flow = anime({
       targets: state,
       t: Math.PI * 2,
-      duration: 14000,
+      duration: 16000,
       easing: 'linear',
       loop: true,
       update: () => apply(state.t, state.breath),
@@ -147,8 +157,8 @@ Sig.AnimatedWaves = function AnimatedWaves({ scale = 1.4 }) {
     const breath = anime({
       targets: state,
       breath: [
-        { value: 1.08, duration: 4500 },
-        { value: 0.94, duration: 4500 },
+        { value: 1.06, duration: 5200 },
+        { value: 0.96, duration: 5200 },
       ],
       easing: 'easeInOutSine',
       loop: true,
@@ -161,29 +171,19 @@ Sig.AnimatedWaves = function AnimatedWaves({ scale = 1.4 }) {
       <defs>
         <linearGradient id="aw-lav" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#6B5B95" stopOpacity="0" />
-          <stop offset="14%" stopColor="#6B5B95" stopOpacity="0.85" />
-          <stop offset="86%" stopColor="#7A66A8" stopOpacity="0.85" />
+          <stop offset="14%" stopColor="#6B5B95" stopOpacity="0.78" />
+          <stop offset="86%" stopColor="#7A66A8" stopOpacity="0.78" />
           <stop offset="100%" stopColor="#7A66A8" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="aw-sage" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#7E9476" stopOpacity="0" />
-          <stop offset="14%" stopColor="#7E9476" stopOpacity="0.78" />
-          <stop offset="86%" stopColor="#8FA587" stopOpacity="0.78" />
+          <stop offset="14%" stopColor="#7E9476" stopOpacity="0.7" />
+          <stop offset="86%" stopColor="#8FA587" stopOpacity="0.7" />
           <stop offset="100%" stopColor="#8FA587" stopOpacity="0" />
         </linearGradient>
       </defs>
-      {echoDys.map((dy, i) => (
-        <path key={'eA'+i} ref={el => { echoARefs.current[i].current = el; }}
-              fill="none" stroke="#8E72BD"
-              strokeOpacity={0.25 + (1 - Math.abs(dy)/40) * 0.20} strokeWidth="1.1" />
-      ))}
-      {echoDys.map((dy, i) => (
-        <path key={'eB'+i} ref={el => { echoBRefs.current[i].current = el; }}
-              fill="none" stroke="#8FA587"
-              strokeOpacity={0.22 + (1 - Math.abs(dy)/40) * 0.20} strokeWidth="1.1" />
-      ))}
-      <path ref={aRef} fill="none" stroke="url(#aw-lav)" strokeWidth="2.6" />
-      <path ref={bRef} fill="none" stroke="url(#aw-sage)" strokeWidth="2.6" />
+      <path ref={aRef} fill="none" stroke="url(#aw-lav)" strokeWidth="2.4" strokeLinecap="round" />
+      <path ref={bRef} fill="none" stroke="url(#aw-sage)" strokeWidth="2.4" strokeLinecap="round" />
     </svg>
   );
 };

@@ -25,7 +25,6 @@ function Header({ ctaPrimary, onOpenMenu }) {
   const nav = [
     {label:'결하다 방식', href:'#way'},
     {label:'신뢰 검증', href:'#trust'},
-    {label:'매칭 프로세스', href:'#process'},
     {label:'비용', href:'#pricing'},
     {label:'FAQ', href:'#faq'},
   ];
@@ -187,10 +186,10 @@ function ProblemSection({ appScreens }) {
     {
       num:'01',
       problem:'사진과 조건만으로 판단',
-      problemSub:'몇 줄의 프로필로는 보이지 않는 결이 있습니다. 만나도 대화가 이어지지 않는 경우가 많습니다.',
+      problemSub:'몇 줄의 프로필로는 사람을 알 수 없습니다. 서로를 잘 모른 채 만나면 대화도 자연스럽게 이어지지 않습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-2 3-3 5-3s4 1 5 3"/></svg>),
       solve:'심리 질문으로 관계의 결까지',
-      solveSub:'24개 심리 질문과 9개 선호 질문으로 성향·감정 표현·갈등 대처 방식을 함께 살펴 매칭합니다.',
+      solveSub:'성향·감정 표현·갈등 대처 방식까지 꼼꼼히 살펴 매칭합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>),
       screen: appScreens && appScreens.tendency,
       screenLabel:'성향 분석 리포트',
@@ -234,9 +233,9 @@ function ProblemSection({ appScreens }) {
   return (
     <section className="bg-offwhite" id="problem">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <Reveal><div className="eyebrow mb-4">Why a different way</div></Reveal>
+        <Reveal><div className="eyebrow mb-4">결하다 방식</div></Reveal>
         <Reveal delay={80}>
-          <h2 className="gh-display gh-h2 max-w-[20ch]">이런 어려움,<br/>결하다는 이렇게 풉니다.</h2>
+          <h2 className="gh-display gh-h2 max-w-[22ch]">결정사에서 막혔던 지점,<br/>결하다가 풀어드립니다.</h2>
         </Reveal>
         <Reveal delay={140}>
           <p className="body-lg mt-6 text-mute" style={{maxWidth:'44ch'}}>가장 공감되는 어려움을 눌러보세요. 결하다가 어떻게 풀어가는지 보여드립니다.</p>
@@ -306,30 +305,29 @@ function ThreeGyeolSection({ appScreens }) {
       t:'현실적인 결혼 조건',
       d:'나이, 직업, 학력, 거주지, 자산 등 결혼의 토대가 되는 정보를 인증으로 확인합니다.',
       screen: appScreens && appScreens.verifyMain, label:'인증 항목',
-      note:'선호도 설정으로 필터링됩니다.',
+      note:'필터링 가능합니다.',
     },
     {
       tag:'내면의 결', kr:'內',
-      t:'관계를 만드는 태도',
-      d:'24개 심리 질문 + 9개 선호 질문으로 성향·감정·갈등 대처 방식을 살핍니다.',
+      t:'감정과 갈등을 다루는 방식',
+      d:'심리 질문과 선호 질문으로 성향·감정 표현·갈등 대처 방식을 살핍니다.',
       screen: appScreens && appScreens.inner, label:'내면 분석 리포트',
-      note:'Big Five · 애착 유형 · 부부관계 연구를 참고합니다.',
+      note:'심리 결과로 매칭에 반영됩니다.',
     },
     {
       tag:'미래의 결', kr:'來',
-      t:'함께 그리는 방향',
-      d:'결혼관·가족관·경제관 — 두 사람이 함께 그릴 삶의 방향을 살핍니다.',
+      t:'미래의 결을 맞춰봅니다',
+      d:'결혼관·가족관·경제관까지 살펴, 두 사람의 미래가 맞는지 확인합니다.',
       screen: appScreens && appScreens.prefsMain, label:'매칭 선호도',
-      note:'결혼관·가족관·경제관이 매칭 추천에 반영됩니다.',
+      note:'매칭 추천에 반영됩니다.',
     },
   ];
-  const tags = ['Big Five', '애착 유형', '관계 갈등 방식', '부부관계 연구'];
   return (
     <section id="way" className="bg-veil grain">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <Reveal>
           <div className="eyebrow mb-4">결하다의 방식 — 세 가지 결</div>
-          <h2 className="gh-display gh-h2 max-w-[22ch]">사람의 겉과 속,<br/>그리고 함께 그릴 미래까지.</h2>
+          <h2 className="gh-display gh-h2 max-w-[22ch]">결이 맞아야,<br/>오래 함께할 수 있습니다.</h2>
         </Reveal>
 
         <div className="mt-12 grid md:grid-cols-3 gap-5">
@@ -340,7 +338,7 @@ function ThreeGyeolSection({ appScreens }) {
                   <span className="font-serif text-lavender-deep text-[18px]" style={{fontFamily:'"Noto Serif KR", serif'}}>{it.kr}</span>
                   <span className="eyebrow !tracking-[.16em] !text-ink/55">{it.tag}</span>
                 </div>
-                <div className="relative rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline" style={{height: 320}}>
+                <div className="relative rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline mb-5" style={{height: 320}}>
                   {it.screen ? (
                     <div className="absolute left-1/2" style={{transform:'translateX(-50%)', top:24}}>
                       <Sig.PhoneMock src={it.screen} alt={`결하다 앱 — ${it.label}`} width={200} tilt={0}/>
@@ -349,7 +347,6 @@ function ThreeGyeolSection({ appScreens }) {
                     <div className="absolute inset-3"><Sig.ThreeStrands palette={['#C8B6E2','#A88FCE','#6B5B95']}/></div>
                   )}
                 </div>
-                <div className="eyebrow text-lavender-deep mt-5 mb-1.5">{it.label}</div>
                 <div className="gh-h3 mb-2">{it.t}</div>
                 <p className="body text-mute">{it.d}</p>
                 <p className="small mt-3 text-lavender-deep/80">— {it.note}</p>
@@ -359,13 +356,7 @@ function ThreeGyeolSection({ appScreens }) {
         </div>
 
         <Reveal delay={300}>
-          <div className="mt-10 flex flex-wrap items-center gap-2">
-            <span className="small text-mute mr-2">참고 기준</span>
-            {tags.map(t => (
-              <span key={t} className="pill border border-ink/10 bg-white text-ink/75">{t}</span>
-            ))}
-            <span className="small text-mute ml-2">· 의학적·심리 진단을 대체하지 않습니다.</span>
-          </div>
+          <div className="mt-10 small text-mute">· 의학적·심리 진단을 대체하지 않습니다.</div>
         </Reveal>
       </div>
     </section>
@@ -379,14 +370,14 @@ function TrustSection({ images, appScreens }) {
     '검토 목적의 정보 확인',
     '민감 자료 원본 비공개',
     '필요한 범위 내 정보 활용',
-    '개인정보처리방침 명확히 안내',
+    '개인정보 처리방침 명확히 안내',
   ];
   return (
     <section id="trust" className="bg-offwhite">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-7">
-            <Reveal><div className="eyebrow mb-4">Registered · Verified · Private</div></Reveal>
+            <Reveal><div className="eyebrow mb-4">신고 · 검증 · 보호</div></Reveal>
             <Reveal delay={80}>
               <h2 className="gh-display gh-h2 max-w-[24ch]">신고된 서비스로,<br/>믿을 수 있는 만남을 운영합니다.</h2>
             </Reveal>
@@ -453,169 +444,42 @@ function TrustSection({ images, appScreens }) {
   );
 }
 
-// ---------- Section 5: Process timeline ----------
-function ProcessSection({ appScreens }) {
-  const steps = [
-    {t:'앱 다운로드', d:'결하다 앱으로 시작합니다.'},
-    {t:'프로필 작성', d:'결혼을 위한 기본 정보를 정리합니다.'},
-    {t:'심리 질문 응답', d:'24개 + 9개 질문에 답합니다.'},
-    {t:'신뢰 자료 제출', d:'본인·기본 정보를 제출합니다.'},
-    {t:'승인 검토', d:'검토 후 회원으로 가입됩니다.'},
-    {t:'결 기반 추천', d:'세 가지 결로 본 추천이 도착합니다.'},
-    {t:'상호 호감 확인', d:'양쪽이 동의하면 다음 단계로.'},
-    {t:'실제 만남', d:'일정을 조율해 직접 만남을 진행합니다.'},
-  ];
-  const previews = [
-    {label:'심리 질문', title:'성향을 깊게 살핍니다', src: appScreens && appScreens.questions},
-    {label:'결 기반 추천', title:'매칭 이유까지 확인', src: appScreens && appScreens.matchReason},
-    {label:'리듬 매칭', title:'두 사람의 결 비교', src: appScreens && appScreens.rhythmDetail2},
-  ];
-  return (
-    <section id="process" className="bg-veil">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <Reveal><div className="eyebrow mb-4">8 steps</div></Reveal>
-        <Reveal delay={80}><h2 className="gh-display gh-h2">서로의 결이 맞을 때,<br/>만남이 시작됩니다.</h2></Reveal>
-
-        <div className="grid md:grid-cols-12 gap-10 md:gap-12 mt-12 items-start">
-          {/* Vertical numbered timeline */}
-          <div className="md:col-span-5">
-            <Reveal delay={120}>
-              <ol className="process-timeline">
-                {steps.map((s,i)=>(
-                  <li key={i} className="process-step">
-                    <div className="process-step-rail">
-                      <span className="process-step-num">{String(i+1).padStart(2,'0')}</span>
-                      {i < steps.length-1 && (
-                        <span className="process-step-line" aria-hidden="true">
-                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M3 4.5L6 7.5 9 4.5"/></svg>
-                        </span>
-                      )}
-                    </div>
-                    <div className="process-step-content">
-                      <div className="process-step-title">{s.t}</div>
-                      <p className="process-step-desc">{s.d}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </Reveal>
-          </div>
-
-          {/* Phone preview cards */}
-          <div className="md:col-span-7">
-            <Reveal delay={180}>
-              <div className="process-preview">
-                {previews.map((p,i)=>(
-                  <div key={i} className="process-preview-card">
-                    <div className="process-preview-phone">
-                      <Sig.PhoneMock src={p.src} alt={`결하다 앱 — ${p.label}`} width={170} tilt={0}/>
-                    </div>
-                    <div className="process-preview-label">{p.label}</div>
-                    <div className="process-preview-title">{p.title}</div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ---------- Section 6: Pricing + Differentiation (merged) ----------
-function PricingSection({ appScreens }) {
-  const points = [
-    {
-      eyebrow:'관계 성향',
-      t:'깊게 살피는 매칭',
-      d:'심리 질문 + 결혼관·가족관·경제관까지 매칭에 반영.',
-      icon:(<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4"><path d="M10 17s-6-4-6-9a4 4 0 0 1 7-2.5A4 4 0 0 1 16 8c0 5-6 9-6 9z"/></svg>),
-    },
-    {
-      eyebrow:'신뢰',
-      t:'승인제 가입',
-      d:'본인·신원·직업 검토를 거친 회원만 가입할 수 있습니다.',
-      icon:(<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4"><path d="M10 2l6 2.5v5c0 4-3 6.5-6 7.5-3-1-6-3.5-6-7.5v-5L10 2z"/><path d="M7 10l2 2 4-4"/></svg>),
-    },
-    {
-      eyebrow:'법적 신뢰',
-      t:'결혼중개업 신고',
-      d:'「결혼중개업법」에 따라 신고된 결혼정보 서비스입니다.',
-      icon:(<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M7 10l2 2 4-4"/></svg>),
-    },
-    {
-      eyebrow:'투명성',
-      t:'이용 조건 사전 안내',
-      d:'계약·환불 기준을 가입 단계에서 명확히 안내합니다.',
-      icon:(<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.4"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M7 8h6M7 11h6M7 14h4"/></svg>),
-    },
-  ];
+// ---------- Section 5: Pricing — low entry, on-success only ----------
+function PricingSection() {
   return (
     <section id="pricing" className="bg-offwhite">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <div className="grid md:grid-cols-12 gap-10 items-start">
-          <div className="md:col-span-5">
-            <Reveal><div className="eyebrow mb-4">결하다의 차별점</div></Reveal>
-            <Reveal delay={80}>
-              <h2 className="gh-display gh-h2">낮은 가입비,<br/>만남이 성사될 때만.</h2>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="body-lg mt-6 text-mute max-w-[40ch]">
-                소개팅 앱과 결혼정보회사 사이의 새로운 대안. 가벼운 시작 비용으로 진지한 만남을 시도할 수 있습니다.
-              </p>
-            </Reveal>
+      <div className="max-w-[1000px] mx-auto px-5 md:px-8">
+        <Reveal><div className="eyebrow mb-4">결하다의 차별점</div></Reveal>
+        <Reveal delay={80}>
+          <h2 className="gh-display gh-h2">낮은 가입비,<br/>만남이 성사될 때만.</h2>
+        </Reveal>
+        <Reveal delay={160}>
+          <p className="body-lg mt-6 text-mute max-w-[44ch]">
+            선결제 부담 없이 시작하고, 양쪽이 만남에 동의했을 때만 비용이 발생합니다.
+          </p>
+        </Reveal>
 
-            <Reveal delay={220}>
-              <div className="card p-7 md:p-8 mt-8 relative overflow-hidden">
-                <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{background:'radial-gradient(closest-side, rgba(200,182,226,.5), transparent)'}}/>
-                <div className="relative">
-                  <div className="flex items-baseline justify-between">
-                    <div className="eyebrow">가입비</div>
-                    <span className="pill bg-lavender-deep text-white">Low entry</span>
-                  </div>
-                  <div className="gh-h3 mt-2">선결제 부담 없이 시작</div>
-                  <p className="body mt-2 text-mute">결혼을 위한 만남을 가벼운 시작 비용으로 시도해볼 수 있도록 설계했습니다.</p>
-                  <div className="rule my-5"/>
-                  <div className="eyebrow">만남 비용</div>
-                  <p className="body mt-2 text-ink">양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 발생합니다.</p>
-                  <p className="small mt-3 text-mute">정확한 금액은 앱 가입 단계에서 안내됩니다.</p>
+        <Reveal delay={220}>
+          <div className="card p-7 md:p-8 mt-10 relative overflow-hidden">
+            <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{background:'radial-gradient(closest-side, rgba(200,182,226,.5), transparent)'}}/>
+            <div className="relative grid md:grid-cols-2 gap-8">
+              <div>
+                <div className="flex items-baseline justify-between">
+                  <div className="eyebrow">가입비</div>
+                  <span className="pill bg-lavender-deep text-white">Low entry</span>
                 </div>
+                <div className="gh-h3 mt-2">선결제 부담 없이 시작</div>
+                <p className="body mt-2 text-mute">가벼운 시작 비용으로 진지한 만남을 시도할 수 있도록 설계했습니다.</p>
               </div>
-            </Reveal>
-          </div>
-
-          <div className="md:col-span-7">
-            {/* Feature highlight with phone */}
-            <Reveal delay={100}>
-              <div className="card p-6 md:p-7 mb-4 relative overflow-hidden flex flex-col sm:flex-row items-center gap-5" style={{background:'linear-gradient(135deg, rgba(200,182,226,.18), rgba(184,197,176,.10))'}}>
-                <div className="flex-shrink-0">
-                  <Sig.PhoneMock src={appScreens && appScreens.innerAlt} alt="결하다 앱 — 내면 분석 리포트" width={170} tilt={0}/>
-                </div>
-                <div className="min-w-0">
-                  <div className="eyebrow text-lavender-deep mb-2">매칭 이유까지 보여드립니다</div>
-                  <div className="gh-h3 mb-2">왜 이 사람과 결이 맞는지<br/>설명되는 매칭</div>
-                  <p className="body text-mute">단순 추천이 아니라, 두 사람의 성향·가치관이 어떻게 만나는지 함께 보여드립니다.</p>
-                </div>
+              <div>
+                <div className="eyebrow">만남 비용</div>
+                <div className="gh-h3 mt-2">성사 시에만 발생</div>
+                <p className="body mt-2 text-mute">양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 발생합니다.</p>
+                <p className="small mt-3 text-mute">정확한 금액은 앱 가입 단계에서 안내됩니다.</p>
               </div>
-            </Reveal>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              {points.map((p,i)=>(
-                <Reveal key={i} delay={i*70}>
-                  <div className="card p-6 h-full">
-                    <div className="w-10 h-10 rounded-lg bg-lavender-soft/30 grid place-items-center text-lavender-deep mb-4">
-                      {p.icon}
-                    </div>
-                    <div className="eyebrow mb-1.5">{p.eyebrow}</div>
-                    <div className="gh-h3 mb-2">{p.t}</div>
-                    <p className="body text-mute">{p.d}</p>
-                  </div>
-                </Reveal>
-              ))}
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -690,7 +554,7 @@ function Footer({ ctaState, ctaData }) {
             <div className="eyebrow !text-white/60">Links</div>
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-white/75">
               <li><a href="#" className="hover:text-white">이용약관</a></li>
-              <li><a href="#" className="hover:text-white">개인정보처리방침</a></li>
+              <li><a href="#" className="hover:text-white">개인정보 처리방침</a></li>
               <li><a href="#" className="hover:text-white">결혼중개표준약관</a></li>
               <li><a href="#" className="hover:text-white">고객센터</a></li>
             </ul>
@@ -723,31 +587,10 @@ function MobileSticky({ ctaState, ctaData }) {
   );
 }
 
-function FloatingQR({ show }) {
-  if (!show) return null;
-  return (
-    <div className="hidden md:flex fixed right-5 bottom-5 z-40 items-center gap-3 card p-3 pr-4">
-      <div className="w-16 h-16 rounded-md bg-white relative overflow-hidden hairline">
-        <svg viewBox="0 0 16 16" className="w-full h-full">
-          {Array.from({length:64}).map((_,i)=>{
-            const r = i%8, c = Math.floor(i/8);
-            const filled = ((r*c+r+c) % 3 === 0) || (r<3 && c<3) || (r>4 && c<3) || (r<3 && c>4);
-            return filled ? <rect key={i} x={r*2} y={c*2} width="2" height="2" fill="#2C2A35"/> : null;
-          })}
-        </svg>
-      </div>
-      <div className="text-[12.5px] leading-tight">
-        <div className="font-medium">QR로 앱 다운로드</div>
-        <div className="text-mute">App Store · Google Play</div>
-      </div>
-    </div>
-  );
-}
-
 // Export to window for app.jsx
 Object.assign(window, {
   Reveal, Header, Hero,
   ProblemSection, ThreeGyeolSection, TrustSection,
-  ProcessSection, PricingSection,
-  FAQSection, Footer, MobileSticky, FloatingQR,
+  PricingSection,
+  FAQSection, Footer, MobileSticky,
 });

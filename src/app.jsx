@@ -63,7 +63,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 const HEADLINES = {
   primary: {
     h: '결이 맞아야,<br/><span style="color:#6B5B95">결혼도 맞다.</span>',
-    sub: '외면의 조건과 내면의 성향을 함께 살펴, 결혼을 원하는 사람들을 연결합니다.',
+    sub: '조건 너머의 결까지 읽어내는 새로운 결혼 매칭.',
   },
   warm: {
     h: '천천히, 그러나 깊게.<br/><span style="color:#6B5B95">결이 맞는 사람을 만나는 일.</span>',
@@ -115,7 +115,7 @@ function App() {
             </button>
           </div>
           <nav className="px-6 py-8 space-y-5 text-[20px]">
-            {[['결하다 방식','#way'],['신뢰 검증','#trust'],['매칭 프로세스','#process'],['비용','#pricing'],['FAQ','#faq']].map(([l,h])=>(
+            {[['결하다 방식','#way'],['신뢰 검증','#trust'],['비용','#pricing'],['FAQ','#faq']].map(([l,h])=>(
               <a key={h} href={h} className="block">{l}</a>
             ))}
             <a href="#download" className="btn btn-primary mt-6 w-full">앱 다운로드</a>
@@ -137,14 +137,12 @@ function App() {
         <ProblemSection appScreens={APP_SCREENS}/>
         <ThreeGyeolSection appScreens={APP_SCREENS}/>
         <TrustSection images={IMAGES} appScreens={APP_SCREENS}/>
-        <ProcessSection appScreens={APP_SCREENS}/>
         <PricingSection appScreens={APP_SCREENS}/>
         <FAQSection/>
       </main>
 
       <Footer ctaState={t.ctaState} ctaData={CTA_DATA}/>
       <MobileSticky ctaState={t.ctaState} ctaData={CTA_DATA}/>
-      <FloatingQR show={true}/>
 
       <TweaksPanel title="Tweaks">
         <TweakSection label="CTA"/>
