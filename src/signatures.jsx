@@ -101,7 +101,10 @@ Sig.WaveCross = function WaveCross({ progress = 1, scale = 1, showRing = true, s
 Sig.AnimatedWaves = function AnimatedWaves({ scale = 1 }) {
   const w = 800, h = 560;
   const baseY = h / 2;
-  const sep = 56;
+  // Two waves share nearly the same baseline so they overlap and cross — like
+  // the rhythm chart inside the phone mock above. Opposite starting phase
+  // (π) makes one crest where the other troughs, producing the X-pattern.
+  const sep = 10;
   const yA0 = baseY - sep;
   const yB0 = baseY + sep;
 
@@ -137,13 +140,13 @@ Sig.AnimatedWaves = function AnimatedWaves({ scale = 1 }) {
     return d;
   };
 
-  // Shared wavelength so the two ribbons feel like a matched pair.
-  // CRITICAL: both flips are +1 so the waves crest in the same direction at
-  // any given x — they ride parallel instead of fighting (spreading apart at
-  // one moment, squeezing together the next).
+  // Shared wavelength + opposite starting phase = X-pattern crossings.
+  // Larger amplitude than the parallel-ribbon version so the loops are
+  // visible. Both flip = +1; the π phase offset (not flip) is what makes
+  // them cross.
   const wavelength = 520;
-  const ampA = 28 * scale;
-  const ampB = 24 * scale;
+  const ampA = 52 * scale;
+  const ampB = 46 * scale;
 
   const apply = (tA, tB, breath) => {
     if (aRef.current) aRef.current.setAttribute('d', build(yA0, tA, breath, 1, wavelength, ampA));
@@ -151,20 +154,20 @@ Sig.AnimatedWaves = function AnimatedWaves({ scale = 1 }) {
   };
 
   useEffect(() => {
-    apply(0, 0.35, 1);
+    apply(0, Math.PI, 1);
     if (typeof window === 'undefined' || !window.anime) return;
     const anime = window.anime;
-    // Wave B trails wave A by a small constant phase, and drifts at a slightly
-    // different rate so the phase relationship slowly breathes — but they
-    // always crest in the same direction.
-    const state = { tA: 0, tB: 0.35, breath: 1 };
+    // Both ribbons drift the same direction at slightly different speeds, so
+    // the phase relationship breathes around the π offset — the crossing
+    // points slowly migrate horizontally but the X-pattern never breaks.
+    const state = { tA: 0, tB: Math.PI, breath: 1 };
     const flowA = anime({
       targets: state, tA: Math.PI * 2,
       duration: 28000, easing: 'linear', loop: true,
       update: () => apply(state.tA, state.tB, state.breath),
     });
     const flowB = anime({
-      targets: state, tB: 0.35 + Math.PI * 2,
+      targets: state, tB: Math.PI + Math.PI * 2,
       duration: 31000, easing: 'linear', loop: true,
     });
     const breath = anime({

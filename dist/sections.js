@@ -255,16 +255,19 @@ function Hero({
   })), b.icon === 'play' && /*#__PURE__*/React.createElement("svg", {
     width: "22",
     height: "22",
-    viewBox: "0 0 24 24",
-    fill: "currentColor"
+    viewBox: "0 0 24 24"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M3.6 2.5c-.4.3-.6.7-.6 1.3v16.4c0 .6.2 1 .6 1.3l9.5-9.5L3.6 2.5z"
+    d: "M3.6 2.5c-.4.3-.6.7-.6 1.3v16.4c0 .6.2 1 .6 1.3l9.5-9.5L3.6 2.5z",
+    fill: "#00BCD4"
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M16.7 8.8L4.6 1.9c-.4-.2-.8-.3-1.1-.1l9.6 9.6 3.6-2.6z"
+    d: "M16.7 8.8L4.6 1.9c-.4-.2-.8-.3-1.1-.1l9.6 9.6 3.6-2.6z",
+    fill: "#EA4335"
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M20.4 11.1l-3.7-2.1L13 12l3.7 3.7 3.7-2.1c1.2-.9 1.2-1.6 0-2.5z"
+    d: "M20.4 11.1l-3.7-2.1L13 12l3.7 3.7 3.7-2.1c1.2-.9 1.2-1.6 0-2.5z",
+    fill: "#FFC107"
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M3.5 22.1c.3.1.7.1 1.1-.1l12.1-6.9-3.6-3.6L3.5 22.1z"
+    d: "M3.5 22.1c.3.1.7.1 1.1-.1l12.1-6.9-3.6-3.6L3.5 22.1z",
+    fill: "#4CAF50"
   })), b.icon === 'bell' && /*#__PURE__*/React.createElement("svg", {
     width: "22",
     height: "22",
@@ -871,13 +874,13 @@ function TrustSection({
   }), /*#__PURE__*/React.createElement("path", {
     d: "M4 5V3.5a2 2 0 0 1 4 0V5"
   }))), /*#__PURE__*/React.createElement("span", null, p))))))), /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-5 space-y-6"
+    className: "md:col-span-5"
   }, /*#__PURE__*/React.createElement(Reveal, {
     delay: 120
   }, /*#__PURE__*/React.createElement("div", {
     className: "relative rounded-2xl overflow-hidden hairline",
     style: {
-      aspectRatio: '4/5'
+      aspectRatio: '3/4'
     }
   }, /*#__PURE__*/React.createElement("img", {
     src: trustImg,
@@ -888,47 +891,6 @@ function TrustSection({
     className: "absolute inset-0",
     style: {
       background: 'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.12))'
-    }
-  }))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 200
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "relative flex items-center justify-center",
-    style: {
-      height: 360,
-      gap: 16
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "relative",
-    style: {
-      zIndex: 2
-    }
-  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
-    src: appScreens && appScreens.verifyMain,
-    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uC778\uC99D \uD56D\uBAA9",
-    width: 210,
-    tilt: 0
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "hidden md:block",
-    style: {
-      position: 'absolute',
-      right: 0,
-      bottom: 12,
-      zIndex: 1
-    }
-  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
-    src: appScreens && appScreens.verifyDetail,
-    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uD544\uC218 \uC778\uC99D \uD56D\uBAA9",
-    width: 160,
-    tilt: 0
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "absolute left-1/2 top-1/2 pointer-events-none",
-    style: {
-      transform: 'translate(-50%,-50%)',
-      width: 280,
-      height: 280,
-      borderRadius: '50%',
-      background: 'radial-gradient(closest-side, rgba(184,197,176,.25), transparent)',
-      zIndex: 0
     }
   })))))));
 }

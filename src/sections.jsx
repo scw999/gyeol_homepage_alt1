@@ -134,7 +134,12 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.5 2.1-3.6-1.1-1.6-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.2 1-4 2.4-1.7 3-.4 7.4 1.3 9.8.8 1.2 1.8 2.5 3.1 2.5 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.4-2.8-.1 0-2.7-1-2.9-4.1zm-2.4-7.5c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 2.9 1.1.1 2.2-.5 2.9-1.3z"/></svg>
                   )}
                   {b.icon === 'play' && (
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.5c-.4.3-.6.7-.6 1.3v16.4c0 .6.2 1 .6 1.3l9.5-9.5L3.6 2.5z"/><path d="M16.7 8.8L4.6 1.9c-.4-.2-.8-.3-1.1-.1l9.6 9.6 3.6-2.6z"/><path d="M20.4 11.1l-3.7-2.1L13 12l3.7 3.7 3.7-2.1c1.2-.9 1.2-1.6 0-2.5z"/><path d="M3.5 22.1c.3.1.7.1 1.1-.1l12.1-6.9-3.6-3.6L3.5 22.1z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24">
+                      <path d="M3.6 2.5c-.4.3-.6.7-.6 1.3v16.4c0 .6.2 1 .6 1.3l9.5-9.5L3.6 2.5z" fill="#00BCD4"/>
+                      <path d="M16.7 8.8L4.6 1.9c-.4-.2-.8-.3-1.1-.1l9.6 9.6 3.6-2.6z" fill="#EA4335"/>
+                      <path d="M20.4 11.1l-3.7-2.1L13 12l3.7 3.7 3.7-2.1c1.2-.9 1.2-1.6 0-2.5z" fill="#FFC107"/>
+                      <path d="M3.5 22.1c.3.1.7.1 1.1-.1l12.1-6.9-3.6-3.6L3.5 22.1z" fill="#4CAF50"/>
+                    </svg>
                   )}
                   {b.icon === 'bell' && (
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>
@@ -488,27 +493,11 @@ function TrustSection({ images, appScreens }) {
             </Reveal>
           </div>
 
-          <div className="md:col-span-5 space-y-6">
+          <div className="md:col-span-5">
             <Reveal delay={120}>
-              <div className="relative rounded-2xl overflow-hidden hairline" style={{aspectRatio:'4/5'}}>
+              <div className="relative rounded-2xl overflow-hidden hairline" style={{aspectRatio:'3/4'}}>
                 <img src={trustImg} alt="서로의 손이 닿으려는 모습 — 신뢰의 시작" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
                 <div className="absolute inset-0" style={{background:'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.12))'}}/>
-              </div>
-            </Reveal>
-            <Reveal delay={200}>
-              <div className="relative flex items-center justify-center" style={{height:360, gap:16}}>
-                <div className="relative" style={{zIndex:2}}>
-                  <Sig.PhoneMock src={appScreens && appScreens.verifyMain} alt="결하다 앱 — 인증 항목" width={210} tilt={0}/>
-                </div>
-                <div className="hidden md:block" style={{position:'absolute', right:0, bottom:12, zIndex:1}}>
-                  <Sig.PhoneMock src={appScreens && appScreens.verifyDetail} alt="결하다 앱 — 필수 인증 항목" width={160} tilt={0}/>
-                </div>
-                <div className="absolute left-1/2 top-1/2 pointer-events-none" style={{
-                  transform:'translate(-50%,-50%)',
-                  width:280, height:280, borderRadius:'50%',
-                  background:'radial-gradient(closest-side, rgba(184,197,176,.25), transparent)',
-                  zIndex:0,
-                }}/>
               </div>
             </Reveal>
           </div>
