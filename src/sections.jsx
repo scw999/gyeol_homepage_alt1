@@ -306,27 +306,30 @@ function ProblemSection({ appScreens }) {
 }
 
 // ---------- Section 3: Three Gyeol — matching method (merged with personality) ----------
-function ThreeGyeolSection({ appScreens }) {
+function ThreeGyeolSection() {
   const items = [
     {
       tag:'외면의 결', kr:'外',
       t:'현실적인 결혼 조건',
       d:'나이, 직업, 학력, 거주지, 자산 등 결혼의 토대가 되는 정보를 인증으로 확인합니다.',
-      screen: appScreens && appScreens.verifyMain, label:'인증 항목',
+      photo:'images/gyeol-card-external.png',
+      photoAlt:'서류·반지·서신으로 표현한 결혼의 토대',
       note:'필터링 가능합니다.',
     },
     {
       tag:'내면의 결', kr:'內',
       t:'감정과 갈등을 다루는 방식',
       d:'심리 질문과 선호 질문으로 성향·감정 표현·갈등 대처 방식을 살핍니다.',
-      screen: appScreens && appScreens.inner, label:'내면 분석 리포트',
+      photo:'images/gyeol-card-inner.png',
+      photoAlt:'심리 카드를 두고 마주 앉은 두 사람의 손',
       note:'심리 결과로 매칭에 반영됩니다.',
     },
     {
       tag:'미래의 결', kr:'來',
       t:'미래의 결을 맞춰봅니다',
       d:'결혼관·가족관·경제관까지 살펴, 두 사람의 미래가 맞는지 확인합니다.',
-      screen: appScreens && appScreens.prefsMain, label:'매칭 선호도',
+      photo:'images/gyeol-card-future.png',
+      photoAlt:'집·달력·저축이 함께 놓인 미래 설계 장면',
       note:'매칭 추천에 반영됩니다.',
     },
   ];
@@ -346,14 +349,8 @@ function ThreeGyeolSection({ appScreens }) {
                   <span className="font-serif text-lavender-deep text-[18px]" style={{fontFamily:'"Noto Serif KR", serif'}}>{it.kr}</span>
                   <span className="eyebrow !tracking-[.16em] !text-ink/55">{it.tag}</span>
                 </div>
-                <div className="relative rounded-xl overflow-hidden bg-gradient-to-b from-[#f4eee2] to-[#ece4d3] hairline mb-5" style={{height: 320}}>
-                  {it.screen ? (
-                    <div className="absolute left-1/2" style={{transform:'translateX(-50%)', top:24}}>
-                      <Sig.PhoneMock src={it.screen} alt={`결하다 앱 — ${it.label}`} width={200} tilt={0}/>
-                    </div>
-                  ) : (
-                    <div className="absolute inset-3"><Sig.ThreeStrands palette={['#C8B6E2','#A88FCE','#6B5B95']}/></div>
-                  )}
+                <div className="relative rounded-xl overflow-hidden hairline mb-5" style={{aspectRatio:'4/5'}}>
+                  <img src={it.photo} alt={it.photoAlt} className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
                 </div>
                 <div className="gh-h3 mb-2">{it.t}</div>
                 <p className="body text-mute">{it.d}</p>

@@ -138,7 +138,7 @@ function App() {
         />
         <ProblemSection appScreens={APP_SCREENS}/>
         <ConnectionBand images={IMAGES}/>
-        <ThreeGyeolSection appScreens={APP_SCREENS}/>
+        <ThreeGyeolSection/>
         <PhilosophyBand images={IMAGES}/>
         <TrustSection images={IMAGES} appScreens={APP_SCREENS}/>
         <PricingSection images={IMAGES} appScreens={APP_SCREENS}/>
