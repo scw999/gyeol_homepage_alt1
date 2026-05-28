@@ -8,7 +8,7 @@ var { useState, useEffect } = React;
 // =============================================================================
 const IMAGES = {
   hero:       [],                                                  // 히어로 — 폰 목업 사용 (이미지 없음)
-  trust:      ['images/wedding-lavender-reaching-hands.png'],      // 신뢰 섹션 사이드 비주얼
+  trust:      ['images/gyeol-trust-verification.png'],             // 신뢰 섹션 사이드 비주얼
   philosophy: ['images/wedding-lavender-shoulder-ring.png'],       // 브랜드 철학 섹션
   band:       ['images/wedding-lavender-rings-table.png'],         // Problem → Three Gyeol 사이 풀-블리드 밴드
   pricing:    ['images/wedding-lavender-hands-close.png'],         // 가격 섹션 액센트
