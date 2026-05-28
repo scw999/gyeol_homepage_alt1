@@ -12,9 +12,13 @@ var {
 const IMAGES = {
   hero: [],
   // 히어로 — 폰 목업 사용 (이미지 없음)
-  trust: [],
-  // 신뢰 — 폰 목업 사용 (이미지 없음)
-  philosophy: ['images/philosophy.jpg'] // 브랜드 철학 섹션
+  trust: ['images/wedding-lavender-reaching-hands.png'],
+  // 신뢰 섹션 사이드 비주얼
+  philosophy: ['images/wedding-lavender-shoulder-ring.png'],
+  // 브랜드 철학 섹션
+  band: ['images/wedding-lavender-rings-table.png'],
+  // Problem → Three Gyeol 사이 풀-블리드 밴드
+  pricing: ['images/wedding-lavender-hands-close.png'] // 가격 섹션 액센트
 };
 
 // App screenshot screens — used inside phone mockups
@@ -175,6 +179,8 @@ function App() {
     appScreens: APP_SCREENS
   }), /*#__PURE__*/React.createElement(ProblemSection, {
     appScreens: APP_SCREENS
+  }), /*#__PURE__*/React.createElement(ConnectionBand, {
+    images: IMAGES
   }), /*#__PURE__*/React.createElement(ThreeGyeolSection, {
     appScreens: APP_SCREENS
   }), /*#__PURE__*/React.createElement(PhilosophyBand, {
@@ -183,6 +189,7 @@ function App() {
     images: IMAGES,
     appScreens: APP_SCREENS
   }), /*#__PURE__*/React.createElement(PricingSection, {
+    images: IMAGES,
     appScreens: APP_SCREENS
   }), /*#__PURE__*/React.createElement(FAQSection, null)), /*#__PURE__*/React.createElement(Footer, {
     ctaState: t.ctaState,

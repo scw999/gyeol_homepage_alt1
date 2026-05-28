@@ -363,6 +363,32 @@ function ThreeGyeolSection({ appScreens }) {
   );
 }
 
+// ---------- Connection band: full-width horizontal photo break ----------
+function ConnectionBand({ images }) {
+  const img = images && (Array.isArray(images.band) ? images.band[0] : images.band);
+  if (!img) return null;
+  return (
+    <section id="connection" className="relative overflow-hidden" style={{background:'#f6f0e6'}}>
+      <div className="relative">
+        <div className="relative w-full" style={{aspectRatio:'16/7', maxHeight:'520px'}}>
+          <img src={img} alt="두 사람이 함께 반지를 놓는 모습" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+          <div className="absolute inset-0" style={{background:'linear-gradient(90deg, rgba(250,247,242,.88) 0%, rgba(250,247,242,.55) 38%, rgba(0,0,0,0) 62%)'}}/>
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-[1200px] mx-auto px-5 md:px-8 w-full">
+              <div className="max-w-[28ch]">
+                <Reveal><div className="eyebrow mb-4 text-lavender-deep">두 사람의 결</div></Reveal>
+                <Reveal delay={80}>
+                  <h2 className="gh-display gh-h2" style={{color:'#2C2A35'}}>결이 맞을 때,<br/>두 사람의 시간이 자연스럽게 이어집니다.</h2>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ---------- Brand band: emotional break with couple photo ----------
 function PhilosophyBand({ images }) {
   const img = images && (Array.isArray(images.philosophy) ? images.philosophy[0] : images.philosophy);
@@ -374,7 +400,7 @@ function PhilosophyBand({ images }) {
           <div className="md:col-span-6">
             <Reveal>
               <div className="relative rounded-2xl overflow-hidden hairline" style={{aspectRatio:'4/5'}}>
-                <img src={img} alt="두 사람이 함께 걷는 모습" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+                <img src={img} alt="신부가 신랑의 어깨를 감싼 모습" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
                 <div className="absolute inset-0" style={{background:'linear-gradient(135deg, rgba(107,91,149,.05), rgba(0,0,0,0) 40%, rgba(0,0,0,.18))'}}/>
               </div>
             </Reveal>
@@ -406,6 +432,7 @@ function PhilosophyBand({ images }) {
 
 // ---------- Section 4: Trust — 결혼중개업법 + 인증 + 개인정보 통합 ----------
 function TrustSection({ images, appScreens }) {
+  const trustImg = images && (Array.isArray(images.trust) ? images.trust[0] : images.trust);
   const verifyItems = ['본인 확인', '신원 검토', '직업·학력 확인', '승인제 가입', '상호 동의 후 만남'];
   const privacyPoints = [
     '검토 목적의 정보 확인',
@@ -461,18 +488,24 @@ function TrustSection({ images, appScreens }) {
             </Reveal>
           </div>
 
-          <div className="md:col-span-5">
-            <Reveal delay={150}>
-              <div className="relative flex items-center justify-center" style={{height:520, gap:20}}>
+          <div className="md:col-span-5 space-y-6">
+            <Reveal delay={120}>
+              <div className="relative rounded-2xl overflow-hidden hairline" style={{aspectRatio:'4/5'}}>
+                <img src={trustImg} alt="서로의 손이 닿으려는 모습 — 신뢰의 시작" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+                <div className="absolute inset-0" style={{background:'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.12))'}}/>
+              </div>
+            </Reveal>
+            <Reveal delay={200}>
+              <div className="relative flex items-center justify-center" style={{height:360, gap:16}}>
                 <div className="relative" style={{zIndex:2}}>
-                  <Sig.PhoneMock src={appScreens && appScreens.verifyMain} alt="결하다 앱 — 인증 항목" width={260} tilt={0}/>
+                  <Sig.PhoneMock src={appScreens && appScreens.verifyMain} alt="결하다 앱 — 인증 항목" width={210} tilt={0}/>
                 </div>
-                <div className="hidden md:block" style={{position:'absolute', right:0, bottom:24, zIndex:1}}>
-                  <Sig.PhoneMock src={appScreens && appScreens.verifyDetail} alt="결하다 앱 — 필수 인증 항목" width={200} tilt={0}/>
+                <div className="hidden md:block" style={{position:'absolute', right:0, bottom:12, zIndex:1}}>
+                  <Sig.PhoneMock src={appScreens && appScreens.verifyDetail} alt="결하다 앱 — 필수 인증 항목" width={160} tilt={0}/>
                 </div>
                 <div className="absolute left-1/2 top-1/2 pointer-events-none" style={{
                   transform:'translate(-50%,-50%)',
-                  width:340, height:340, borderRadius:'50%',
+                  width:280, height:280, borderRadius:'50%',
                   background:'radial-gradient(closest-side, rgba(184,197,176,.25), transparent)',
                   zIndex:0,
                 }}/>
@@ -486,41 +519,57 @@ function TrustSection({ images, appScreens }) {
 }
 
 // ---------- Section 5: Pricing — low entry, on-success only ----------
-function PricingSection() {
+function PricingSection({ images }) {
+  const pricingImg = images && (Array.isArray(images.pricing) ? images.pricing[0] : images.pricing);
   return (
     <section id="pricing" className="bg-offwhite">
-      <div className="max-w-[1000px] mx-auto px-5 md:px-8">
-        <Reveal><div className="eyebrow mb-4">결하다의 차별점</div></Reveal>
-        <Reveal delay={80}>
-          <h2 className="gh-display gh-h2">낮은 가입비,<br/>만남이 성사될 때만.</h2>
-        </Reveal>
-        <Reveal delay={160}>
-          <p className="body-lg mt-6 text-mute max-w-[44ch]">
-            선결제 부담 없이 시작하고, 양쪽이 만남에 동의했을 때만 비용이 발생합니다.
-          </p>
-        </Reveal>
+      <div className="max-w-[1200px] mx-auto px-5 md:px-8">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-start">
+          <div className="md:col-span-7">
+            <Reveal><div className="eyebrow mb-4">결하다의 차별점</div></Reveal>
+            <Reveal delay={80}>
+              <h2 className="gh-display gh-h2">낮은 가입비,<br/>만남이 성사될 때만.</h2>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="body-lg mt-6 text-mute max-w-[44ch]">
+                선결제 부담 없이 시작하고, 양쪽이 만남에 동의했을 때만 비용이 발생합니다.
+              </p>
+            </Reveal>
 
-        <Reveal delay={220}>
-          <div className="card p-7 md:p-8 mt-10 relative overflow-hidden">
-            <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{background:'radial-gradient(closest-side, rgba(200,182,226,.5), transparent)'}}/>
-            <div className="relative grid md:grid-cols-2 gap-8">
-              <div>
-                <div className="flex items-baseline justify-between">
-                  <div className="eyebrow">가입비</div>
-                  <span className="pill bg-lavender-deep text-white">Low entry</span>
+            <Reveal delay={220}>
+              <div className="card p-7 md:p-8 mt-10 relative overflow-hidden">
+                <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{background:'radial-gradient(closest-side, rgba(200,182,226,.5), transparent)'}}/>
+                <div className="relative space-y-6">
+                  <div>
+                    <div className="flex items-baseline justify-between">
+                      <div className="eyebrow">가입비</div>
+                      <span className="pill bg-lavender-deep text-white">Low entry</span>
+                    </div>
+                    <div className="gh-h3 mt-2">선결제 부담 없이 시작</div>
+                    <p className="body mt-2 text-mute">가벼운 시작 비용으로 진지한 만남을 시도할 수 있도록 설계했습니다.</p>
+                  </div>
+                  <div className="rule"/>
+                  <div>
+                    <div className="eyebrow">만남 비용</div>
+                    <div className="gh-h3 mt-2">성사 시에만 발생</div>
+                    <p className="body mt-2 text-mute">양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 발생합니다.</p>
+                    <p className="small mt-3 text-mute">정확한 금액은 앱 가입 단계에서 안내됩니다.</p>
+                  </div>
                 </div>
-                <div className="gh-h3 mt-2">선결제 부담 없이 시작</div>
-                <p className="body mt-2 text-mute">가벼운 시작 비용으로 진지한 만남을 시도할 수 있도록 설계했습니다.</p>
               </div>
-              <div>
-                <div className="eyebrow">만남 비용</div>
-                <div className="gh-h3 mt-2">성사 시에만 발생</div>
-                <p className="body mt-2 text-mute">양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 발생합니다.</p>
-                <p className="small mt-3 text-mute">정확한 금액은 앱 가입 단계에서 안내됩니다.</p>
-              </div>
-            </div>
+            </Reveal>
           </div>
-        </Reveal>
+
+          {pricingImg && (
+            <div className="md:col-span-5">
+              <Reveal delay={140}>
+                <div className="relative rounded-2xl overflow-hidden hairline md:mt-16" style={{aspectRatio:'4/5'}}>
+                  <img src={pricingImg} alt="반지를 낀 두 사람의 손 — 약속의 순간" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+                </div>
+              </Reveal>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
@@ -631,7 +680,7 @@ function MobileSticky({ ctaState, ctaData }) {
 // Export to window for app.jsx
 Object.assign(window, {
   Reveal, Header, Hero,
-  ProblemSection, ThreeGyeolSection, PhilosophyBand, TrustSection,
+  ProblemSection, ConnectionBand, ThreeGyeolSection, PhilosophyBand, TrustSection,
   PricingSection,
   FAQSection, Footer, MobileSticky,
 });

@@ -688,6 +688,54 @@ function ThreeGyeolSection({
   }, "\xB7 \uC758\uD559\uC801\xB7\uC2EC\uB9AC \uC9C4\uB2E8\uC744 \uB300\uCCB4\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."))));
 }
 
+// ---------- Connection band: full-width horizontal photo break ----------
+function ConnectionBand({
+  images
+}) {
+  const img = images && (Array.isArray(images.band) ? images.band[0] : images.band);
+  if (!img) return null;
+  return /*#__PURE__*/React.createElement("section", {
+    id: "connection",
+    className: "relative overflow-hidden",
+    style: {
+      background: '#f6f0e6'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "relative"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "relative w-full",
+    style: {
+      aspectRatio: '16/7',
+      maxHeight: '520px'
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: img,
+    alt: "\uB450 \uC0AC\uB78C\uC774 \uD568\uAED8 \uBC18\uC9C0\uB97C \uB193\uB294 \uBAA8\uC2B5",
+    className: "absolute inset-0 w-full h-full object-cover",
+    loading: "lazy"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-0",
+    style: {
+      background: 'linear-gradient(90deg, rgba(250,247,242,.88) 0%, rgba(250,247,242,.55) 38%, rgba(0,0,0,0) 62%)'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-0 flex items-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "max-w-[1200px] mx-auto px-5 md:px-8 w-full"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "max-w-[28ch]"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-4 text-lavender-deep"
+  }, "\uB450 \uC0AC\uB78C\uC758 \uACB0")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 80
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "gh-display gh-h2",
+    style: {
+      color: '#2C2A35'
+    }
+  }, "\uACB0\uC774 \uB9DE\uC744 \uB54C,", /*#__PURE__*/React.createElement("br", null), "\uB450 \uC0AC\uB78C\uC758 \uC2DC\uAC04\uC774 \uC790\uC5F0\uC2A4\uB7FD\uAC8C \uC774\uC5B4\uC9D1\uB2C8\uB2E4."))))))));
+}
+
 // ---------- Brand band: emotional break with couple photo ----------
 function PhilosophyBand({
   images
@@ -710,7 +758,7 @@ function PhilosophyBand({
     }
   }, /*#__PURE__*/React.createElement("img", {
     src: img,
-    alt: "\uB450 \uC0AC\uB78C\uC774 \uD568\uAED8 \uAC77\uB294 \uBAA8\uC2B5",
+    alt: "\uC2E0\uBD80\uAC00 \uC2E0\uB791\uC758 \uC5B4\uAE68\uB97C \uAC10\uC2FC \uBAA8\uC2B5",
     className: "absolute inset-0 w-full h-full object-cover",
     loading: "lazy"
   }), /*#__PURE__*/React.createElement("div", {
@@ -748,6 +796,7 @@ function TrustSection({
   images,
   appScreens
 }) {
+  const trustImg = images && (Array.isArray(images.trust) ? images.trust[0] : images.trust);
   const verifyItems = ['본인 확인', '신원 검토', '직업·학력 확인', '승인제 가입', '상호 동의 후 만남'];
   const privacyPoints = ['검토 목적의 정보 확인', '민감 자료 원본 비공개', '필요한 범위 내 정보 활용', '개인정보 처리방침 명확히 안내'];
   return /*#__PURE__*/React.createElement("section", {
@@ -822,14 +871,31 @@ function TrustSection({
   }), /*#__PURE__*/React.createElement("path", {
     d: "M4 5V3.5a2 2 0 0 1 4 0V5"
   }))), /*#__PURE__*/React.createElement("span", null, p))))))), /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-5"
+    className: "md:col-span-5 space-y-6"
   }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: 150
+    delay: 120
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "relative rounded-2xl overflow-hidden hairline",
+    style: {
+      aspectRatio: '4/5'
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: trustImg,
+    alt: "\uC11C\uB85C\uC758 \uC190\uC774 \uB2FF\uC73C\uB824\uB294 \uBAA8\uC2B5 \u2014 \uC2E0\uB8B0\uC758 \uC2DC\uC791",
+    className: "absolute inset-0 w-full h-full object-cover",
+    loading: "lazy"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-0",
+    style: {
+      background: 'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.12))'
+    }
+  }))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 200
   }, /*#__PURE__*/React.createElement("div", {
     className: "relative flex items-center justify-center",
     style: {
-      height: 520,
-      gap: 20
+      height: 360,
+      gap: 16
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "relative",
@@ -839,27 +905,27 @@ function TrustSection({
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: appScreens && appScreens.verifyMain,
     alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uC778\uC99D \uD56D\uBAA9",
-    width: 260,
+    width: 210,
     tilt: 0
   })), /*#__PURE__*/React.createElement("div", {
     className: "hidden md:block",
     style: {
       position: 'absolute',
       right: 0,
-      bottom: 24,
+      bottom: 12,
       zIndex: 1
     }
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: appScreens && appScreens.verifyDetail,
     alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uD544\uC218 \uC778\uC99D \uD56D\uBAA9",
-    width: 200,
+    width: 160,
     tilt: 0
   })), /*#__PURE__*/React.createElement("div", {
     className: "absolute left-1/2 top-1/2 pointer-events-none",
     style: {
       transform: 'translate(-50%,-50%)',
-      width: 340,
-      height: 340,
+      width: 280,
+      height: 280,
       borderRadius: '50%',
       background: 'radial-gradient(closest-side, rgba(184,197,176,.25), transparent)',
       zIndex: 0
@@ -868,12 +934,19 @@ function TrustSection({
 }
 
 // ---------- Section 5: Pricing — low entry, on-success only ----------
-function PricingSection() {
+function PricingSection({
+  images
+}) {
+  const pricingImg = images && (Array.isArray(images.pricing) ? images.pricing[0] : images.pricing);
   return /*#__PURE__*/React.createElement("section", {
     id: "pricing",
     className: "bg-offwhite"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1000px] mx-auto px-5 md:px-8"
+    className: "max-w-[1200px] mx-auto px-5 md:px-8"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "grid md:grid-cols-12 gap-10 md:gap-12 items-start"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-4"
   }, "\uACB0\uD558\uB2E4\uC758 \uCC28\uBCC4\uC810")), /*#__PURE__*/React.createElement(Reveal, {
@@ -894,7 +967,7 @@ function PricingSection() {
       background: 'radial-gradient(closest-side, rgba(200,182,226,.5), transparent)'
     }
   }), /*#__PURE__*/React.createElement("div", {
-    className: "relative grid md:grid-cols-2 gap-8"
+    className: "relative space-y-6"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "flex items-baseline justify-between"
   }, /*#__PURE__*/React.createElement("div", {
@@ -905,7 +978,9 @@ function PricingSection() {
     className: "gh-h3 mt-2"
   }, "\uC120\uACB0\uC81C \uBD80\uB2F4 \uC5C6\uC774 \uC2DC\uC791"), /*#__PURE__*/React.createElement("p", {
     className: "body mt-2 text-mute"
-  }, "\uAC00\uBCBC\uC6B4 \uC2DC\uC791 \uBE44\uC6A9\uC73C\uB85C \uC9C4\uC9C0\uD55C \uB9CC\uB0A8\uC744 \uC2DC\uB3C4\uD560 \uC218 \uC788\uB3C4\uB85D \uC124\uACC4\uD588\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  }, "\uAC00\uBCBC\uC6B4 \uC2DC\uC791 \uBE44\uC6A9\uC73C\uB85C \uC9C4\uC9C0\uD55C \uB9CC\uB0A8\uC744 \uC2DC\uB3C4\uD560 \uC218 \uC788\uB3C4\uB85D \uC124\uACC4\uD588\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+    className: "rule"
+  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow"
   }, "\uB9CC\uB0A8 \uBE44\uC6A9"), /*#__PURE__*/React.createElement("div", {
     className: "gh-h3 mt-2"
@@ -913,7 +988,21 @@ function PricingSection() {
     className: "body mt-2 text-mute"
   }, "\uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C\uB9CC \uBC1C\uC0DD\uD569\uB2C8\uB2E4."), /*#__PURE__*/React.createElement("p", {
     className: "small mt-3 text-mute"
-  }, "\uC815\uD655\uD55C \uAE08\uC561\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC548\uB0B4\uB429\uB2C8\uB2E4.")))))));
+  }, "\uC815\uD655\uD55C \uAE08\uC561\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC548\uB0B4\uB429\uB2C8\uB2E4.")))))), pricingImg && /*#__PURE__*/React.createElement("div", {
+    className: "md:col-span-5"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    delay: 140
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "relative rounded-2xl overflow-hidden hairline md:mt-16",
+    style: {
+      aspectRatio: '4/5'
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: pricingImg,
+    alt: "\uBC18\uC9C0\uB97C \uB080 \uB450 \uC0AC\uB78C\uC758 \uC190 \u2014 \uC57D\uC18D\uC758 \uC21C\uAC04",
+    className: "absolute inset-0 w-full h-full object-cover",
+    loading: "lazy"
+  })))))));
 }
 
 // ---------- Section 7: FAQ ----------
@@ -1062,6 +1151,7 @@ Object.assign(window, {
   Header,
   Hero,
   ProblemSection,
+  ConnectionBand,
   ThreeGyeolSection,
   PhilosophyBand,
   TrustSection,

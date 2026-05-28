@@ -1,590 +1,292 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>결하다 | 결혼을 위한 신뢰 기반 매칭</title>
-  <meta name="description" content="결하다는 조건보다 깊은 결을 살펴 결혼을 원하는 사람들을 연결하는 신뢰 기반 매칭 서비스입니다." />
-  <meta property="og:title" content="결하다 | 결혼을 위한 신뢰 기반 매칭" />
-  <meta property="og:description" content="조건, 성향, 가치관, 미래의 방향까지 함께 살피는 결혼 중심 매칭 서비스." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-  <style>
-    :root {
-      --ink: #24212b;
-      --muted: #696371;
-      --soft: #f7f1e8;
-      --paper: #fffdf9;
-      --line: rgba(36, 33, 43, .12);
-      --lavender: #7862a8;
-      --lavender-soft: #d8caec;
-      --sage: #aebca6;
-      --deep: #272331;
-      --shadow: 0 22px 60px rgba(42, 35, 27, .14);
-      --radius: 8px;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>결하다 — 결혼을 위한 신뢰 기반 매칭 서비스</title>
+<meta name="description" content="결하다는 외면의 조건과 내면의 성향을 함께 살펴 진지한 결혼을 원하는 사람들을 연결하는 결혼 중심 매칭 서비스입니다. 높은 가입비 없이, 만남이 성사될 때만 비용이 발생합니다." />
+<meta name="keywords" content="결하다, 결혼 매칭, 결혼정보, 결혼정보회사, 소개팅 앱, 심리 매칭, 가치관 매칭, 결혼 앱, 신뢰 매칭" />
+<meta property="og:title" content="결하다 — 결혼을 위한 만남은 결이 맞아야 합니다" />
+<meta property="og:description" content="사진과 조건 너머, 사람의 결을 보는 신뢰 기반 결혼 매칭 서비스." />
+<meta property="og:type" content="website" />
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      letter-spacing: 0;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
 
-    .container { width: min(1140px, calc(100% - 40px)); margin: 0 auto; }
-    .section { padding: 108px 0; }
-    .section.alt { background: var(--soft); }
-    .section.dark { background: var(--deep); color: #fffaf1; }
-    .grid { display: grid; gap: 48px; align-items: center; }
-    .grid.two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
+<link rel="stylesheet" href="dist/styles.css?v=1777800000000">
 
-    .header {
-      position: fixed;
-      z-index: 20;
-      top: 0;
-      left: 0;
-      right: 0;
-      border-bottom: 1px solid rgba(36, 33, 43, .08);
-      background: rgba(255, 253, 249, .86);
-      backdrop-filter: blur(16px);
-    }
-    .nav {
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 22px;
-      letter-spacing: -.01em;
-    }
-    .brand-mark {
-      width: 30px;
-      height: 30px;
-      border: 1px solid rgba(120, 98, 168, .35);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: var(--lavender);
-      background: #fff;
-    }
-    .brand-mark::before {
-      content: "";
-      width: 14px;
-      height: 8px;
-      border: 2px solid currentColor;
-      border-top: 0;
-      border-left: 0;
-      transform: rotate(35deg);
-      border-radius: 1px;
-    }
-    .nav-links { display: flex; align-items: center; gap: 30px; font-size: 14px; color: rgba(36, 33, 43, .72); }
-    .nav-links a:hover { color: var(--lavender); }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: var(--radius);
-      font-weight: 700;
-      font-size: 15px;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-    .btn.primary { color: #fff; background: var(--lavender); box-shadow: 0 14px 30px rgba(120, 98, 168, .22); }
-    .btn.secondary { background: rgba(255, 255, 255, .78); border-color: var(--line); color: var(--ink); }
+<style>
+  :root{
+    --lav-soft:#C8B6E2;
+    --lav:#A88FCE;
+    --lav-deep:#6B5B95;
+    --sage:#B8C5B0;
+    --ivory:#FAF7F2;
+    --offwhite:#FFFEFB;
+    --ink:#2C2A35;
+    --mute:#6E6B78;
+    --gold:#D8B76A;
+  }
+  html,body{ background:var(--offwhite); color:var(--ink); }
+  body{ font-family:'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Apple SD Gothic Neo','Noto Sans KR', sans-serif;
+        letter-spacing:0.01em; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+  body.font-noto{ font-family:'Noto Sans KR', sans-serif; letter-spacing:0.005em;}
+  ::selection{ background:#C8B6E2; color:#2C2A35; }
 
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      padding: 116px 0 72px;
-      background: linear-gradient(180deg, #fffdf9 0%, #f5eee4 100%);
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 150px;
-      background: linear-gradient(180deg, rgba(255,253,249,0), var(--paper));
-      pointer-events: none;
-    }
-    .hero-layout {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 54px;
-      align-items: center;
-    }
-    .hero-copy { width: 100%; max-width: 560px; min-width: 0; }
-    .kicker {
-      margin: 0 0 18px;
-      color: var(--lavender);
-      font-weight: 800;
-      font-size: 14px;
-    }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 {
-      margin-bottom: 24px;
-      font-size: clamp(42px, 5.8vw, 74px);
-      line-height: 1.08;
-      letter-spacing: -.02em;
-      word-break: keep-all;
-      overflow-wrap: normal;
-    }
-    h2 {
-      margin-bottom: 20px;
-      font-size: clamp(30px, 3.5vw, 48px);
-      line-height: 1.16;
-      letter-spacing: -.015em;
-    }
-    h3 {
-      margin-bottom: 10px;
-      font-size: 22px;
-      line-height: 1.34;
-      letter-spacing: -.01em;
-    }
-    .lead {
-      margin-bottom: 0;
-      font-size: clamp(17px, 1.5vw, 20px);
-      line-height: 1.75;
-      color: var(--muted);
-    }
-    .copy {
-      font-size: 16px;
-      line-height: 1.75;
-      color: var(--muted);
-    }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 34px; }
-    .hero-note { display: flex; gap: 12px; align-items: center; margin-top: 28px; color: var(--muted); font-size: 14px; }
-    .hero-note::before { content: ""; width: 42px; height: 1px; background: var(--line); }
+  .gh-display{ font-weight:600; letter-spacing:-0.015em; line-height:1.22; }
+  .gh-h1{ font-size:clamp(36px,5.4vw,72px); font-weight:600; letter-spacing:-0.015em; line-height:1.18;}
+  .gh-h2{ font-size:clamp(28px,3.6vw,46px); font-weight:600; letter-spacing:-0.012em; line-height:1.25;}
+  .gh-h3{ font-size:clamp(20px,1.8vw,26px); font-weight:600; letter-spacing:-0.005em; line-height:1.35;}
+  .eyebrow{ font-family:'Inter', ui-sans-serif; font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--lav-deep);}
+  .body-lg{ font-size:clamp(16px,1.1vw,18px); line-height:1.7; color:#3a3744;}
+  .body{ font-size:16px; line-height:1.7; color:#3a3744;}
+  .small{ font-size:13px; line-height:1.6; color:var(--mute);}
 
-    .hero-media {
-      position: relative;
-      min-height: 620px;
-    }
-    .hero-photo {
-      position: absolute;
-      inset: 0 0 52px 8%;
-      overflow: hidden;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      background: #eee;
-    }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .phone-stack {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      display: flex;
-      align-items: flex-end;
-      gap: 18px;
-    }
-    .phone {
-      width: 206px;
-      padding: 9px;
-      border-radius: 28px;
-      background: #15131a;
-      box-shadow: 0 24px 50px rgba(23, 20, 29, .24);
-    }
-    .phone.small { width: 164px; transform: translateY(-22px); opacity: .96; }
-    .phone img { width: 100%; border-radius: 21px; aspect-ratio: 9 / 19.5; object-fit: cover; object-position: top; }
+  .hairline{ box-shadow: inset 0 0 0 0.5px rgba(44,42,53,.12); }
+  .card{ background:#fff; border:0.5px solid rgba(44,42,53,.08); border-radius:18px;}
+  .pill{ display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; font-size:11px; letter-spacing:.06em; font-family:'Inter',ui-sans-serif;}
 
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--line);
-      margin-top: 46px;
-    }
-    .stat {
-      background: rgba(255, 255, 255, .78);
-      padding: 22px;
-    }
-    .stat strong { display: block; font-size: 28px; color: var(--lavender); margin-bottom: 6px; }
-    .stat span { font-size: 14px; color: var(--muted); line-height: 1.5; }
+  /* Soft lavender ↔ ivory gradient blocks */
+  .bg-veil{
+    background:
+      radial-gradient(60% 50% at 20% 20%, rgba(200,182,226,.35), transparent 60%),
+      radial-gradient(50% 50% at 85% 30%, rgba(184,197,176,.28), transparent 60%),
+      linear-gradient(180deg, var(--ivory) 0%, var(--offwhite) 100%);
+  }
+  .bg-deep{
+    background: linear-gradient(180deg, #2C2A35 0%, #221f2b 100%);
+    color: #efeaf3;
+  }
 
-    .section-head { max-width: 720px; margin-bottom: 46px; }
-    .image-frame {
-      overflow: hidden;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      background: #eee;
-    }
-    .image-frame img { width: 100%; height: 100%; object-fit: cover; }
-    .image-frame.tall { aspect-ratio: 4 / 5; }
-    .image-frame.wide { aspect-ratio: 4 / 3; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 20px; border-radius:12px; font-weight:500; font-size:15px; letter-spacing:.005em; transition:transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;}
+  .btn-primary{ background:var(--lav-deep); color:#fff; }
+  .btn-primary:hover{ background:#5a4c80; transform:translateY(-1px); }
+  .btn-ghost{ background:transparent; color:var(--ink); border:0.5px solid rgba(44,42,53,.18);}
+  .btn-ghost:hover{ border-color:var(--lav-deep); color:var(--lav-deep);}
+  .btn-sm{ padding:9px 14px; font-size:13px; border-radius:10px;}
 
-    .feature-list { display: grid; gap: 14px; margin-top: 28px; }
-    .feature {
-      display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, .66);
-    }
-    .icon {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--radius);
-      background: rgba(120, 98, 168, .1);
-      color: var(--lavender);
-      font-weight: 800;
-    }
-    .feature b { display: block; margin-bottom: 4px; }
-    .feature p { margin: 0; font-size: 15px; line-height: 1.65; color: var(--muted); }
+  /* iOS / Play badges (drawn in CSS) */
+  .store-btn{ display:inline-flex; align-items:center; gap:10px; padding:11px 18px 11px 16px; border-radius:12px; background:#1c1a23; color:#fff; min-width:200px;}
+  .store-btn .small{ color:rgba(255,255,255,.65); font-size:11px; line-height:1; letter-spacing:.06em; text-transform:uppercase;}
+  .store-btn .big{ font-size:16px; font-weight:600; letter-spacing:.005em; line-height:1.2;}
+  .store-btn:hover{ background:#2a2733; }
+  .store-btn.outline{ background:transparent; color:var(--ink); border:0.5px solid rgba(44,42,53,.22);}
+  .store-btn.outline:hover{ border-color:var(--lav-deep); color:var(--lav-deep);}
+  .store-btn.outline .small{ color:var(--mute);}
 
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      overflow: hidden;
-    }
-    .card-body { padding: 24px; }
-    .screen-card img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; background: #f3eee6; }
-    .screen-card h3 { font-size: 20px; }
-    .screen-card p { margin: 0; }
+  /* Wave + circular signature */
+  .signature-stage{ position:relative; aspect-ratio:1/1; width:100%; }
+  .grain{ position:relative; }
+  .grain::after{ content:""; position:absolute; inset:0; pointer-events:none; opacity:.06; mix-blend-mode:multiply;
+    background-image: radial-gradient(rgba(0,0,0,.4) 0.6px, transparent 0.6px); background-size:3px 3px;}
 
-    .process {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      counter-reset: step;
-    }
-    .process-item {
-      position: relative;
-      min-height: 230px;
-      padding: 24px;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.06);
-    }
-    .process-item::before {
-      counter-increment: step;
-      content: "0" counter(step);
-      display: block;
-      margin-bottom: 32px;
-      color: var(--lavender-soft);
-      font-weight: 800;
-      font-size: 15px;
-    }
-    .process-item p { color: rgba(255, 250, 241, .68); margin: 0; line-height: 1.65; }
+  /* Section spacing */
+  section{ padding-top:clamp(72px,9vw,140px); padding-bottom:clamp(72px,9vw,140px);}
+  section.tight{ padding-top:clamp(56px,7vw,110px); padding-bottom:clamp(56px,7vw,110px);}
 
-    .comparison {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-    .compare-panel {
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-    }
-    .compare-panel.highlight {
-      border-color: rgba(120, 98, 168, .28);
-      background: linear-gradient(180deg, #fff, #f7f2fb);
-      box-shadow: var(--shadow);
-    }
-    .compare-panel ul { margin: 22px 0 0; padding: 0; list-style: none; display: grid; gap: 14px; }
-    .compare-panel li { display: flex; gap: 10px; color: var(--muted); line-height: 1.55; }
-    .compare-panel li::before { content: "✓"; color: var(--lavender); font-weight: 900; }
+  /* Reveal on scroll */
+  .reveal{ opacity:1; transform:none; transition:opacity .8s ease, transform .8s ease;}
+  .reveal.is-in{ opacity:1; transform:none; }
 
-    .faq { display: grid; gap: 12px; }
-    details {
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.06);
-      padding: 22px 24px;
-    }
-    summary { cursor: pointer; font-weight: 800; list-style: none; }
-    summary::-webkit-details-marker { display: none; }
-    details p { margin: 14px 0 0; color: rgba(255, 250, 241, .68); line-height: 1.7; }
+  /* Sticky bottom CTA */
+  .mobile-sticky{ position:fixed; left:12px; right:12px; bottom:12px; z-index:60; border-radius:16px;
+    background:rgba(28,26,35,.92); color:#fff; padding:10px 12px; display:none; align-items:center; justify-content:space-between; gap:10px;
+    backdrop-filter:blur(18px); box-shadow:0 12px 30px rgba(0,0,0,.18);}
+  @media (max-width:768px){ .mobile-sticky{ display:flex; } }
 
-    .footer {
-      padding: 42px 0;
-      border-top: 1px solid rgba(255,255,255,.12);
-      background: var(--deep);
-      color: rgba(255, 250, 241, .7);
-      font-size: 14px;
-    }
-    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 34px; }
-    .footer b { color: #fffaf1; }
-    .footer p { margin: 10px 0 0; line-height: 1.7; }
+  /* Comparison table */
+  .cmp{ width:100%; border-collapse:separate; border-spacing:0; font-size:14.5px;}
+  .cmp th, .cmp td{ padding:18px 18px; border-bottom:0.5px solid rgba(44,42,53,.10); text-align:left; vertical-align:top;}
+  .cmp th{ font-weight:500; color:var(--mute); font-size:12.5px; letter-spacing:.04em; text-transform:uppercase; padding-bottom:14px; padding-top:14px;}
+  .cmp td.row-label{ color:var(--mute); font-size:13px; width:22%;}
+  .cmp .col-gh{ background: linear-gradient(180deg, rgba(200,182,226,.18), rgba(200,182,226,.08)); }
+  .cmp .col-gh-head{ background: linear-gradient(180deg, rgba(107,91,149,1), rgba(107,91,149,.92)); color:#fff; border-radius:14px 14px 0 0;}
+  .cmp tr:last-child td{ border-bottom:0;}
+  .cmp tr:last-child td.col-gh{ border-radius:0 0 14px 14px;}
+  @media (max-width:768px){ .cmp th, .cmp td{ padding:12px 10px; font-size:13px;} .cmp td.row-label{ width:30%;} }
 
-    @media (max-width: 900px) {
-      .container { width: min(100% - 28px, 680px); }
-      .nav-links { display: none; }
-      .hero { padding-top: 104px; }
-      .hero-layout, .grid.two, .comparison { grid-template-columns: 1fr; }
-      .hero-copy { max-width: 100%; }
-      .hero-media { min-height: 540px; order: -1; }
-      .hero-photo { inset: 0 0 86px 0; }
-      .phone-stack { left: 50%; transform: translateX(-50%); }
-      .grid.three, .process, .stat-row { grid-template-columns: 1fr; }
-      .section { padding: 78px 0; }
-      .footer-grid { grid-template-columns: 1fr; }
-    }
+  /* FAQ */
+  details > summary{ list-style:none; cursor:pointer;}
+  details > summary::-webkit-details-marker{ display:none;}
+  details[open] .faq-q-icon{ transform:rotate(45deg);}
+  .faq-q-icon{ transition:transform .25s ease;}
 
-    @media (max-width: 560px) {
-      .container { width: min(342px, calc(100% - 48px)); margin-left: 24px; margin-right: 24px; }
-      .brand { font-size: 20px; }
-      .nav .btn { display: none; }
-      .hero-media { min-height: 440px; }
-      .phone { width: 150px; }
-      .phone.small { display: none; }
-      .hero-actions .btn { width: 100%; }
-      .lead, .copy, .hero-note { word-break: break-all; }
-      .feature { grid-template-columns: 1fr; }
-    }
+  /* Horizontal rule */
+  .rule{ height:0.5px; background:rgba(44,42,53,.12); }
+
+  /* Scroll-driven hero progress var */
+  body{ --scroll-progress: 0; }
+
+  /* === Pain point section — vertical tabs + detail === */
+  .problem-layout{
+    display:grid; grid-template-columns:1fr;
+    background:#fff; border:0.5px solid rgba(44,42,53,.12);
+    border-radius:24px;
+  }
+  @media (min-width:860px){ .problem-layout{ grid-template-columns:minmax(0,.92fr) minmax(0,1.28fr); } }
+
+  .problem-list{
+    padding:18px; display:flex; flex-direction:column; gap:4px;
+    position:relative;
+  }
+  @media (min-width:860px){ .problem-list{ padding:26px 24px; } }
+  .problem-item{
+    text-align:left; width:100%; position:relative;
+    border-radius:16px; padding:18px 20px;
+    border:1px solid transparent;
+    display:flex; flex-direction:column; gap:12px;
+    transition:background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .problem-item:hover{ background:rgba(44,42,53,.035); }
+  .problem-item.is-active{
+    border:1px solid #6B5B95; background:#fff;
+    box-shadow:0 12px 30px rgba(107,91,149,.13);
+  }
+  .problem-item-head{ display:flex; align-items:center; gap:14px; }
+  .problem-item-iconbox{
+    width:42px; height:42px; border-radius:11px; flex-shrink:0;
+    display:grid; place-items:center;
+    background:rgba(44,42,53,.05); color:rgba(44,42,53,.42);
+    transition:background .25s ease, color .25s ease;
+  }
+  .problem-item.is-active .problem-item-iconbox{ background:rgba(107,91,149,.1); color:#6B5B95; }
+  .problem-item-title{
+    font-size:16.5px; font-weight:600; line-height:1.35;
+    color:rgba(44,42,53,.6);
+  }
+  .problem-item.is-active .problem-item-title{ color:#6B5B95; }
+  .problem-item-desc{
+    font-size:14.5px; line-height:1.65; color:#6E6B78;
+    padding-left:56px; margin:0;
+  }
+  .problem-item-arrow{
+    position:absolute; right:-21px; top:31px;
+    width:42px; height:42px; border-radius:50%;
+    background:#6B5B95; color:#fff;
+    display:grid; place-items:center; z-index:4;
+    box-shadow:0 8px 20px rgba(107,91,149,.3);
+  }
+  @media (max-width:859px){
+    .problem-item-arrow{ right:50%; top:auto; bottom:-21px; transform:translateX(50%) rotate(90deg); }
+  }
+
+  .problem-detail{
+    background:linear-gradient(135deg, rgba(200,182,226,.18), rgba(200,182,226,.04));
+    padding:30px 26px; display:flex; flex-direction:column;
+    border-radius:0 0 24px 24px;
+  }
+  @media (min-width:860px){ .problem-detail{ padding:40px 44px; border-radius:0 24px 24px 0; } }
+  .problem-detail-head{ display:flex; align-items:center; gap:12px; }
+  .problem-detail-iconbox{
+    width:42px; height:42px; border-radius:11px; flex-shrink:0;
+    display:grid; place-items:center; background:#6B5B95; color:#fff;
+  }
+  .problem-detail-body{
+    display:flex; flex-direction:column; gap:24px; align-items:center;
+    margin:auto 0;
+  }
+  @media (min-width:860px){
+    .problem-detail-body{ flex-direction:row; gap:32px; align-items:center; }
+    .problem-detail-text{ flex:1 1 0%; min-width:0; }
+    .problem-detail-phone{ flex-shrink:0; }
+  }
+  .problem-detail-sub{ font-size:15px; line-height:1.65; color:rgba(44,42,53,.72); margin-top:12px; }
+
+  /* === Process section — timeline + preview cards === */
+  .process-timeline{ list-style:none; margin:0; padding:0; }
+  .process-step{ display:grid; grid-template-columns:30px minmax(0,1fr); column-gap:18px; }
+  .process-step-rail{ display:flex; flex-direction:column; align-items:center; }
+  .process-step-num{
+    font-family:'Inter',ui-sans-serif; font-size:12px; font-weight:600; letter-spacing:.08em;
+    color:#6B5B95; line-height:1; padding-top:3px;
+  }
+  .process-step-line{
+    flex:1 1 auto; display:flex; align-items:center; justify-content:center;
+    min-height:26px; color:rgba(107,91,149,.35);
+  }
+  .process-step-content{
+    display:flex; flex-wrap:wrap; align-items:baseline; column-gap:18px; row-gap:2px;
+    padding-bottom:26px;
+  }
+  .process-step:last-child .process-step-content{ padding-bottom:0; }
+  .process-step-title{ font-size:17px; font-weight:600; color:#2C2A35; min-width:96px; }
+  .process-step-desc{ font-size:14px; line-height:1.6; color:#6E6B78; margin:0; }
+
+  .process-preview{
+    display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px;
+  }
+  @media (max-width:640px){ .process-preview{ grid-template-columns:1fr; gap:16px; } }
+  .process-preview-card{
+    background:linear-gradient(180deg, rgba(200,182,226,.10), rgba(200,182,226,.02));
+    border:0.5px solid rgba(44,42,53,.08);
+    border-radius:18px;
+    padding:20px 14px 18px;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .process-preview-phone{ margin-bottom:14px; }
+  .process-preview-label{
+    font-family:'Inter',ui-sans-serif; font-size:10.5px; letter-spacing:.14em; color:#6B5B95;
+    text-transform:uppercase; margin-bottom:5px;
+  }
+  .process-preview-title{ font-size:14px; font-weight:600; color:#2C2A35; }
+
+  /* === Trust panels === */
+  .trust-panel{
+    background:rgba(44,42,53,.025);
+    border:0.5px solid rgba(44,42,53,.07);
+    border-radius:16px;
+    padding:22px 24px;
+  }
+
+  /* === Header polish === */
+  .site-header{
+    background:rgba(255,254,251,.88);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:0.5px solid rgba(44,42,53,.1);
+    transition:box-shadow .3s ease, background .3s ease;
+  }
+  .site-header.is-scrolled{ background:rgba(255,254,251,.95); box-shadow:0 2px 14px rgba(44,42,53,.05); }
+  .site-header-inner{ display:flex; align-items:center; height:64px; }
+  .site-header-nav{ display:none; flex:1 1 0%; align-items:center; justify-content:center; gap:32px; font-size:14px; color:rgba(44,42,53,.75); }
+  @media (min-width:768px){ .site-header-nav{ display:flex; } }
+  .site-header-nav a:hover{ color:#6B5B95; }
+  .site-header-right{ display:flex; align-items:center; gap:12px; margin-left:auto; }
+  @media (min-width:768px){ .site-header-right{ margin-left:0; } }
   </style>
+
+<script type="application/json" id="speaker-notes">[]</script>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" style="width:100%;height:100%;display:block">
+    <rect width="200" height="200" fill="#FAF7F2"/>
+    <circle cx="100" cy="100" r="44" fill="none" stroke="#6B5B95" stroke-width="2"/>
+    <path d="M 60 110 Q 80 92, 100 110 T 140 110" fill="none" stroke="#A88FCE" stroke-width="2.4" stroke-linecap="round"/>
+    <text x="100" y="156" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#2C2A35" letter-spacing="2">결하다</text>
+  </svg>
+</template>
 </head>
-<body>
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="결하다 홈">
-        <span class="brand-mark" aria-hidden="true"></span>
-        결하다
-      </a>
-      <nav class="nav-links" aria-label="주요 메뉴">
-        <a href="#method">결하다 방식</a>
-        <a href="#trust">신뢰 검증</a>
-        <a href="#pricing">비용</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a class="btn primary" href="#download">앱 다운로드</a>
-    </div>
-  </header>
+<body class="font-ko">
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <p class="kicker">결혼을 생각하는 사람들을 위한 매칭</p>
-          <h1>조건보다 깊게,<br>서로의 결을 봅니다.</h1>
-          <p class="lead">결하다는 사진과 스펙만으로 판단하지 않습니다. 현실적인 조건, 성향, 가치관, 갈등을 다루는 방식, 미래의 방향까지 함께 살펴 오래 갈 수 있는 만남을 연결합니다.</p>
-          <div class="hero-actions" id="download">
-            <a class="btn primary" href="https://apps.apple.com/">App Store</a>
-            <a class="btn secondary" href="https://play.google.com/">Google Play</a>
-          </div>
-          <p class="hero-note">가입비 부담을 낮추고, 만남이 실제로 성사될 때만 비용이 발생합니다.</p>
-          <div class="stat-row" aria-label="결하다 핵심 가치">
-            <div class="stat"><strong>3가지</strong><span>외면, 내면, 미래의 결을 함께 확인</span></div>
-            <div class="stat"><strong>검증</strong><span>본인, 신원, 직업, 학력 기반 확인 절차</span></div>
-            <div class="stat"><strong>성사 후</strong><span>상호 동의 이후에만 만남 비용 발생</span></div>
-          </div>
-        </div>
+<script>
+window.addEventListener('error', e => {
+  const msg = 'ERROR: ' + e.message + ' @ ' + (e.filename||'').split('/').pop() + ':' + e.lineno;
+  document.body.insertAdjacentHTML('afterbegin', '<pre style="position:fixed;top:0;left:0;right:0;z-index:9999;color:#fff;background:#c00;padding:8px;font:12px monospace;margin:0;white-space:pre-wrap">'+msg+'</pre>');
+  console.error(e.message);
+});
+</script>
+<div id="root"></div>
 
-        <div class="hero-media" aria-label="결하다 서비스 이미지">
-          <figure class="hero-photo">
-            <img src="images/gyeol-hero.png" alt="차분한 카페에서 대화하는 두 사람" />
-          </figure>
-          <div class="phone-stack" aria-hidden="true">
-            <figure class="phone">
-              <img src="images/app-card.jpg" alt="" />
-            </figure>
-            <figure class="phone small">
-              <img src="images/app-profile.jpg" alt="" />
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="dist/tweaks-panel.js"></script>
+<script src="dist/signatures.js?v=1777800000000"></script>
+<script src="dist/sections.js?v=1777800000000"></script>
+<script src="dist/app.js?v=1777800000000"></script>
 
-    <section class="section" id="method">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">결하다 방식</p>
-          <h2>결혼은 한 가지 조건으로 결정되지 않습니다.</h2>
-          <p class="lead">좋은 만남은 조건표의 합보다 복잡합니다. 결하다는 세 가지 관점으로 만남의 가능성을 더 입체적으로 살핍니다.</p>
-        </div>
-        <div class="grid three">
-          <article class="card screen-card">
-            <img src="images/app-verify-1.jpg" alt="외면의 결 확인 화면" />
-            <div class="card-body">
-              <h3>외면의 결</h3>
-              <p class="copy">나이, 직업, 학력, 거주지, 경제관처럼 결혼에서 중요한 현실 조건을 확인합니다.</p>
-            </div>
-          </article>
-          <article class="card screen-card">
-            <img src="images/app-inner.jpg" alt="내면 성향 분석 화면" />
-            <div class="card-body">
-              <h3>내면의 결</h3>
-              <p class="copy">감정 표현, 대화 방식, 갈등 대처, 관계의 리듬을 질문과 분석으로 살핍니다.</p>
-            </div>
-          </article>
-          <article class="card screen-card">
-            <img src="images/app-prefs-1.jpg" alt="미래 방향 매칭 화면" />
-            <div class="card-body">
-              <h3>미래의 결</h3>
-              <p class="copy">결혼관, 가족관, 경제관까지 비교해 같은 방향을 바라볼 수 있는지 확인합니다.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt">
-      <div class="container grid two">
-        <figure class="image-frame tall">
-          <img src="images/gyeol-philosophy.png" alt="도심 정원 길을 함께 걷는 두 사람" loading="lazy" />
-        </figure>
-        <div>
-          <p class="kicker">우리가 지향하는 만남</p>
-          <h2>서로의 삶에 자연스럽게 들어갈 수 있는 사람.</h2>
-          <p class="lead">결혼은 이벤트가 아니라 생활의 방향을 함께 맞추는 일입니다. 결하다는 빠른 선택보다 오래 생각해도 납득되는 만남을 돕습니다.</p>
-          <div class="feature-list">
-            <div class="feature">
-              <span class="icon">1</span>
-              <div><b>가벼운 스와이프보다 신중한 추천</b><p>추천 수를 늘리기보다 서로의 조건과 방향이 맞는지를 먼저 봅니다.</p></div>
-            </div>
-            <div class="feature">
-              <span class="icon">2</span>
-              <div><b>대화 전 이해할 수 있는 정보</b><p>상대의 가치관과 관계 성향을 먼저 확인해 불필요한 시행착오를 줄입니다.</p></div>
-            </div>
-            <div class="feature">
-              <span class="icon">3</span>
-              <div><b>상호 동의 중심의 만남</b><p>양쪽이 모두 만남에 동의한 뒤 일정 조율 단계로 이어집니다.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="trust">
-      <div class="container grid two">
-        <div>
-          <p class="kicker">신뢰 검증</p>
-          <h2>민감한 만남일수록, 확인 절차는 분명해야 합니다.</h2>
-          <p class="lead">결하다는 신고된 결혼정보 서비스의 기준에 맞춰 본인 확인과 주요 정보 검증 절차를 둡니다. 필요한 범위 안에서 확인하고, 민감한 자료는 목적에 맞게 관리합니다.</p>
-          <div class="feature-list">
-            <div class="feature"><span class="icon">✓</span><div><b>본인 및 신원 확인</b><p>가입 단계에서 기본 신원과 본인 여부를 확인합니다.</p></div></div>
-            <div class="feature"><span class="icon">✓</span><div><b>직업·학력 등 주요 정보 확인</b><p>결혼 매칭에 필요한 현실 정보를 검증해 추천의 신뢰도를 높입니다.</p></div></div>
-            <div class="feature"><span class="icon">✓</span><div><b>개인정보 보호</b><p>검증 목적에 맞는 범위에서만 자료를 사용하고 공개 범위를 제한합니다.</p></div></div>
-          </div>
-        </div>
-        <figure class="image-frame wide">
-          <img src="images/gyeol-trust.png" alt="서류와 휴대폰으로 신뢰 검증을 확인하는 장면" loading="lazy" />
-        </figure>
-      </div>
-    </section>
-
-    <section class="section dark">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker" style="color:#d8caec">진행 흐름</p>
-          <h2>가입부터 만남까지, 부담은 낮추고 판단은 더 선명하게.</h2>
-        </div>
-        <div class="process">
-          <article class="process-item"><h3>가입 및 기본 확인</h3><p>본인 확인과 기본 정보를 통해 진지한 만남을 위한 출발선을 맞춥니다.</p></article>
-          <article class="process-item"><h3>성향 질문</h3><p>관계에서 중요한 가치관, 감정 표현, 갈등 대처 방식을 살핍니다.</p></article>
-          <article class="process-item"><h3>추천 확인</h3><p>조건과 결이 맞는 상대를 추천하고, 매칭 이유를 함께 보여줍니다.</p></article>
-          <article class="process-item"><h3>상호 동의 후 만남</h3><p>양쪽이 모두 동의하면 일정 조율로 이어지고 그때 비용이 발생합니다.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="pricing">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">비용 구조</p>
-          <h2>높은 가입비보다, 실제 만남의 성사에 집중합니다.</h2>
-          <p class="lead">먼저 큰 비용을 지불하고 결과를 기다리는 방식이 아니라, 시작의 부담을 낮추고 상호 만남 의사가 확인된 뒤에 비용이 발생하는 구조를 지향합니다.</p>
-        </div>
-        <div class="comparison">
-          <div class="compare-panel">
-            <h3>일반적인 고민</h3>
-            <ul>
-              <li>높은 초기 가입비 때문에 시작부터 부담이 큼</li>
-              <li>추천 이유를 이해하기 어렵고 결과를 예측하기 어려움</li>
-              <li>사진과 조건 위주의 빠른 판단으로 피로도가 쌓임</li>
-            </ul>
-          </div>
-          <div class="compare-panel highlight">
-            <h3>결하다의 방향</h3>
-            <ul>
-              <li>가입 부담을 낮추고 실제 성사 단계에 집중</li>
-              <li>왜 추천되었는지 알 수 있는 매칭 이유 제공</li>
-              <li>조건, 성향, 가치관, 미래 방향을 함께 반영</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark" id="faq">
-      <div class="container grid two">
-        <div>
-          <p class="kicker" style="color:#d8caec">FAQ</p>
-          <h2>자주 묻는 질문</h2>
-          <p class="lead" style="color:rgba(255,250,241,.68)">서비스 이용 전 가장 많이 확인하는 내용을 정리했습니다.</p>
-        </div>
-        <div class="faq">
-          <details open>
-            <summary>아무나 가입할 수 있나요?</summary>
-            <p>결혼을 전제로 한 진지한 만남을 위해 기본 신원과 주요 정보를 확인한 회원만 이용할 수 있도록 운영합니다.</p>
-          </details>
-          <details>
-            <summary>만남 비용은 언제 발생하나요?</summary>
-            <p>추천 확인 단계가 아니라, 양쪽이 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생하는 구조를 지향합니다.</p>
-          </details>
-          <details>
-            <summary>제출 자료가 상대에게 공개되나요?</summary>
-            <p>검증 자료는 확인 목적에 맞게 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다.</p>
-          </details>
-          <details>
-            <summary>기존 소개팅 앱과 무엇이 다른가요?</summary>
-            <p>사진과 거리 중심의 빠른 매칭보다 결혼관, 가치관, 관계 성향, 미래 방향의 적합성을 함께 살핀다는 점이 다릅니다.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <b>결하다</b>
-        <p>조건보다 깊은 결을 보는 결혼 중심 매칭 서비스.</p>
-      </div>
-      <div>
-        <b>Company</b>
-        <p>주식회사 린플<br>사업자등록번호 425-87-04263</p>
-      </div>
-      <div>
-        <b>Links</b>
-        <p>이용약관 · 개인정보 처리방침 · 고객센터</p>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
