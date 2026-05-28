@@ -94,9 +94,10 @@ Sig.WaveCross = function WaveCross({ progress = 1, scale = 1, showRing = true, s
 };
 
 // Animated flowing waves — driven by anime.js for hero background
-// Two thin cubic-bezier sine ribbons with different wavelengths, phases,
-// drift speeds, and breathing rhythms so they slide past each other naturally.
-// Falls back to static at t=0 if anime.js unavailable.
+// Two parallel cubic-bezier sine ribbons sharing the same wavelength so they
+// look like a matched pair. Each drifts in the same direction at slightly
+// different speeds, with very subtle synchronized breathing — gentle and
+// continuous, no popping or pulsing.
 Sig.AnimatedWaves = function AnimatedWaves({ scale = 1 }) {
   const w = 800, h = 560;
   const baseY = h / 2;
@@ -109,11 +110,11 @@ Sig.AnimatedWaves = function AnimatedWaves({ scale = 1 }) {
 
   // Build a smooth cubic-bezier sine wave path. Each segment's control points
   // are derived from the analytic derivative so the curve is mathematically smooth.
-  const build = (yBase, t, ampMul, flip, wavelength, amp) => {
-    const xStart = -160, xEnd = 960;
-    const step = 100;
+  const build = (yBase, t, breath, flip, wavelength, amp) => {
+    const xStart = -180, xEnd = 980;
+    const step = 70;
     const k = (Math.PI * 2) / wavelength;
-    const a = ampMul * amp;
+    const a = breath * amp;
     let d = '';
     let prevX = 0, prevY = 0, prevDy = 0;
     for (let x = xStart; x <= xEnd; x += step) {
@@ -136,41 +137,39 @@ Sig.AnimatedWaves = function AnimatedWaves({ scale = 1 }) {
     return d;
   };
 
-  // Each wave gets its own wavelength + amplitude so they don't lock-step.
-  const ampA = 34 * scale, waveA = 440;
-  const ampB = 28 * scale, waveB = 360;
+  // Shared wavelength so the two ribbons feel like a matched pair.
+  const wavelength = 520;
+  const ampA = 30 * scale;
+  const ampB = 26 * scale;
 
-  const apply = (tA, tB, breathA, breathB) => {
-    if (aRef.current) aRef.current.setAttribute('d', build(yA0, tA, breathA, 1, waveA, ampA));
-    if (bRef.current) bRef.current.setAttribute('d', build(yB0, tB, breathB, -1, waveB, ampB));
+  const apply = (tA, tB, breath) => {
+    if (aRef.current) aRef.current.setAttribute('d', build(yA0, tA, breath, 1, wavelength, ampA));
+    if (bRef.current) bRef.current.setAttribute('d', build(yB0, tB, breath, -1, wavelength, ampB));
   };
 
   useEffect(() => {
-    apply(0, Math.PI * 0.6, 1, 1);
+    apply(0, Math.PI * 0.35, 1);
     if (typeof window === 'undefined' || !window.anime) return;
     const anime = window.anime;
-    const state = { tA: 0, tB: Math.PI * 0.6, breathA: 1, breathB: 1 };
-    // Different drift directions and speeds for natural cross-flow.
+    const state = { tA: 0, tB: Math.PI * 0.35, breath: 1 };
+    // Both waves drift the same direction; slightly different speeds so they
+    // slowly slide past each other without ever feeling out of sync.
     const flowA = anime({
       targets: state, tA: Math.PI * 2,
-      duration: 22000, easing: 'linear', loop: true,
-      update: () => apply(state.tA, state.tB, state.breathA, state.breathB),
+      duration: 26000, easing: 'linear', loop: true,
+      update: () => apply(state.tA, state.tB, state.breath),
     });
     const flowB = anime({
-      targets: state, tB: state.tB - Math.PI * 2,
-      duration: 17000, easing: 'linear', loop: true,
+      targets: state, tB: state.tB + Math.PI * 2,
+      duration: 32000, easing: 'linear', loop: true,
     });
-    const breathA = anime({
+    // Very subtle shared breathing — both waves swell and ebb together.
+    const breath = anime({
       targets: state,
-      breathA: [{ value: 1.10, duration: 5400 }, { value: 0.94, duration: 5400 }],
+      breath: [{ value: 1.04, duration: 6000 }, { value: 0.97, duration: 6000 }],
       easing: 'easeInOutSine', loop: true,
     });
-    const breathB = anime({
-      targets: state,
-      breathB: [{ value: 0.90, duration: 6800 }, { value: 1.08, duration: 6800 }],
-      easing: 'easeInOutSine', loop: true,
-    });
-    return () => { flowA.pause(); flowB.pause(); breathA.pause(); breathB.pause(); };
+    return () => { flowA.pause(); flowB.pause(); breath.pause(); };
   }, []);
 
   return (
@@ -178,15 +177,15 @@ Sig.AnimatedWaves = function AnimatedWaves({ scale = 1 }) {
       <defs>
         <linearGradient id="aw-lav" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#8E72BD" stopOpacity="0" />
-          <stop offset="18%" stopColor="#8E72BD" stopOpacity="0.45" />
-          <stop offset="82%" stopColor="#A88FCE" stopOpacity="0.45" />
+          <stop offset="18%" stopColor="#8E72BD" stopOpacity="0.42" />
+          <stop offset="82%" stopColor="#A88FCE" stopOpacity="0.42" />
           <stop offset="100%" stopColor="#A88FCE" stopOpacity="0" />
         </linearGradient>
         <linearGradient id="aw-mist" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#9C8FB0" stopOpacity="0" />
-          <stop offset="18%" stopColor="#9C8FB0" stopOpacity="0.38" />
-          <stop offset="82%" stopColor="#8B9CA8" stopOpacity="0.38" />
-          <stop offset="100%" stopColor="#8B9CA8" stopOpacity="0" />
+          <stop offset="0%" stopColor="#A095B5" stopOpacity="0" />
+          <stop offset="18%" stopColor="#A095B5" stopOpacity="0.34" />
+          <stop offset="82%" stopColor="#9AA0B8" stopOpacity="0.34" />
+          <stop offset="100%" stopColor="#9AA0B8" stopOpacity="0" />
         </linearGradient>
       </defs>
       <path ref={aRef} fill="none" stroke="url(#aw-lav)" strokeWidth="1.5" strokeLinecap="round" />

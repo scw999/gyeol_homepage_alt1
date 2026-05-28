@@ -363,6 +363,47 @@ function ThreeGyeolSection({ appScreens }) {
   );
 }
 
+// ---------- Brand band: emotional break with couple photo ----------
+function PhilosophyBand({ images }) {
+  const img = images && (Array.isArray(images.philosophy) ? images.philosophy[0] : images.philosophy);
+  if (!img) return null;
+  return (
+    <section id="philosophy" className="bg-veil grain">
+      <div className="max-w-[1200px] mx-auto px-5 md:px-8">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-center">
+          <div className="md:col-span-6">
+            <Reveal>
+              <div className="relative rounded-2xl overflow-hidden hairline" style={{aspectRatio:'4/5'}}>
+                <img src={img} alt="두 사람이 함께 걷는 모습" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+                <div className="absolute inset-0" style={{background:'linear-gradient(135deg, rgba(107,91,149,.05), rgba(0,0,0,0) 40%, rgba(0,0,0,.18))'}}/>
+              </div>
+            </Reveal>
+          </div>
+          <div className="md:col-span-6">
+            <Reveal><div className="eyebrow mb-4">결하다가 그리는 결혼</div></Reveal>
+            <Reveal delay={80}>
+              <h2 className="gh-display gh-h2 max-w-[18ch]">서로의 결을 알아보고,<br/>오래 함께 걷는 일.</h2>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="body-lg mt-6 text-mute max-w-[44ch]">
+                결혼은 잠깐의 호감이 아니라, 두 사람의 결이 맞아갈 때 시작됩니다.
+                결하다는 그 결을 함께 살피며, 오래 함께할 수 있는 만남을 돕습니다.
+              </p>
+            </Reveal>
+            <Reveal delay={220}>
+              <div className="mt-8 flex flex-wrap gap-2">
+                <span className="pill border border-ink/10 bg-white text-ink/75">결혼 가치관</span>
+                <span className="pill border border-ink/10 bg-white text-ink/75">감정·갈등 대처</span>
+                <span className="pill border border-ink/10 bg-white text-ink/75">함께 그리는 미래</span>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ---------- Section 4: Trust — 결혼중개업법 + 인증 + 개인정보 통합 ----------
 function TrustSection({ images, appScreens }) {
   const verifyItems = ['본인 확인', '신원 검토', '직업·학력 확인', '승인제 가입', '상호 동의 후 만남'];
@@ -590,7 +631,7 @@ function MobileSticky({ ctaState, ctaData }) {
 // Export to window for app.jsx
 Object.assign(window, {
   Reveal, Header, Hero,
-  ProblemSection, ThreeGyeolSection, TrustSection,
+  ProblemSection, ThreeGyeolSection, PhilosophyBand, TrustSection,
   PricingSection,
   FAQSection, Footer, MobileSticky,
 });

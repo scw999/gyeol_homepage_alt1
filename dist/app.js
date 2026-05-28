@@ -177,6 +177,8 @@ function App() {
     appScreens: APP_SCREENS
   }), /*#__PURE__*/React.createElement(ThreeGyeolSection, {
     appScreens: APP_SCREENS
+  }), /*#__PURE__*/React.createElement(PhilosophyBand, {
+    images: IMAGES
   }), /*#__PURE__*/React.createElement(TrustSection, {
     images: IMAGES,
     appScreens: APP_SCREENS
