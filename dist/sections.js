@@ -688,6 +688,61 @@ function ThreeGyeolSection({
   }, "\xB7 \uC758\uD559\uC801\xB7\uC2EC\uB9AC \uC9C4\uB2E8\uC744 \uB300\uCCB4\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."))));
 }
 
+// ---------- Brand band: emotional break with couple photo ----------
+function PhilosophyBand({
+  images
+}) {
+  const img = images && (Array.isArray(images.philosophy) ? images.philosophy[0] : images.philosophy);
+  if (!img) return null;
+  return /*#__PURE__*/React.createElement("section", {
+    id: "philosophy",
+    className: "bg-veil grain"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "max-w-[1200px] mx-auto px-5 md:px-8"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "grid md:grid-cols-12 gap-10 md:gap-12 items-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "md:col-span-6"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
+    className: "relative rounded-2xl overflow-hidden hairline",
+    style: {
+      aspectRatio: '4/5'
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: img,
+    alt: "\uB450 \uC0AC\uB78C\uC774 \uD568\uAED8 \uAC77\uB294 \uBAA8\uC2B5",
+    className: "absolute inset-0 w-full h-full object-cover",
+    loading: "lazy"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-0",
+    style: {
+      background: 'linear-gradient(135deg, rgba(107,91,149,.05), rgba(0,0,0,0) 40%, rgba(0,0,0,.18))'
+    }
+  })))), /*#__PURE__*/React.createElement("div", {
+    className: "md:col-span-6"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-4"
+  }, "\uACB0\uD558\uB2E4\uAC00 \uADF8\uB9AC\uB294 \uACB0\uD63C")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 80
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "gh-display gh-h2 max-w-[18ch]"
+  }, "\uC11C\uB85C\uC758 \uACB0\uC744 \uC54C\uC544\uBCF4\uACE0,", /*#__PURE__*/React.createElement("br", null), "\uC624\uB798 \uD568\uAED8 \uAC77\uB294 \uC77C.")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 160
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "body-lg mt-6 text-mute max-w-[44ch]"
+  }, "\uACB0\uD63C\uC740 \uC7A0\uAE50\uC758 \uD638\uAC10\uC774 \uC544\uB2C8\uB77C, \uB450 \uC0AC\uB78C\uC758 \uACB0\uC774 \uB9DE\uC544\uAC08 \uB54C \uC2DC\uC791\uB429\uB2C8\uB2E4. \uACB0\uD558\uB2E4\uB294 \uADF8 \uACB0\uC744 \uD568\uAED8 \uC0B4\uD53C\uBA70, \uC624\uB798 \uD568\uAED8\uD560 \uC218 \uC788\uB294 \uB9CC\uB0A8\uC744 \uB3D5\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 220
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "mt-8 flex flex-wrap gap-2"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "pill border border-ink/10 bg-white text-ink/75"
+  }, "\uACB0\uD63C \uAC00\uCE58\uAD00"), /*#__PURE__*/React.createElement("span", {
+    className: "pill border border-ink/10 bg-white text-ink/75"
+  }, "\uAC10\uC815\xB7\uAC08\uB4F1 \uB300\uCC98"), /*#__PURE__*/React.createElement("span", {
+    className: "pill border border-ink/10 bg-white text-ink/75"
+  }, "\uD568\uAED8 \uADF8\uB9AC\uB294 \uBBF8\uB798")))))));
+}
+
 // ---------- Section 4: Trust — 결혼중개업법 + 인증 + 개인정보 통합 ----------
 function TrustSection({
   images,
@@ -1008,6 +1063,7 @@ Object.assign(window, {
   Hero,
   ProblemSection,
   ThreeGyeolSection,
+  PhilosophyBand,
   TrustSection,
   PricingSection,
   FAQSection,
