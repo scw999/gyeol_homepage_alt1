@@ -867,7 +867,7 @@ function TrustSection({
     }
   }, /*#__PURE__*/React.createElement("img", {
     src: trustImg,
-    alt: "\uC11C\uB85C\uC758 \uC190\uC774 \uB2FF\uC73C\uB824\uB294 \uBAA8\uC2B5 \u2014 \uC2E0\uB8B0\uC758 \uC2DC\uC791",
+    alt: "\uAC80\uC99D \uD56D\uBAA9\uACFC \uC790\uBB3C\uC1E0\uAC00 \uB193\uC778 \uCC45\uC0C1 \u2014 \uC2E0\uB8B0\uC758 \uD655\uC778",
     className: "absolute inset-0 w-full h-full object-cover",
     loading: "lazy"
   }), /*#__PURE__*/React.createElement("div", {
