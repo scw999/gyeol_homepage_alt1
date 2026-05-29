@@ -12,7 +12,7 @@ var {
 const IMAGES = {
   hero: [],
   // 히어로 — 폰 목업 사용 (이미지 없음)
-  trust: ['images/wedding-lavender-reaching-hands.png'],
+  trust: ['images/gyeol-trust-verification.png'],
   // 신뢰 섹션 사이드 비주얼
   philosophy: ['images/wedding-lavender-shoulder-ring.png'],
   // 브랜드 철학 섹션

@@ -496,7 +496,7 @@ function TrustSection({ images, appScreens }) {
           <div className="md:col-span-5">
             <Reveal delay={120}>
               <div className="relative rounded-2xl overflow-hidden hairline" style={{aspectRatio:'3/4'}}>
-                <img src={trustImg} alt="서로의 손이 닿으려는 모습 — 신뢰의 시작" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+                <img src={trustImg} alt="검증 항목과 자물쇠가 놓인 책상 — 신뢰의 확인" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
                 <div className="absolute inset-0" style={{background:'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.12))'}}/>
               </div>
             </Reveal>
