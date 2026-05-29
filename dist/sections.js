@@ -204,7 +204,7 @@ function Hero({
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-5 text-lavender-deep"
-  }, "Gyeolhada \xB7 \uACB0\uD63C\uC744 \uC704\uD55C \uB9CC\uB0A8")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uACB0\uD558\uB2E4 \xB7 \uACB0\uD63C\uC744 \uC704\uD55C \uB9CC\uB0A8")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 80
   }, /*#__PURE__*/React.createElement("h1", {
     className: "gh-display gh-h1 text-ink"

@@ -109,7 +109,7 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
       <div className="relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center">
         <div className="md:col-span-7">
           <Reveal>
-            <div className="eyebrow mb-5 text-lavender-deep">Gyeolhada · 결혼을 위한 만남</div>
+            <div className="eyebrow mb-5 text-lavender-deep">결하다 · 결혼을 위한 만남</div>
           </Reveal>
           <Reveal delay={80}>
             <h1 className="gh-display gh-h1 text-ink">
