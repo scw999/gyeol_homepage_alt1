@@ -380,8 +380,8 @@ function ProblemSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M9 11h6M9 14h4"
     })),
-    screen: appScreens && appScreens.tendency,
-    screenLabel: '성향 분석 리포트'
+    screen: appScreens && appScreens.inner,
+    screenLabel: '내면 분석 리포트'
   }, {
     num: '02',
     problem: '조건만 맞고 방향이 어긋남',
@@ -397,8 +397,8 @@ function ProblemSection({
     }, /*#__PURE__*/React.createElement("path", {
       d: "M4 6h16M4 12h10M4 18h6"
     })),
-    solve: '결혼관·가족관·경제관까지 매칭',
-    solveSub: '세 가지 가치관을 매칭 추천에 반영해, 비슷한 삶의 방향을 가진 사람을 우선 보여드립니다.',
+    solve: '가치관과 답변이 맞는지까지',
+    solveSub: '결혼관·가족관·경제관은 물론, 관계에서 중요하게 여기는 답변이 서로 맞는지 확인해 보여드립니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -417,8 +417,8 @@ function ProblemSection({
       fill: "currentColor",
       stroke: "none"
     })),
-    screen: appScreens && appScreens.prefsDetail,
-    screenLabel: '매칭 선호도'
+    screen: appScreens && appScreens.matchReason,
+    screenLabel: '매칭 이유'
   }, {
     num: '03',
     problem: '가벼운 사용자들 사이에서 피로',
@@ -485,7 +485,7 @@ function ProblemSection({
       d: "M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"
     })),
     solve: '낮은 가입비, 만남 성사 시에만',
-    solveSub: '선결제 부담 없이 시작하고, 양쪽이 만남에 동의해 일정 조율 단계로 넘어갈 때만 비용이 발생합니다.',
+    solveSub: '이렇게 받은 매칭 중 양쪽이 만남에 동의할 때만 비용이 발생합니다. 선결제 부담 없이 시작하세요.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -502,8 +502,8 @@ function ProblemSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M8 12l3 3 5-6"
     })),
-    screen: appScreens && appScreens.matchReason,
-    screenLabel: '매칭 이유'
+    screen: appScreens && appScreens.card,
+    screenLabel: '매칭 카드'
   }];
   const [active, setActive] = useState(0);
   const cur = pairs[active];
