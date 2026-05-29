@@ -95,10 +95,22 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "ctaState": "post",
   "paletteIntensity": "balanced",
   "waveStyle": "A",
-  "headlineVariant": "primary",
+  "headlineVariant": "experience",
   "fontFamily": "pretendard"
 } /*EDITMODE-END*/;
 const HEADLINES = {
+  experience: {
+    h: '결이 맞으면,<br/><span style="color:#6B5B95">또 만나고 싶어집니다.</span>',
+    sub: '결하다는 두 사람의 결을 맞춰 소개합니다. 가입은 커피 한잔 값으로.'
+  },
+  sharp: {
+    h: '면접 같은 소개팅은,<br/><span style="color:#6B5B95">그만.</span>',
+    sub: '결하다는 두 사람의 결을 맞춰 소개합니다. 가입은 커피 한잔 값으로.'
+  },
+  again: {
+    h: '또 만나고 싶은 사람을,<br/><span style="color:#6B5B95">처음부터.</span>',
+    sub: '결하다는 두 사람의 결을 맞춰 소개합니다. 가입은 커피 한잔 값으로.'
+  },
   primary: {
     h: '결이 맞아야,<br/><span style="color:#6B5B95">결혼도 맞다.</span>',
     sub: '조건 너머의 결까지 읽어내는 새로운 결혼 매칭.'
@@ -245,6 +257,15 @@ function App() {
     label: "\uD5E4\uB4DC\uB77C\uC778 \uCE74\uD53C",
     value: t.headlineVariant,
     options: [{
+      value: 'experience',
+      label: '경험 — 또 만나고 싶어집니다'
+    }, {
+      value: 'sharp',
+      label: '날카로움 — 면접 같은 소개팅은 그만'
+    }, {
+      value: 'again',
+      label: '또 만남 — 처음부터'
+    }, {
       value: 'primary',
       label: '기본 — 조건보다 깊게'
     }, {
