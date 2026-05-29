@@ -340,8 +340,8 @@ function ProblemSection({
 }) {
   const pairs = [{
     num: '01',
-    problem: '사진과 조건만으로 판단',
-    problemSub: '몇 줄의 프로필로는 사람을 알 수 없습니다. 서로를 잘 모른 채 만나면 대화도 자연스럽게 이어지지 않습니다.',
+    problem: '면접처럼 스펙만 확인하는 자리',
+    problemSub: '조건만 주고받다 보면 만남이 면접처럼 됩니다. 정작 또 만나고 싶은지는 알 수 없습니다.',
     problemIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -518,7 +518,7 @@ function ProblemSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[22ch]"
-  }, "\uACB0\uC815\uC0AC\uC5D0\uC11C \uB9C9\uD614\uB358 \uC9C0\uC810,", /*#__PURE__*/React.createElement("br", null), "\uACB0\uD558\uB2E4\uAC00 \uD480\uC5B4\uB4DC\uB9BD\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uC2A4\uD399\uB9CC \uB9DE\uCD98 \uC18C\uAC1C\uD305,", /*#__PURE__*/React.createElement("br", null), "\uBA74\uC811 \uAC19\uC9C0 \uC54A\uC558\uB098\uC694?")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 140
   }, /*#__PURE__*/React.createElement("p", {
     className: "body-lg mt-6 text-mute",
@@ -692,7 +692,7 @@ function ThreeGyeolSection() {
     d: '나이, 직업, 학력, 거주지, 자산 등 결혼의 토대가 되는 정보를 인증으로 확인합니다.',
     photo: 'images/gyeol-card-external.png',
     photoAlt: '서류·반지·서신으로 표현한 결혼의 토대',
-    note: '필터링 가능합니다.'
+    note: '그래서 기본은 안심하고 시작합니다.'
   }, {
     tag: '내면의 결',
     kr: '內',
@@ -700,7 +700,7 @@ function ThreeGyeolSection() {
     d: '심리 질문과 선호 질문으로 성향·감정 표현·갈등 대처 방식을 살핍니다.',
     photo: 'images/gyeol-card-inner.png',
     photoAlt: '심리 카드를 두고 마주 앉은 두 사람의 손',
-    note: '심리 결과로 매칭에 반영됩니다.'
+    note: '그래서 대화가 통하는 사람을 만납니다.'
   }, {
     tag: '미래의 결',
     kr: '來',
@@ -708,7 +708,7 @@ function ThreeGyeolSection() {
     d: '결혼관·가족관·경제관까지 살펴, 두 사람의 미래가 맞는지 확인합니다.',
     photo: 'images/gyeol-card-future.png',
     photoAlt: '집·달력·저축이 함께 놓인 미래 설계 장면',
-    note: '매칭 추천에 반영됩니다.'
+    note: '그래서 방향이 어긋나 헤어지지 않습니다.'
   }];
   return /*#__PURE__*/React.createElement("section", {
     id: "way",
@@ -884,11 +884,11 @@ function TrustSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[24ch]"
-  }, "\uC2E0\uACE0\uB41C \uC11C\uBE44\uC2A4\uB85C,", /*#__PURE__*/React.createElement("br", null), "\uBBFF\uC744 \uC218 \uC788\uB294 \uB9CC\uB0A8\uC744 \uC6B4\uC601\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uC544\uBB34\uB098 \uB4E4\uC774\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4,", /*#__PURE__*/React.createElement("br", null), "\uADF8\uB798\uC11C \uBBFF\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
     className: "body-lg mt-6 text-mute max-w-[52ch]"
-  }, "\u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB77C \uC2E0\uACE0\uB41C \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uB85C, \uAC80\uC99D\uC744 \uAC70\uCE5C \uD68C\uC6D0\uB9CC \uAC00\uC785\uD560 \uC218 \uC788\uB3C4\uB85D \uC6B4\uC601\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB77C \uC2E0\uACE0\uB41C \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uC785\uB2C8\uB2E4. \uBCF8\uC778\xB7\uC2E0\uC6D0\xB7\uC9C1\uC5C5\xB7\uD559\uB825\uC744 \uAC80\uD1A0\uD574 \uD1B5\uACFC\uD55C \uC0AC\uB78C\uB9CC \uBC1B\uACE0, \uC131\uD5A5\uC740 Big5\xB7\uC560\uCC29\uC774\uB860\uC744 \uD1A0\uB300\uB85C \uC0B4\uD54D\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
   }, /*#__PURE__*/React.createElement("div", {
     className: "trust-panel mt-8"
@@ -1044,7 +1044,7 @@ function PricingSection({
 
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
-  const items = [['가입비는 얼마인가요?', '가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'], ['만남 비용은 언제 얼마나 발생하나요?', '매칭된 두 사람이 모두 "만나볼래요"를 누르고 일정 조율 단계로 넘어갈 때 ₩100,000이 발생합니다. 가입·응답·추천 확인 단계에서는 비용이 발생하지 않습니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
+  const items = [['가입비는 얼마인가요?', '가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'], ['만남 비용은 언제 얼마나 발생하나요?', '매칭된 두 사람이 모두 "만나볼래요"를 누르고 일정 조율 단계로 넘어갈 때 ₩100,000이 발생합니다. 가입·응답·추천 확인 단계에서는 비용이 발생하지 않습니다.'], ['누구나 매칭해 주나요?', '아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
   return /*#__PURE__*/React.createElement("section", {
     id: "faq",
     className: "bg-veil"
@@ -1100,7 +1100,7 @@ function Footer({
     light: true
   }), /*#__PURE__*/React.createElement("p", {
     className: "mt-4 text-[15px] text-white/70"
-  }, "\uACB0\uC744 \uC787\uB294 \uACB0\uD63C \uB9E4\uCE6D"), /*#__PURE__*/React.createElement("div", {
+  }, "\uACB0\uD558\uB2E4 \u2014 \uB610 \uB9CC\uB098\uACE0 \uC2F6\uC740 \uC0AC\uB78C\uC744, \uCC98\uC74C\uBD80\uD130."), /*#__PURE__*/React.createElement("div", {
     className: "mt-7 flex flex-col sm:flex-row gap-3"
   }, ctaButtons.map((b, i) => /*#__PURE__*/React.createElement("a", {
     key: i,

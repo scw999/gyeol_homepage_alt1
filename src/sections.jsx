@@ -190,8 +190,8 @@ function ProblemSection({ appScreens }) {
   const pairs = [
     {
       num:'01',
-      problem:'사진과 조건만으로 판단',
-      problemSub:'몇 줄의 프로필로는 사람을 알 수 없습니다. 서로를 잘 모른 채 만나면 대화도 자연스럽게 이어지지 않습니다.',
+      problem:'면접처럼 스펙만 확인하는 자리',
+      problemSub:'조건만 주고받다 보면 만남이 면접처럼 됩니다. 정작 또 만나고 싶은지는 알 수 없습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-2 3-3 5-3s4 1 5 3"/></svg>),
       solve:'심리 질문으로 관계의 결까지',
       solveSub:'성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석 리포트로 보여드립니다.',
@@ -240,7 +240,7 @@ function ProblemSection({ appScreens }) {
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <Reveal><div className="eyebrow mb-4">결하다 방식</div></Reveal>
         <Reveal delay={80}>
-          <h2 className="gh-display gh-h2 max-w-[22ch]">결정사에서 막혔던 지점,<br/>결하다가 풀어드립니다.</h2>
+          <h2 className="gh-display gh-h2 max-w-[22ch]">스펙만 맞춘 소개팅,<br/>면접 같지 않았나요?</h2>
         </Reveal>
         <Reveal delay={140}>
           <p className="body-lg mt-6 text-mute" style={{maxWidth:'44ch'}}>가장 공감되는 어려움을 눌러보세요. 결하다가 어떻게 풀어가는지 보여드립니다.</p>
@@ -354,7 +354,7 @@ function ThreeGyeolSection() {
       d:'나이, 직업, 학력, 거주지, 자산 등 결혼의 토대가 되는 정보를 인증으로 확인합니다.',
       photo:'images/gyeol-card-external.png',
       photoAlt:'서류·반지·서신으로 표현한 결혼의 토대',
-      note:'필터링 가능합니다.',
+      note:'그래서 기본은 안심하고 시작합니다.',
     },
     {
       tag:'내면의 결', kr:'內',
@@ -362,7 +362,7 @@ function ThreeGyeolSection() {
       d:'심리 질문과 선호 질문으로 성향·감정 표현·갈등 대처 방식을 살핍니다.',
       photo:'images/gyeol-card-inner.png',
       photoAlt:'심리 카드를 두고 마주 앉은 두 사람의 손',
-      note:'심리 결과로 매칭에 반영됩니다.',
+      note:'그래서 대화가 통하는 사람을 만납니다.',
     },
     {
       tag:'미래의 결', kr:'來',
@@ -370,7 +370,7 @@ function ThreeGyeolSection() {
       d:'결혼관·가족관·경제관까지 살펴, 두 사람의 미래가 맞는지 확인합니다.',
       photo:'images/gyeol-card-future.png',
       photoAlt:'집·달력·저축이 함께 놓인 미래 설계 장면',
-      note:'매칭 추천에 반영됩니다.',
+      note:'그래서 방향이 어긋나 헤어지지 않습니다.',
     },
   ];
   return (
@@ -492,11 +492,11 @@ function TrustSection({ images, appScreens }) {
           <div className="md:col-span-7">
             <Reveal><div className="eyebrow mb-4">등록 결정사 · 인증된 회원 · 개인정보 보호</div></Reveal>
             <Reveal delay={80}>
-              <h2 className="gh-display gh-h2 max-w-[24ch]">신고된 서비스로,<br/>믿을 수 있는 만남을 운영합니다.</h2>
+              <h2 className="gh-display gh-h2 max-w-[24ch]">아무나 들이지 않습니다,<br/>그래서 믿을 수 있습니다.</h2>
             </Reveal>
             <Reveal delay={160}>
               <p className="body-lg mt-6 text-mute max-w-[52ch]">
-                「결혼중개업법」에 따라 신고된 결혼정보 서비스로, 검증을 거친 회원만 가입할 수 있도록 운영합니다.
+                「결혼중개업법」에 따라 신고된 결혼정보 서비스입니다. 본인·신원·직업·학력을 검토해 통과한 사람만 받고, 성향은 Big5·애착이론을 토대로 살핍니다.
               </p>
             </Reveal>
 
@@ -609,6 +609,7 @@ function FAQSection() {
   const items = [
     ['가입비는 얼마인가요?','가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'],
     ['만남 비용은 언제 얼마나 발생하나요?','매칭된 두 사람이 모두 "만나볼래요"를 누르고 일정 조율 단계로 넘어갈 때 ₩100,000이 발생합니다. 가입·응답·추천 확인 단계에서는 비용이 발생하지 않습니다.'],
+    ['누구나 매칭해 주나요?','아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'],
     ['아무나 가입할 수 있나요?','결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'],
     ['결혼관·가족관·경제관은 어떻게 반영되나요?','이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'],
     ['제출한 서류가 상대방에게 공개되나요?','제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'],
@@ -646,7 +647,7 @@ function Footer({ ctaState, ctaData }) {
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <Sig.Logo height={30} light={true}/>
-            <p className="mt-4 text-[15px] text-white/70">결을 잇는 결혼 매칭</p>
+            <p className="mt-4 text-[15px] text-white/70">결하다 — 또 만나고 싶은 사람을, 처음부터.</p>
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
               {ctaButtons.map((b,i)=>(
                 <a key={i} href={b.href} className="store-btn" style={{background:'#fff', color:'#1c1a23'}}>
