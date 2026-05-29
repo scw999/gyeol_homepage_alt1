@@ -228,10 +228,9 @@ function ProblemSection({ appScreens }) {
       problemSub:'먼저 큰 비용을 치러야 시작할 수 있는 구조. 결과가 보장되지 않는데도 선결제가 필요합니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"/></svg>),
       solve:'커피 한잔 값으로 시작',
-      solveSub:'가입과 매칭은 부담 없이 시작하고, 양쪽이 만남에 동의했을 때만 비용이 발생합니다.',
+      solveSub:'가입은 커피 한잔 값. 매칭이 성사돼 양쪽이 만남에 동의했을 때만 비용이 발생합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 8h13v4a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/><path d="M17 9h2.5a2 2 0 0 1 0 4H17"/><path d="M7 3c0 1-.8 1.5-.8 2.5M11 3c0 1-.8 1.5-.8 2.5"/></svg>),
-      screen: appScreens && appScreens.prefsMain,
-      screenLabel:'매칭 선호 설정',
+      priceCard:true,
     },
   ];
   const [active, setActive] = useState(0);
@@ -291,7 +290,36 @@ function ProblemSection({ appScreens }) {
                   <div className="gh-h3 leading-snug">{cur.solve}</div>
                   <p className="problem-detail-sub">{cur.solveSub}</p>
                 </div>
-                {cur.screen && (
+                {cur.priceCard ? (
+                  <div className="problem-detail-phone">
+                    <div className="price-card">
+                      <div className="price-card-cup" aria-hidden="true">
+                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                          <path d="M14 24h30v13a13 13 0 0 1-13 13H27a13 13 0 0 1-13-13V24z" fill="#EFE8F7" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round"/>
+                          <path d="M44 28h6a6 6 0 0 1 0 12h-6" fill="#EFE8F7" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round"/>
+                          <path d="M22 9c0 3-2.2 3.5-2.2 6.5M31 9c0 3-2.2 3.5-2.2 6.5M40 9c0 3-2.2 3.5-2.2 6.5" stroke="#A88FCE" strokeWidth="2" strokeLinecap="round"/>
+                          <path d="M12 56h36" stroke="#6B5B95" strokeWidth="2" strokeLinecap="round"/>
+                        </svg>
+                      </div>
+                      <div className="price-card-row">
+                        <div>
+                          <div className="price-card-label">가입비</div>
+                          <div className="price-card-amount">₩10,000</div>
+                        </div>
+                        <span className="pill bg-lavender-deep text-white">Low entry</span>
+                      </div>
+                      <div className="price-card-rule"/>
+                      <div className="price-card-row">
+                        <div>
+                          <div className="price-card-label">매칭 성사 시</div>
+                          <div className="price-card-amount">₩100,000</div>
+                        </div>
+                      </div>
+                      <p className="price-card-note">양쪽이 만남에 동의할 때만 결제됩니다.</p>
+                    </div>
+                    <div className="problem-detail-cap">예측 가능한 비용</div>
+                  </div>
+                ) : cur.screen && (
                   <div className="problem-detail-phone">
                     {cur.screenB ? (
                       <div className="relative" style={{width:340, height:600}}>

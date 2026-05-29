@@ -486,7 +486,7 @@ function ProblemSection({
       d: "M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"
     })),
     solve: '커피 한잔 값으로 시작',
-    solveSub: '가입과 매칭은 부담 없이 시작하고, 양쪽이 만남에 동의했을 때만 비용이 발생합니다.',
+    solveSub: '가입은 커피 한잔 값. 매칭이 성사돼 양쪽이 만남에 동의했을 때만 비용이 발생합니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -503,8 +503,7 @@ function ProblemSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M7 3c0 1-.8 1.5-.8 2.5M11 3c0 1-.8 1.5-.8 2.5"
     })),
-    screen: appScreens && appScreens.prefsMain,
-    screenLabel: '매칭 선호 설정'
+    priceCard: true
   }];
   const [active, setActive] = useState(0);
   const cur = pairs[active];
@@ -588,7 +587,61 @@ function ProblemSection({
     className: "gh-h3 leading-snug"
   }, cur.solve), /*#__PURE__*/React.createElement("p", {
     className: "problem-detail-sub"
-  }, cur.solveSub)), cur.screen && /*#__PURE__*/React.createElement("div", {
+  }, cur.solveSub)), cur.priceCard ? /*#__PURE__*/React.createElement("div", {
+    className: "problem-detail-phone"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "price-card"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "price-card-cup",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "64",
+    height: "64",
+    viewBox: "0 0 64 64",
+    fill: "none"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M14 24h30v13a13 13 0 0 1-13 13H27a13 13 0 0 1-13-13V24z",
+    fill: "#EFE8F7",
+    stroke: "#6B5B95",
+    strokeWidth: "2",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M44 28h6a6 6 0 0 1 0 12h-6",
+    fill: "#EFE8F7",
+    stroke: "#6B5B95",
+    strokeWidth: "2",
+    strokeLinejoin: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M22 9c0 3-2.2 3.5-2.2 6.5M31 9c0 3-2.2 3.5-2.2 6.5M40 9c0 3-2.2 3.5-2.2 6.5",
+    stroke: "#A88FCE",
+    strokeWidth: "2",
+    strokeLinecap: "round"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 56h36",
+    stroke: "#6B5B95",
+    strokeWidth: "2",
+    strokeLinecap: "round"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "price-card-row"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "price-card-label"
+  }, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("div", {
+    className: "price-card-amount"
+  }, "\u20A910,000")), /*#__PURE__*/React.createElement("span", {
+    className: "pill bg-lavender-deep text-white"
+  }, "Low entry")), /*#__PURE__*/React.createElement("div", {
+    className: "price-card-rule"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "price-card-row"
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "price-card-label"
+  }, "\uB9E4\uCE6D \uC131\uC0AC \uC2DC"), /*#__PURE__*/React.createElement("div", {
+    className: "price-card-amount"
+  }, "\u20A9100,000"))), /*#__PURE__*/React.createElement("p", {
+    className: "price-card-note"
+  }, "\uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD560 \uB54C\uB9CC \uACB0\uC81C\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+    className: "problem-detail-cap"
+  }, "\uC608\uCE21 \uAC00\uB2A5\uD55C \uBE44\uC6A9")) : cur.screen && /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-phone"
   }, cur.screenB ? /*#__PURE__*/React.createElement("div", {
     className: "relative",

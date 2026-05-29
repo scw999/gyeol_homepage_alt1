@@ -197,6 +197,23 @@
   .problem-detail-sub{ font-size:15px; line-height:1.65; color:rgba(44,42,53,.72); margin-top:12px; }
   .problem-detail-cap{ font-family:'Inter',ui-sans-serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:rgba(107,91,149,.7); margin-top:14px; text-align:center; }
 
+  /* Pricing card (Problem→Solution tab 04) */
+  .price-card{
+    width:280px; background:#fff; border:0.5px solid rgba(44,42,53,.08);
+    border-radius:22px; padding:26px 26px 22px;
+    box-shadow:0 30px 60px -30px rgba(107,91,149,.35), 0 8px 24px -12px rgba(44,42,53,.12);
+  }
+  .price-card-cup{
+    width:72px; height:72px; border-radius:18px; margin-bottom:20px;
+    display:grid; place-items:center;
+    background:linear-gradient(150deg, rgba(200,182,226,.32), rgba(200,182,226,.08));
+  }
+  .price-card-row{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+  .price-card-label{ font-size:13px; color:var(--mute); margin-bottom:4px; }
+  .price-card-amount{ font-size:30px; font-weight:700; letter-spacing:-0.02em; color:#2C2A35; line-height:1.1; }
+  .price-card-rule{ height:1px; background:rgba(44,42,53,.08); margin:18px 0; }
+  .price-card-note{ font-size:12.5px; line-height:1.55; color:var(--mute); margin-top:14px; }
+
   /* === Process section — timeline + preview cards === */
   .process-timeline{ list-style:none; margin:0; padding:0; }
   .process-step{ display:grid; grid-template-columns:30px minmax(0,1fr); column-gap:18px; }
