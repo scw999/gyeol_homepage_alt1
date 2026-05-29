@@ -194,10 +194,11 @@ function ProblemSection({ appScreens }) {
       problemSub:'몇 줄의 프로필로는 사람을 알 수 없습니다. 서로를 잘 모른 채 만나면 대화도 자연스럽게 이어지지 않습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-2 3-3 5-3s4 1 5 3"/></svg>),
       solve:'심리 질문으로 관계의 결까지',
-      solveSub:'성향·감정 표현·갈등 대처 방식까지 꼼꼼히 살펴 매칭합니다.',
+      solveSub:'성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석 리포트로 보여드립니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>),
       screen: appScreens && appScreens.inner,
-      screenLabel:'내면 분석 리포트',
+      screenB: appScreens && appScreens.questions,
+      screenLabel:'심리 질문 → 내면 분석',
     },
     {
       num:'02',
@@ -205,10 +206,10 @@ function ProblemSection({ appScreens }) {
       problemSub:'숫자로는 정렬되지만 가치관·삶의 방향이 다를 수 있습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg>),
       solve:'가치관과 답변이 맞는지까지',
-      solveSub:'결혼관·가족관·경제관은 물론, 관계에서 중요하게 여기는 답변이 서로 맞는지 확인해 보여드립니다.',
+      solveSub:'사과·사랑·위로처럼 관계에서 중요한 가치관 질문에 대한 답변까지 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z" fill="currentColor" stroke="none"/></svg>),
       screen: appScreens && appScreens.matchReason,
-      screenLabel:'매칭 이유',
+      screenLabel:'매칭 이유 — 답변 일치',
     },
     {
       num:'03',
@@ -219,7 +220,7 @@ function ProblemSection({ appScreens }) {
       solveSub:'본인·신원·직업·학력 검토를 거쳐 승인된 회원만 가입할 수 있도록 운영합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>),
       screen: appScreens && appScreens.verifyDetail,
-      screenLabel:'인증 항목',
+      screenLabel:'필수 인증 항목',
     },
     {
       num:'04',
@@ -227,10 +228,10 @@ function ProblemSection({ appScreens }) {
       problemSub:'먼저 큰 비용을 치러야 시작할 수 있는 구조. 결과가 보장되지 않는데도 선결제가 필요합니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"/></svg>),
       solve:'낮은 가입비, 만남 성사 시에만',
-      solveSub:'이렇게 받은 매칭 중 양쪽이 만남에 동의할 때만 비용이 발생합니다. 선결제 부담 없이 시작하세요.',
+      solveSub:'매칭 받기와 프로필 검토는 부담 없이. 양쪽이 만남에 "만나볼래요"를 누른 뒤에만 비용이 발생합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>),
-      screen: appScreens && appScreens.card,
-      screenLabel:'매칭 카드',
+      screen: appScreens && appScreens.profile,
+      screenLabel:'프로필 검토 → 결정',
     },
   ];
   const [active, setActive] = useState(0);
@@ -292,7 +293,18 @@ function ProblemSection({ appScreens }) {
                 </div>
                 {cur.screen && (
                   <div className="problem-detail-phone">
-                    <Sig.PhoneMock src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} width={200} tilt={0}/>
+                    {cur.screenB ? (
+                      <div className="relative" style={{width:340, height:560}}>
+                        <div className="absolute" style={{left:0, top:0, zIndex:1, opacity:.92}}>
+                          <Sig.PhoneMock src={cur.screenB} alt="결하다 앱 — 질문 화면" width={180} tilt={0}/>
+                        </div>
+                        <div className="absolute" style={{right:0, top:70, zIndex:2}}>
+                          <Sig.PhoneMock src={cur.screen} alt="결하다 앱 — 결과 화면" width={210} tilt={0}/>
+                        </div>
+                      </div>
+                    ) : (
+                      <Sig.PhoneMock src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} width={260} tilt={0}/>
+                    )}
                     <div className="small text-mute mt-2 text-center">{cur.screenLabel}</div>
                   </div>
                 )}

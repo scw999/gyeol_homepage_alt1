@@ -365,7 +365,7 @@ function ProblemSection({
       d: "M7 18c1-2 3-3 5-3s4 1 5 3"
     })),
     solve: '심리 질문으로 관계의 결까지',
-    solveSub: '성향·감정 표현·갈등 대처 방식까지 꼼꼼히 살펴 매칭합니다.',
+    solveSub: '성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석 리포트로 보여드립니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -381,7 +381,8 @@ function ProblemSection({
       d: "M9 11h6M9 14h4"
     })),
     screen: appScreens && appScreens.inner,
-    screenLabel: '내면 분석 리포트'
+    screenB: appScreens && appScreens.questions,
+    screenLabel: '심리 질문 → 내면 분석'
   }, {
     num: '02',
     problem: '조건만 맞고 방향이 어긋남',
@@ -398,7 +399,7 @@ function ProblemSection({
       d: "M4 6h16M4 12h10M4 18h6"
     })),
     solve: '가치관과 답변이 맞는지까지',
-    solveSub: '결혼관·가족관·경제관은 물론, 관계에서 중요하게 여기는 답변이 서로 맞는지 확인해 보여드립니다.',
+    solveSub: '사과·사랑·위로처럼 관계에서 중요한 가치관 질문에 대한 답변까지 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -418,7 +419,7 @@ function ProblemSection({
       stroke: "none"
     })),
     screen: appScreens && appScreens.matchReason,
-    screenLabel: '매칭 이유'
+    screenLabel: '매칭 이유 — 답변 일치'
   }, {
     num: '03',
     problem: '가벼운 사용자들 사이에서 피로',
@@ -463,7 +464,7 @@ function ProblemSection({
       d: "M9 12l2 2 4-4"
     })),
     screen: appScreens && appScreens.verifyDetail,
-    screenLabel: '인증 항목'
+    screenLabel: '필수 인증 항목'
   }, {
     num: '04',
     problem: '높은 가입비, 불확실한 결과',
@@ -485,7 +486,7 @@ function ProblemSection({
       d: "M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"
     })),
     solve: '낮은 가입비, 만남 성사 시에만',
-    solveSub: '이렇게 받은 매칭 중 양쪽이 만남에 동의할 때만 비용이 발생합니다. 선결제 부담 없이 시작하세요.',
+    solveSub: '매칭 받기와 프로필 검토는 부담 없이. 양쪽이 만남에 "만나볼래요"를 누른 뒤에만 비용이 발생합니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -502,8 +503,8 @@ function ProblemSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M8 12l3 3 5-6"
     })),
-    screen: appScreens && appScreens.card,
-    screenLabel: '매칭 카드'
+    screen: appScreens && appScreens.profile,
+    screenLabel: '프로필 검토 → 결정'
   }];
   const [active, setActive] = useState(0);
   const cur = pairs[active];
@@ -589,10 +590,41 @@ function ProblemSection({
     className: "problem-detail-sub"
   }, cur.solveSub)), cur.screen && /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-phone"
+  }, cur.screenB ? /*#__PURE__*/React.createElement("div", {
+    className: "relative",
+    style: {
+      width: 340,
+      height: 560
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "absolute",
+    style: {
+      left: 0,
+      top: 0,
+      zIndex: 1,
+      opacity: .92
+    }
+  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
+    src: cur.screenB,
+    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uC9C8\uBB38 \uD654\uBA74",
+    width: 180,
+    tilt: 0
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "absolute",
+    style: {
+      right: 0,
+      top: 70,
+      zIndex: 2
+    }
   }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
     src: cur.screen,
+    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uACB0\uACFC \uD654\uBA74",
+    width: 210,
+    tilt: 0
+  }))) : /*#__PURE__*/React.createElement(Sig.PhoneMock, {
+    src: cur.screen,
     alt: `결하다 앱 — ${cur.screenLabel}`,
-    width: 200,
+    width: 260,
     tilt: 0
   }), /*#__PURE__*/React.createElement("div", {
     className: "small text-mute mt-2 text-center"
