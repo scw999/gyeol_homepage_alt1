@@ -982,7 +982,7 @@ function PricingSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2"
-  }, "\uB0AE\uC740 \uAC00\uC785\uBE44,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8\uC774 \uC131\uC0AC\uB420 \uB54C\uB9CC.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uCEE4\uD53C \uD55C\uC794 \uAC12\uC73C\uB85C \uC2DC\uC791,", /*#__PURE__*/React.createElement("br", null), "\uB9E4\uCE6D \uC131\uC0AC \uC2DC\uC5D0\uB9CC \uACB0\uC81C.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
     className: "body-lg mt-6 text-mute max-w-[44ch]"
@@ -1004,20 +1004,28 @@ function PricingSection({
   }, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("span", {
     className: "pill bg-lavender-deep text-white"
   }, "Low entry")), /*#__PURE__*/React.createElement("div", {
-    className: "gh-h3 mt-2"
-  }, "\uC120\uACB0\uC81C \uBD80\uB2F4 \uC5C6\uC774 \uC2DC\uC791"), /*#__PURE__*/React.createElement("p", {
+    className: "gh-h3 mt-2",
+    style: {
+      fontSize: '34px',
+      letterSpacing: '-0.02em'
+    }
+  }, "\u20A910,000"), /*#__PURE__*/React.createElement("p", {
     className: "body mt-2 text-mute"
-  }, "\uAC00\uBCBC\uC6B4 \uC2DC\uC791 \uBE44\uC6A9\uC73C\uB85C \uC9C4\uC9C0\uD55C \uB9CC\uB0A8\uC744 \uC2DC\uB3C4\uD560 \uC218 \uC788\uB3C4\uB85D \uC124\uACC4\uD588\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+  }, "\uC120\uACB0\uC81C \uBD80\uB2F4 \uC5C6\uC774 \uAC00\uBCCD\uAC8C \uC2DC\uC791\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
     className: "rule"
   }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow"
-  }, "\uB9CC\uB0A8 \uBE44\uC6A9"), /*#__PURE__*/React.createElement("div", {
-    className: "gh-h3 mt-2"
-  }, "\uC131\uC0AC \uC2DC\uC5D0\uB9CC \uBC1C\uC0DD"), /*#__PURE__*/React.createElement("p", {
+  }, "\uB9E4\uCE6D \uC131\uC0AC \uC2DC"), /*#__PURE__*/React.createElement("div", {
+    className: "gh-h3 mt-2",
+    style: {
+      fontSize: '34px',
+      letterSpacing: '-0.02em'
+    }
+  }, "\u20A9100,000"), /*#__PURE__*/React.createElement("p", {
     className: "body mt-2 text-mute"
   }, "\uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C\uB9CC \uBC1C\uC0DD\uD569\uB2C8\uB2E4."), /*#__PURE__*/React.createElement("p", {
     className: "small mt-3 text-mute"
-  }, "\uC815\uD655\uD55C \uAE08\uC561\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC548\uB0B4\uB429\uB2C8\uB2E4.")))))), pricingImg && /*#__PURE__*/React.createElement("div", {
+  }, "\uACB0\uC81C \uC2DC\uC810\xB7\uD658\uBD88 \uC815\uCC45\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC0C1\uC138 \uC548\uB0B4\uB429\uB2C8\uB2E4.")))))), pricingImg && /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-5"
   }, /*#__PURE__*/React.createElement(Reveal, {
     delay: 140
@@ -1036,7 +1044,7 @@ function PricingSection({
 
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
-  const items = [['가입비는 어떻게 되나요?', '결하다는 높은 가입비를 먼저 받지 않습니다. 낮은 시작 비용으로 가입할 수 있으며, 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 추가로 발생합니다.'], ['만남 비용은 언제 발생하나요?', '양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다. 가입, 응답, 추천 확인 단계에서는 비용이 발생하지 않습니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
+  const items = [['가입비는 얼마인가요?', '가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'], ['만남 비용은 언제 얼마나 발생하나요?', '매칭된 두 사람이 모두 "만나볼래요"를 누르고 일정 조율 단계로 넘어갈 때 ₩100,000이 발생합니다. 가입·응답·추천 확인 단계에서는 비용이 발생하지 않습니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
   return /*#__PURE__*/React.createElement("section", {
     id: "faq",
     className: "bg-veil"

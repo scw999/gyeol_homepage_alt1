@@ -557,7 +557,7 @@ function PricingSection({ images }) {
           <div className="md:col-span-7">
             <Reveal><div className="eyebrow mb-4">결하다의 차별점</div></Reveal>
             <Reveal delay={80}>
-              <h2 className="gh-display gh-h2">낮은 가입비,<br/>만남이 성사될 때만.</h2>
+              <h2 className="gh-display gh-h2">커피 한잔 값으로 시작,<br/>매칭 성사 시에만 결제.</h2>
             </Reveal>
             <Reveal delay={160}>
               <p className="body-lg mt-6 text-mute max-w-[44ch]">
@@ -574,15 +574,15 @@ function PricingSection({ images }) {
                       <div className="eyebrow">가입비</div>
                       <span className="pill bg-lavender-deep text-white">Low entry</span>
                     </div>
-                    <div className="gh-h3 mt-2">선결제 부담 없이 시작</div>
-                    <p className="body mt-2 text-mute">가벼운 시작 비용으로 진지한 만남을 시도할 수 있도록 설계했습니다.</p>
+                    <div className="gh-h3 mt-2" style={{fontSize:'34px', letterSpacing:'-0.02em'}}>₩10,000</div>
+                    <p className="body mt-2 text-mute">선결제 부담 없이 가볍게 시작합니다.</p>
                   </div>
                   <div className="rule"/>
                   <div>
-                    <div className="eyebrow">만남 비용</div>
-                    <div className="gh-h3 mt-2">성사 시에만 발생</div>
+                    <div className="eyebrow">매칭 성사 시</div>
+                    <div className="gh-h3 mt-2" style={{fontSize:'34px', letterSpacing:'-0.02em'}}>₩100,000</div>
                     <p className="body mt-2 text-mute">양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 발생합니다.</p>
-                    <p className="small mt-3 text-mute">정확한 금액은 앱 가입 단계에서 안내됩니다.</p>
+                    <p className="small mt-3 text-mute">결제 시점·환불 정책은 앱 가입 단계에서 상세 안내됩니다.</p>
                   </div>
                 </div>
               </div>
@@ -607,8 +607,8 @@ function PricingSection({ images }) {
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
   const items = [
-    ['가입비는 어떻게 되나요?','결하다는 높은 가입비를 먼저 받지 않습니다. 낮은 시작 비용으로 가입할 수 있으며, 서로 매칭되고 만남에 상호 동의했을 때만 만남 비용이 추가로 발생합니다.'],
-    ['만남 비용은 언제 발생하나요?','양쪽 모두 만남에 동의하고 일정 조율 단계로 넘어갈 때 발생합니다. 가입, 응답, 추천 확인 단계에서는 비용이 발생하지 않습니다.'],
+    ['가입비는 얼마인가요?','가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'],
+    ['만남 비용은 언제 얼마나 발생하나요?','매칭된 두 사람이 모두 "만나볼래요"를 누르고 일정 조율 단계로 넘어갈 때 ₩100,000이 발생합니다. 가입·응답·추천 확인 단계에서는 비용이 발생하지 않습니다.'],
     ['아무나 가입할 수 있나요?','결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'],
     ['결혼관·가족관·경제관은 어떻게 반영되나요?','이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'],
     ['제출한 서류가 상대방에게 공개되나요?','제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'],
