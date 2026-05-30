@@ -109,7 +109,7 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
       <div className="relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center">
         <div className="md:col-span-7">
           <Reveal>
-            <div className="eyebrow mb-5 text-lavender-deep">Gyeolhada · 결혼을 위한 만남</div>
+            <div className="eyebrow mb-5 text-lavender-deep">결하다 · 결혼을 위한 만남</div>
           </Reveal>
           <Reveal delay={80}>
             <h1 className="gh-display gh-h1 text-ink">
@@ -197,7 +197,6 @@ function ProblemSection({ appScreens }) {
       solveSub:'성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석 리포트로 보여드립니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>),
       screen: appScreens && appScreens.inner,
-      screenB: appScreens && appScreens.questions,
       screenLabel:'내면 분석 리포트',
     },
     {
@@ -321,18 +320,9 @@ function ProblemSection({ appScreens }) {
                   </div>
                 ) : cur.screen && (
                   <div className="problem-detail-phone">
-                    {cur.screenB ? (
-                      <div className="relative" style={{width:340, height:600}}>
-                        <div className="absolute" style={{left:0, top:0, zIndex:1}}>
-                          <Sig.PhoneMock src={cur.screenB} alt="결하다 앱 — 질문 화면" width={205} tilt={0}/>
-                        </div>
-                        <div className="absolute" style={{right:0, top:96, zIndex:2}}>
-                          <Sig.PhoneMock src={cur.screen} alt="결하다 앱 — 결과 화면" width={235} tilt={0}/>
-                        </div>
-                      </div>
-                    ) : (
-                      <Sig.PhoneMock src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} width={280} tilt={0}/>
-                    )}
+                    <div className="screen-crop">
+                      <img src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} loading="lazy"/>
+                    </div>
                     <div className="problem-detail-cap">{cur.screenLabel}</div>
                   </div>
                 )}

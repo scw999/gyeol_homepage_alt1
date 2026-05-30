@@ -204,7 +204,7 @@ function Hero({
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-5 text-lavender-deep"
-  }, "Gyeolhada \xB7 \uACB0\uD63C\uC744 \uC704\uD55C \uB9CC\uB0A8")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uACB0\uD558\uB2E4 \xB7 \uACB0\uD63C\uC744 \uC704\uD55C \uB9CC\uB0A8")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 80
   }, /*#__PURE__*/React.createElement("h1", {
     className: "gh-display gh-h1 text-ink"
@@ -381,7 +381,6 @@ function ProblemSection({
       d: "M9 11h6M9 14h4"
     })),
     screen: appScreens && appScreens.inner,
-    screenB: appScreens && appScreens.questions,
     screenLabel: '내면 분석 리포트'
   }, {
     num: '02',
@@ -643,42 +642,13 @@ function ProblemSection({
     className: "problem-detail-cap"
   }, "\uC608\uCE21 \uAC00\uB2A5\uD55C \uBE44\uC6A9")) : cur.screen && /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-phone"
-  }, cur.screenB ? /*#__PURE__*/React.createElement("div", {
-    className: "relative",
-    style: {
-      width: 340,
-      height: 600
-    }
   }, /*#__PURE__*/React.createElement("div", {
-    className: "absolute",
-    style: {
-      left: 0,
-      top: 0,
-      zIndex: 1
-    }
-  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
-    src: cur.screenB,
-    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uC9C8\uBB38 \uD654\uBA74",
-    width: 205,
-    tilt: 0
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "absolute",
-    style: {
-      right: 0,
-      top: 96,
-      zIndex: 2
-    }
-  }, /*#__PURE__*/React.createElement(Sig.PhoneMock, {
-    src: cur.screen,
-    alt: "\uACB0\uD558\uB2E4 \uC571 \u2014 \uACB0\uACFC \uD654\uBA74",
-    width: 235,
-    tilt: 0
-  }))) : /*#__PURE__*/React.createElement(Sig.PhoneMock, {
+    className: "screen-crop"
+  }, /*#__PURE__*/React.createElement("img", {
     src: cur.screen,
     alt: `결하다 앱 — ${cur.screenLabel}`,
-    width: 280,
-    tilt: 0
-  }), /*#__PURE__*/React.createElement("div", {
+    loading: "lazy"
+  })), /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-cap"
   }, cur.screenLabel))))))));
 }
