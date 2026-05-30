@@ -380,7 +380,7 @@ function ProblemSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M9 11h6M9 14h4"
     })),
-    screen: appScreens && appScreens.inner,
+    screen: appScreens && appScreens.innerAlt,
     screenLabel: '내면 분석 리포트'
   }, {
     num: '02',
