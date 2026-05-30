@@ -650,7 +650,7 @@ function ProblemSection({
   }), /*#__PURE__*/React.createElement("span", {
     className: "eyebrow text-lavender-deep"
   }, "\uACB0\uD558\uB2E4\uB294")), /*#__PURE__*/React.createElement("div", {
-    className: "problem-detail-body"
+    className: `problem-detail-body${cur.screenB ? ' is-dual' : ''}`
   }, /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-text"
   }, /*#__PURE__*/React.createElement("div", {
