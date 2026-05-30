@@ -365,7 +365,7 @@ function ProblemSection({
       d: "M7 18c1-2 3-3 5-3s4 1 5 3"
     })),
     solve: '심리 질문으로 관계의 결까지',
-    solveSub: '성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석 리포트로 보여드립니다.',
+    solveSub: '성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석과 리듬 상세로 보여드립니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -381,7 +381,8 @@ function ProblemSection({
       d: "M9 11h6M9 14h4"
     })),
     screen: appScreens && appScreens.innerAlt,
-    screenLabel: '내면 분석 리포트'
+    screenB: appScreens && appScreens.rhythmDetail,
+    screenLabel: '내면 분석 · 리듬 상세'
   }, {
     num: '02',
     problem: '조건만 맞고 방향이 어긋남',
@@ -397,8 +398,8 @@ function ProblemSection({
     }, /*#__PURE__*/React.createElement("path", {
       d: "M4 6h16M4 12h10M4 18h6"
     })),
-    solve: '가치관과 답변이 맞는지까지',
-    solveSub: '사과·사랑·위로처럼 관계에서 중요한 질문의 답변까지 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
+    solve: '가치관과 생활 성향까지',
+    solveSub: '사과·사랑·위로 같은 가치관 답변과 생활 성향을 함께 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -418,11 +419,12 @@ function ProblemSection({
       stroke: "none"
     })),
     screen: appScreens && appScreens.matchReason,
-    screenLabel: '매칭 이유'
+    screenB: appScreens && appScreens.tendency,
+    screenLabel: '매칭 이유 · 성향 분석'
   }, {
     num: '03',
     problem: '가벼운 사용자들 사이에서 피로',
-    problemSub: '진지한 결정에는 다른 환경이 필요합니다. 즉흥적인 만남이 섞인 환경에서는 결혼을 위한 결정이 어렵습니다.',
+    problemSub: '즉흥적인 만남이 섞이면, 결혼을 위한 결정이 어렵습니다.',
     problemIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -463,9 +465,78 @@ function ProblemSection({
       d: "M9 12l2 2 4-4"
     })),
     screen: appScreens && appScreens.verifyDetail,
-    screenLabel: '인증 항목'
+    screenY: 220,
+    screenLabel: '필수 인증 · 승인 완료'
   }, {
     num: '04',
+    problem: '굵직한 조건만 받아주는 필터',
+    problemSub: '흡연·종교·음주처럼 신경 쓰는 세부 선호를 반영할 수 없습니다.',
+    problemIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M4 6h16M7 12h10M10 18h4"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "9",
+      cy: "6",
+      r: "1.5",
+      fill: "currentColor",
+      stroke: "none"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "16",
+      cy: "12",
+      r: "1.5",
+      fill: "currentColor",
+      stroke: "none"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "11",
+      cy: "18",
+      r: "1.5",
+      fill: "currentColor",
+      stroke: "none"
+    })),
+    solve: '원하는 결을 세세하게',
+    solveSub: '스펙은 물론, 문신·흡연·음주·종교까지 — 다양한 선호도를 직접 설정합니다.',
+    solveIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M4 6h16M7 12h10M10 18h4"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "14",
+      cy: "6",
+      r: "1.6",
+      fill: "currentColor",
+      stroke: "none"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "9",
+      cy: "12",
+      r: "1.6",
+      fill: "currentColor",
+      stroke: "none"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "13",
+      cy: "18",
+      r: "1.6",
+      fill: "currentColor",
+      stroke: "none"
+    })),
+    screen: appScreens && appScreens.prefsDetail,
+    screenLabel: '다양한 선호도 설정'
+  }, {
+    num: '05',
     problem: '높은 가입비, 불확실한 결과',
     problemSub: '먼저 큰 비용을 치러야 시작할 수 있는 구조. 결과가 보장되지 않는데도 선결제가 필요합니다.',
     problemIcon: /*#__PURE__*/React.createElement("svg", {
@@ -642,12 +713,29 @@ function ProblemSection({
     className: "problem-detail-cap"
   }, "\uC608\uCE21 \uAC00\uB2A5\uD55C \uBE44\uC6A9")) : cur.screen && /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-phone"
+  }, cur.screenB ? /*#__PURE__*/React.createElement("div", {
+    className: "screen-pair"
   }, /*#__PURE__*/React.createElement("div", {
     className: "screen-crop"
   }, /*#__PURE__*/React.createElement("img", {
     src: cur.screen,
-    alt: `결하다 앱 — ${cur.screenLabel}`,
+    alt: "\uACB0\uD558\uB2E4 \uC571 \uD654\uBA74 1",
     loading: "lazy"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "screen-crop"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: cur.screenB,
+    alt: "\uACB0\uD558\uB2E4 \uC571 \uD654\uBA74 2",
+    loading: "lazy"
+  }))) : /*#__PURE__*/React.createElement("div", {
+    className: "screen-crop"
+  }, /*#__PURE__*/React.createElement("img", {
+    src: cur.screen,
+    alt: `결하다 앱 — ${cur.screenLabel}`,
+    loading: "lazy",
+    style: cur.screenY ? {
+      transform: `translateY(-${cur.screenY}px)`
+    } : undefined
   })), /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-cap"
   }, cur.screenLabel))))))));
