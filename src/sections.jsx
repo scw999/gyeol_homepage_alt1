@@ -196,7 +196,7 @@ function ProblemSection({ appScreens }) {
       solve:'심리 질문으로 관계의 결까지',
       solveSub:'성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석 리포트로 보여드립니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>),
-      screen: appScreens && appScreens.inner,
+      screen: appScreens && appScreens.innerAlt,
       screenLabel:'내면 분석 리포트',
     },
     {
