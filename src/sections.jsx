@@ -298,7 +298,7 @@ function ProblemSection({ appScreens }) {
                 />
                 <span className="eyebrow text-lavender-deep">결하다는</span>
               </div>
-              <div className="problem-detail-body">
+              <div className={`problem-detail-body${cur.screenB ? ' is-dual' : ''}`}>
                 <div className="problem-detail-text">
                   <div className="gh-h3 leading-snug">{cur.solve}</div>
                   <p className="problem-detail-sub">{cur.solveSub}</p>

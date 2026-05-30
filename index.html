@@ -212,10 +212,18 @@
   }
   @media (max-width:520px){ .screen-crop{ width:100%; height:auto; aspect-ratio:32/50; } }
 
-  /* Two-screen variant: stack vertically, slightly smaller cards */
-  .screen-pair{ display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
-  .screen-pair .screen-crop{ width:280px; height:380px; }
-  @media (max-width:520px){ .screen-pair .screen-crop{ width:100%; height:auto; aspect-ratio:32/45; } }
+  /* Two-screen variant: text on top, two cards side by side below */
+  @media (min-width:860px){
+    .problem-detail-body.is-dual{ flex-direction:column; align-items:stretch; gap:22px; }
+    .problem-detail-body.is-dual .problem-detail-text{ flex:0 0 auto; }
+    .problem-detail-body.is-dual .problem-detail-phone{ width:100%; }
+  }
+  .screen-pair{ display:flex; flex-direction:row; gap:16px; align-items:flex-start; justify-content:center; }
+  .screen-pair .screen-crop{ flex:1 1 0; width:auto; height:440px; }
+  @media (max-width:520px){
+    .screen-pair{ flex-direction:column; align-items:center; }
+    .screen-pair .screen-crop{ width:100%; height:auto; aspect-ratio:32/46; }
+  }
 
   /* Pricing card (Problem→Solution tab 04) */
   .price-card{
