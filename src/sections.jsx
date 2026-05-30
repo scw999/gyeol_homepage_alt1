@@ -194,35 +194,49 @@ function ProblemSection({ appScreens }) {
       problemSub:'조건만 주고받다 보면 만남이 면접처럼 됩니다. 정작 또 만나고 싶은지는 알 수 없습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-2 3-3 5-3s4 1 5 3"/></svg>),
       solve:'심리 질문으로 관계의 결까지',
-      solveSub:'성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석 리포트로 보여드립니다.',
+      solveSub:'성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석과 리듬 상세로 보여드립니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>),
       screen: appScreens && appScreens.innerAlt,
-      screenLabel:'내면 분석 리포트',
+      screenB: appScreens && appScreens.rhythmDetail,
+      screenLabel:'내면 분석 · 리듬 상세',
     },
     {
       num:'02',
       problem:'조건만 맞고 방향이 어긋남',
       problemSub:'숫자로는 정렬되지만 가치관·삶의 방향이 다를 수 있습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg>),
-      solve:'가치관과 답변이 맞는지까지',
-      solveSub:'사과·사랑·위로처럼 관계에서 중요한 질문의 답변까지 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
+      solve:'가치관과 생활 성향까지',
+      solveSub:'사과·사랑·위로 같은 가치관 답변과 생활 성향을 함께 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z" fill="currentColor" stroke="none"/></svg>),
       screen: appScreens && appScreens.matchReason,
-      screenLabel:'매칭 이유',
+      screenB: appScreens && appScreens.tendency,
+      screenLabel:'매칭 이유 · 성향 분석',
     },
     {
       num:'03',
       problem:'가벼운 사용자들 사이에서 피로',
-      problemSub:'진지한 결정에는 다른 환경이 필요합니다. 즉흥적인 만남이 섞인 환경에서는 결혼을 위한 결정이 어렵습니다.',
+      problemSub:'즉흥적인 만남이 섞이면, 결혼을 위한 결정이 어렵습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="17.5" r="0.8" fill="currentColor"/><path d="M10 7h4"/></svg>),
       solve:'본인 확인을 거친 회원만',
       solveSub:'본인·신원·직업·학력 검토를 거쳐 승인된 회원만 가입할 수 있도록 운영합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>),
       screen: appScreens && appScreens.verifyDetail,
-      screenLabel:'인증 항목',
+      screenY: 220,
+      screenLabel:'필수 인증 · 승인 완료',
     },
     {
       num:'04',
+      problem:'굵직한 조건만 받아주는 필터',
+      problemSub:'흡연·종교·음주처럼 신경 쓰는 세부 선호를 반영할 수 없습니다.',
+      problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/><circle cx="9" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="11" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>),
+      solve:'원하는 결을 세세하게',
+      solveSub:'스펙은 물론, 문신·흡연·음주·종교까지 — 다양한 선호도를 직접 설정합니다.',
+      solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/><circle cx="14" cy="6" r="1.6" fill="currentColor" stroke="none"/><circle cx="9" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="13" cy="18" r="1.6" fill="currentColor" stroke="none"/></svg>),
+      screen: appScreens && appScreens.prefsDetail,
+      screenLabel:'다양한 선호도 설정',
+    },
+    {
+      num:'05',
       problem:'높은 가입비, 불확실한 결과',
       problemSub:'먼저 큰 비용을 치러야 시작할 수 있는 구조. 결과가 보장되지 않는데도 선결제가 필요합니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"/></svg>),
@@ -320,9 +334,21 @@ function ProblemSection({ appScreens }) {
                   </div>
                 ) : cur.screen && (
                   <div className="problem-detail-phone">
-                    <div className="screen-crop">
-                      <img src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} loading="lazy"/>
-                    </div>
+                    {cur.screenB ? (
+                      <div className="screen-pair">
+                        <div className="screen-crop">
+                          <img src={cur.screen} alt="결하다 앱 화면 1" loading="lazy"/>
+                        </div>
+                        <div className="screen-crop">
+                          <img src={cur.screenB} alt="결하다 앱 화면 2" loading="lazy"/>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="screen-crop">
+                        <img src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} loading="lazy"
+                             style={cur.screenY ? {transform:`translateY(-${cur.screenY}px)`} : undefined}/>
+                      </div>
+                    )}
                     <div className="problem-detail-cap">{cur.screenLabel}</div>
                   </div>
                 )}
