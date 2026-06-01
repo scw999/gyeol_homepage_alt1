@@ -385,7 +385,7 @@ function ProblemSection({
     screenLabel: '내면 분석 · 리듬 상세'
   }, {
     num: '02',
-    problem: '조건만 맞고 방향이 어긋남',
+    problem: '조건으로만 줄세우는 매칭',
     problemSub: '숫자로는 정렬되지만 가치관·삶의 방향이 다를 수 있습니다.',
     problemIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
@@ -399,7 +399,7 @@ function ProblemSection({
       d: "M4 6h16M4 12h10M4 18h6"
     })),
     solve: '가치관과 생활 성향까지',
-    solveSub: '사과·사랑·위로 같은 가치관 답변과 생활 성향을 함께 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
+    solveSub: '라이프스타일 · 갈등 대처 방식 · 애착 성향 · 경제관 · 자녀관까지 함께 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -423,7 +423,7 @@ function ProblemSection({
     screenLabel: '매칭 이유 · 성향 분석'
   }, {
     num: '03',
-    problem: '가벼운 사용자들 사이에서 피로',
+    problem: '진지함이 묻히는 환경',
     problemSub: '즉흥적인 만남이 섞이면, 결혼을 위한 결정이 어렵습니다.',
     problemIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
@@ -556,7 +556,7 @@ function ProblemSection({
       d: "M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"
     })),
     solve: '커피 한잔 값으로 시작',
-    solveSub: '가입은 커피 한잔 값. 매칭이 성사돼 양쪽이 만남에 동의했을 때만 비용이 발생합니다.',
+    solveSub: '가입은 커피 한잔 값. 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다.',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -589,13 +589,6 @@ function ProblemSection({
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[22ch]"
   }, "\uC2A4\uD399\uB9CC \uB9DE\uCD98 \uC18C\uAC1C\uD305,", /*#__PURE__*/React.createElement("br", null), "\uBA74\uC811 \uAC19\uC9C0 \uC54A\uC558\uB098\uC694?")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 140
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute",
-    style: {
-      maxWidth: '44ch'
-    }
-  }, "\uAC00\uC7A5 \uACF5\uAC10\uB418\uB294 \uC5B4\uB824\uC6C0\uC744 \uB20C\uB7EC\uBCF4\uC138\uC694. \uACB0\uD558\uB2E4\uAC00 \uC5B4\uB5BB\uAC8C \uD480\uC5B4\uAC00\uB294\uC9C0 \uBCF4\uC5EC\uB4DC\uB9BD\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 200
   }, /*#__PURE__*/React.createElement("div", {
     className: "problem-layout mt-10"
@@ -615,9 +608,7 @@ function ProblemSection({
       className: "problem-item-iconbox"
     }, p.problemIcon), /*#__PURE__*/React.createElement("span", {
       className: "problem-item-title"
-    }, p.problem)), isActive && /*#__PURE__*/React.createElement("p", {
-      className: "problem-item-desc"
-    }, p.problemSub), isActive && /*#__PURE__*/React.createElement("span", {
+    }, p.problem)), isActive && /*#__PURE__*/React.createElement("span", {
       className: "problem-item-arrow",
       "aria-hidden": "true"
     }, /*#__PURE__*/React.createElement("svg", {
@@ -645,7 +636,8 @@ function ProblemSection({
     style: {
       borderRadius: '8px',
       display: 'block',
-      flexShrink: 0
+      flexShrink: 0,
+      marginRight: '4px'
     }
   }), /*#__PURE__*/React.createElement("span", {
     className: "eyebrow text-lavender-deep"
@@ -699,13 +691,13 @@ function ProblemSection({
     className: "price-card-amount"
   }, "\u20A910,000")), /*#__PURE__*/React.createElement("span", {
     className: "pill bg-lavender-deep text-white"
-  }, "Low entry")), /*#__PURE__*/React.createElement("div", {
+  }, "\uBD80\uB2F4 \uC5C6\uC774")), /*#__PURE__*/React.createElement("div", {
     className: "price-card-rule"
   }), /*#__PURE__*/React.createElement("div", {
     className: "price-card-row"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "price-card-label"
-  }, "\uB9E4\uCE6D \uC131\uC0AC \uC2DC"), /*#__PURE__*/React.createElement("div", {
+  }, "\uB9CC\uB0A8 \uD655\uC815 \uC2DC"), /*#__PURE__*/React.createElement("div", {
     className: "price-card-amount"
   }, "\u20A9100,000"))), /*#__PURE__*/React.createElement("p", {
     className: "price-card-note"
@@ -776,8 +768,8 @@ function ThreeGyeolSection() {
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-4"
   }, "\uACB0\uD558\uB2E4\uC758 \uBC29\uC2DD \u2014 \uC138 \uAC00\uC9C0 \uACB0"), /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2 max-w-[22ch]"
-  }, "\uACB0\uC774 \uB9DE\uC544\uC57C,", /*#__PURE__*/React.createElement("br", null), "\uC624\uB798 \uD568\uAED8\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+    className: "gh-display gh-h2 max-w-[24ch]"
+  }, "\uACB0\uC774 \uB9DE\uC744 \uB54C,", /*#__PURE__*/React.createElement("br", null), "\uB450 \uC0AC\uB78C\uC758 \uC2DC\uAC04\uC774 \uC790\uC5F0\uC2A4\uB7FD\uAC8C \uC774\uC5B4\uC9D1\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
     className: "mt-12 grid md:grid-cols-3 gap-5"
   }, items.map((it, i) => /*#__PURE__*/React.createElement(Reveal, {
     key: i,
@@ -824,12 +816,7 @@ function ConnectionBand({
   if (!img) return null;
   return /*#__PURE__*/React.createElement("section", {
     id: "connection",
-    className: "relative overflow-hidden",
-    style: {
-      background: '#f6f0e6'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "relative"
+    className: "relative overflow-hidden"
   }, /*#__PURE__*/React.createElement("div", {
     className: "relative w-full",
     style: {
@@ -841,27 +828,7 @@ function ConnectionBand({
     alt: "\uB450 \uC0AC\uB78C\uC774 \uD568\uAED8 \uBC18\uC9C0\uB97C \uB193\uB294 \uBAA8\uC2B5",
     className: "absolute inset-0 w-full h-full object-cover",
     loading: "lazy"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "absolute inset-0",
-    style: {
-      background: 'linear-gradient(90deg, rgba(250,247,242,.88) 0%, rgba(250,247,242,.55) 38%, rgba(0,0,0,0) 62%)'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "absolute inset-0 flex items-center"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8 w-full"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[28ch]"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4 text-lavender-deep"
-  }, "\uB450 \uC0AC\uB78C\uC758 \uACB0")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 80
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2",
-    style: {
-      color: '#2C2A35'
-    }
-  }, "\uACB0\uC774 \uB9DE\uC744 \uB54C,", /*#__PURE__*/React.createElement("br", null), "\uB450 \uC0AC\uB78C\uC758 \uC2DC\uAC04\uC774 \uC790\uC5F0\uC2A4\uB7FD\uAC8C \uC774\uC5B4\uC9D1\uB2C8\uB2E4."))))))));
+  })));
 }
 
 // ---------- Brand band: emotional break with couple photo ----------
@@ -1040,11 +1007,7 @@ function PricingSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2"
-  }, "\uCEE4\uD53C \uD55C\uC794 \uAC12\uC73C\uB85C \uC2DC\uC791,", /*#__PURE__*/React.createElement("br", null), "\uB9E4\uCE6D \uC131\uC0AC \uC2DC\uC5D0\uB9CC \uACB0\uC81C.")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 160
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[44ch]"
-  }, "\uC120\uACB0\uC81C \uBD80\uB2F4 \uC5C6\uC774 \uC2DC\uC791\uD558\uACE0, \uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD588\uC744 \uB54C\uB9CC \uBE44\uC6A9\uC774 \uBC1C\uC0DD\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uCEE4\uD53C \uD55C\uC794 \uAC12\uC73C\uB85C \uC2DC\uC791,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8 \uD655\uC815 \uC2DC\uC5D0\uB9CC \uACB0\uC81C.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
   }, /*#__PURE__*/React.createElement("div", {
     className: "card p-7 md:p-8 mt-10 relative overflow-hidden"
@@ -1061,7 +1024,7 @@ function PricingSection({
     className: "eyebrow"
   }, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("span", {
     className: "pill bg-lavender-deep text-white"
-  }, "Low entry")), /*#__PURE__*/React.createElement("div", {
+  }, "\uBD80\uB2F4 \uC5C6\uC774")), /*#__PURE__*/React.createElement("div", {
     className: "gh-h3 mt-2",
     style: {
       fontSize: '34px',
@@ -1073,7 +1036,7 @@ function PricingSection({
     className: "rule"
   }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow"
-  }, "\uB9E4\uCE6D \uC131\uC0AC \uC2DC"), /*#__PURE__*/React.createElement("div", {
+  }, "\uB9CC\uB0A8 \uD655\uC815 \uC2DC"), /*#__PURE__*/React.createElement("div", {
     className: "gh-h3 mt-2",
     style: {
       fontSize: '34px',
@@ -1081,7 +1044,7 @@ function PricingSection({
     }
   }, "\u20A9100,000"), /*#__PURE__*/React.createElement("p", {
     className: "body mt-2 text-mute"
-  }, "\uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD558\uACE0 \uC77C\uC815 \uC870\uC728 \uB2E8\uACC4\uB85C \uB118\uC5B4\uAC08 \uB54C\uB9CC \uBC1C\uC0DD\uD569\uB2C8\uB2E4."), /*#__PURE__*/React.createElement("p", {
+  }, "\uC591\uCABD\uC774 \"\uB9CC\uB098\uBCFC\uB798\uC694\"\uB97C \uB204\uB974\uACE0 \uB9CC\uB0A8\uC774 \uD655\uC815\uB420 \uB54C\uB9CC \uBC1C\uC0DD\uD569\uB2C8\uB2E4."), /*#__PURE__*/React.createElement("p", {
     className: "small mt-3 text-mute"
   }, "\uACB0\uC81C \uC2DC\uC810\xB7\uD658\uBD88 \uC815\uCC45\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC0C1\uC138 \uC548\uB0B4\uB429\uB2C8\uB2E4.")))))), pricingImg && /*#__PURE__*/React.createElement("div", {
     className: "md:col-span-5"
@@ -1102,7 +1065,7 @@ function PricingSection({
 
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
-  const items = [['가입비는 얼마인가요?', '가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'], ['만남 비용은 언제 얼마나 발생하나요?', '매칭된 두 사람이 모두 "만나볼래요"를 누르고 일정 조율 단계로 넘어갈 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'], ['누구나 매칭해 주나요?', '아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
+  const items = [['가입비는 얼마인가요?', '가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'], ['만남 비용은 언제 얼마나 발생하나요?', '매칭된 두 사람이 모두 "만나볼래요"를 누르고 만남이 확정될 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'], ['누구나 매칭해 주나요?', '아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
   return /*#__PURE__*/React.createElement("section", {
     id: "faq",
     className: "bg-veil"

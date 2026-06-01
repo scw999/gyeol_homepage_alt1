@@ -202,11 +202,11 @@ function ProblemSection({ appScreens }) {
     },
     {
       num:'02',
-      problem:'조건만 맞고 방향이 어긋남',
+      problem:'조건으로만 줄세우는 매칭',
       problemSub:'숫자로는 정렬되지만 가치관·삶의 방향이 다를 수 있습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg>),
       solve:'가치관과 생활 성향까지',
-      solveSub:'사과·사랑·위로 같은 가치관 답변과 생활 성향을 함께 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
+      solveSub:'라이프스타일 · 갈등 대처 방식 · 애착 성향 · 경제관 · 자녀관까지 함께 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z" fill="currentColor" stroke="none"/></svg>),
       screen: appScreens && appScreens.matchReason,
       screenB: appScreens && appScreens.tendency,
@@ -214,7 +214,7 @@ function ProblemSection({ appScreens }) {
     },
     {
       num:'03',
-      problem:'가벼운 사용자들 사이에서 피로',
+      problem:'진지함이 묻히는 환경',
       problemSub:'즉흥적인 만남이 섞이면, 결혼을 위한 결정이 어렵습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="17.5" r="0.8" fill="currentColor"/><path d="M10 7h4"/></svg>),
       solve:'본인 확인을 거친 회원만',
@@ -241,7 +241,7 @@ function ProblemSection({ appScreens }) {
       problemSub:'먼저 큰 비용을 치러야 시작할 수 있는 구조. 결과가 보장되지 않는데도 선결제가 필요합니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"/></svg>),
       solve:'커피 한잔 값으로 시작',
-      solveSub:'가입은 커피 한잔 값. 매칭이 성사돼 양쪽이 만남에 동의했을 때만 비용이 발생합니다.',
+      solveSub:'가입은 커피 한잔 값. 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다.',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 8h13v4a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/><path d="M17 9h2.5a2 2 0 0 1 0 4H17"/><path d="M7 3c0 1-.8 1.5-.8 2.5M11 3c0 1-.8 1.5-.8 2.5"/></svg>),
       priceCard:true,
     },
@@ -254,9 +254,6 @@ function ProblemSection({ appScreens }) {
         <Reveal><div className="eyebrow mb-4">결하다 방식</div></Reveal>
         <Reveal delay={80}>
           <h2 className="gh-display gh-h2 max-w-[22ch]">스펙만 맞춘 소개팅,<br/>면접 같지 않았나요?</h2>
-        </Reveal>
-        <Reveal delay={140}>
-          <p className="body-lg mt-6 text-mute" style={{maxWidth:'44ch'}}>가장 공감되는 어려움을 눌러보세요. 결하다가 어떻게 풀어가는지 보여드립니다.</p>
         </Reveal>
 
         {/* Vertical tab list (left) + solution detail (right) */}
@@ -277,7 +274,6 @@ function ProblemSection({ appScreens }) {
                       <span className="problem-item-iconbox">{p.problemIcon}</span>
                       <span className="problem-item-title">{p.problem}</span>
                     </div>
-                    {isActive && <p className="problem-item-desc">{p.problemSub}</p>}
                     {isActive && (
                       <span className="problem-item-arrow" aria-hidden="true">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M14 6l6 6-6 6"/></svg>
@@ -294,7 +290,7 @@ function ProblemSection({ appScreens }) {
                   src="images/brand-mark.png"
                   alt="결하다"
                   width="36" height="36"
-                  style={{borderRadius:'8px', display:'block', flexShrink:0}}
+                  style={{borderRadius:'8px', display:'block', flexShrink:0, marginRight:'4px'}}
                 />
                 <span className="eyebrow text-lavender-deep">결하다는</span>
               </div>
@@ -319,12 +315,12 @@ function ProblemSection({ appScreens }) {
                           <div className="price-card-label">가입비</div>
                           <div className="price-card-amount">₩10,000</div>
                         </div>
-                        <span className="pill bg-lavender-deep text-white">Low entry</span>
+                        <span className="pill bg-lavender-deep text-white">부담 없이</span>
                       </div>
                       <div className="price-card-rule"/>
                       <div className="price-card-row">
                         <div>
-                          <div className="price-card-label">매칭 성사 시</div>
+                          <div className="price-card-label">만남 확정 시</div>
                           <div className="price-card-amount">₩100,000</div>
                         </div>
                       </div>
@@ -394,7 +390,7 @@ function ThreeGyeolSection() {
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <Reveal>
           <div className="eyebrow mb-4">결하다의 방식 — 세 가지 결</div>
-          <h2 className="gh-display gh-h2 max-w-[22ch]">결이 맞아야,<br/>오래 함께할 수 있습니다.</h2>
+          <h2 className="gh-display gh-h2 max-w-[24ch]">결이 맞을 때,<br/>두 사람의 시간이 자연스럽게 이어집니다.</h2>
         </Reveal>
 
         <div className="mt-12 grid md:grid-cols-3 gap-5">
@@ -429,22 +425,9 @@ function ConnectionBand({ images }) {
   const img = images && (Array.isArray(images.band) ? images.band[0] : images.band);
   if (!img) return null;
   return (
-    <section id="connection" className="relative overflow-hidden" style={{background:'#f6f0e6'}}>
-      <div className="relative">
-        <div className="relative w-full" style={{aspectRatio:'16/7', maxHeight:'520px'}}>
-          <img src={img} alt="두 사람이 함께 반지를 놓는 모습" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
-          <div className="absolute inset-0" style={{background:'linear-gradient(90deg, rgba(250,247,242,.88) 0%, rgba(250,247,242,.55) 38%, rgba(0,0,0,0) 62%)'}}/>
-          <div className="absolute inset-0 flex items-center">
-            <div className="max-w-[1200px] mx-auto px-5 md:px-8 w-full">
-              <div className="max-w-[28ch]">
-                <Reveal><div className="eyebrow mb-4 text-lavender-deep">두 사람의 결</div></Reveal>
-                <Reveal delay={80}>
-                  <h2 className="gh-display gh-h2" style={{color:'#2C2A35'}}>결이 맞을 때,<br/>두 사람의 시간이 자연스럽게 이어집니다.</h2>
-                </Reveal>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section id="connection" className="relative overflow-hidden">
+      <div className="relative w-full" style={{aspectRatio:'16/7', maxHeight:'520px'}}>
+        <img src={img} alt="두 사람이 함께 반지를 놓는 모습" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
       </div>
     </section>
   );
@@ -573,12 +556,7 @@ function PricingSection({ images }) {
           <div className="md:col-span-7">
             <Reveal><div className="eyebrow mb-4">결하다의 차별점</div></Reveal>
             <Reveal delay={80}>
-              <h2 className="gh-display gh-h2">커피 한잔 값으로 시작,<br/>매칭 성사 시에만 결제.</h2>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="body-lg mt-6 text-mute max-w-[44ch]">
-                선결제 부담 없이 시작하고, 양쪽이 만남에 동의했을 때만 비용이 발생합니다.
-              </p>
+              <h2 className="gh-display gh-h2">커피 한잔 값으로 시작,<br/>만남 확정 시에만 결제.</h2>
             </Reveal>
 
             <Reveal delay={220}>
@@ -588,16 +566,16 @@ function PricingSection({ images }) {
                   <div>
                     <div className="flex items-baseline justify-between">
                       <div className="eyebrow">가입비</div>
-                      <span className="pill bg-lavender-deep text-white">Low entry</span>
+                      <span className="pill bg-lavender-deep text-white">부담 없이</span>
                     </div>
                     <div className="gh-h3 mt-2" style={{fontSize:'34px', letterSpacing:'-0.02em'}}>₩10,000</div>
                     <p className="body mt-2 text-mute">선결제 부담 없이 가볍게 시작합니다.</p>
                   </div>
                   <div className="rule"/>
                   <div>
-                    <div className="eyebrow">매칭 성사 시</div>
+                    <div className="eyebrow">만남 확정 시</div>
                     <div className="gh-h3 mt-2" style={{fontSize:'34px', letterSpacing:'-0.02em'}}>₩100,000</div>
-                    <p className="body mt-2 text-mute">양쪽이 만남에 동의하고 일정 조율 단계로 넘어갈 때만 발생합니다.</p>
+                    <p className="body mt-2 text-mute">양쪽이 "만나볼래요"를 누르고 만남이 확정될 때만 발생합니다.</p>
                     <p className="small mt-3 text-mute">결제 시점·환불 정책은 앱 가입 단계에서 상세 안내됩니다.</p>
                   </div>
                 </div>
@@ -624,7 +602,7 @@ function PricingSection({ images }) {
 function FAQSection() {
   const items = [
     ['가입비는 얼마인가요?','가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'],
-    ['만남 비용은 언제 얼마나 발생하나요?','매칭된 두 사람이 모두 "만나볼래요"를 누르고 일정 조율 단계로 넘어갈 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'],
+    ['만남 비용은 언제 얼마나 발생하나요?','매칭된 두 사람이 모두 "만나볼래요"를 누르고 만남이 확정될 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'],
     ['누구나 매칭해 주나요?','아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'],
     ['아무나 가입할 수 있나요?','결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'],
     ['결혼관·가족관·경제관은 어떻게 반영되나요?','이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'],
