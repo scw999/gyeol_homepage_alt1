@@ -202,7 +202,7 @@ function ProblemSection({ appScreens }) {
     },
     {
       num:'02',
-      problem:'조건만 맞고 방향이 어긋남',
+      problem:'조건으로만 줄세우는 매칭',
       problemSub:'숫자로는 정렬되지만 가치관·삶의 방향이 다를 수 있습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg>),
       solve:'가치관과 생활 성향까지',
@@ -214,7 +214,7 @@ function ProblemSection({ appScreens }) {
     },
     {
       num:'03',
-      problem:'가벼운 사용자들 사이에서 피로',
+      problem:'진지함이 묻히는 환경',
       problemSub:'즉흥적인 만남이 섞이면, 결혼을 위한 결정이 어렵습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="17.5" r="0.8" fill="currentColor"/><path d="M10 7h4"/></svg>),
       solve:'본인 확인을 거친 회원만',
