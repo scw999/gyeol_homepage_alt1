@@ -827,7 +827,10 @@ function ConnectionBand({
     src: img,
     alt: "\uB450 \uC0AC\uB78C\uC774 \uD568\uAED8 \uBC18\uC9C0\uB97C \uB193\uB294 \uBAA8\uC2B5",
     className: "absolute inset-0 w-full h-full object-cover",
-    loading: "lazy"
+    loading: "lazy",
+    style: {
+      filter: 'blur(0.6px) brightness(0.97) saturate(0.92)'
+    }
   })));
 }
 
