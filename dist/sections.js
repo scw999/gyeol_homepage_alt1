@@ -816,7 +816,11 @@ function ConnectionBand({
   if (!img) return null;
   return /*#__PURE__*/React.createElement("section", {
     id: "connection",
-    className: "relative overflow-hidden"
+    className: "relative overflow-hidden",
+    style: {
+      paddingTop: 0,
+      paddingBottom: 0
+    }
   }, /*#__PURE__*/React.createElement("div", {
     className: "relative w-full",
     style: {
