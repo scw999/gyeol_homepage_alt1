@@ -427,7 +427,8 @@ function ConnectionBand({ images }) {
   return (
     <section id="connection" className="relative overflow-hidden">
       <div className="relative w-full" style={{aspectRatio:'16/7', maxHeight:'520px'}}>
-        <img src={img} alt="두 사람이 함께 반지를 놓는 모습" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
+        <img src={img} alt="두 사람이 함께 반지를 놓는 모습" className="absolute inset-0 w-full h-full object-cover" loading="lazy"
+             style={{filter:'blur(0.6px) brightness(0.97) saturate(0.92)'}}/>
       </div>
     </section>
   );
