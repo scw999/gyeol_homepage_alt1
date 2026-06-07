@@ -576,7 +576,6 @@ function ProblemSection({
     priceCard: true
   }];
   const [active, setActive] = useState(0);
-  const cur = pairs[active];
   return /*#__PURE__*/React.createElement("section", {
     className: "bg-offwhite",
     id: "problem"
@@ -624,8 +623,7 @@ function ProblemSection({
       d: "M5 12h14M14 6l6 6-6 6"
     }))));
   })), /*#__PURE__*/React.createElement("div", {
-    className: "problem-detail",
-    key: active
+    className: "problem-detail"
   }, /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-head"
   }, /*#__PURE__*/React.createElement("img", {
@@ -642,14 +640,18 @@ function ProblemSection({
   }), /*#__PURE__*/React.createElement("span", {
     className: "eyebrow text-lavender-deep"
   }, "\uACB0\uD558\uB2E4\uB294")), /*#__PURE__*/React.createElement("div", {
-    className: `problem-detail-body${cur.screenB ? ' is-dual' : ''}`
+    className: "problem-detail-stack"
+  }, pairs.map((p, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: `problem-detail-body${p.screenB ? ' is-dual' : ''}${i === active ? ' is-active' : ''}`,
+    "aria-hidden": i !== active
   }, /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-text"
   }, /*#__PURE__*/React.createElement("div", {
     className: "gh-h3 leading-snug"
-  }, cur.solve), /*#__PURE__*/React.createElement("p", {
+  }, p.solve), /*#__PURE__*/React.createElement("p", {
     className: "problem-detail-sub"
-  }, cur.solveSub)), cur.priceCard ? /*#__PURE__*/React.createElement("div", {
+  }, p.solveSub)), p.priceCard ? /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-phone"
   }, /*#__PURE__*/React.createElement("div", {
     className: "price-card"
@@ -703,34 +705,34 @@ function ProblemSection({
     className: "price-card-note"
   }, "\uC591\uCABD\uC774 \uB9CC\uB0A8\uC5D0 \uB3D9\uC758\uD560 \uB54C\uB9CC \uACB0\uC81C\uB429\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-cap"
-  }, "\uC608\uCE21 \uAC00\uB2A5\uD55C \uBE44\uC6A9")) : cur.screen && /*#__PURE__*/React.createElement("div", {
+  }, "\uC608\uCE21 \uAC00\uB2A5\uD55C \uBE44\uC6A9")) : p.screen && /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-phone"
-  }, cur.screenB ? /*#__PURE__*/React.createElement("div", {
+  }, p.screenB ? /*#__PURE__*/React.createElement("div", {
     className: "screen-pair"
   }, /*#__PURE__*/React.createElement("div", {
     className: "screen-crop"
   }, /*#__PURE__*/React.createElement("img", {
-    src: cur.screen,
+    src: p.screen,
     alt: "\uACB0\uD558\uB2E4 \uC571 \uD654\uBA74 1",
     loading: "lazy"
   })), /*#__PURE__*/React.createElement("div", {
     className: "screen-crop"
   }, /*#__PURE__*/React.createElement("img", {
-    src: cur.screenB,
+    src: p.screenB,
     alt: "\uACB0\uD558\uB2E4 \uC571 \uD654\uBA74 2",
     loading: "lazy"
   }))) : /*#__PURE__*/React.createElement("div", {
     className: "screen-crop"
   }, /*#__PURE__*/React.createElement("img", {
-    src: cur.screen,
-    alt: `결하다 앱 — ${cur.screenLabel}`,
+    src: p.screen,
+    alt: `결하다 앱 — ${p.screenLabel}`,
     loading: "lazy",
-    style: cur.screenY ? {
-      transform: `translateY(-${cur.screenY}px)`
+    style: p.screenY ? {
+      transform: `translateY(-${p.screenY}px)`
     } : undefined
   })), /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-cap"
-  }, cur.screenLabel))))))));
+  }, p.screenLabel))))))))));
 }
 
 // ---------- Section 3: Three Gyeol — matching method (merged with personality) ----------

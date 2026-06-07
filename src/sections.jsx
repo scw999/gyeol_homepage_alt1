@@ -247,7 +247,6 @@ function ProblemSection({ appScreens }) {
     },
   ];
   const [active, setActive] = useState(0);
-  const cur = pairs[active];
   return (
     <section className="bg-offwhite" id="problem">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
@@ -284,7 +283,7 @@ function ProblemSection({ appScreens }) {
               })}
             </div>
 
-            <div className="problem-detail" key={active}>
+            <div className="problem-detail">
               <div className="problem-detail-head">
                 <img
                   src="images/brand-mark.png"
@@ -294,60 +293,68 @@ function ProblemSection({ appScreens }) {
                 />
                 <span className="eyebrow text-lavender-deep">결하다는</span>
               </div>
-              <div className={`problem-detail-body${cur.screenB ? ' is-dual' : ''}`}>
-                <div className="problem-detail-text">
-                  <div className="gh-h3 leading-snug">{cur.solve}</div>
-                  <p className="problem-detail-sub">{cur.solveSub}</p>
-                </div>
-                {cur.priceCard ? (
-                  <div className="problem-detail-phone">
-                    <div className="price-card">
-                      <div className="price-card-cup" aria-hidden="true">
-                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                          <path d="M14 24h30v13a13 13 0 0 1-13 13H27a13 13 0 0 1-13-13V24z" fill="#EFE8F7" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round"/>
-                          <path d="M44 28h6a6 6 0 0 1 0 12h-6" fill="#EFE8F7" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round"/>
-                          <path d="M22 9c0 3-2.2 3.5-2.2 6.5M31 9c0 3-2.2 3.5-2.2 6.5M40 9c0 3-2.2 3.5-2.2 6.5" stroke="#A88FCE" strokeWidth="2" strokeLinecap="round"/>
-                          <path d="M12 56h36" stroke="#6B5B95" strokeWidth="2" strokeLinecap="round"/>
-                        </svg>
-                      </div>
-                      <div className="price-card-row">
-                        <div>
-                          <div className="price-card-label">가입비</div>
-                          <div className="price-card-amount">₩10,000</div>
-                        </div>
-                        <span className="pill bg-lavender-deep text-white">부담 없이</span>
-                      </div>
-                      <div className="price-card-rule"/>
-                      <div className="price-card-row">
-                        <div>
-                          <div className="price-card-label">만남 확정 시</div>
-                          <div className="price-card-amount">₩100,000</div>
-                        </div>
-                      </div>
-                      <p className="price-card-note">양쪽이 만남에 동의할 때만 결제됩니다.</p>
+              <div className="problem-detail-stack">
+                {pairs.map((p, i) => (
+                  <div
+                    key={i}
+                    className={`problem-detail-body${p.screenB ? ' is-dual' : ''}${i === active ? ' is-active' : ''}`}
+                    aria-hidden={i !== active}
+                  >
+                    <div className="problem-detail-text">
+                      <div className="gh-h3 leading-snug">{p.solve}</div>
+                      <p className="problem-detail-sub">{p.solveSub}</p>
                     </div>
-                    <div className="problem-detail-cap">예측 가능한 비용</div>
-                  </div>
-                ) : cur.screen && (
-                  <div className="problem-detail-phone">
-                    {cur.screenB ? (
-                      <div className="screen-pair">
-                        <div className="screen-crop">
-                          <img src={cur.screen} alt="결하다 앱 화면 1" loading="lazy"/>
+                    {p.priceCard ? (
+                      <div className="problem-detail-phone">
+                        <div className="price-card">
+                          <div className="price-card-cup" aria-hidden="true">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                              <path d="M14 24h30v13a13 13 0 0 1-13 13H27a13 13 0 0 1-13-13V24z" fill="#EFE8F7" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round"/>
+                              <path d="M44 28h6a6 6 0 0 1 0 12h-6" fill="#EFE8F7" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round"/>
+                              <path d="M22 9c0 3-2.2 3.5-2.2 6.5M31 9c0 3-2.2 3.5-2.2 6.5M40 9c0 3-2.2 3.5-2.2 6.5" stroke="#A88FCE" strokeWidth="2" strokeLinecap="round"/>
+                              <path d="M12 56h36" stroke="#6B5B95" strokeWidth="2" strokeLinecap="round"/>
+                            </svg>
+                          </div>
+                          <div className="price-card-row">
+                            <div>
+                              <div className="price-card-label">가입비</div>
+                              <div className="price-card-amount">₩10,000</div>
+                            </div>
+                            <span className="pill bg-lavender-deep text-white">부담 없이</span>
+                          </div>
+                          <div className="price-card-rule"/>
+                          <div className="price-card-row">
+                            <div>
+                              <div className="price-card-label">만남 확정 시</div>
+                              <div className="price-card-amount">₩100,000</div>
+                            </div>
+                          </div>
+                          <p className="price-card-note">양쪽이 만남에 동의할 때만 결제됩니다.</p>
                         </div>
-                        <div className="screen-crop">
-                          <img src={cur.screenB} alt="결하다 앱 화면 2" loading="lazy"/>
-                        </div>
+                        <div className="problem-detail-cap">예측 가능한 비용</div>
                       </div>
-                    ) : (
-                      <div className="screen-crop">
-                        <img src={cur.screen} alt={`결하다 앱 — ${cur.screenLabel}`} loading="lazy"
-                             style={cur.screenY ? {transform:`translateY(-${cur.screenY}px)`} : undefined}/>
+                    ) : p.screen && (
+                      <div className="problem-detail-phone">
+                        {p.screenB ? (
+                          <div className="screen-pair">
+                            <div className="screen-crop">
+                              <img src={p.screen} alt="결하다 앱 화면 1" loading="lazy"/>
+                            </div>
+                            <div className="screen-crop">
+                              <img src={p.screenB} alt="결하다 앱 화면 2" loading="lazy"/>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="screen-crop">
+                            <img src={p.screen} alt={`결하다 앱 — ${p.screenLabel}`} loading="lazy"
+                                 style={p.screenY ? {transform:`translateY(-${p.screenY}px)`} : undefined}/>
+                          </div>
+                        )}
+                        <div className="problem-detail-cap">{p.screenLabel}</div>
                       </div>
                     )}
-                    <div className="problem-detail-cap">{cur.screenLabel}</div>
                   </div>
-                )}
+                ))}
               </div>
             </div>
           </div>
