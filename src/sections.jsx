@@ -421,8 +421,12 @@ function ProblemSection({ appScreens }) {
       <div className="problem-pin-sticky">
         {section}
         <div className={`problem-scroll-hint${atLast ? ' is-done' : ''}`} aria-hidden="true">
+          <svg width="15" height="22" viewBox="0 0 15 22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="1" y="1" width="13" height="20" rx="6.5"/>
+            <line x1="7.5" y1="5.5" x2="7.5" y2="9" className="scroll-hint-wheel"/>
+          </svg>
           <span>스크롤하세요</span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"/></svg>
         </div>
       </div>
     </div>
