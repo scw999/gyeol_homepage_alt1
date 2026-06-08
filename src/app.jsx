@@ -158,7 +158,6 @@ function App() {
       </main>
 
       <Footer ctaState={t.ctaState} ctaData={CTA_DATA}/>
-      <MobileSticky ctaState={t.ctaState} ctaData={CTA_DATA}/>
 
       <TweaksPanel title="Tweaks">
         <TweakSection label="CTA"/>
