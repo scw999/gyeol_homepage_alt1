@@ -576,8 +576,72 @@ function ProblemSection({
     priceCard: true
   }];
   const [active, setActive] = useState(0);
-  return /*#__PURE__*/React.createElement("section", {
-    className: "bg-offwhite",
+  const pinRef = useRef(null);
+  const [pinEnabled, setPinEnabled] = useState(false);
+  const N = pairs.length;
+  const STEP_VH = 80; // scroll distance per tab (≈0.8 viewport)
+
+  // Enable scroll-pin on desktop only (the stacked mobile layout pushes the
+  // solution panel off-screen when pinned) and never when reduced motion is set.
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const wide = window.matchMedia('(min-width: 860px)');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setPinEnabled(wide.matches && !reduce.matches);
+    update();
+    wide.addEventListener('change', update);
+    reduce.addEventListener('change', update);
+    return () => {
+      wide.removeEventListener('change', update);
+      reduce.removeEventListener('change', update);
+    };
+  }, []);
+
+  // Map scroll progress within the pin wrapper to the active tab.
+  useEffect(() => {
+    if (!pinEnabled || typeof window === 'undefined') return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const el = pinRef.current;
+        if (!el) return;
+        const vh = window.innerHeight;
+        const total = el.offsetHeight - vh;
+        const scrolled = Math.min(Math.max(-el.getBoundingClientRect().top, 0), total);
+        const progress = total > 0 ? scrolled / total : 0;
+        const idx = Math.min(N - 1, Math.max(0, Math.round(progress * (N - 1))));
+        setActive(idx);
+      });
+    };
+    window.addEventListener('scroll', onScroll, {
+      passive: true
+    });
+    onScroll();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [pinEnabled, N]);
+
+  // Clicking a tab scrolls to its position in the pinned timeline.
+  const goToTab = i => {
+    const el = pinRef.current;
+    if (!pinEnabled || !el) {
+      setActive(i);
+      return;
+    }
+    const vh = window.innerHeight;
+    const total = el.offsetHeight - vh;
+    const top = el.offsetTop + (N > 1 ? i / (N - 1) * total : 0);
+    window.scrollTo({
+      top,
+      behavior: 'smooth'
+    });
+  };
+  const section = /*#__PURE__*/React.createElement("section", {
+    className: `bg-offwhite${pinEnabled ? ' problem-pinned' : ''}`,
     id: "problem"
   }, /*#__PURE__*/React.createElement("div", {
     className: "max-w-[1200px] mx-auto px-5 md:px-8"
@@ -599,7 +663,7 @@ function ProblemSection({
       key: i,
       type: "button",
       className: `problem-item${isActive ? ' is-active' : ''}`,
-      onClick: () => setActive(i),
+      onClick: () => goToTab(i),
       "aria-pressed": isActive
     }, /*#__PURE__*/React.createElement("div", {
       className: "problem-item-head"
@@ -733,6 +797,16 @@ function ProblemSection({
   })), /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-cap"
   }, p.screenLabel))))))))));
+  if (!pinEnabled) return section;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "problem-pin",
+    ref: pinRef,
+    style: {
+      height: `calc(100vh + ${(N - 1) * STEP_VH}vh)`
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "problem-pin-sticky"
+  }, section));
 }
 
 // ---------- Section 3: Three Gyeol — matching method (merged with personality) ----------

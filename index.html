@@ -181,6 +181,18 @@
   }
   @media (min-width:860px){ .problem-detail{ padding:40px 44px; border-radius:0 24px 24px 0; } }
   .problem-detail-head{ display:flex; align-items:center; gap:14px; }
+  /* Scroll-pin: section sticks to the viewport, scroll advances the active tab. */
+  .problem-pin{ position:relative; }
+  .problem-pin-sticky{ position:sticky; top:0; min-height:100vh; display:flex; align-items:center; overflow:hidden; }
+  .problem-pinned{ width:100%; padding-top:0 !important; padding-bottom:0 !important; }
+  /* Compact the pinned panel so the whole section fits one viewport height. */
+  @media (min-width:860px){
+    .problem-pinned .screen-pair .screen-crop{ height:min(440px, 40vh); }
+    .problem-pinned .problem-detail-stack > .problem-detail-body:not(.is-dual) .screen-crop{ height:min(500px, 46vh); }
+    .problem-pinned .problem-detail{ padding:26px 44px; }
+    .problem-pinned .problem-layout{ margin-top:28px; }
+  }
+
   /* All tab bodies stack in one grid cell so the cell sizes to the tallest tab.
      ConnectionBand below stays put regardless of which tab is active. */
   .problem-detail-stack{ display:grid; flex:1 1 auto; }
