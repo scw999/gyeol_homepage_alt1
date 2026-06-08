@@ -176,53 +176,11 @@
 
   .problem-detail{
     background:linear-gradient(135deg, rgba(200,182,226,.18), rgba(200,182,226,.04));
-    padding:30px 26px; display:flex; flex-direction:column;
+    padding:30px 26px; display:flex; flex-direction:column; gap:30px;
     border-radius:0 0 24px 24px;
   }
   @media (min-width:860px){ .problem-detail{ padding:40px 44px; border-radius:0 24px 24px 0; } }
   .problem-detail-head{ display:flex; align-items:center; gap:14px; }
-  /* Scroll-pin: section sticks to the viewport, scroll advances the active tab. */
-  .problem-pin{ position:relative; }
-  .problem-pin-sticky{ position:sticky; top:0; min-height:100vh; display:flex; align-items:center; overflow:hidden; }
-  .problem-scroll-hint{
-    position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
-    display:inline-flex; align-items:center; gap:9px;
-    font-family:'Inter',ui-sans-serif; font-size:13px; font-weight:600; letter-spacing:.1em;
-    color:#fff;
-    background:linear-gradient(135deg, #7A66A8, #6B5B95);
-    padding:12px 22px; border-radius:999px;
-    border:1px solid rgba(255,255,255,.18);
-    box-shadow:0 10px 30px -8px rgba(107,91,149,.6), 0 0 0 6px rgba(107,91,149,.10);
-    transition:opacity .35s ease, transform .35s ease;
-    pointer-events:none; z-index:5;
-    animation:scrollHintPulse 2.4s ease-in-out infinite;
-  }
-  .problem-scroll-hint > svg:last-child{ animation:scrollHintBounce 1.4s ease-in-out infinite; }
-  .scroll-hint-wheel{ animation:scrollHintWheel 1.4s ease-in-out infinite; }
-  @keyframes scrollHintWheel{
-    0%{ opacity:0; transform:translateY(-2px); }
-    35%{ opacity:1; }
-    70%, 100%{ opacity:0; transform:translateY(4px); }
-  }
-  .problem-scroll-hint.is-done{ opacity:0; transform:translateX(-50%) translateY(10px); }
-  @keyframes scrollHintBounce{
-    0%, 100%{ transform:translateY(-1px); }
-    50%{ transform:translateY(4px); }
-  }
-  @keyframes scrollHintPulse{
-    0%, 100%{ box-shadow:0 10px 30px -8px rgba(107,91,149,.6), 0 0 0 6px rgba(107,91,149,.10); }
-    50%{ box-shadow:0 12px 34px -8px rgba(107,91,149,.7), 0 0 0 12px rgba(107,91,149,0); }
-  }
-  @media (prefers-reduced-motion: reduce){ .problem-scroll-hint, .problem-scroll-hint svg{ animation:none; } }
-  .problem-pinned{ width:100%; padding-top:0 !important; padding-bottom:0 !important; }
-  /* Compact the pinned panel so the whole section fits one viewport height. */
-  @media (min-width:860px){
-    .problem-pinned .screen-pair .screen-crop{ height:min(440px, 40vh); }
-    .problem-pinned .problem-detail-stack > .problem-detail-body:not(.is-dual) .screen-crop{ height:min(500px, 46vh); }
-    .problem-pinned .problem-detail{ padding:26px 44px; }
-    .problem-pinned .problem-layout{ margin-top:28px; }
-  }
-
   /* Desktop: all tab bodies stack in one grid cell so the cell sizes to the
      tallest tab — keeps the pinned panel a fixed height. Mobile: only the
      active body renders, so each tab takes its own height with no empty gap. */
