@@ -101,15 +101,15 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 const HEADLINES = {
   experience: {
     h: '결이 맞으면<br/><span style="color:#6B5B95">또 만나고 싶어집니다</span>',
-    sub: '결하다는 두 사람의 결을 맞춰 소개합니다 · 가입은 커피 한잔 값으로'
+    sub: '결하다는 두 사람의 결을 맞춰 소개합니다 · 가입은 커피 1잔 값으로'
   },
   sharp: {
     h: '면접 같은 소개팅은<br/><span style="color:#6B5B95">그만</span>',
-    sub: '결하다는 두 사람의 결을 맞춰 소개합니다 · 가입은 커피 한잔 값으로'
+    sub: '결하다는 두 사람의 결을 맞춰 소개합니다 · 가입은 커피 1잔 값으로'
   },
   again: {
     h: '또 만나고 싶은 사람을<br/><span style="color:#6B5B95">처음부터</span>',
-    sub: '결하다는 두 사람의 결을 맞춰 소개합니다 · 가입은 커피 한잔 값으로'
+    sub: '결하다는 두 사람의 결을 맞춰 소개합니다 · 가입은 커피 1잔 값으로'
   },
   primary: {
     h: '결이 맞아야<br/><span style="color:#6B5B95">결혼도 맞다</span>',

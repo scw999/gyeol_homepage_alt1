@@ -240,8 +240,8 @@ function ProblemSection({ appScreens }) {
       problem:'높은 가입비, 불확실한 결과',
       problemSub:'먼저 큰 비용을 치러야 시작할 수 있는 구조. 결과가 보장되지 않는데도 선결제가 필요합니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.5v11"/><path d="M15 9.2c-.7-.9-1.8-1.4-3-1.4-1.7 0-3 .9-3 2.1 0 1.2 1.3 1.9 3 2.4 1.7.5 3 1.2 3 2.4 0 1.2-1.3 2.1-3 2.1-1.2 0-2.3-.5-3-1.4"/></svg>),
-      solve:'커피 한잔 값으로 시작',
-      solveSub:'가입은 커피 한잔 값 · 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다',
+      solve:'커피 1잔 값으로 시작',
+      solveSub:'가입은 커피 1잔 값 · 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 8h13v4a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/><path d="M17 9h2.5a2 2 0 0 1 0 4H17"/><path d="M7 3c0 1-.8 1.5-.8 2.5M11 3c0 1-.8 1.5-.8 2.5"/></svg>),
       priceCard:true,
     },
@@ -253,7 +253,7 @@ function ProblemSection({ appScreens }) {
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <Reveal><div className="eyebrow mb-4">결하다 방식</div></Reveal>
         <Reveal delay={80}>
-          <h2 className="gh-display gh-h2 max-w-[22ch]">스펙만 맞춘 소개팅<br/>면접 같지 않았나요?</h2>
+          <h2 className="gh-display gh-h2 max-w-[22ch]">스펙만 맞춘 소개팅,<br/>면접 같지 않았나요?</h2>
         </Reveal>
 
         {/* Vertical tab list (left) + solution detail (right) */}
@@ -548,7 +548,7 @@ function PricingSection({ images }) {
           <div className="md:col-span-7">
             <Reveal><div className="eyebrow mb-4">결하다의 차별점</div></Reveal>
             <Reveal delay={80}>
-              <h2 className="gh-display gh-h2">커피 한잔 값으로 시작<br/>만남 확정 시에만 결제</h2>
+              <h2 className="gh-display gh-h2">커피 1잔 값으로 시작<br/>Only 만남 확정 시 결제</h2>
             </Reveal>
 
             <Reveal delay={220}>
@@ -593,7 +593,7 @@ function PricingSection({ images }) {
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
   const items = [
-    ['가입비는 얼마인가요?','가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'],
+    ['가입비는 얼마인가요?','가입비는 ₩10,000입니다. 커피 1잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'],
     ['만남 비용은 언제 얼마나 발생하나요?','매칭된 두 사람이 모두 "만나볼래요"를 누르고 만남이 확정될 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'],
     ['누구나 매칭해 주나요?','아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'],
     ['아무나 가입할 수 있나요?','결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'],

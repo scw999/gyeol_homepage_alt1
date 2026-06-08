@@ -557,8 +557,8 @@ function ProblemSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M15 9.2c-.7-.9-1.8-1.4-3-1.4-1.7 0-3 .9-3 2.1 0 1.2 1.3 1.9 3 2.4 1.7.5 3 1.2 3 2.4 0 1.2-1.3 2.1-3 2.1-1.2 0-2.3-.5-3-1.4"
     })),
-    solve: '커피 한잔 값으로 시작',
-    solveSub: '가입은 커피 한잔 값 · 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다',
+    solve: '커피 1잔 값으로 시작',
+    solveSub: '가입은 커피 1잔 값 · 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -589,7 +589,7 @@ function ProblemSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[22ch]"
-  }, "\uC2A4\uD399\uB9CC \uB9DE\uCD98 \uC18C\uAC1C\uD305", /*#__PURE__*/React.createElement("br", null), "\uBA74\uC811 \uAC19\uC9C0 \uC54A\uC558\uB098\uC694?")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uC2A4\uD399\uB9CC \uB9DE\uCD98 \uC18C\uAC1C\uD305,", /*#__PURE__*/React.createElement("br", null), "\uBA74\uC811 \uAC19\uC9C0 \uC54A\uC558\uB098\uC694?")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 200
   }, /*#__PURE__*/React.createElement("div", {
     className: "problem-layout mt-10"
@@ -993,7 +993,7 @@ function PricingSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2"
-  }, "\uCEE4\uD53C \uD55C\uC794 \uAC12\uC73C\uB85C \uC2DC\uC791", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8 \uD655\uC815 \uC2DC\uC5D0\uB9CC \uACB0\uC81C")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uCEE4\uD53C 1\uC794 \uAC12\uC73C\uB85C \uC2DC\uC791", /*#__PURE__*/React.createElement("br", null), "Only \uB9CC\uB0A8 \uD655\uC815 \uC2DC \uACB0\uC81C")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
   }, /*#__PURE__*/React.createElement("div", {
     className: "card p-7 md:p-8 mt-10 relative overflow-hidden"
@@ -1051,7 +1051,7 @@ function PricingSection({
 
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
-  const items = [['가입비는 얼마인가요?', '가입비는 ₩10,000입니다. 커피 한잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'], ['만남 비용은 언제 얼마나 발생하나요?', '매칭된 두 사람이 모두 "만나볼래요"를 누르고 만남이 확정될 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'], ['누구나 매칭해 주나요?', '아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
+  const items = [['가입비는 얼마인가요?', '가입비는 ₩10,000입니다. 커피 1잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'], ['만남 비용은 언제 얼마나 발생하나요?', '매칭된 두 사람이 모두 "만나볼래요"를 누르고 만남이 확정될 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'], ['누구나 매칭해 주나요?', '아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
   return /*#__PURE__*/React.createElement("section", {
     id: "faq",
     className: "bg-veil"
