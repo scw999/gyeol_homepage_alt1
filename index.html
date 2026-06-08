@@ -223,11 +223,16 @@
     .problem-pinned .problem-layout{ margin-top:28px; }
   }
 
-  /* All tab bodies stack in one grid cell so the cell sizes to the tallest tab.
-     ConnectionBand below stays put regardless of which tab is active. */
-  .problem-detail-stack{ display:grid; flex:1 1 auto; }
-  .problem-detail-stack > .problem-detail-body{ grid-area:1 / 1; opacity:0; visibility:hidden; transition:opacity .22s ease; pointer-events:none; }
-  .problem-detail-stack > .problem-detail-body.is-active{ opacity:1; visibility:visible; pointer-events:auto; }
+  /* Desktop: all tab bodies stack in one grid cell so the cell sizes to the
+     tallest tab — keeps the pinned panel a fixed height. Mobile: only the
+     active body renders, so each tab takes its own height with no empty gap. */
+  .problem-detail-stack > .problem-detail-body{ display:none; }
+  .problem-detail-stack > .problem-detail-body.is-active{ display:flex; }
+  @media (min-width:860px){
+    .problem-detail-stack{ display:grid; flex:1 1 auto; }
+    .problem-detail-stack > .problem-detail-body{ display:flex; grid-area:1 / 1; opacity:0; visibility:hidden; transition:opacity .22s ease; pointer-events:none; }
+    .problem-detail-stack > .problem-detail-body.is-active{ opacity:1; visibility:visible; pointer-events:auto; }
+  }
   .problem-detail-iconbox{
     width:42px; height:42px; border-radius:11px; flex-shrink:0;
     display:grid; place-items:center; background:#6B5B95; color:#fff;
