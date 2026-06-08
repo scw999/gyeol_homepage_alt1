@@ -533,13 +533,6 @@ function PhilosophyBand({ images }) {
                 결하다는 그 결을 함께 살피며, 오래 함께할 수 있는 만남을 돕습니다.
               </p>
             </Reveal>
-            <Reveal delay={220}>
-              <div className="mt-8 flex flex-wrap gap-2">
-                <span className="pill border border-ink/10 bg-white text-ink/75">결혼 가치관</span>
-                <span className="pill border border-ink/10 bg-white text-ink/75">감정·갈등 대처</span>
-                <span className="pill border border-ink/10 bg-white text-ink/75">함께 그리는 미래</span>
-              </div>
-            </Reveal>
           </div>
         </div>
       </div>
