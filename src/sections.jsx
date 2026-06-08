@@ -740,9 +740,10 @@ function Footer({ ctaState, ctaData }) {
           <div className="md:col-span-3">
             <div className="eyebrow !text-white/60">Links</div>
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-white/75">
-              <li><a href="#" className="hover:text-white">이용약관</a></li>
-              <li><a href="#" className="hover:text-white">개인정보 처리방침</a></li>
-              <li><a href="#" className="hover:text-white">결혼중개표준약관</a></li>
+              <li><a href="legal/terms.html" className="hover:text-white">이용약관</a></li>
+              <li><a href="legal/standard-terms.html" className="hover:text-white">결혼중개표준약관</a></li>
+              <li><a href="legal/privacy.html" className="hover:text-white">개인정보처리방침</a></li>
+              <li><a href="legal/damage-claim.html" className="hover:text-white">손해배상 청구절차</a></li>
               <li><a href="#" className="hover:text-white">고객센터</a></li>
             </ul>
           </div>

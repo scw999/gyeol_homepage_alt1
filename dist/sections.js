@@ -1287,15 +1287,18 @@ function Footer({
   }, "Links"), /*#__PURE__*/React.createElement("ul", {
     className: "mt-4 space-y-2.5 text-[13.5px] text-white/75"
   }, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#",
+    href: "legal/terms.html",
     className: "hover:text-white"
   }, "\uC774\uC6A9\uC57D\uAD00")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#",
-    className: "hover:text-white"
-  }, "\uAC1C\uC778\uC815\uBCF4 \uCC98\uB9AC\uBC29\uCE68")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#",
+    href: "legal/standard-terms.html",
     className: "hover:text-white"
   }, "\uACB0\uD63C\uC911\uAC1C\uD45C\uC900\uC57D\uAD00")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "legal/privacy.html",
+    className: "hover:text-white"
+  }, "\uAC1C\uC778\uC815\uBCF4\uCC98\uB9AC\uBC29\uCE68")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "legal/damage-claim.html",
+    className: "hover:text-white"
+  }, "\uC190\uD574\uBC30\uC0C1 \uCCAD\uAD6C\uC808\uCC28")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
     href: "#",
     className: "hover:text-white"
   }, "\uACE0\uAC1D\uC13C\uD130"))))), /*#__PURE__*/React.createElement("div", {
