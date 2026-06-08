@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>손해배상 청구 절차 · 결하다</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<style>
+  :root{ --ink:#2C2A35; --mute:#6b6776; --lav:#6B5B95; --lav-deep:#5B4B8A; --line:rgba(44,42,53,.10); --bg:#FAF7F2; --paper:#fff; }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; font-family:'Pretendard',system-ui,-apple-system,sans-serif; color:var(--ink);
+    background:var(--bg); line-height:1.72; -webkit-font-smoothing:antialiased; }
+  a{ color:var(--lav); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  /* top bar */
+  .topbar{ position:sticky; top:0; z-index:20; background:rgba(250,247,242,.92);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  .topbar-inner{ max-width:880px; margin:0 auto; padding:0 24px; height:60px;
+    display:flex; align-items:center; gap:16px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:18px; color:var(--ink); }
+  .brand .mark{ width:30px; height:30px; border-radius:8px; background:linear-gradient(135deg,#7A66A8,#6B5B95);
+    color:#fff; display:grid; place-items:center; font-size:16px; font-weight:800; }
+  .home-link{ margin-left:auto; font-size:14px; color:var(--mute); }
+  /* doc nav (tabs to other policies) */
+  .docnav{ border-bottom:1px solid var(--line); background:var(--paper); }
+  .docnav-inner{ max-width:880px; margin:0 auto; padding:0 24px; display:flex; gap:6px; overflow-x:auto; }
+  .docnav a{ padding:13px 14px; font-size:14px; color:var(--mute); white-space:nowrap;
+    border-bottom:2px solid transparent; }
+  .docnav a:hover{ color:var(--lav); text-decoration:none; }
+  .docnav a.is-current{ color:var(--lav-deep); font-weight:700; border-bottom-color:var(--lav-deep); }
+  /* content */
+  main{ max-width:880px; margin:0 auto; padding:44px 24px 96px; }
+  main > p:first-of-type{ font-size:30px; font-weight:800; color:var(--ink); margin:0 0 4px; line-height:1.3; }
+  h2{ font-size:21px; font-weight:800; color:var(--ink); margin:42px 0 14px;
+    padding-top:18px; border-top:1px solid var(--line); }
+  h2:first-of-type{ border-top:none; padding-top:0; }
+  h3{ font-size:16.5px; font-weight:700; color:var(--lav-deep); margin:26px 0 10px; }
+  p{ margin:12px 0; font-size:15px; color:#3a3845; }
+  p.p-strong{ font-weight:700; }
+  ul{ margin:12px 0; padding-left:4px; list-style:none; }
+  li{ position:relative; padding-left:20px; margin:8px 0; font-size:15px; color:#3a3845; }
+  li::before{ content:""; position:absolute; left:4px; top:11px; width:5px; height:5px;
+    border-radius:50%; background:var(--lav); }
+  .callout{ background:#FFF8EC; border:1px solid #F0E2C4; border-left:3px solid var(--lav-deep);
+    border-radius:10px; padding:16px 18px; margin:18px 0; font-size:14.5px; color:#54505e; }
+  .table-wrap{ overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px; }
+  table{ border-collapse:collapse; width:100%; font-size:14px; }
+  th,td{ text-align:left; padding:11px 14px; border-bottom:1px solid var(--line);
+    border-right:1px solid var(--line); vertical-align:top; }
+  th:last-child,td:last-child{ border-right:none; }
+  tr:last-child th, tr:last-child td{ border-bottom:none; }
+  th{ background:#F3EEF8; color:var(--lav-deep); font-weight:700; }
+  /* page footer */
+  .pfoot{ border-top:1px solid var(--line); margin-top:60px; padding-top:24px; font-size:13px; color:var(--mute); }
+  @media (max-width:640px){
+    main{ padding:32px 18px 72px; }
+    main > p:first-of-type{ font-size:24px; }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html"><span class="mark">결</span><span>결하다</span></a>
+      <a class="home-link" href="../index.html">← 홈으로</a>
+    </div>
+  </div>
+  <nav class="docnav"><div class="docnav-inner"><a href="terms.html">이용약관</a><a href="standard-terms.html">표준약관</a><a href="privacy.html">개인정보처리방침</a><a href="damage-claim.html" class="is-current">손해배상 청구절차</a></div></nav>
+  <main>
+<p class="p-strong" style="color:#5B4B8A">손해배상 청구 절차</p>
+<p style="color:#8B7AB8">Damage Claim Procedure</p>
+<p style="color:#595959">주식회사 린플 (LINPLE)<br/>시행일: 2026년 5월 8일<br/>버전: 1.0</p>
+<div class="callout">📌 페이지 안내<br/>본 페이지는 「결혼중개업의 관리에 관한 법률」 제25조 및 같은 법 시행령 제7조에 따라,<br/>결하다 서비스 이용 과정에서 회원에게 손해가 발생한 경우 회사에 손해배상을 청구하거나<br/>회사가 가입한 보증보험을 통해 보상을 받을 수 있는 절차를 안내하기 위해 마련되었습니다.</div>
+<h2>1. 손해배상 책임의 범위</h2>
+<h3>1.1 회사의 책임</h3>
+<p>주식회사 린플(이하 &#x27;회사&#x27;)은 결하다 서비스를 제공함에 있어 고의 또는 과실로 회원에게 손해를 발생하게 한 경우, 「결혼중개업의 관리에 관한 법률」 제25조 제1항에 따라 그 손해를 배상할 책임이 있습니다.</p>
+<h3>1.2 손해배상이 인정되는 대표적 사례</h3>
+<ul>
+<li>회원 정보의 부주의한 유출: 회사의 보관 중 회원의 신상정보가 외부로 유출된 경우</li>
+<li>거짓 정보로 인한 매칭: 회사가 매칭 상대방의 신상정보를 명백히 잘못 검증하여 회원에게 손해가 발생한 경우</li>
+<li>약정 횟수 불이행: 회사의 귀책으로 약정된 소개 횟수를 보유 기간 내에 이행하지 못한 경우</li>
+<li>환불 미이행: 정당한 환불 사유 발생 시 회사가 환불 의무를 이행하지 않는 경우</li>
+<li>직원의 부적절한 행위: 회사 직원이 업무 중 회원에 대해 부적절한 언행 또는 정보 누설을 한 경우</li>
+</ul>
+<h3>1.3 회사의 면책 범위</h3>
+<p>다음 각 호의 경우에는 회사의 손해배상 책임이 제한되거나 면제됩니다.</p>
+<ul>
+<li>매칭 상대방의 성격·진심·결혼 의사 등 매칭의 결과에 대한 사항 (회사는 인격을 보증하지 않음)</li>
+<li>회원이 회사를 기망하여 거짓 신상정보를 제공함으로써 발생한 손해</li>
+<li>회원 간 사적 만남에서 발생한 분쟁(연인 관계 파탄, 약혼 파혼, 결혼 후 이혼 등)</li>
+<li>천재지변, 정전, 통신두절 등 회사의 통제 범위를 벗어난 불가항력적 사유</li>
+<li>회원의 귀책사유로 발생한 서비스 이용 장애</li>
+</ul>
+<h2>2. 보증보험 가입 현황</h2>
+<p>회사는 「결혼중개업의 관리에 관한 법률 시행령」 제6조에 따라 회원의 손해배상 청구권을 보장하기 위해 보증보험에 가입하고 있습니다.</p>
+<div class="table-wrap"><table><tr><th>보증보험사</th><th>SGI서울보증</th></tr><tr><td>보증보험 종류</td><td>이행(지급)보증보험</td></tr><tr><td>보증금액</td><td>2,000만원 이상 (분사무소가 있을 경우 분사무소당 1,000만원 추가)</td></tr><tr><td>보장 기간</td><td>2026.05.08 ~ 2027.05.07 (365일)</td></tr><tr><td>증권번호</td><td>100-000-2026 0342 8407</td></tr><tr><td>피보험자</td><td>결하다 회원 (이용자)</td></tr></table></div>
+<div class="callout">💡 보증보험이란?<br/>회사가 회원에게 손해배상을 지급해야 함에도 불구하고 이행하지 못하는 경우,<br/>회원이 직접 보증보험회사로부터 보험금을 받을 수 있도록 마련된 안전장치입니다.<br/>결혼중개업법은 국내결혼중개업자에게 최소 2천만원 이상의 보증보험 가입을 의무화하고 있습니다.</div>
+<h2>3. 손해배상 청구 절차</h2>
+<p>손해배상 청구는 다음 순서로 진행하는 것을 권장합니다. 회원의 상황에 따라 일부 단계를 생략할 수 있습니다.</p>
+<div class="table-wrap"><table><tr><th>STEP<br/>1</th><th>회사에 직접 손해배상 청구<br/>회원은 먼저 회사 고객센터를 통해 손해 발생 사실을 알리고, 손해배상을 요구합니다.<br/>・ 접수 방법: 결하다 앱 [고객센터], 이메일, 전화 중 선택<br/>・ 제출 자료: 손해 발생 경위서, 손해 증빙(스크린샷·증인진술·진단서 등), 청구 금액 및 산정 근거<br/>・ 회사 회신: 회사는 접수일로부터 14일 이내에 검토 결과를 회신합니다.</th></tr></table></div>
+<div class="table-wrap"><table><tr><th>STEP<br/>2</th><th>회사와의 협의<br/>회사는 회원의 청구가 정당하다고 판단되는 경우 협의를 통해 손해를 배상합니다.<br/>・ 합의 시: 손해배상 합의서(공정증서로 작성 가능) 체결 후 합의금 지급<br/>・ 협의 결렬 시: Step 3 또는 Step 4 절차로 진행 가능</th></tr></table></div>
+<div class="table-wrap"><table><tr><th>STEP<br/>3</th><th>분쟁조정 신청 (권장)<br/>회사와 협의가 이루어지지 않은 경우, 한국소비자원 또는 분쟁조정기관에 분쟁조정을 신청할 수 있습니다.<br/>・ 한국소비자원: 국번없이 1372 / www.kca.go.kr — 결혼정보서비스 피해구제 접수<br/>・ 소비자분쟁조정위원회: 한국소비자원 산하 기관, 조정 성립 시 재판상 화해와 동일한 효력<br/>・ 개인정보분쟁조정위원회: 1833-6972 / www.kopico.go.kr — 개인정보 관련 분쟁<br/>・ 비용: 무료 (변호사 선임 불필요)<br/>・ 처리 기간: 통상 30~60일 이내 조정 결정</th></tr></table></div>
+<div class="table-wrap"><table><tr><th>STEP<br/>4</th><th>법원에 소송 제기 (최종)<br/>분쟁조정으로도 해결되지 않거나, 신속한 법적 강제가 필요한 경우 민사 소송을 제기할 수 있습니다.<br/>・ 관할 법원: 회원의 주소지를 관할하는 법원<br/>・ 결과 문서: 확정판결문 또는 화해조서 — Step 5의 보증보험금 청구 시 필수 서류</th></tr></table></div>
+<div class="table-wrap"><table><tr><th>STEP<br/>5</th><th>보증보험금 청구<br/>회사가 손해배상 합의 또는 법원의 판결에도 불구하고 배상하지 않는 경우, 회원은 직접 보증보험회사에 보험금 지급을 청구할 수 있습니다.<br/>・ 제출처: 회사 등록·신고 관청 (관할 시·군·구청) 또는 보증보험회사<br/>・ 보험금 지급: 지급 결정 후 통상 14일 이내<br/>・ 한도: 보증보험 가입금액(2천만원) 한도 내 (다수 피해자 발생 시 채권자 평등 원칙 적용)</th></tr></table></div>
+<h2>4. 단계별 필요 서류</h2>
+<h3>4.1 Step 1·2 — 회사에 직접 청구할 때</h3>
+<ul>
+<li>회원 본인확인 자료 (신분증 사본)</li>
+<li>결하다 회원 정보 (회원ID, 가입일자)</li>
+<li>손해 발생 경위서 (자유 양식)</li>
+<li>손해 증빙 자료 (메시지 캡처, 이메일, 진단서, 영수증 등)</li>
+<li>청구 금액 산정 내역</li>
+</ul>
+<h3>4.2 Step 3 — 분쟁조정 신청 시</h3>
+<ul>
+<li>피해구제 신청서 (한국소비자원 양식 또는 온라인 접수)</li>
+<li>결혼중개계약서 사본 또는 이용약관 동의 내역</li>
+<li>결제 영수증 또는 거래 내역</li>
+<li>회사와 주고받은 협의 기록 (이메일·문자 등)</li>
+<li>기타 손해 증빙 자료</li>
+</ul>
+<h3>4.3 Step 5 — 보증보험금 청구 시</h3>
+<p class="p-strong">다음 중 하나 이상의 서류가 반드시 필요합니다.</p>
+<ul>
+<li>회사와의 손해배상 합의서 (공정증서로 작성된 것)</li>
+<li>법원의 화해조서</li>
+<li>확정된 법원의 판결문 정본</li>
+<li>소비자분쟁조정위원회의 조정 결정서 (쌍방 수락된 경우)</li>
+<li>그 밖에 이에 준하는 효력이 있는 서류</li>
+</ul>
+<p class="p-strong">함께 제출할 자료: 손해액을 증명하는 서류, 회원 본인확인 서류</p>
+<h2>5. 도움받을 수 있는 기관</h2>
+<div class="table-wrap"><table><tr><th>기관</th><th>역할</th><th>연락처 · 홈페이지</th></tr><tr><td>한국소비자원</td><td>결혼정보서비스 피해구제·분쟁조정</td><td>1372 (국번없이)<br/>www.kca.go.kr</td></tr><tr><td>소비자분쟁조정위원회</td><td>분쟁조정 심의·결정 (재판상 화해 효력)</td><td>한국소비자원 산하<br/>www.kca.go.kr/odr</td></tr><tr><td>개인정보분쟁조정위원회</td><td>개인정보 침해 분쟁조정</td><td>1833-6972<br/>www.kopico.go.kr</td></tr><tr><td>개인정보침해신고센터</td><td>개인정보 침해 신고</td><td>118 (국번없이)<br/>privacy.kisa.or.kr</td></tr><tr><td>공정거래위원회</td><td>약관·표시광고 위반 신고</td><td>044-200-4010<br/>www.ftc.go.kr</td></tr><tr><td>여성가족부 결혼중개업 담당</td><td>결혼중개업법 위반 신고</td><td>관할 시·군·구청 또는<br/>www.mogef.go.kr</td></tr><tr><td>SGI서울보증 등 보증보험사</td><td>보증보험금 지급 청구</td><td>SGI서울보증 마곡지점 (02-3671-8700)</td></tr><tr><td>대한법률구조공단</td><td>무료 법률상담 (요건 충족 시)</td><td>132 (국번없이)<br/>www.klac.or.kr</td></tr></table></div>
+<h2>6. 자주 묻는 질문 (FAQ)</h2>
+<h3>Q1. 매칭된 상대방이 거짓말을 했어요. 회사에 손해배상을 청구할 수 있나요?</h3>
+<p class="p-strong">A. 매칭 상대방의 인격이나 진심은 회사가 보증하지 않습니다. 다만 회사가 신원확인·혼인경력 검증 등을 명백히 소홀히 한 사실이 입증되면 책임을 물을 수 있습니다. 그 외 회원 간의 사적 분쟁은 회원이 직접 상대방에게 법적 조치를 취해야 합니다.</p>
+<h3>Q2. 분쟁조정과 소송 중 무엇이 좋을까요?</h3>
+<p class="p-strong">A. 분쟁조정을 먼저 신청하시는 것을 권장합니다. 비용이 들지 않고, 처리 기간도 30~60일로 빠르며, 양측이 수락하면 재판상 화해와 같은 효력이 있어 강제집행도 가능합니다. 조정이 성립되지 않거나 회사가 결정을 따르지 않을 때 소송으로 넘어가시면 됩니다.</p>
+<h3>Q3. 보증보험금은 누구나 청구할 수 있나요?</h3>
+<p class="p-strong">A. 아니요. 회사와 합의서를 체결했거나, 분쟁조정 결정을 받았거나, 법원의 확정판결을 받은 회원만 청구할 수 있습니다. 단순한 &#x27;불만&#x27; 단계에서는 보증보험금을 받을 수 없으며, 회사에 직접 청구하는 것이 먼저입니다.</p>
+<h3>Q4. 보증보험 한도(2천만원)를 초과하는 손해가 발생하면 어떻게 되나요?</h3>
+<p class="p-strong">A. 보증보험에서 한도까지 지급되고, 한도 초과분은 회사를 상대로 직접 청구하거나 별도 민사소송으로 회수해야 합니다. 또한 다수의 피해자가 발생하여 손해액 합계가 보증금액을 초과하는 경우, &#x27;채권자 평등의 원칙&#x27;에 따라 안분 지급될 수 있습니다.</p>
+<h3>Q5. 청구에 시효(기한)가 있나요?</h3>
+<p class="p-strong">A. 일반 채권의 소멸시효는 손해 및 가해자를 안 날로부터 3년, 불법행위가 있은 날로부터 10년입니다. 가급적 손해 발생 직후 회사와 협의를 시작하시는 것이 좋습니다.</p>
+<h3>Q6. 개인정보가 유출되었어요. 어디로 신고하나요?</h3>
+<p class="p-strong">A. 우선 회사 개인정보 보호책임자에게 즉시 알려주세요. 이와 별도로 개인정보침해신고센터(118)나 개인정보분쟁조정위원회(1833-6972)에 신고·조정 신청을 하실 수 있습니다.</p>
+<h3>Q7. 손해배상을 청구하는 동안 서비스는 어떻게 되나요?</h3>
+<p class="p-strong">A. 청구만으로 서비스가 자동 정지되지는 않습니다. 회원이 원하시면 청구와 별도로 회원 탈퇴 또는 이용 정지를 요청하실 수 있으며, 향후 합의 또는 환급에 영향을 주지 않습니다.</p>
+<h2>7. 회사 연락처 (1차 청구 접수처)</h2>
+<div class="table-wrap"><table><tr><th>상호</th><th>주식회사 린플 (서비스명: 결하다)</th></tr><tr><td>대표자</td><td>이정헌</td></tr><tr><td>사업장 주소</td><td>서울특별시 강서구 공항대로 190, 10층 1006호 (마곡동, 푸리마타워)</td></tr><tr><td>결혼중개업 신고번호</td><td>제 서울-강서-국내-26-0001호</td></tr><tr><td>고객센터</td><td>[전화번호]<br/>[운영시간 / 점심시간]</td></tr><tr><td>이메일</td><td>[고객지원 이메일 주소]</td></tr><tr><td>개인정보 보호책임자</td><td>[성명] / [이메일] / [전화번호]</td></tr></table></div>
+<div class="callout">📞 도움이 필요하시다면<br/>결하다는 회원의 정당한 손해배상 청구를 최대한 신속·공정하게 처리하기 위해 노력합니다.<br/>혼자 해결이 어려우시면 위 기관(특히 한국소비자원 1372)에 무료로 상담을 받으실 수 있습니다.<br/>회원의 권리 행사를 이유로 어떠한 불이익도 드리지 않을 것을 약속드립니다.</div>
+<p style="color:#595959">본 안내는 「결혼중개업의 관리에 관한 법률」 제25조, 같은 법 시행령 제6조·제7조 및 관련 법령을 기준으로 작성되었습니다.</p>
+    <div class="pfoot">
+      주식회사 린플 (LINPLE) · 국내결혼중개업 서울-강서구-국내-26-0000호<br/>
+      © 2026 LINPLE Inc. All rights reserved.
+    </div>
+  </main>
+</body>
+</html>

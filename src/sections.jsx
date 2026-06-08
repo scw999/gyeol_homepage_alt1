@@ -533,13 +533,6 @@ function PhilosophyBand({ images }) {
                 결하다는 그 결을 함께 살피며, 오래 함께할 수 있는 만남을 돕습니다.
               </p>
             </Reveal>
-            <Reveal delay={220}>
-              <div className="mt-8 flex flex-wrap gap-2">
-                <span className="pill border border-ink/10 bg-white text-ink/75">결혼 가치관</span>
-                <span className="pill border border-ink/10 bg-white text-ink/75">감정·갈등 대처</span>
-                <span className="pill border border-ink/10 bg-white text-ink/75">함께 그리는 미래</span>
-              </div>
-            </Reveal>
           </div>
         </div>
       </div>
@@ -740,9 +733,10 @@ function Footer({ ctaState, ctaData }) {
           <div className="md:col-span-3">
             <div className="eyebrow !text-white/60">Links</div>
             <ul className="mt-4 space-y-2.5 text-[13.5px] text-white/75">
-              <li><a href="#" className="hover:text-white">이용약관</a></li>
-              <li><a href="#" className="hover:text-white">개인정보 처리방침</a></li>
-              <li><a href="#" className="hover:text-white">결혼중개표준약관</a></li>
+              <li><a href="legal/terms.html" className="hover:text-white">이용약관</a></li>
+              <li><a href="legal/standard-terms.html" className="hover:text-white">결혼중개표준약관</a></li>
+              <li><a href="legal/privacy.html" className="hover:text-white">개인정보처리방침</a></li>
+              <li><a href="legal/damage-claim.html" className="hover:text-white">손해배상 청구절차</a></li>
               <li><a href="#" className="hover:text-white">고객센터</a></li>
             </ul>
           </div>
