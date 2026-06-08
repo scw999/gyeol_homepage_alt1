@@ -810,13 +810,34 @@ function ProblemSection({
   }, section, /*#__PURE__*/React.createElement("div", {
     className: `problem-scroll-hint${atLast ? ' is-done' : ''}`,
     "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("span", null, "\uC2A4\uD06C\uB864\uD558\uC138\uC694"), /*#__PURE__*/React.createElement("svg", {
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "15",
+    height: "22",
+    viewBox: "0 0 15 22",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "1",
+    y: "1",
+    width: "13",
+    height: "20",
+    rx: "6.5"
+  }), /*#__PURE__*/React.createElement("line", {
+    x1: "7.5",
+    y1: "5.5",
+    x2: "7.5",
+    y2: "9",
+    className: "scroll-hint-wheel"
+  })), /*#__PURE__*/React.createElement("span", null, "\uC2A4\uD06C\uB864\uD558\uC138\uC694"), /*#__PURE__*/React.createElement("svg", {
     width: "14",
     height: "14",
     viewBox: "0 0 14 14",
     fill: "none",
     stroke: "currentColor",
-    strokeWidth: "1.8",
+    strokeWidth: "2",
     strokeLinecap: "round",
     strokeLinejoin: "round"
   }, /*#__PURE__*/React.createElement("path", {
