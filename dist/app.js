@@ -204,9 +204,6 @@ function App() {
   }), /*#__PURE__*/React.createElement(FAQSection, null)), /*#__PURE__*/React.createElement(Footer, {
     ctaState: t.ctaState,
     ctaData: CTA_DATA
-  }), /*#__PURE__*/React.createElement(MobileSticky, {
-    ctaState: t.ctaState,
-    ctaData: CTA_DATA
   }), /*#__PURE__*/React.createElement(TweaksPanel, {
     title: "Tweaks"
   }, /*#__PURE__*/React.createElement(TweakSection, {
