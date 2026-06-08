@@ -64,28 +64,28 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 
 const HEADLINES = {
   experience: {
-    h: '결이 맞으면,<br/><span style="color:#6B5B95">또 만나고 싶어집니다.</span>',
-    sub: '결하다는 두 사람의 결을 맞춰 소개합니다. 가입은 커피 한잔 값으로.',
+    h: '결이 맞으면<br/><span style="color:#6B5B95">또 만나고 싶어집니다</span>',
+    sub: '결하다는 두 사람의 결을 맞춰 소개합니다 · 가입은 커피 한잔 값으로',
   },
   sharp: {
-    h: '면접 같은 소개팅은,<br/><span style="color:#6B5B95">그만.</span>',
-    sub: '결하다는 두 사람의 결을 맞춰 소개합니다. 가입은 커피 한잔 값으로.',
+    h: '면접 같은 소개팅은<br/><span style="color:#6B5B95">그만</span>',
+    sub: '결하다는 두 사람의 결을 맞춰 소개합니다 · 가입은 커피 한잔 값으로',
   },
   again: {
-    h: '또 만나고 싶은 사람을,<br/><span style="color:#6B5B95">처음부터.</span>',
-    sub: '결하다는 두 사람의 결을 맞춰 소개합니다. 가입은 커피 한잔 값으로.',
+    h: '또 만나고 싶은 사람을<br/><span style="color:#6B5B95">처음부터</span>',
+    sub: '결하다는 두 사람의 결을 맞춰 소개합니다 · 가입은 커피 한잔 값으로',
   },
   primary: {
-    h: '결이 맞아야,<br/><span style="color:#6B5B95">결혼도 맞다.</span>',
-    sub: '조건 너머의 결까지 읽어내는 새로운 결혼 매칭.',
+    h: '결이 맞아야<br/><span style="color:#6B5B95">결혼도 맞다</span>',
+    sub: '조건 너머의 결까지 읽어내는 새로운 결혼 매칭',
   },
   warm: {
-    h: '천천히, 그러나 깊게.<br/><span style="color:#6B5B95">결이 맞는 사람을 만나는 일.</span>',
-    sub: '결하다는 사람의 겉과 속, 그리고 함께 그릴 미래를 함께 살펴 진지한 만남을 연결합니다.',
+    h: '천천히 그러나 깊게<br/><span style="color:#6B5B95">결이 맞는 사람을 만나는 일</span>',
+    sub: '결하다는 사람의 겉과 속 그리고 함께 그릴 미래를 함께 살펴 진지한 만남을 연결합니다',
   },
   direct: {
-    h: '결혼을 위한 만남,<br/><span style="color:#6B5B95">결이 맞아야 합니다.</span>',
-    sub: '가벼운 매칭도, 무거운 가입비도 아닌 — 신뢰 검증과 관계 성향 이해를 바탕으로 한 결혼 중심 매칭.',
+    h: '결혼을 위한 만남<br/><span style="color:#6B5B95">결이 맞아야 합니다</span>',
+    sub: '가벼운 매칭도 무거운 가입비도 아닌 — 신뢰 검증과 관계 성향 이해를 바탕으로 한 결혼 중심 매칭',
   },
 };
 

@@ -365,7 +365,7 @@ function ProblemSection({
       d: "M7 18c1-2 3-3 5-3s4 1 5 3"
     })),
     solve: '심리 질문으로 관계의 결까지',
-    solveSub: '성향·감정 표현·갈등 대처 방식을 묻고, 결과는 내면 분석과 리듬 상세로 보여드립니다.',
+    solveSub: '성향·감정 표현·갈등 대처 방식을 묻고 결과는 내면 분석과 리듬 상세로 보여드립니다',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -399,7 +399,7 @@ function ProblemSection({
       d: "M4 6h16M4 12h10M4 18h6"
     })),
     solve: '가치관과 생활 성향까지',
-    solveSub: '라이프스타일 · 갈등 대처 방식 · 애착 성향 · 경제관 · 자녀관까지 함께 비교해, 어느 부분이 서로 맞는지 보여드립니다.',
+    solveSub: '라이프스타일 · 갈등 대처 방식 · 애착 성향 · 경제관 · 자녀관까지 함께 비교해 어느 부분이 서로 맞는지 보여드립니다',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -449,7 +449,7 @@ function ProblemSection({
       d: "M10 7h4"
     })),
     solve: '본인 확인을 거친 회원만',
-    solveSub: '본인·신원·직업·학력 검토를 거쳐 승인된 회원만 가입할 수 있도록 운영합니다.',
+    solveSub: '본인·신원·직업·학력 검토를 거쳐 승인된 회원만 가입할 수 있도록 운영합니다',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -502,7 +502,7 @@ function ProblemSection({
       stroke: "none"
     })),
     solve: '원하는 결을 세세하게',
-    solveSub: '스펙은 물론, 문신·흡연·음주·종교까지 — 다양한 선호도를 직접 설정합니다.',
+    solveSub: '스펙은 물론 문신·흡연·음주·종교까지 — 다양한 선호도를 직접 설정합니다',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -553,10 +553,12 @@ function ProblemSection({
       cy: "12",
       r: "9"
     }), /*#__PURE__*/React.createElement("path", {
-      d: "M12 7v10M9 9.5c0-1.4 1.3-2 3-2s3 .6 3 1.8c0 2.4-6 2.2-6 4.4 0 1.2 1.3 1.8 3 1.8s3-.6 3-2"
+      d: "M12 6.5v11"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M15 9.2c-.7-.9-1.8-1.4-3-1.4-1.7 0-3 .9-3 2.1 0 1.2 1.3 1.9 3 2.4 1.7.5 3 1.2 3 2.4 0 1.2-1.3 2.1-3 2.1-1.2 0-2.3-.5-3-1.4"
     })),
     solve: '커피 한잔 값으로 시작',
-    solveSub: '가입은 커피 한잔 값. 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다.',
+    solveSub: '가입은 커피 한잔 값 · 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -576,72 +578,8 @@ function ProblemSection({
     priceCard: true
   }];
   const [active, setActive] = useState(0);
-  const pinRef = useRef(null);
-  const [pinEnabled, setPinEnabled] = useState(false);
-  const N = pairs.length;
-  const STEP_VH = 50; // scroll distance per tab (≈0.5 viewport)
-
-  // Enable scroll-pin on desktop only (the stacked mobile layout pushes the
-  // solution panel off-screen when pinned) and never when reduced motion is set.
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return;
-    const wide = window.matchMedia('(min-width: 860px)');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setPinEnabled(wide.matches && !reduce.matches);
-    update();
-    wide.addEventListener('change', update);
-    reduce.addEventListener('change', update);
-    return () => {
-      wide.removeEventListener('change', update);
-      reduce.removeEventListener('change', update);
-    };
-  }, []);
-
-  // Map scroll progress within the pin wrapper to the active tab.
-  useEffect(() => {
-    if (!pinEnabled || typeof window === 'undefined') return;
-    let raf = 0;
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0;
-        const el = pinRef.current;
-        if (!el) return;
-        const vh = window.innerHeight;
-        const total = el.offsetHeight - vh;
-        const scrolled = Math.min(Math.max(-el.getBoundingClientRect().top, 0), total);
-        const progress = total > 0 ? scrolled / total : 0;
-        const idx = Math.min(N - 1, Math.max(0, Math.round(progress * (N - 1))));
-        setActive(idx);
-      });
-    };
-    window.addEventListener('scroll', onScroll, {
-      passive: true
-    });
-    onScroll();
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, [pinEnabled, N]);
-
-  // Clicking a tab scrolls to its position in the pinned timeline.
-  const goToTab = i => {
-    const el = pinRef.current;
-    if (!pinEnabled || !el) {
-      setActive(i);
-      return;
-    }
-    const vh = window.innerHeight;
-    const total = el.offsetHeight - vh;
-    const top = el.offsetTop + (N > 1 ? i / (N - 1) * total : 0);
-    window.scrollTo({
-      top,
-      behavior: 'smooth'
-    });
-  };
-  const section = /*#__PURE__*/React.createElement("section", {
-    className: `bg-offwhite${pinEnabled ? ' problem-pinned' : ''}`,
+  return /*#__PURE__*/React.createElement("section", {
+    className: "bg-offwhite",
     id: "problem"
   }, /*#__PURE__*/React.createElement("div", {
     className: "max-w-[1200px] mx-auto px-5 md:px-8"
@@ -651,7 +589,7 @@ function ProblemSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[22ch]"
-  }, "\uC2A4\uD399\uB9CC \uB9DE\uCD98 \uC18C\uAC1C\uD305,", /*#__PURE__*/React.createElement("br", null), "\uBA74\uC811 \uAC19\uC9C0 \uC54A\uC558\uB098\uC694?")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uC2A4\uD399\uB9CC \uB9DE\uCD98 \uC18C\uAC1C\uD305", /*#__PURE__*/React.createElement("br", null), "\uBA74\uC811 \uAC19\uC9C0 \uC54A\uC558\uB098\uC694?")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 200
   }, /*#__PURE__*/React.createElement("div", {
     className: "problem-layout mt-10"
@@ -663,7 +601,7 @@ function ProblemSection({
       key: i,
       type: "button",
       className: `problem-item${isActive ? ' is-active' : ''}`,
-      onClick: () => goToTab(i),
+      onClick: () => setActive(i),
       "aria-pressed": isActive
     }, /*#__PURE__*/React.createElement("div", {
       className: "problem-item-head"
@@ -797,52 +735,6 @@ function ProblemSection({
   })), /*#__PURE__*/React.createElement("div", {
     className: "problem-detail-cap"
   }, p.screenLabel))))))))));
-  if (!pinEnabled) return section;
-  const atLast = active === N - 1;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "problem-pin",
-    ref: pinRef,
-    style: {
-      height: `calc(100vh + ${(N - 1) * STEP_VH}vh)`
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "problem-pin-sticky"
-  }, section, /*#__PURE__*/React.createElement("div", {
-    className: `problem-scroll-hint${atLast ? ' is-done' : ''}`,
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "15",
-    height: "22",
-    viewBox: "0 0 15 22",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "1.6",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, /*#__PURE__*/React.createElement("rect", {
-    x: "1",
-    y: "1",
-    width: "13",
-    height: "20",
-    rx: "6.5"
-  }), /*#__PURE__*/React.createElement("line", {
-    x1: "7.5",
-    y1: "5.5",
-    x2: "7.5",
-    y2: "9",
-    className: "scroll-hint-wheel"
-  })), /*#__PURE__*/React.createElement("span", null, "\uC2A4\uD06C\uB864\uD558\uC138\uC694"), /*#__PURE__*/React.createElement("svg", {
-    width: "14",
-    height: "14",
-    viewBox: "0 0 14 14",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M3.5 5.5L7 9l3.5-3.5"
-  })))));
 }
 
 // ---------- Section 3: Three Gyeol — matching method (merged with personality) ----------
@@ -881,7 +773,7 @@ function ThreeGyeolSection() {
     className: "eyebrow mb-4"
   }, "\uACB0\uD558\uB2E4\uC758 \uBC29\uC2DD \u2014 \uC138 \uAC00\uC9C0 \uACB0"), /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[24ch]"
-  }, "\uACB0\uC774 \uB9DE\uC744 \uB54C,", /*#__PURE__*/React.createElement("br", null), "\uB450 \uC0AC\uB78C\uC758 \uC2DC\uAC04\uC774 \uC790\uC5F0\uC2A4\uB7FD\uAC8C \uC774\uC5B4\uC9D1\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
+  }, "\uACB0\uC774 \uB9DE\uC744 \uB54C", /*#__PURE__*/React.createElement("br", null), "\uB450 \uC0AC\uB78C\uC758 \uC2DC\uAC04\uC774 \uC790\uC5F0\uC2A4\uB7FD\uAC8C \uC774\uC5B4\uC9D1\uB2C8\uB2E4")), /*#__PURE__*/React.createElement("div", {
     className: "mt-12 grid md:grid-cols-3 gap-5"
   }, items.map((it, i) => /*#__PURE__*/React.createElement(Reveal, {
     key: i,
@@ -988,7 +880,7 @@ function PhilosophyBand({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[18ch]"
-  }, "\uC11C\uB85C\uC758 \uACB0\uC744 \uC54C\uC544\uBCF4\uACE0,", /*#__PURE__*/React.createElement("br", null), "\uC624\uB798 \uD568\uAED8 \uAC77\uB294 \uC77C.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uC11C\uB85C\uC758 \uACB0\uC744 \uC54C\uC544\uBCF4\uACE0", /*#__PURE__*/React.createElement("br", null), "\uC624\uB798 \uD568\uAED8 \uAC77\uB294 \uC77C")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
     className: "body-lg mt-6 text-mute max-w-[44ch]"
@@ -1011,7 +903,6 @@ function TrustSection({
   appScreens
 }) {
   const trustImg = images && (Array.isArray(images.trust) ? images.trust[0] : images.trust);
-  const verifyItems = ['본인 확인', '신원 검토', '직업·학력 확인', '승인제 가입', '상호 동의 후 만남'];
   const privacyPoints = ['검토 목적의 정보 확인', '민감 자료 원본 비공개', '필요한 범위 내 정보 활용', '개인정보 처리방침 명확히 안내'];
   return /*#__PURE__*/React.createElement("section", {
     id: "trust",
@@ -1028,36 +919,12 @@ function TrustSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2 max-w-[24ch]"
-  }, "\uC544\uBB34\uB098 \uB4E4\uC774\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4,", /*#__PURE__*/React.createElement("br", null), "\uADF8\uB798\uC11C \uBBFF\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uC544\uBB34\uB098 \uB4E4\uC774\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4", /*#__PURE__*/React.createElement("br", null), "\uADF8\uB798\uC11C \uBBFF\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
     className: "body-lg mt-6 text-mute max-w-[52ch]"
   }, "\u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB77C \uC2E0\uACE0\uB41C \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uC785\uB2C8\uB2E4. \uBCF8\uC778\xB7\uC2E0\uC6D0\xB7\uC9C1\uC5C5\xB7\uD559\uB825\uC744 \uAC80\uD1A0\uD574 \uD1B5\uACFC\uD55C \uC0AC\uB78C\uB9CC \uBC1B\uACE0, \uC131\uD5A5\uC740 Big5\xB7\uC560\uCC29\uC774\uB860\uC744 \uD1A0\uB300\uB85C \uC0B4\uD54D\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "trust-panel mt-8"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4"
-  }, "\uC2B9\uC778\uC81C \uAC80\uC99D \uC808\uCC28"), /*#__PURE__*/React.createElement("ul", {
-    className: "grid sm:grid-cols-2 gap-x-6 gap-y-3"
-  }, verifyItems.map((it, i) => /*#__PURE__*/React.createElement("li", {
-    key: i,
-    className: "flex items-center gap-3 body"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "w-5 h-5 rounded-full grid place-items-center bg-lavender-deep/10 text-lavender-deep shrink-0"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "11",
-    height: "11",
-    viewBox: "0 0 12 12"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M2.5 6.2l2.4 2.3 4.6-5",
-    stroke: "currentColor",
-    strokeWidth: "1.6",
-    fill: "none",
-    strokeLinecap: "round",
-    strokeLinejoin: "round"
-  }))), /*#__PURE__*/React.createElement("span", null, it)))))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 280
   }, /*#__PURE__*/React.createElement("div", {
     className: "trust-panel mt-4"
   }, /*#__PURE__*/React.createElement("div", {
@@ -1126,7 +993,7 @@ function PricingSection({
     delay: 80
   }, /*#__PURE__*/React.createElement("h2", {
     className: "gh-display gh-h2"
-  }, "\uCEE4\uD53C \uD55C\uC794 \uAC12\uC73C\uB85C \uC2DC\uC791,", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8 \uD655\uC815 \uC2DC\uC5D0\uB9CC \uACB0\uC81C.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\uCEE4\uD53C \uD55C\uC794 \uAC12\uC73C\uB85C \uC2DC\uC791", /*#__PURE__*/React.createElement("br", null), "\uB9CC\uB0A8 \uD655\uC815 \uC2DC\uC5D0\uB9CC \uACB0\uC81C")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
   }, /*#__PURE__*/React.createElement("div", {
     className: "card p-7 md:p-8 mt-10 relative overflow-hidden"
@@ -1240,7 +1107,7 @@ function Footer({
     light: true
   }), /*#__PURE__*/React.createElement("p", {
     className: "mt-4 text-[15px] text-white/70"
-  }, "\uACB0\uD558\uB2E4 \u2014 \uB610 \uB9CC\uB098\uACE0 \uC2F6\uC740 \uC0AC\uB78C\uC744, \uCC98\uC74C\uBD80\uD130."), /*#__PURE__*/React.createElement("div", {
+  }, "\uACB0\uD558\uB2E4 \u2014 \uB610 \uB9CC\uB098\uACE0 \uC2F6\uC740 \uC0AC\uB78C\uC744, \uCC98\uC74C\uBD80\uD130"), /*#__PURE__*/React.createElement("div", {
     className: "mt-7 flex flex-col sm:flex-row gap-3"
   }, ctaButtons.map((b, i) => /*#__PURE__*/React.createElement("a", {
     key: i,
@@ -1250,7 +1117,52 @@ function Footer({
       background: '#fff',
       color: '#1c1a23'
     }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, b.icon === 'apple' && /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    fill: "currentColor"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M16.4 12.6c0-2.4 2-3.5 2.1-3.6-1.1-1.6-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.2 1-4 2.4-1.7 3-.4 7.4 1.3 9.8.8 1.2 1.8 2.5 3.1 2.5 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.4-2.8-.1 0-2.7-1-2.9-4.1zm-2.4-7.5c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 2.9 1.1.1 2.2-.5 2.9-1.3z"
+  })), b.icon === 'play' && /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M3.6 2.5c-.4.3-.6.7-.6 1.3v16.4c0 .6.2 1 .6 1.3l9.5-9.5L3.6 2.5z",
+    fill: "#00BCD4"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M16.7 8.8L4.6 1.9c-.4-.2-.8-.3-1.1-.1l9.6 9.6 3.6-2.6z",
+    fill: "#EA4335"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M20.4 11.1l-3.7-2.1L13 12l3.7 3.7 3.7-2.1c1.2-.9 1.2-1.6 0-2.5z",
+    fill: "#FFC107"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M3.5 22.1c.3.1.7.1 1.1-.1l12.1-6.9-3.6-3.6L3.5 22.1z",
+    fill: "#4CAF50"
+  })), b.icon === 'bell' && /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M6 8a6 6 0 1 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M10 19a2 2 0 0 0 4 0"
+  })), b.icon === 'edit' && /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M4 20h4l11-11-4-4L4 16v4z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M14 6l4 4"
+  })), /*#__PURE__*/React.createElement("div", {
     className: "leading-tight text-left"
   }, /*#__PURE__*/React.createElement("div", {
     className: "small",
