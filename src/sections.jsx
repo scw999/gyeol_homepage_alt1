@@ -250,7 +250,7 @@ function ProblemSection({ appScreens }) {
   const pinRef = useRef(null);
   const [pinEnabled, setPinEnabled] = useState(false);
   const N = pairs.length;
-  const STEP_VH = 80; // scroll distance per tab (≈0.8 viewport)
+  const STEP_VH = 50; // scroll distance per tab (≈0.5 viewport)
 
   // Enable scroll-pin on desktop only (the stacked mobile layout pushes the
   // solution panel off-screen when pinned) and never when reduced motion is set.
@@ -415,9 +415,16 @@ function ProblemSection({ appScreens }) {
   );
 
   if (!pinEnabled) return section;
+  const atLast = active === N - 1;
   return (
     <div className="problem-pin" ref={pinRef} style={{height:`calc(100vh + ${(N - 1) * STEP_VH}vh)`}}>
-      <div className="problem-pin-sticky">{section}</div>
+      <div className="problem-pin-sticky">
+        {section}
+        <div className={`problem-scroll-hint${atLast ? ' is-done' : ''}`} aria-hidden="true">
+          <span>스크롤하세요</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"/></svg>
+        </div>
+      </div>
     </div>
   );
 }

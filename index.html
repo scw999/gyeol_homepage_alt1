@@ -184,6 +184,24 @@
   /* Scroll-pin: section sticks to the viewport, scroll advances the active tab. */
   .problem-pin{ position:relative; }
   .problem-pin-sticky{ position:sticky; top:0; min-height:100vh; display:flex; align-items:center; overflow:hidden; }
+  .problem-scroll-hint{
+    position:absolute; bottom:20px; left:50%; transform:translateX(-50%);
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'Inter',ui-sans-serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:rgba(107,91,149,.75);
+    background:rgba(255,255,255,.78); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    padding:8px 14px; border-radius:999px;
+    border:0.5px solid rgba(107,91,149,.18);
+    transition:opacity .35s ease, transform .35s ease;
+    pointer-events:none; z-index:5;
+  }
+  .problem-scroll-hint svg{ animation:scrollHintBounce 1.6s ease-in-out infinite; }
+  .problem-scroll-hint.is-done{ opacity:0; transform:translateX(-50%) translateY(8px); }
+  @keyframes scrollHintBounce{
+    0%, 100%{ transform:translateY(0); }
+    50%{ transform:translateY(3px); }
+  }
+  @media (prefers-reduced-motion: reduce){ .problem-scroll-hint svg{ animation:none; } }
   .problem-pinned{ width:100%; padding-top:0 !important; padding-bottom:0 !important; }
   /* Compact the pinned panel so the whole section fits one viewport height. */
   @media (min-width:860px){

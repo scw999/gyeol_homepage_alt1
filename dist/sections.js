@@ -579,7 +579,7 @@ function ProblemSection({
   const pinRef = useRef(null);
   const [pinEnabled, setPinEnabled] = useState(false);
   const N = pairs.length;
-  const STEP_VH = 80; // scroll distance per tab (≈0.8 viewport)
+  const STEP_VH = 50; // scroll distance per tab (≈0.5 viewport)
 
   // Enable scroll-pin on desktop only (the stacked mobile layout pushes the
   // solution panel off-screen when pinned) and never when reduced motion is set.
@@ -798,6 +798,7 @@ function ProblemSection({
     className: "problem-detail-cap"
   }, p.screenLabel))))))))));
   if (!pinEnabled) return section;
+  const atLast = active === N - 1;
   return /*#__PURE__*/React.createElement("div", {
     className: "problem-pin",
     ref: pinRef,
@@ -806,7 +807,21 @@ function ProblemSection({
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "problem-pin-sticky"
-  }, section));
+  }, section, /*#__PURE__*/React.createElement("div", {
+    className: `problem-scroll-hint${atLast ? ' is-done' : ''}`,
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("span", null, "\uC2A4\uD06C\uB864\uD558\uC138\uC694"), /*#__PURE__*/React.createElement("svg", {
+    width: "14",
+    height: "14",
+    viewBox: "0 0 14 14",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M3.5 5.5L7 9l3.5-3.5"
+  })))));
 }
 
 // ---------- Section 3: Three Gyeol — matching method (merged with personality) ----------
