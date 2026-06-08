@@ -247,9 +247,55 @@ function ProblemSection({ appScreens }) {
     },
   ];
   const [active, setActive] = useState(0);
+  const pinRef = useRef(null);
+  const [pinEnabled, setPinEnabled] = useState(false);
+  const N = pairs.length;
+  const STEP_VH = 50;
 
-  return (
-    <section className="bg-offwhite" id="problem">
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const wide = window.matchMedia('(min-width: 860px)');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setPinEnabled(wide.matches && !reduce.matches);
+    update();
+    wide.addEventListener('change', update);
+    reduce.addEventListener('change', update);
+    return () => { wide.removeEventListener('change', update); reduce.removeEventListener('change', update); };
+  }, []);
+
+  useEffect(() => {
+    if (!pinEnabled || typeof window === 'undefined') return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const el = pinRef.current;
+        if (!el) return;
+        const vh = window.innerHeight;
+        const total = el.offsetHeight - vh;
+        const scrolled = Math.min(Math.max(-el.getBoundingClientRect().top, 0), total);
+        const progress = total > 0 ? scrolled / total : 0;
+        const idx = Math.min(N - 1, Math.max(0, Math.round(progress * (N - 1))));
+        setActive(idx);
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
+  }, [pinEnabled, N]);
+
+  const goToTab = (i) => {
+    const el = pinRef.current;
+    if (!pinEnabled || !el) { setActive(i); return; }
+    const vh = window.innerHeight;
+    const total = el.offsetHeight - vh;
+    const top = el.offsetTop + (N > 1 ? (i / (N - 1)) * total : 0);
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
+
+  const section = (
+    <section className={`bg-offwhite${pinEnabled ? ' problem-pinned' : ''}`} id="problem">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <Reveal><div className="eyebrow mb-4">결하다 방식</div></Reveal>
         <Reveal delay={80}>
@@ -267,7 +313,7 @@ function ProblemSection({ appScreens }) {
                     key={i}
                     type="button"
                     className={`problem-item${isActive ? ' is-active' : ''}`}
-                    onClick={()=>setActive(i)}
+                    onClick={()=>goToTab(i)}
                     aria-pressed={isActive}
                   >
                     <div className="problem-item-head">
@@ -362,6 +408,24 @@ function ProblemSection({ appScreens }) {
         </Reveal>
       </div>
     </section>
+  );
+
+  if (!pinEnabled) return section;
+  const atLast = active === N - 1;
+  return (
+    <div className="problem-pin" ref={pinRef} style={{height:`calc(100vh + ${(N - 1) * STEP_VH}vh)`}}>
+      <div className="problem-pin-sticky">
+        {section}
+        <div className={`problem-scroll-hint${atLast ? ' is-done' : ''}`} aria-hidden="true">
+          <svg width="15" height="22" viewBox="0 0 15 22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="1" y="1" width="13" height="20" rx="6.5"/>
+            <line x1="7.5" y1="5.5" x2="7.5" y2="9" className="scroll-hint-wheel"/>
+          </svg>
+          <span>스크롤하세요</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3.5 5.5L7 9l3.5-3.5"/></svg>
+        </div>
+      </div>
+    </div>
   );
 }
 
