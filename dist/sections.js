@@ -201,7 +201,8 @@ function Hero({
   }))), /*#__PURE__*/React.createElement("div", {
     className: "relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-10 md:pb-12 flex flex-col",
     style: {
-      flex: '1 1 0%'
+      flex: '1 1 0%',
+      justifyContent: 'center'
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "grid md:grid-cols-12 gap-10 md:gap-12 items-center"
@@ -330,18 +331,13 @@ function Hero({
     style: {
       background: 'radial-gradient(closest-side, rgba(168,143,206,.25), transparent)'
     }
-  }))))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 'auto',
-      paddingTop: '40px'
-    }
-  }, /*#__PURE__*/React.createElement(Reveal, {
+  }))))), /*#__PURE__*/React.createElement(Reveal, {
     delay: 360
   }, /*#__PURE__*/React.createElement("div", {
-    className: "flex items-center gap-3 text-mute small"
+    className: "mt-10 flex items-center gap-3 text-mute small"
   }, /*#__PURE__*/React.createElement("span", {
     className: "w-12 h-px bg-ink/20"
-  }), /*#__PURE__*/React.createElement("span", null, "\uC2A4\uD06C\uB864\uD558\uBA74 \uACB0\uD558\uB2E4\uC758 \uBC29\uC2DD\uC774 \uD3BC\uCCD0\uC9D1\uB2C8\uB2E4"))))));
+  }), /*#__PURE__*/React.createElement("span", null, "\uC2A4\uD06C\uB864\uD558\uBA74 \uACB0\uD558\uB2E4\uC758 \uBC29\uC2DD\uC774 \uD3BC\uCCD0\uC9D1\uB2C8\uB2E4")))));
 }
 
 // ---------- Section 2: Problem → Solution (tabbed, interactive) ----------

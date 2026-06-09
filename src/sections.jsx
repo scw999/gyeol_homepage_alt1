@@ -106,7 +106,7 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
         </div>
       </div>
 
-      <div className="relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-10 md:pb-12 flex flex-col" style={{flex:'1 1 0%'}}>
+      <div className="relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-10 md:pb-12 flex flex-col" style={{flex:'1 1 0%', justifyContent:'center'}}>
         <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-center">
         <div className="md:col-span-7">
           <Reveal>
@@ -177,14 +177,12 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
         </div>
         </div>
 
-        <div style={{marginTop:'auto', paddingTop:'40px'}}>
-          <Reveal delay={360}>
-            <div className="flex items-center gap-3 text-mute small">
-              <span className="w-12 h-px bg-ink/20"/>
-              <span>스크롤하면 결하다의 방식이 펼쳐집니다</span>
-            </div>
-          </Reveal>
-        </div>
+        <Reveal delay={360}>
+          <div className="mt-10 flex items-center gap-3 text-mute small">
+            <span className="w-12 h-px bg-ink/20"/>
+            <span>스크롤하면 결하다의 방식이 펼쳐집니다</span>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
