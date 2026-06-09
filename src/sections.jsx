@@ -91,7 +91,7 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
   const heroImg = images && (Array.isArray(images.hero) ? images.hero[0] : images.hero);
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden flex items-center" id="hero" ref={stageRef} style={{isolation:'isolate'}}>
+    <section className="relative overflow-hidden" id="hero" ref={stageRef} style={{isolation:'isolate'}}>
       {/* Soft painterly background */}
       <div className="absolute inset-0" style={{zIndex:0}}>
         <div className="absolute inset-0" style={{

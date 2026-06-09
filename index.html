@@ -86,6 +86,8 @@
 
   /* Section spacing */
   section{ padding-top:clamp(72px,9vw,140px); padding-bottom:clamp(72px,9vw,140px);}
+  /* Hero defines its own padding via the inner container; cancel the global section padding. */
+  #hero{ padding-top:0; padding-bottom:0; }
   section.tight{ padding-top:clamp(56px,7vw,110px); padding-bottom:clamp(56px,7vw,110px);}
 
   /* Reveal on scroll */
@@ -164,7 +166,7 @@
     padding-left:56px; margin:0;
   }
   .problem-item-arrow{
-    position:absolute; right:-21px; top:31px;
+    position:absolute; right:-21px; top:50%; transform:translateY(-50%);
     width:42px; height:42px; border-radius:50%;
     background:#6B5B95; color:#fff;
     display:grid; place-items:center; z-index:4;
