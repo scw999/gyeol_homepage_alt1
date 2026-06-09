@@ -171,7 +171,7 @@ function Hero({
   const ctaButtons = ctaState === 'pre' ? ctaData.pre : ctaData.post;
   const heroImg = images && (Array.isArray(images.hero) ? images.hero[0] : images.hero);
   return /*#__PURE__*/React.createElement("section", {
-    className: "relative min-h-[100svh] overflow-hidden flex items-center",
+    className: "relative overflow-hidden",
     id: "hero",
     ref: stageRef,
     style: {
