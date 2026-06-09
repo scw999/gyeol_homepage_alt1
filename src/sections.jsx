@@ -91,7 +91,7 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
   const heroImg = images && (Array.isArray(images.hero) ? images.hero[0] : images.hero);
 
   return (
-    <section className="relative overflow-hidden" id="hero" ref={stageRef} style={{isolation:'isolate'}}>
+    <section className="relative min-h-[100svh] overflow-hidden flex flex-col" id="hero" ref={stageRef} style={{isolation:'isolate'}}>
       {/* Soft painterly background */}
       <div className="absolute inset-0" style={{zIndex:0}}>
         <div className="absolute inset-0" style={{
@@ -106,7 +106,8 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
         </div>
       </div>
 
-      <div className="relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-16 md:pb-20 grid md:grid-cols-12 gap-10 md:gap-12 items-center">
+      <div className="relative w-full max-w-[1200px] mx-auto px-5 md:px-8 pt-24 md:pt-28 pb-10 md:pb-12 flex flex-col" style={{flex:'1 1 0%'}}>
+        <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-center">
         <div className="md:col-span-7">
           <Reveal>
             <div className="eyebrow mb-5 text-lavender-deep">결하다 · 결혼을 위한 만남</div>
@@ -156,12 +157,6 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
             </div>
           </Reveal>
 
-          <Reveal delay={360}>
-            <div className="mt-12 flex items-center gap-3 text-mute small">
-              <span className="w-12 h-px bg-ink/20"/>
-              <span>스크롤하면 결하다의 방식이 펼쳐집니다</span>
-            </div>
-          </Reveal>
         </div>
 
         {/* Phone mockups */}
@@ -177,6 +172,16 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
               <div className="absolute right-[10%] top-[18%] w-[320px] h-[320px] rounded-full -z-10 pointer-events-none" style={{
                 background:'radial-gradient(closest-side, rgba(168,143,206,.25), transparent)'
               }}/>
+            </div>
+          </Reveal>
+        </div>
+        </div>
+
+        <div style={{marginTop:'auto', paddingTop:'40px'}}>
+          <Reveal delay={360}>
+            <div className="flex items-center gap-3 text-mute small">
+              <span className="w-12 h-px bg-ink/20"/>
+              <span>스크롤하면 결하다의 방식이 펼쳐집니다</span>
             </div>
           </Reveal>
         </div>
