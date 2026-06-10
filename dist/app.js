@@ -173,7 +173,7 @@ function App() {
     strokeLinecap: "round"
   })))), /*#__PURE__*/React.createElement("nav", {
     className: "px-6 py-8 space-y-5 text-[20px]"
-  }, [['결하다 방식', '#way'], ['신뢰 검증', '#trust'], ['비용', '#pricing'], ['FAQ', '#faq']].map(([l, h]) => /*#__PURE__*/React.createElement("a", {
+  }, [['결하다 방식', '#way'], ['신뢰 검증', '#trust'], ['FAQ', '#faq']].map(([l, h]) => /*#__PURE__*/React.createElement("a", {
     key: h,
     href: h,
     className: "block"
@@ -193,15 +193,12 @@ function App() {
     appScreens: APP_SCREENS
   }), /*#__PURE__*/React.createElement(ConnectionBand, {
     images: IMAGES
-  }), /*#__PURE__*/React.createElement(ThreeGyeolSection, null), /*#__PURE__*/React.createElement(PhilosophyBand, {
+  }), /*#__PURE__*/React.createElement(ThreeGyeolSection, null), /*#__PURE__*/React.createElement(TrustSection, {
+    images: IMAGES,
+    appScreens: APP_SCREENS
+  }), /*#__PURE__*/React.createElement(FAQSection, null), /*#__PURE__*/React.createElement(PhilosophyBand, {
     images: IMAGES
-  }), /*#__PURE__*/React.createElement(TrustSection, {
-    images: IMAGES,
-    appScreens: APP_SCREENS
-  }), /*#__PURE__*/React.createElement(PricingSection, {
-    images: IMAGES,
-    appScreens: APP_SCREENS
-  }), /*#__PURE__*/React.createElement(FAQSection, null)), /*#__PURE__*/React.createElement(Footer, {
+  })), /*#__PURE__*/React.createElement(Footer, {
     ctaState: t.ctaState,
     ctaData: CTA_DATA
   }), /*#__PURE__*/React.createElement(TweaksPanel, {

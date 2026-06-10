@@ -55,9 +55,6 @@ function Header({
     label: '신뢰 검증',
     href: '#trust'
   }, {
-    label: '비용',
-    href: '#pricing'
-  }, {
     label: 'FAQ',
     href: '#faq'
   }];
@@ -951,7 +948,7 @@ function ConnectionBand({
   })));
 }
 
-// ---------- Brand band: emotional break with couple photo ----------
+// ---------- Closing band: full-bleed horizontal brand beat ----------
 function PhilosophyBand({
   images
 }) {
@@ -959,41 +956,53 @@ function PhilosophyBand({
   if (!img) return null;
   return /*#__PURE__*/React.createElement("section", {
     id: "philosophy",
-    className: "bg-veil grain"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "grid md:grid-cols-12 gap-10 md:gap-12 items-center"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-6"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "relative rounded-2xl overflow-hidden hairline",
+    className: "relative overflow-hidden philosophy-band",
     style: {
-      aspectRatio: '4/5'
+      paddingTop: 0,
+      paddingBottom: 0
     }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "philosophy-band-stage"
   }, /*#__PURE__*/React.createElement("img", {
     src: img,
     alt: "\uC2E0\uBD80\uAC00 \uC2E0\uB791\uC758 \uC5B4\uAE68\uB97C \uAC10\uC2FC \uBAA8\uC2B5",
     className: "absolute inset-0 w-full h-full object-cover",
-    loading: "lazy"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "absolute inset-0",
+    loading: "lazy",
     style: {
-      background: 'linear-gradient(135deg, rgba(107,91,149,.05), rgba(0,0,0,0) 40%, rgba(0,0,0,.18))'
+      objectPosition: 'left center'
     }
-  })))), /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-6"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-0 pointer-events-none",
+    style: {
+      background: 'linear-gradient(90deg, rgba(91,75,138,0) 0%, rgba(91,75,138,0) 22%, rgba(107,91,149,.55) 48%, rgba(91,75,138,.82) 100%)'
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "absolute inset-0"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "max-w-[1200px] h-full mx-auto px-5 md:px-12 flex items-center",
+    style: {
+      justifyContent: 'flex-end'
+    }
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4"
-  }, "\uACB0\uD558\uB2E4\uAC00 \uADF8\uB9AC\uB294 \uACB0\uD63C")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 80
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2 max-w-[18ch]"
-  }, "\uC11C\uB85C\uC758 \uACB0\uC744 \uC54C\uC544\uBCF4\uACE0", /*#__PURE__*/React.createElement("br", null), "\uC624\uB798 \uD568\uAED8 \uAC77\uB294 \uC77C")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 160
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 text-mute max-w-[44ch]"
-  }, "\uACB0\uD63C\uC740 \uC7A0\uAE50\uC758 \uD638\uAC10\uC774 \uC544\uB2C8\uB77C, \uB450 \uC0AC\uB78C\uC758 \uACB0\uC774 \uB9DE\uC544\uAC08 \uB54C \uC2DC\uC791\uB429\uB2C8\uB2E4. \uACB0\uD558\uB2E4\uB294 \uADF8 \uACB0\uC744 \uD568\uAED8 \uC0B4\uD53C\uBA70, \uC624\uB798 \uD568\uAED8\uD560 \uC218 \uC788\uB294 \uB9CC\uB0A8\uC744 \uB3D5\uC2B5\uB2C8\uB2E4."))))));
+    className: "philosophy-copy text-white"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "eyebrow mb-4",
+    style: {
+      color: 'rgba(255,255,255,.95)',
+      fontWeight: 600
+    }
+  }, "\uACB0\uD558\uB2E4\uAC00 \uADF8\uB9AC\uB294 \uACB0\uD63C"), /*#__PURE__*/React.createElement("h2", {
+    className: "gh-display gh-h2",
+    style: {
+      color: '#fff',
+      textShadow: '0 1px 2px rgba(60,40,90,.18)'
+    }
+  }, "\uACB0\uD63C\uC740 \uC7A0\uAE50\uC758 \uD638\uAC10\uC774 \uC544\uB2C8\uB77C,", /*#__PURE__*/React.createElement("br", null), "\uB450 \uC0AC\uB78C\uC758 \uACB0\uC774 \uB9DE\uC544\uAC08 \uB54C \uC2DC\uC791\uB429\uB2C8\uB2E4"), /*#__PURE__*/React.createElement("p", {
+    className: "body-lg mt-5",
+    style: {
+      color: 'rgba(255,255,255,.92)'
+    }
+  }, "\uACB0\uD558\uB2E4\uC640 \uD568\uAED8, \uADF8 \uACB0\uC744 \uC0B4\uD3B4\uBCF4\uC138\uC694")))))));
 }
 
 // ---------- Section 4: Trust — 결혼중개업법 + 인증 + 개인정보 통합 ----------
@@ -1069,82 +1078,6 @@ function TrustSection({
     style: {
       background: 'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.12))'
     }
-  })))))));
-}
-
-// ---------- Section 5: Pricing — low entry, on-success only ----------
-function PricingSection({
-  images
-}) {
-  const pricingImg = images && (Array.isArray(images.pricing) ? images.pricing[0] : images.pricing);
-  return /*#__PURE__*/React.createElement("section", {
-    id: "pricing",
-    className: "bg-offwhite"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "max-w-[1200px] mx-auto px-5 md:px-8"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "grid md:grid-cols-12 gap-10 md:gap-12 items-start"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-7"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow mb-4"
-  }, "\uACB0\uD558\uB2E4\uC758 \uCC28\uBCC4\uC810")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 80
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "gh-display gh-h2"
-  }, "\uCEE4\uD53C 1\uC794 \uAC12\uC73C\uB85C \uC2DC\uC791", /*#__PURE__*/React.createElement("br", null), "Only \uB9CC\uB0A8 \uD655\uC815 \uC2DC \uACB0\uC81C")), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 220
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card p-7 md:p-8 mt-10 relative overflow-hidden"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "absolute -right-16 -top-16 w-56 h-56 rounded-full",
-    style: {
-      background: 'radial-gradient(closest-side, rgba(200,182,226,.5), transparent)'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "relative space-y-6"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "flex items-baseline justify-between"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow"
-  }, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("span", {
-    className: "pill bg-lavender-deep text-white"
-  }, "\uBD80\uB2F4 \uC5C6\uC774")), /*#__PURE__*/React.createElement("div", {
-    className: "gh-h3 mt-2",
-    style: {
-      fontSize: '34px',
-      letterSpacing: '-0.02em'
-    }
-  }, "\u20A910,000"), /*#__PURE__*/React.createElement("p", {
-    className: "body mt-2 text-mute"
-  }, "\uC120\uACB0\uC81C \uBD80\uB2F4 \uC5C6\uC774 \uAC00\uBCCD\uAC8C \uC2DC\uC791\uD569\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement("div", {
-    className: "rule"
-  }), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "eyebrow"
-  }, "\uB9CC\uB0A8 \uD655\uC815 \uC2DC"), /*#__PURE__*/React.createElement("div", {
-    className: "gh-h3 mt-2",
-    style: {
-      fontSize: '34px',
-      letterSpacing: '-0.02em'
-    }
-  }, "\u20A9100,000"), /*#__PURE__*/React.createElement("p", {
-    className: "body mt-2 text-mute"
-  }, "\uC591\uCABD\uC774 \"\uB9CC\uB098\uBCFC\uB798\uC694\"\uB97C \uB204\uB974\uACE0 \uB9CC\uB0A8\uC774 \uD655\uC815\uB420 \uB54C\uB9CC \uBC1C\uC0DD\uD569\uB2C8\uB2E4."), /*#__PURE__*/React.createElement("p", {
-    className: "small mt-3 text-mute"
-  }, "\uACB0\uC81C \uC2DC\uC810\xB7\uD658\uBD88 \uC815\uCC45\uC740 \uC571 \uAC00\uC785 \uB2E8\uACC4\uC5D0\uC11C \uC0C1\uC138 \uC548\uB0B4\uB429\uB2C8\uB2E4.")))))), pricingImg && /*#__PURE__*/React.createElement("div", {
-    className: "md:col-span-5"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: 140
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "relative rounded-2xl overflow-hidden hairline md:mt-16",
-    style: {
-      aspectRatio: '4/5'
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: pricingImg,
-    alt: "\uBC18\uC9C0\uB97C \uB080 \uB450 \uC0AC\uB78C\uC758 \uC190 \u2014 \uC57D\uC18D\uC758 \uC21C\uAC04",
-    className: "absolute inset-0 w-full h-full object-cover",
-    loading: "lazy"
   })))))));
 }
 
@@ -1344,10 +1277,9 @@ Object.assign(window, {
   ProblemSection,
   ConnectionBand,
   ThreeGyeolSection,
-  PhilosophyBand,
   TrustSection,
-  PricingSection,
   FAQSection,
+  PhilosophyBand,
   Footer,
   MobileSticky
 });

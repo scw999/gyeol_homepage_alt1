@@ -129,7 +129,7 @@ function App() {
             </button>
           </div>
           <nav className="px-6 py-8 space-y-5 text-[20px]">
-            {[['결하다 방식','#way'],['신뢰 검증','#trust'],['비용','#pricing'],['FAQ','#faq']].map(([l,h])=>(
+            {[['결하다 방식','#way'],['신뢰 검증','#trust'],['FAQ','#faq']].map(([l,h])=>(
               <a key={h} href={h} className="block">{l}</a>
             ))}
             <a href="#download" className="btn btn-primary mt-6 w-full">앱 다운로드</a>
@@ -151,10 +151,9 @@ function App() {
         <ProblemSection appScreens={APP_SCREENS}/>
         <ConnectionBand images={IMAGES}/>
         <ThreeGyeolSection/>
-        <PhilosophyBand images={IMAGES}/>
         <TrustSection images={IMAGES} appScreens={APP_SCREENS}/>
-        <PricingSection images={IMAGES} appScreens={APP_SCREENS}/>
         <FAQSection/>
+        <PhilosophyBand images={IMAGES}/>
       </main>
 
       <Footer ctaState={t.ctaState} ctaData={CTA_DATA}/>

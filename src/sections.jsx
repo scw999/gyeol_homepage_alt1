@@ -25,7 +25,6 @@ function Header({ ctaPrimary, onOpenMenu }) {
   const nav = [
     {label:'결하다 방식', href:'#way'},
     {label:'신뢰 검증', href:'#trust'},
-    {label:'비용', href:'#pricing'},
     {label:'FAQ', href:'#faq'},
   ];
   return (
@@ -509,32 +508,36 @@ function ConnectionBand({ images }) {
   );
 }
 
-// ---------- Brand band: emotional break with couple photo ----------
+// ---------- Closing band: full-bleed horizontal brand beat ----------
 function PhilosophyBand({ images }) {
   const img = images && (Array.isArray(images.philosophy) ? images.philosophy[0] : images.philosophy);
   if (!img) return null;
   return (
-    <section id="philosophy" className="bg-veil grain">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-center">
-          <div className="md:col-span-6">
+    <section id="philosophy" className="relative overflow-hidden philosophy-band" style={{paddingTop:0, paddingBottom:0}}>
+      <div className="philosophy-band-stage">
+        <img
+          src={img}
+          alt="신부가 신랑의 어깨를 감싼 모습"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+          style={{objectPosition:'left center'}}
+        />
+        {/* Lavender wash — image visible on the left, color builds on the right where the text sits. */}
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background:'linear-gradient(90deg, rgba(91,75,138,0) 0%, rgba(91,75,138,0) 22%, rgba(107,91,149,.55) 48%, rgba(91,75,138,.82) 100%)'
+        }}/>
+        <div className="absolute inset-0">
+          <div className="max-w-[1200px] h-full mx-auto px-5 md:px-12 flex items-center" style={{justifyContent:'flex-end'}}>
             <Reveal>
-              <div className="relative rounded-2xl overflow-hidden hairline" style={{aspectRatio:'4/5'}}>
-                <img src={img} alt="신부가 신랑의 어깨를 감싼 모습" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
-                <div className="absolute inset-0" style={{background:'linear-gradient(135deg, rgba(107,91,149,.05), rgba(0,0,0,0) 40%, rgba(0,0,0,.18))'}}/>
+              <div className="philosophy-copy text-white">
+                <div className="eyebrow mb-4" style={{color:'rgba(255,255,255,.95)', fontWeight:600}}>결하다가 그리는 결혼</div>
+                <h2 className="gh-display gh-h2" style={{color:'#fff', textShadow:'0 1px 2px rgba(60,40,90,.18)'}}>
+                  결혼은 잠깐의 호감이 아니라,<br/>두 사람의 결이 맞아갈 때 시작됩니다
+                </h2>
+                <p className="body-lg mt-5" style={{color:'rgba(255,255,255,.92)'}}>
+                  결하다와 함께, 그 결을 살펴보세요
+                </p>
               </div>
-            </Reveal>
-          </div>
-          <div className="md:col-span-6">
-            <Reveal><div className="eyebrow mb-4">결하다가 그리는 결혼</div></Reveal>
-            <Reveal delay={80}>
-              <h2 className="gh-display gh-h2 max-w-[18ch]">서로의 결을 알아보고<br/>오래 함께 걷는 일</h2>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="body-lg mt-6 text-mute max-w-[44ch]">
-                결혼은 잠깐의 호감이 아니라, 두 사람의 결이 맞아갈 때 시작됩니다.
-                결하다는 그 결을 함께 살피며, 오래 함께할 수 있는 만남을 돕습니다.
-              </p>
             </Reveal>
           </div>
         </div>
@@ -592,58 +595,6 @@ function TrustSection({ images, appScreens }) {
               </div>
             </Reveal>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ---------- Section 5: Pricing — low entry, on-success only ----------
-function PricingSection({ images }) {
-  const pricingImg = images && (Array.isArray(images.pricing) ? images.pricing[0] : images.pricing);
-  return (
-    <section id="pricing" className="bg-offwhite">
-      <div className="max-w-[1200px] mx-auto px-5 md:px-8">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-start">
-          <div className="md:col-span-7">
-            <Reveal><div className="eyebrow mb-4">결하다의 차별점</div></Reveal>
-            <Reveal delay={80}>
-              <h2 className="gh-display gh-h2">커피 1잔 값으로 시작<br/>Only 만남 확정 시 결제</h2>
-            </Reveal>
-
-            <Reveal delay={220}>
-              <div className="card p-7 md:p-8 mt-10 relative overflow-hidden">
-                <div className="absolute -right-16 -top-16 w-56 h-56 rounded-full" style={{background:'radial-gradient(closest-side, rgba(200,182,226,.5), transparent)'}}/>
-                <div className="relative space-y-6">
-                  <div>
-                    <div className="flex items-baseline justify-between">
-                      <div className="eyebrow">가입비</div>
-                      <span className="pill bg-lavender-deep text-white">부담 없이</span>
-                    </div>
-                    <div className="gh-h3 mt-2" style={{fontSize:'34px', letterSpacing:'-0.02em'}}>₩10,000</div>
-                    <p className="body mt-2 text-mute">선결제 부담 없이 가볍게 시작합니다.</p>
-                  </div>
-                  <div className="rule"/>
-                  <div>
-                    <div className="eyebrow">만남 확정 시</div>
-                    <div className="gh-h3 mt-2" style={{fontSize:'34px', letterSpacing:'-0.02em'}}>₩100,000</div>
-                    <p className="body mt-2 text-mute">양쪽이 "만나볼래요"를 누르고 만남이 확정될 때만 발생합니다.</p>
-                    <p className="small mt-3 text-mute">결제 시점·환불 정책은 앱 가입 단계에서 상세 안내됩니다.</p>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          {pricingImg && (
-            <div className="md:col-span-5">
-              <Reveal delay={140}>
-                <div className="relative rounded-2xl overflow-hidden hairline md:mt-16" style={{aspectRatio:'4/5'}}>
-                  <img src={pricingImg} alt="반지를 낀 두 사람의 손 — 약속의 순간" className="absolute inset-0 w-full h-full object-cover" loading="lazy"/>
-                </div>
-              </Reveal>
-            </div>
-          )}
         </div>
       </div>
     </section>
@@ -774,7 +725,6 @@ function MobileSticky({ ctaState, ctaData }) {
 // Export to window for app.jsx
 Object.assign(window, {
   Reveal, Header, Hero,
-  ProblemSection, ConnectionBand, ThreeGyeolSection, PhilosophyBand, TrustSection,
-  PricingSection,
-  FAQSection, Footer, MobileSticky,
+  ProblemSection, ConnectionBand, ThreeGyeolSection, TrustSection,
+  FAQSection, PhilosophyBand, Footer, MobileSticky,
 });
