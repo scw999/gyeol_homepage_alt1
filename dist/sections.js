@@ -261,16 +261,16 @@ function Hero({
     viewBox: "0 0 24 24"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M3.6 2.5c-.4.3-.6.7-.6 1.3v16.4c0 .6.2 1 .6 1.3l9.5-9.5L3.6 2.5z",
-    fill: "#00BCD4"
+    fill: "#4285F4"
   }), /*#__PURE__*/React.createElement("path", {
     d: "M16.7 8.8L4.6 1.9c-.4-.2-.8-.3-1.1-.1l9.6 9.6 3.6-2.6z",
     fill: "#EA4335"
   }), /*#__PURE__*/React.createElement("path", {
     d: "M20.4 11.1l-3.7-2.1L13 12l3.7 3.7 3.7-2.1c1.2-.9 1.2-1.6 0-2.5z",
-    fill: "#FFC107"
+    fill: "#FBBC04"
   }), /*#__PURE__*/React.createElement("path", {
     d: "M3.5 22.1c.3.1.7.1 1.1-.1l12.1-6.9-3.6-3.6L3.5 22.1z",
-    fill: "#4CAF50"
+    fill: "#34A853"
   })), b.icon === 'bell' && /*#__PURE__*/React.createElement("svg", {
     width: "22",
     height: "22",
@@ -1162,16 +1162,16 @@ function Footer({
     viewBox: "0 0 24 24"
   }, /*#__PURE__*/React.createElement("path", {
     d: "M3.6 2.5c-.4.3-.6.7-.6 1.3v16.4c0 .6.2 1 .6 1.3l9.5-9.5L3.6 2.5z",
-    fill: "#00BCD4"
+    fill: "#4285F4"
   }), /*#__PURE__*/React.createElement("path", {
     d: "M16.7 8.8L4.6 1.9c-.4-.2-.8-.3-1.1-.1l9.6 9.6 3.6-2.6z",
     fill: "#EA4335"
   }), /*#__PURE__*/React.createElement("path", {
     d: "M20.4 11.1l-3.7-2.1L13 12l3.7 3.7 3.7-2.1c1.2-.9 1.2-1.6 0-2.5z",
-    fill: "#FFC107"
+    fill: "#FBBC04"
   }), /*#__PURE__*/React.createElement("path", {
     d: "M3.5 22.1c.3.1.7.1 1.1-.1l12.1-6.9-3.6-3.6L3.5 22.1z",
-    fill: "#4CAF50"
+    fill: "#34A853"
   })), b.icon === 'bell' && /*#__PURE__*/React.createElement("svg", {
     width: "22",
     height: "22",
