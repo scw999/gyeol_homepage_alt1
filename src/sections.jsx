@@ -128,8 +128,7 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
           <Reveal delay={280}>
             <div className="mt-9 flex flex-wrap gap-3" id="download">
               {ctaButtons.map((b,i) => (
-                <a key={i} href={b.href} className={i===0 ? "store-btn" : "store-btn outline"}
-                   style={i!==0 ? {background:'rgba(255,255,255,.7)', backdropFilter:'blur(8px)'} : null}>
+                <a key={i} href={b.href} className="store-btn">
                   {b.icon === 'apple' && (
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.4 2-3.5 2.1-3.6-1.1-1.6-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.2 1-4 2.4-1.7 3-.4 7.4 1.3 9.8.8 1.2 1.8 2.5 3.1 2.5 1.2 0 1.7-.8 3.2-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.4-2.8-.1 0-2.7-1-2.9-4.1zm-2.4-7.5c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 2.9 1.1.1 2.2-.5 2.9-1.3z"/></svg>
                   )}

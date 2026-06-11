@@ -243,11 +243,7 @@ function Hero({
   }, ctaButtons.map((b, i) => /*#__PURE__*/React.createElement("a", {
     key: i,
     href: b.href,
-    className: i === 0 ? "store-btn" : "store-btn outline",
-    style: i !== 0 ? {
-      background: 'rgba(255,255,255,.7)',
-      backdropFilter: 'blur(8px)'
-    } : null
+    className: "store-btn"
   }, b.icon === 'apple' && /*#__PURE__*/React.createElement("svg", {
     width: "22",
     height: "22",
