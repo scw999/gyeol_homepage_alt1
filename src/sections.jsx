@@ -109,21 +109,12 @@ function Hero({ heroH, heroSub, ctaState, ctaData, waveStyle, paletteIntensity, 
         <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-center">
         <div className="md:col-span-7">
           <Reveal>
-            <div className="eyebrow mb-5 text-lavender-deep">결하다 · 결혼을 위한 만남</div>
+            <div className="eyebrow mb-5 text-lavender-deep">「결혼중개업법」에 따른 정식 결혼정보 서비스</div>
           </Reveal>
           <Reveal delay={80}>
             <h1 className="gh-display gh-h1 text-ink">
               <span dangerouslySetInnerHTML={{__html: heroH}}/>
             </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="body-lg mt-6 max-w-[520px]" style={{textWrap:'pretty'}}>{heroSub}</p>
-          </Reveal>
-          <Reveal delay={220}>
-            <p className="small mt-5 flex items-center gap-2 text-mute">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l5.5 2.5v4.2c0 3.2-2.3 5.5-5.5 6.3-3.2-.8-5.5-3.1-5.5-6.3V4L8 1.5z" stroke="#6B5B95" strokeWidth="1"/></svg>
-              「결혼중개업법」에 따른 신고 절차를 갖춘 결혼정보 서비스 · 주식회사 린플
-            </p>
           </Reveal>
           <Reveal delay={280}>
             <div className="mt-9 flex flex-wrap gap-3" id="download">
