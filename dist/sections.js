@@ -207,7 +207,7 @@ function Hero({
     className: "md:col-span-7"
   }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
     className: "eyebrow mb-5 text-lavender-deep"
-  }, "\uACB0\uD558\uB2E4 \xB7 \uACB0\uD63C\uC744 \uC704\uD55C \uB9CC\uB0A8")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB978 \uC815\uC2DD \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 80
   }, /*#__PURE__*/React.createElement("h1", {
     className: "gh-display gh-h1 text-ink"
@@ -216,26 +216,6 @@ function Hero({
       __html: heroH
     }
   }))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 160
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-6 max-w-[520px]",
-    style: {
-      textWrap: 'pretty'
-    }
-  }, heroSub)), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 220
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "small mt-5 flex items-center gap-2 text-mute"
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "14",
-    height: "14",
-    viewBox: "0 0 16 16",
-    fill: "none"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M8 1.5l5.5 2.5v4.2c0 3.2-2.3 5.5-5.5 6.3-3.2-.8-5.5-3.1-5.5-6.3V4L8 1.5z",
-    stroke: "#6B5B95",
-    strokeWidth: "1"
-  })), "\u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB978 \uC2E0\uACE0 \uC808\uCC28\uB97C \uAC16\uCD98 \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4 \xB7 \uC8FC\uC2DD\uD68C\uC0AC \uB9B0\uD50C")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 280
   }, /*#__PURE__*/React.createElement("div", {
     className: "mt-9 flex flex-wrap gap-3",
