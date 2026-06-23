@@ -1118,6 +1118,45 @@ function Footer({
   }), /*#__PURE__*/React.createElement("p", {
     className: "mt-4 text-[15px] text-white/70"
   }, "\uACB0\uD558\uB2E4 \uACB0\uD63C\uC815\uBCF4"), /*#__PURE__*/React.createElement("div", {
+    className: "mt-5 flex items-center gap-3"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "https://www.instagram.com/",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    "aria-label": "Instagram",
+    className: "w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "3",
+    y: "3",
+    width: "18",
+    height: "18",
+    rx: "5"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "4"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "17.5",
+    cy: "6.5",
+    r: "1",
+    fill: "currentColor",
+    stroke: "none"
+  }))), /*#__PURE__*/React.createElement("a", {
+    href: "https://blog.naver.com/",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    "aria-label": "Blog",
+    className: "h-10 px-3 grid place-items-center rounded-full bg-white/10 hover:bg-white/20 text-white text-[12px] font-bold tracking-wider transition-colors"
+  }, "BLOG")), /*#__PURE__*/React.createElement("div", {
     className: "mt-7 flex flex-col sm:flex-row gap-3"
   }, ctaButtons.map((b, i) => /*#__PURE__*/React.createElement("a", {
     key: i,

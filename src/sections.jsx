@@ -635,6 +635,20 @@ function Footer({ ctaState, ctaData }) {
           <div className="md:col-span-5">
             <Sig.Logo height={30} light={true}/>
             <p className="mt-4 text-[15px] text-white/70">결하다 결혼정보</p>
+            <div className="mt-5 flex items-center gap-3">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                 className="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+              </a>
+              <a href="https://blog.naver.com/" target="_blank" rel="noopener noreferrer" aria-label="Blog"
+                 className="h-10 px-3 grid place-items-center rounded-full bg-white/10 hover:bg-white/20 text-white text-[12px] font-bold tracking-wider transition-colors">
+                BLOG
+              </a>
+            </div>
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
               {ctaButtons.map((b,i)=>(
                 <a key={i} href={b.href} className="store-btn" style={{background:'#fff', color:'#1c1a23'}}>
