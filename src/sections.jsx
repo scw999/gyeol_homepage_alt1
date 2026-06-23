@@ -427,34 +427,31 @@ function ThreeGyeolSection() {
   const items = [
     {
       tag:'외면의 결', kr:'外',
-      t:'현실적인 결혼 조건',
+      t:'조건이 맞는 사람만 연결합니다',
       d:'나이, 직업, 학력, 거주지, 자산 등 결혼의 토대가 되는 정보를 인증으로 확인합니다.',
       photo:'images/gyeol-card-external.png',
       photoAlt:'서류·반지·서신으로 표현한 결혼의 토대',
-      note:'그래서 기본은 안심하고 시작합니다.',
     },
     {
       tag:'내면의 결', kr:'內',
-      t:'감정과 갈등을 다루는 방식',
-      d:'심리 질문과 선호 질문으로 성향·감정 표현·갈등 대처 방식을 살핍니다.',
+      t:'대화가 통하는 사람을 만납니다',
+      d:'심리 및 선호 질문을 통해 성향 감정 표현 갈등 대처방식을 정교하게 살핍니다.',
       photo:'images/gyeol-card-inner.png',
       photoAlt:'심리 카드를 두고 마주 앉은 두 사람의 손',
-      note:'그래서 대화가 통하는 사람을 만납니다.',
     },
     {
       tag:'미래의 결', kr:'來',
-      t:'미래의 결을 맞춰봅니다',
-      d:'결혼관·가족관·경제관까지 살펴, 두 사람의 미래가 맞는지 확인합니다.',
+      t:'함께 살아갈 수 있는지를 봅니다',
+      d:'결혼관 가족관 경제관까지 서로의 미래 생활 방향을 함께 확인합니다.',
       photo:'images/gyeol-card-future.png',
       photoAlt:'집·달력·저축이 함께 놓인 미래 설계 장면',
-      note:'그래서 방향이 어긋나 헤어지지 않습니다.',
     },
   ];
   return (
     <section id="way" className="bg-veil grain">
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <Reveal>
-          <div className="eyebrow mb-4">결하다의 방식 — 세 가지 결</div>
+          <div className="eyebrow mb-4">세 가지 결</div>
           <h2 className="gh-display gh-h2 max-w-[24ch]">결이 맞을 때<br/>두 사람의 시간이 자연스럽게 이어집니다</h2>
         </Reveal>
 
@@ -471,7 +468,6 @@ function ThreeGyeolSection() {
                 </div>
                 <div className="gh-h3 mb-2">{it.t}</div>
                 <p className="body text-mute">{it.d}</p>
-                <p className="small mt-3 text-lavender-deep/80">— {it.note}</p>
               </div>
             </Reveal>
           ))}
@@ -551,7 +547,7 @@ function TrustSection({ images, appScreens }) {
       <div className="max-w-[1200px] mx-auto px-5 md:px-8">
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-7">
-            <Reveal><div className="eyebrow mb-4">등록 결정사 · 인증된 회원 · 개인정보 보호</div></Reveal>
+            <Reveal><div className="eyebrow mb-4">정식 신고 결정사 · 인증된 회원 · 개인정보 보호</div></Reveal>
             <Reveal delay={80}>
               <h2 className="gh-display gh-h2 max-w-[24ch]">아무나 들이지 않습니다<br/>그래서 믿을 수 있습니다</h2>
             </Reveal>
