@@ -319,6 +319,44 @@ function ProblemSection({
 }) {
   const pairs = [{
     num: '01',
+    problem: '조건으로만 줄세우는 매칭',
+    problemSub: '숫자로는 정렬되지만 가치관·삶의 방향이 다를 수 있습니다.',
+    problemIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.5",
+      strokeLinecap: "round"
+    }, /*#__PURE__*/React.createElement("path", {
+      d: "M4 6h16M4 12h10M4 18h6"
+    })),
+    solve: '가치관과 생활 성향까지',
+    solveSub: '경제관, 자녀관, 애착 성향, 갈등 대처 방식을 함께 분석하여 회원님이 진정으로 찾는 사람을 보여드립니다',
+    solveIcon: /*#__PURE__*/React.createElement("svg", {
+      width: "22",
+      height: "22",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.7",
+      strokeLinecap: "round",
+      strokeLinejoin: "round"
+    }, /*#__PURE__*/React.createElement("circle", {
+      cx: "12",
+      cy: "12",
+      r: "9"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z",
+      fill: "currentColor",
+      stroke: "none"
+    })),
+    screen: appScreens && appScreens.matchReason,
+    screenB: appScreens && appScreens.tendency,
+    screenLabel: '매칭 이유 · 성향 분석'
+  }, {
+    num: '02',
     problem: '면접처럼 스펙만 확인하는 자리',
     problemSub: '조건만 주고받다 보면 만남이 면접처럼 됩니다. 정작 또 만나고 싶은지는 알 수 없습니다.',
     problemIcon: /*#__PURE__*/React.createElement("svg", {
@@ -343,8 +381,8 @@ function ProblemSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M7 18c1-2 3-3 5-3s4 1 5 3"
     })),
-    solve: '심리 질문으로 관계의 결까지',
-    solveSub: '성향·감정 표현·갈등 대처 방식을 묻고 결과는 내면 분석과 리듬 상세로 보여드립니다',
+    solve: '스펙뿐만 아니라 내면의 성향과 연애 방식을 먼저 확인',
+    solveSub: '만나도 대화가 즐겁고 서로 맞는다는 느낌을 받는 만남을 지향합니다',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -362,44 +400,6 @@ function ProblemSection({
     screen: appScreens && appScreens.innerAlt,
     screenB: appScreens && appScreens.rhythmDetail,
     screenLabel: '내면 분석 · 리듬 상세'
-  }, {
-    num: '02',
-    problem: '조건으로만 줄세우는 매칭',
-    problemSub: '숫자로는 정렬되지만 가치관·삶의 방향이 다를 수 있습니다.',
-    problemIcon: /*#__PURE__*/React.createElement("svg", {
-      width: "22",
-      height: "22",
-      viewBox: "0 0 24 24",
-      fill: "none",
-      stroke: "currentColor",
-      strokeWidth: "1.5",
-      strokeLinecap: "round"
-    }, /*#__PURE__*/React.createElement("path", {
-      d: "M4 6h16M4 12h10M4 18h6"
-    })),
-    solve: '가치관과 생활 성향까지',
-    solveSub: '라이프스타일 · 갈등 대처 방식 · 애착 성향 · 경제관 · 자녀관까지 함께 비교해 어느 부분이 서로 맞는지 보여드립니다',
-    solveIcon: /*#__PURE__*/React.createElement("svg", {
-      width: "22",
-      height: "22",
-      viewBox: "0 0 24 24",
-      fill: "none",
-      stroke: "currentColor",
-      strokeWidth: "1.7",
-      strokeLinecap: "round",
-      strokeLinejoin: "round"
-    }, /*#__PURE__*/React.createElement("circle", {
-      cx: "12",
-      cy: "12",
-      r: "9"
-    }), /*#__PURE__*/React.createElement("path", {
-      d: "M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z",
-      fill: "currentColor",
-      stroke: "none"
-    })),
-    screen: appScreens && appScreens.matchReason,
-    screenB: appScreens && appScreens.tendency,
-    screenLabel: '매칭 이유 · 성향 분석'
   }, {
     num: '03',
     problem: '진지함이 묻히는 환경',
@@ -428,7 +428,7 @@ function ProblemSection({
       d: "M10 7h4"
     })),
     solve: '본인 확인을 거친 회원만',
-    solveSub: '본인·신원·직업·학력 검토를 거쳐 승인된 회원만 가입할 수 있도록 운영합니다',
+    solveSub: '미혼인의 신원이 확인된 회원만 가입할 수 있도록 운영합니다',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -536,8 +536,8 @@ function ProblemSection({
     }), /*#__PURE__*/React.createElement("path", {
       d: "M15 9.2c-.7-.9-1.8-1.4-3-1.4-1.7 0-3 .9-3 2.1 0 1.2 1.3 1.9 3 2.4 1.7.5 3 1.2 3 2.4 0 1.2-1.3 2.1-3 2.1-1.2 0-2.3-.5-3-1.4"
     })),
-    solve: '커피 1잔 값으로 시작',
-    solveSub: '가입은 커피 1잔 값 · 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다',
+    solve: '부담없는 가입비로 매칭부터 시작',
+    solveSub: '가입 후 매칭 받는데는 비용이 없으며 원하는 사람을 계속 매칭받고 만날 때만 비용이 발생합니다 (가입비에 첫만남권 포함)',
     solveIcon: /*#__PURE__*/React.createElement("svg", {
       width: "22",
       height: "22",
@@ -548,11 +548,11 @@ function ProblemSection({
       strokeLinecap: "round",
       strokeLinejoin: "round"
     }, /*#__PURE__*/React.createElement("path", {
-      d: "M4 8h13v4a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"
+      d: "M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+    }), /*#__PURE__*/React.createElement("polyline", {
+      points: "14 3 14 9 20 9"
     }), /*#__PURE__*/React.createElement("path", {
-      d: "M17 9h2.5a2 2 0 0 1 0 4H17"
-    }), /*#__PURE__*/React.createElement("path", {
-      d: "M7 3c0 1-.8 1.5-.8 2.5M11 3c0 1-.8 1.5-.8 2.5"
+      d: "M9 14l2 2 4-4"
     })),
     priceCard: true
   }];
@@ -702,36 +702,43 @@ function ProblemSection({
     viewBox: "0 0 64 64",
     fill: "none"
   }, /*#__PURE__*/React.createElement("path", {
-    d: "M14 24h30v13a13 13 0 0 1-13 13H27a13 13 0 0 1-13-13V24z",
+    d: "M16 8h22l10 10v34a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z",
     fill: "#EFE8F7",
     stroke: "#6B5B95",
     strokeWidth: "2",
     strokeLinejoin: "round"
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M44 28h6a6 6 0 0 1 0 12h-6",
-    fill: "#EFE8F7",
+    d: "M38 8v10h10",
     stroke: "#6B5B95",
     strokeWidth: "2",
-    strokeLinejoin: "round"
+    strokeLinejoin: "round",
+    fill: "none"
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M22 9c0 3-2.2 3.5-2.2 6.5M31 9c0 3-2.2 3.5-2.2 6.5M40 9c0 3-2.2 3.5-2.2 6.5",
+    d: "M22 32h14M22 40h18M22 48h10",
     stroke: "#A88FCE",
     strokeWidth: "2",
     strokeLinecap: "round"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "44",
+    cy: "46",
+    r: "8",
+    fill: "#6B5B95"
   }), /*#__PURE__*/React.createElement("path", {
-    d: "M12 56h36",
-    stroke: "#6B5B95",
+    d: "M40.5 46l2.5 2.5 4.5-5",
+    stroke: "#fff",
     strokeWidth: "2",
-    strokeLinecap: "round"
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    fill: "none"
   }))), /*#__PURE__*/React.createElement("div", {
     className: "price-card-row"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     className: "price-card-label"
   }, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("div", {
     className: "price-card-amount"
-  }, "\u20A910,000")), /*#__PURE__*/React.createElement("span", {
+  }, "\u20A950,000")), /*#__PURE__*/React.createElement("span", {
     className: "pill bg-lavender-deep text-white"
-  }, "\uBD80\uB2F4 \uC5C6\uC774")), /*#__PURE__*/React.createElement("div", {
+  }, "\uCCAB\uB9CC\uB0A8\uAD8C \uD3EC\uD568")), /*#__PURE__*/React.createElement("div", {
     className: "price-card-rule"
   }), /*#__PURE__*/React.createElement("div", {
     className: "price-card-row"
@@ -1059,7 +1066,7 @@ function TrustSection({
 
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
-  const items = [['가입비는 얼마인가요?', '가입비는 ₩10,000입니다. 커피 1잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'], ['만남 비용은 언제 얼마나 발생하나요?', '매칭된 두 사람이 모두 "만나볼래요"를 누르고 만남이 확정될 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'], ['누구나 매칭해 주나요?', '아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
+  const items = [['가입비는 얼마인가요?', '가입비는 ₩50,000입니다. 첫만남권이 포함되어 있어, 가입 후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'], ['만남 비용은 언제 얼마나 발생하나요?', '매칭된 두 사람이 모두 "만나볼래요"를 누르고 만남이 확정될 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'], ['누구나 매칭해 주나요?', '아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'], ['아무나 가입할 수 있나요?', '결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'], ['결혼관·가족관·경제관은 어떻게 반영되나요?', '이 항목들은 매칭 추천에 반영됩니다. 비슷한 방향을 가진 사람을 우선 보여드리는 방식으로, 두 사람의 결을 함께 살핍니다.'], ['제출한 서류가 상대방에게 공개되나요?', '제출 자료는 검토 목적에 사용되며, 상대에게는 필요한 범위의 확인 정보만 제공되도록 설계합니다. 민감한 원본 자료가 그대로 공개되지 않도록 관리합니다.'], ['결하다는 소개팅 앱과 무엇이 다른가요?', '사진과 거리 중심의 즉흥적 매칭보다, 결혼관·가치관·관계 성향을 함께 살피는 결혼 중심 매칭 서비스입니다. 「결혼중개업법」에 따라 신고된 결혼정보 서비스로 운영됩니다.']];
   return /*#__PURE__*/React.createElement("section", {
     id: "faq",
     className: "bg-veil"

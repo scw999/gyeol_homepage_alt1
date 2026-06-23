@@ -182,27 +182,27 @@ function ProblemSection({ appScreens }) {
   const pairs = [
     {
       num:'01',
-      problem:'면접처럼 스펙만 확인하는 자리',
-      problemSub:'조건만 주고받다 보면 만남이 면접처럼 됩니다. 정작 또 만나고 싶은지는 알 수 없습니다.',
-      problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-2 3-3 5-3s4 1 5 3"/></svg>),
-      solve:'심리 질문으로 관계의 결까지',
-      solveSub:'성향·감정 표현·갈등 대처 방식을 묻고 결과는 내면 분석과 리듬 상세로 보여드립니다',
-      solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>),
-      screen: appScreens && appScreens.innerAlt,
-      screenB: appScreens && appScreens.rhythmDetail,
-      screenLabel:'내면 분석 · 리듬 상세',
-    },
-    {
-      num:'02',
       problem:'조건으로만 줄세우는 매칭',
       problemSub:'숫자로는 정렬되지만 가치관·삶의 방향이 다를 수 있습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 6h16M4 12h10M4 18h6"/></svg>),
       solve:'가치관과 생활 성향까지',
-      solveSub:'라이프스타일 · 갈등 대처 방식 · 애착 성향 · 경제관 · 자녀관까지 함께 비교해 어느 부분이 서로 맞는지 보여드립니다',
+      solveSub:'경제관, 자녀관, 애착 성향, 갈등 대처 방식을 함께 분석하여 회원님이 진정으로 찾는 사람을 보여드립니다',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-2.5 5.5L7 17l2.5-5.5L15 9z" fill="currentColor" stroke="none"/></svg>),
       screen: appScreens && appScreens.matchReason,
       screenB: appScreens && appScreens.tendency,
       screenLabel:'매칭 이유 · 성향 분석',
+    },
+    {
+      num:'02',
+      problem:'면접처럼 스펙만 확인하는 자리',
+      problemSub:'조건만 주고받다 보면 만남이 면접처럼 됩니다. 정작 또 만나고 싶은지는 알 수 없습니다.',
+      problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-2 3-3 5-3s4 1 5 3"/></svg>),
+      solve:'스펙뿐만 아니라 내면의 성향과 연애 방식을 먼저 확인',
+      solveSub:'만나도 대화가 즐겁고 서로 맞는다는 느낌을 받는 만남을 지향합니다',
+      solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12c0 4-4 7-9 7-1.3 0-2.5-.2-3.6-.6L3 20l1.7-4.7C3.6 14 3 13 3 12c0-4 4-7 9-7s9 3 9 7z"/><path d="M9 11h6M9 14h4"/></svg>),
+      screen: appScreens && appScreens.innerAlt,
+      screenB: appScreens && appScreens.rhythmDetail,
+      screenLabel:'내면 분석 · 리듬 상세',
     },
     {
       num:'03',
@@ -210,7 +210,7 @@ function ProblemSection({ appScreens }) {
       problemSub:'즉흥적인 만남이 섞이면, 결혼을 위한 결정이 어렵습니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><circle cx="12" cy="17.5" r="0.8" fill="currentColor"/><path d="M10 7h4"/></svg>),
       solve:'본인 확인을 거친 회원만',
-      solveSub:'본인·신원·직업·학력 검토를 거쳐 승인된 회원만 가입할 수 있도록 운영합니다',
+      solveSub:'미혼인의 신원이 확인된 회원만 가입할 수 있도록 운영합니다',
       solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l8 3v6c0 5-4 9-8 11-4-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>),
       screen: appScreens && appScreens.verifyDetail,
       screenY: 220,
@@ -232,9 +232,9 @@ function ProblemSection({ appScreens }) {
       problem:'높은 가입비, 불확실한 결과',
       problemSub:'먼저 큰 비용을 치러야 시작할 수 있는 구조. 결과가 보장되지 않는데도 선결제가 필요합니다.',
       problemIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.5v11"/><path d="M15 9.2c-.7-.9-1.8-1.4-3-1.4-1.7 0-3 .9-3 2.1 0 1.2 1.3 1.9 3 2.4 1.7.5 3 1.2 3 2.4 0 1.2-1.3 2.1-3 2.1-1.2 0-2.3-.5-3-1.4"/></svg>),
-      solve:'커피 1잔 값으로 시작',
-      solveSub:'가입은 커피 1잔 값 · 양쪽이 만남에 동의해 확정될 때만 비용이 발생합니다',
-      solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M4 8h13v4a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/><path d="M17 9h2.5a2 2 0 0 1 0 4H17"/><path d="M7 3c0 1-.8 1.5-.8 2.5M11 3c0 1-.8 1.5-.8 2.5"/></svg>),
+      solve:'부담없는 가입비로 매칭부터 시작',
+      solveSub:'가입 후 매칭 받는데는 비용이 없으며 원하는 사람을 계속 매칭받고 만날 때만 비용이 발생합니다 (가입비에 첫만남권 포함)',
+      solveIcon:(<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="14 3 14 9 20 9"/><path d="M9 14l2 2 4-4"/></svg>),
       priceCard:true,
     },
   ];
@@ -348,18 +348,19 @@ function ProblemSection({ appScreens }) {
                         <div className="price-card">
                           <div className="price-card-cup" aria-hidden="true">
                             <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                              <path d="M14 24h30v13a13 13 0 0 1-13 13H27a13 13 0 0 1-13-13V24z" fill="#EFE8F7" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round"/>
-                              <path d="M44 28h6a6 6 0 0 1 0 12h-6" fill="#EFE8F7" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round"/>
-                              <path d="M22 9c0 3-2.2 3.5-2.2 6.5M31 9c0 3-2.2 3.5-2.2 6.5M40 9c0 3-2.2 3.5-2.2 6.5" stroke="#A88FCE" strokeWidth="2" strokeLinecap="round"/>
-                              <path d="M12 56h36" stroke="#6B5B95" strokeWidth="2" strokeLinecap="round"/>
+                              <path d="M16 8h22l10 10v34a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z" fill="#EFE8F7" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round"/>
+                              <path d="M38 8v10h10" stroke="#6B5B95" strokeWidth="2" strokeLinejoin="round" fill="none"/>
+                              <path d="M22 32h14M22 40h18M22 48h10" stroke="#A88FCE" strokeWidth="2" strokeLinecap="round"/>
+                              <circle cx="44" cy="46" r="8" fill="#6B5B95"/>
+                              <path d="M40.5 46l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
                             </svg>
                           </div>
                           <div className="price-card-row">
                             <div>
                               <div className="price-card-label">가입비</div>
-                              <div className="price-card-amount">₩10,000</div>
+                              <div className="price-card-amount">₩50,000</div>
                             </div>
-                            <span className="pill bg-lavender-deep text-white">부담 없이</span>
+                            <span className="pill bg-lavender-deep text-white">첫만남권 포함</span>
                           </div>
                           <div className="price-card-rule"/>
                           <div className="price-card-row">
@@ -594,7 +595,7 @@ function TrustSection({ images, appScreens }) {
 // ---------- Section 7: FAQ ----------
 function FAQSection() {
   const items = [
-    ['가입비는 얼마인가요?','가입비는 ₩10,000입니다. 커피 1잔 값으로 부담 없이 시작할 수 있도록 설계했습니다. 가입 이후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'],
+    ['가입비는 얼마인가요?','가입비는 ₩50,000입니다. 첫만남권이 포함되어 있어, 가입 후 매칭을 받고 프로필을 검토하는 단계까지는 추가 비용이 없습니다.'],
     ['만남 비용은 언제 얼마나 발생하나요?','매칭된 두 사람이 모두 "만나볼래요"를 누르고 만남이 확정될 때 ₩100,000이 발생합니다. 그 외 응답·추천 확인 단계에는 추가 비용이 없습니다.'],
     ['누구나 매칭해 주나요?','아니요. 핵심 선호가 정면으로 어긋나거나, 자녀관·경제관 같은 가치관이 충돌하면 매칭하지 않습니다. 억지로 붙이지 않는 것이 결하다의 기준입니다.'],
     ['아무나 가입할 수 있나요?','결하다는 진지한 만남을 위해 기본 정보와 신뢰 자료를 확인한 뒤 가입을 승인합니다. 본인 확인, 신원·직업·학력 검토를 거친 회원만 가입할 수 있습니다.'],
