@@ -733,12 +733,17 @@ function ProblemSection({
   }))), /*#__PURE__*/React.createElement("div", {
     className: "price-card-row"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "price-card-label"
-  }, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("div", {
-    className: "price-card-amount"
-  }, "\u20A950,000")), /*#__PURE__*/React.createElement("span", {
-    className: "pill bg-lavender-deep text-white"
+    className: "price-card-label flex items-center gap-2"
+  }, /*#__PURE__*/React.createElement("span", null, "\uAC00\uC785\uBE44"), /*#__PURE__*/React.createElement("span", {
+    className: "pill bg-lavender-deep text-white",
+    style: {
+      whiteSpace: 'nowrap',
+      padding: '3px 9px',
+      fontSize: '10.5px'
+    }
   }, "\uCCAB\uB9CC\uB0A8\uAD8C \uD3EC\uD568")), /*#__PURE__*/React.createElement("div", {
+    className: "price-card-amount"
+  }, "\u20A950,000"))), /*#__PURE__*/React.createElement("div", {
     className: "price-card-rule"
   }), /*#__PURE__*/React.createElement("div", {
     className: "price-card-row"
