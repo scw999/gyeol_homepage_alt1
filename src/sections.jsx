@@ -357,10 +357,12 @@ function ProblemSection({ appScreens }) {
                           </div>
                           <div className="price-card-row">
                             <div>
-                              <div className="price-card-label">가입비</div>
+                              <div className="price-card-label flex items-center gap-2">
+                                <span>가입비</span>
+                                <span className="pill bg-lavender-deep text-white" style={{whiteSpace:'nowrap', padding:'3px 9px', fontSize:'10.5px'}}>첫만남권 포함</span>
+                              </div>
                               <div className="price-card-amount">₩50,000</div>
                             </div>
-                            <span className="pill bg-lavender-deep text-white">첫만남권 포함</span>
                           </div>
                           <div className="price-card-rule"/>
                           <div className="price-card-row">
