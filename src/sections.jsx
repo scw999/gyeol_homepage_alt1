@@ -521,8 +521,8 @@ function PhilosophyBand({ images }) {
                 <h2 className="gh-display gh-h2" style={{color:'#fff', textShadow:'0 1px 2px rgba(60,40,90,.18)'}}>
                   결혼은 잠깐의 호감이 아니라,<br/>두 사람의 결이 맞아갈 때 시작됩니다
                 </h2>
-                <p className="body-lg mt-5" style={{color:'rgba(255,255,255,.92)'}}>
-                  결하다와 함께, 그 결을 살펴보세요
+                <p className="gh-display gh-h2 mt-5" style={{color:'rgba(255,255,255,.92)'}}>
+                  결하다와 함께, 그 결을 확인해보세요
                 </p>
               </div>
             </Reveal>
@@ -538,9 +538,12 @@ function TrustSection({ images, appScreens }) {
   const trustImg = images && (Array.isArray(images.trust) ? images.trust[0] : images.trust);
   const privacyPoints = [
     '검토 목적의 정보 확인',
-    '민감 자료 원본 비공개',
+    '민감 정보 비공개',
     '필요한 범위 내 정보 활용',
     '개인정보 처리방침 명확히 안내',
+    '지인 차단 시스템',
+    '무단 캡처 방지',
+    '인증 서류 즉시 파기',
   ];
   return (
     <section id="trust" className="bg-offwhite">
@@ -553,7 +556,7 @@ function TrustSection({ images, appScreens }) {
             </Reveal>
             <Reveal delay={160}>
               <p className="body-lg mt-6 text-mute max-w-[52ch]">
-                「결혼중개업법」에 따라 신고된 결혼정보 서비스입니다. 본인·신원·직업·학력을 검토해 통과한 사람만 받고, 성향은 Big5·애착이론을 토대로 살핍니다.
+                「결혼중개업법」에 따라 신고된 결혼정보 서비스입니다. 본인·신원·직업·학력을 검토해 통과한 사람만 받습니다.
               </p>
             </Reveal>
 
@@ -631,7 +634,7 @@ function Footer({ ctaState, ctaData }) {
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <Sig.Logo height={30} light={true}/>
-            <p className="mt-4 text-[15px] text-white/70">결하다 — 또 만나고 싶은 사람을, 처음부터</p>
+            <p className="mt-4 text-[15px] text-white/70">결하다 결혼정보</p>
             <div className="mt-7 flex flex-col sm:flex-row gap-3">
               {ctaButtons.map((b,i)=>(
                 <a key={i} href={b.href} className="store-btn" style={{background:'#fff', color:'#1c1a23'}}>

@@ -976,11 +976,11 @@ function PhilosophyBand({
       textShadow: '0 1px 2px rgba(60,40,90,.18)'
     }
   }, "\uACB0\uD63C\uC740 \uC7A0\uAE50\uC758 \uD638\uAC10\uC774 \uC544\uB2C8\uB77C,", /*#__PURE__*/React.createElement("br", null), "\uB450 \uC0AC\uB78C\uC758 \uACB0\uC774 \uB9DE\uC544\uAC08 \uB54C \uC2DC\uC791\uB429\uB2C8\uB2E4"), /*#__PURE__*/React.createElement("p", {
-    className: "body-lg mt-5",
+    className: "gh-display gh-h2 mt-5",
     style: {
       color: 'rgba(255,255,255,.92)'
     }
-  }, "\uACB0\uD558\uB2E4\uC640 \uD568\uAED8, \uADF8 \uACB0\uC744 \uC0B4\uD3B4\uBCF4\uC138\uC694")))))));
+  }, "\uACB0\uD558\uB2E4\uC640 \uD568\uAED8, \uADF8 \uACB0\uC744 \uD655\uC778\uD574\uBCF4\uC138\uC694")))))));
 }
 
 // ---------- Section 4: Trust — 결혼중개업법 + 인증 + 개인정보 통합 ----------
@@ -989,7 +989,7 @@ function TrustSection({
   appScreens
 }) {
   const trustImg = images && (Array.isArray(images.trust) ? images.trust[0] : images.trust);
-  const privacyPoints = ['검토 목적의 정보 확인', '민감 자료 원본 비공개', '필요한 범위 내 정보 활용', '개인정보 처리방침 명확히 안내'];
+  const privacyPoints = ['검토 목적의 정보 확인', '민감 정보 비공개', '필요한 범위 내 정보 활용', '개인정보 처리방침 명확히 안내', '지인 차단 시스템', '무단 캡처 방지', '인증 서류 즉시 파기'];
   return /*#__PURE__*/React.createElement("section", {
     id: "trust",
     className: "bg-offwhite"
@@ -1009,7 +1009,7 @@ function TrustSection({
     delay: 160
   }, /*#__PURE__*/React.createElement("p", {
     className: "body-lg mt-6 text-mute max-w-[52ch]"
-  }, "\u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB77C \uC2E0\uACE0\uB41C \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uC785\uB2C8\uB2E4. \uBCF8\uC778\xB7\uC2E0\uC6D0\xB7\uC9C1\uC5C5\xB7\uD559\uB825\uC744 \uAC80\uD1A0\uD574 \uD1B5\uACFC\uD55C \uC0AC\uB78C\uB9CC \uBC1B\uACE0, \uC131\uD5A5\uC740 Big5\xB7\uC560\uCC29\uC774\uB860\uC744 \uD1A0\uB300\uB85C \uC0B4\uD54D\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
+  }, "\u300C\uACB0\uD63C\uC911\uAC1C\uC5C5\uBC95\u300D\uC5D0 \uB530\uB77C \uC2E0\uACE0\uB41C \uACB0\uD63C\uC815\uBCF4 \uC11C\uBE44\uC2A4\uC785\uB2C8\uB2E4. \uBCF8\uC778\xB7\uC2E0\uC6D0\xB7\uC9C1\uC5C5\xB7\uD559\uB825\uC744 \uAC80\uD1A0\uD574 \uD1B5\uACFC\uD55C \uC0AC\uB78C\uB9CC \uBC1B\uC2B5\uB2C8\uB2E4.")), /*#__PURE__*/React.createElement(Reveal, {
     delay: 220
   }, /*#__PURE__*/React.createElement("div", {
     className: "trust-panel mt-4"
@@ -1117,7 +1117,7 @@ function Footer({
     light: true
   }), /*#__PURE__*/React.createElement("p", {
     className: "mt-4 text-[15px] text-white/70"
-  }, "\uACB0\uD558\uB2E4 \u2014 \uB610 \uB9CC\uB098\uACE0 \uC2F6\uC740 \uC0AC\uB78C\uC744, \uCC98\uC74C\uBD80\uD130"), /*#__PURE__*/React.createElement("div", {
+  }, "\uACB0\uD558\uB2E4 \uACB0\uD63C\uC815\uBCF4"), /*#__PURE__*/React.createElement("div", {
     className: "mt-7 flex flex-col sm:flex-row gap-3"
   }, ctaButtons.map((b, i) => /*#__PURE__*/React.createElement("a", {
     key: i,
